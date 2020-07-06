@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Container, Form } from 'react-bootstrap'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 
 
 export default function RelatorioSet3(props) {
@@ -10,67 +10,25 @@ export default function RelatorioSet3(props) {
         setRelatorio({ ...relatorio, [event.target.name]: event.target.value })
     }
 
+    const indices = ['das28', 'cdai', 'sdai', 'basdai', 'asdas', 'mda', 'eva']
+
     return (
         <div>
             <Container>
-                <Form.Group>
-                    <Form.Control
-                        type="text"
-                        id="das28"
-                        name="das28"
-                        placeholder="das28"
-                        value={relatorio.das28}
-                        onChange={handleChange}
-                    />
-                    <Form.Control
-                        type="text"
-                        id="cdai"
-                        name="cdai"
-                        placeholder="cdai"
-                        value={relatorio.cdai}
-                        onChange={handleChange}
-                    />
-                    <Form.Control
-                        type="text"
-                        id="sdai"
-                        name="sdai"
-                        placeholder="sdai"
-                        value={relatorio.sdai}
-                        onChange={handleChange}
-                    />
-                    <Form.Control
-                        type="text"
-                        id="basdai"
-                        name="basdai"
-                        placeholder="basdai"
-                        value={relatorio.basdai}
-                        onChange={handleChange}
-                    />
-                    <Form.Control
-                        type="text"
-                        id="asdas"
-                        name="asdas"
-                        placeholder="asdas"
-                        value={relatorio.asdas}
-                        onChange={handleChange}
-                    />
-                    <Form.Control
-                        type="text"
-                        id="mda"
-                        name="mda"
-                        placeholder="mda"
-                        value={relatorio.mda}
-                        onChange={handleChange}
-                    />
-                    <Form.Control
-                        type="text"
-                        id="eva"
-                        name="eva"
-                        placeholder="eva"
-                        value={relatorio.eva}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
+                <Row>
+                    {indices && indices.map((w) =>
+                        <Col key={w}>
+                            <Form.Control
+                                type="text"
+                                label={w}
+                                name={w}
+                                placeholder={w.toLocaleUpperCase()}
+                                // value={w}
+                                onChange={handleChange}
+                            />
+                        </Col>
+                    )}
+                </Row>
             </Container>
             <Container className="mt-2">
                 <Button

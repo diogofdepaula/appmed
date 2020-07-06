@@ -70,15 +70,15 @@ export default function RelatorioSet2(props) {
         <div>
             <Container>
                 {list && list.map((w, index) =>
-                    <Form.Group controlId={w[0]} key={w[0]}>
-                        <Form.Check
-                            type="checkbox"
-                            label={w[1]}
-                            name={w[0]}
-                            value={w[0]}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
+                    <Form.Check
+                        key={w[0]}
+                        type="checkbox"
+                        label={w[1]}
+                        id={w[0]}
+                        name={w[0]}
+                        value={w[0]}
+                        onChange={handleChange}
+                    />
                 )}
             </Container>
             <Container className="mt-2">

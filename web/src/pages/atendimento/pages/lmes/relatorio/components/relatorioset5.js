@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Container, Form, FormGroup } from 'react-bootstrap'
+import { Button, Container, Form } from 'react-bootstrap'
 
 
 export default function RelatorioSet3(props) {
@@ -10,53 +10,29 @@ export default function RelatorioSet3(props) {
         setRelatorio({ ...relatorio, [event.target.name]: event.target.checked })
     }
 
+    const comorb = [
+        ['infeccaoviral', 'Infecção viral'],
+        ['hepatite', 'Hepatite'],
+        ['infeccaobacteriana', 'Infecção bacteriana'],
+        ['neoplasia', 'Neoplasia'],
+        ['anemia', 'Anemia'],
+        ['alteracaohepatica', 'Alterações hepáticas'],
+    ]
+
     return (
         <div>
             <Container>
-                <FormGroup>
+                {comorb && comorb.map((w) =>
                     <Form.Check
+                        key={w[0]}
                         type="checkbox"
-                        label="infeccaoviral"
-                        name="infeccaoviral"
-                        value={relatorio.infeccaoviral}
+                        label={w[1]}
+                        id={w[0]}
+                        name={w[0]}
+                        // value={w}
                         onChange={handleChange}
                     />
-                    <Form.Check
-                        type="checkbox"
-                        label="hepatite"
-                        name="hepatite"
-                        value={relatorio.hepatite}
-                        onChange={handleChange}
-                    />
-                    <Form.Check
-                        type="checkbox"
-                        label="infeccaobacteriana"
-                        name="infeccaobacteriana"
-                        value={relatorio.infeccaobacteriana}
-                        onChange={handleChange}
-                    />
-                    <Form.Check
-                        type="checkbox"
-                        label="neoplasia"
-                        name="neoplasia"
-                        value={relatorio.neoplasia}
-                        onChange={handleChange}
-                    />
-                    <Form.Check
-                        type="checkbox"
-                        label="anemia"
-                        name="anemia"
-                        value={relatorio.anemia}
-                        onChange={handleChange}
-                    />
-                    <Form.Check
-                        type="checkbox"
-                        label="alteracaohepatica"
-                        name="alteracaohepatica"
-                        value={relatorio.alteracaohepatica}
-                        onChange={handleChange}
-                    />
-                </FormGroup>
+                )}
             </Container>
             <Container className="mt-2">
                 <Button

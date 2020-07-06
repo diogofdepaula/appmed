@@ -18,6 +18,10 @@ export default function RelatorioSet3(props) {
         setRelatorio({ ...relatorio, ppdresultado: param })
     }
 
+    const handleChangerxtoraxresultado = param => () => {
+        setRelatorio({ ...relatorio, rxtoraxresultado: param })
+    }
+
     return (
         <div>
             {JSON.stringify(relatorio)}
@@ -35,8 +39,7 @@ export default function RelatorioSet3(props) {
                             />
                         </Col>
                         <Col xs={9}>
-
-                            <Form.Group as={Row} controlId="formHorizontalCheck">
+                            <Form.Group controlId="formHorizontalCheck">
                                 <Form.Check
                                     inline
                                     label="Até 5 mm"
@@ -64,8 +67,8 @@ export default function RelatorioSet3(props) {
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
+                    <Row className="mt-2">
+                        <Col xs={3}>
                             <Form.Control
                                 type="date"
                                 id="rxtoraxdata"
@@ -75,28 +78,40 @@ export default function RelatorioSet3(props) {
                                 onChange={handleChange}
                             />
                         </Col>
-                        <Col>
+                        <Col xs={9}>
                             <Form.Check
-                                type="checkbox"
-                                label="rxtoraxresultado"
+                                inline
+                                type="radio"
+                                label="Radiografia de tórax normal"
                                 name="rxtoraxresultado"
-                                value={relatorio.rxtoraxresultado}
-                                onChange={handleChange}
+                                //value={relatorio.rxtoraxresultado}
+                                onChange={handleChangerxtoraxresultado(false)}
                             />
-                        </Col>
-                        <Col xs={6}>
-                            <Form.Control
-                                type="text"
-                                id="rxtoraxresultado"
+                            <Form.Check
+                                inline
+                                type="radio"
+                                label="Radiografia de tórax alterada"
                                 name="rxtoraxresultado"
-                                placeholder="Resultado do Rx"
-                                value={relatorio.rxtoraxresultado}
-                                onChange={handleChange}
+                                // value={relatorio.rxtoraxresultado}
+                                onChange={handleChangerxtoraxresultado(true)}
                             />
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
+                    {relatorio.rxtoraxresultado &&
+                        <Row className="mt-1">
+                            <Col>
+                                <Form.Control
+                                    type="text"
+                                    name="rxtoraxalteracao"
+                                    placeholder="Resultado do Rx"
+                                    value={relatorio.rxtoraxalteracao}
+                                    onChange={handleChange}
+                                />
+                            </Col>
+                        </Row>
+                    }
+                    <Row className="mt-2">
+                        <Col xs={3}>
                             <Form.Control
                                 type="date"
                                 id="bhcgdata"
