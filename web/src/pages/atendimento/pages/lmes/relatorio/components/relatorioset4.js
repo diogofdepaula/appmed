@@ -24,7 +24,6 @@ export default function RelatorioSet3(props) {
 
     return (
         <div>
-            {JSON.stringify(relatorio)}
             <Container>
                 <Form.Group>
                     <Row>

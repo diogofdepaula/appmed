@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Card } from 'react-bootstrap'
+import { Container, Card, Button } from 'react-bootstrap'
 import RelatorioSet1 from './components/relatorioset1'
 import RelatorioSet2 from './components/relatorioset2'
 import RelatorioSet3 from './components/relatorioset3'
@@ -94,8 +94,14 @@ export default function RelatorioVarSet(props) {
     const [showStep, setStep] = useState(1);
 
     const handleNextStep = param => () => {
+        // if (showStep === 6) {
+        //     console.log('teste')
+        //     return () => props.passrelatorio(param)
+        // } else {
         setRelatorio(param)
         setStep(showStep + 1)
+
+        // }
     }
 
     const handlePreviousStep = () => {
@@ -104,21 +110,23 @@ export default function RelatorioVarSet(props) {
 
     return (
         <div>
-        <Container>
-        HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-            {JSON.stringify(relatorio)}
-        HHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-        </Container>
             <Container>
                 <Card body>
-                     {showStep === 1 && <RelatorioSet1 relatorio={relatorio} passNext={handleNextStep} />}
-                     {showStep === 2 && <RelatorioSet2 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} cid10={props.cid10} />}
-                     {showStep === 3 && <RelatorioSet3 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                     {showStep === 4 && <RelatorioSet4 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                     {showStep === 5 && <RelatorioSet5 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                     {showStep === 6 && <RelatorioSet6 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                    {showStep === 1 && <RelatorioSet1 relatorio={relatorio} passNext={handleNextStep} />}
+                    {showStep === 2 && <RelatorioSet2 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} cid10={props.cid10} />}
+                    {showStep === 3 && <RelatorioSet3 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                    {showStep === 4 && <RelatorioSet4 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                    {showStep === 5 && <RelatorioSet5 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                    {showStep === 6 && <RelatorioSet6 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
                 </Card>
+                <Button
+                    className="ml-1"
+                    variant="outline-success"
+                    onClick={props.passrelatorio(relatorio)}
+                > Encerar relatorio
+                    </Button>
             </Container>
         </div>
     )
+
 }

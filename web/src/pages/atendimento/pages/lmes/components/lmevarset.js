@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Accordion, Button, Card, Container, Form } from 'react-bootstrap';
 
-export default function LMEDataSet(props) {
+export default function LMEVarSet(props) {
 
     const [lme, setlme] = useState(props.lme)
 

@@ -24,7 +24,7 @@ export default function InsertLME(props) {
         preenchidoporCPF: '',
         raca: '',
         clienteId: cliente.id,
-        prescricoes: prescricao
+        prescricoes: prescricao, 
     }
 
     const [lme, setLme] = useState(initialLME)
@@ -48,6 +48,15 @@ export default function InsertLME(props) {
         setLme(paramLME)
         setShowLMEVarSet(false)
         setShowRelatorioVarSet(paramRel)
+    }
+
+    const changerelatorio = param => () => {
+        console.log('sdlkgjdlfsjgçldfks'  + param)
+        setLme({
+            ...lme,
+            relatorio: param
+        })
+        setShowRelatorioVarSet(false)
     }
 
     const handleSubmit = event => {
@@ -99,7 +108,7 @@ export default function InsertLME(props) {
                     <Card body>
                         {showCID10Set && <CID10List passcid={changecid} />}
                         {showLMEVarSet && <LMEVarSet lme={lme} passlme={changelme} />}
-                        {showRelatorioVarSet && <RelatorioVarSet cid10={lme.cid10} />}
+                        {showRelatorioVarSet && <RelatorioVarSet cid10={lme.cid10} passrelatorio={changerelatorio} />}
                     </Card>
                 </Container>
                 <Container className="mt-2">

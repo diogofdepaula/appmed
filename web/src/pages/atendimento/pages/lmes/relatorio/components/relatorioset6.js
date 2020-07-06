@@ -40,7 +40,7 @@ export default function RelatorioSet3(props) {
                     className="ml-1"
                     variant="outline-success"
                     onClick={props.passNext(relatorio)}
-                > Próximo
+                > Finalizar
                     </Button>
             </Container>
         </div>
