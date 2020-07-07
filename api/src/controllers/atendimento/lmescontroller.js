@@ -1,27 +1,32 @@
 const Lmes = require('../../models/atendimento/lmes')
 const Prescricoes = require('../../models/atendimento/prescricoes')
+const Relatorios = require('../../models/atendimento/relatorios')
 
 exports.Insert = (req, res, next) => {
 
+    if(req.body.relatorio){
+        console.log('teste1    HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ' + req.body.relatorio)
+    } else {
+        console.log('teste2    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ' + req.body.relatorio)
+    }
+
     Lmes.create(
         req.body, {
-            include: [Prescricoes] // quando cria uma lme presume-se que virá com uma nova prescricao também
+        include: [Prescricoes, Relatorios] // quando cria uma lme presume-se que virá com uma nova prescricao também
+    }
+    ).then(lme => {
+        if (lme) {
+            res.send("sucesso do cadastro do LME")
+        } else {
+            res.send("inssucesso do cadastro do LME")
         }
-    )
-        .then(lme => {
-            if (lme) {
-                res.send("sucesso do cadastro do LME")
-            } else {
-                res.send("inssucesso do cadastro do LME")
-            }
-        })
-        .catch(error => next(error))
+    }).catch(error => next(error))
 }
 
 exports.SearchAll = (req, res, next) => {
     const idcliente = req.params.idcliente;
     //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
-    Lmes.findAll({ where: { clienteId: idcliente }})
+    Lmes.findAll({ where: { clienteId: idcliente } })
         .then((lmes) => {
             return res.json(lmes)
         })
