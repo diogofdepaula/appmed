@@ -94,14 +94,8 @@ export default function RelatorioVarSet(props) {
     const [showStep, setStep] = useState(1);
 
     const handleNextStep = param => () => {
-        // if (showStep === 6) {
-        //     console.log('teste')
-        //     return () => props.passrelatorio(param)
-        // } else {
         setRelatorio(param)
         setStep(showStep + 1)
-
-        // }
     }
 
     const handlePreviousStep = () => {
@@ -111,6 +105,7 @@ export default function RelatorioVarSet(props) {
     return (
         <div>
             <Container>
+                {showStep >=1 && showStep <= 6 && 
                 <Card body>
                     {showStep === 1 && <RelatorioSet1 relatorio={relatorio} passNext={handleNextStep} />}
                     {showStep === 2 && <RelatorioSet2 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} cid10={props.cid10} />}
@@ -119,12 +114,15 @@ export default function RelatorioVarSet(props) {
                     {showStep === 5 && <RelatorioSet5 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
                     {showStep === 6 && <RelatorioSet6 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
                 </Card>
-                <Button
-                    className="ml-1"
-                    variant="outline-success"
-                    onClick={props.passrelatorio(relatorio)}
-                > Encerar relatorio
+                }
+                {showStep === 7 &&
+                    <Button
+                        className="ml-1"
+                        variant="outline-success"
+                        onClick={props.passrelatorio(relatorio)}
+                    > Encerrar relatorio
                     </Button>
+                }
             </Container>
         </div>
     )

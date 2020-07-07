@@ -12,8 +12,12 @@ export default function LMEData(props) {
         return (
             <div>
                 <Container>
+                    LME
                     {lme.cid10 && <p>{lme.cid10} - {lme.diagnostico}</p>}
                     <p>{lme.anamnese}</p>
+                    Relatório
+                    <p>{lme.relatorio && lme.relatorio.vhs}</p>
+                    <p>{lme.relatorio && lme.relatorio.pcr}</p>
                 </Container>
             </div>
         )

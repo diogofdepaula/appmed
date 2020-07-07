@@ -24,7 +24,8 @@ export default function InsertLME(props) {
         preenchidoporCPF: '',
         raca: '',
         clienteId: cliente.id,
-        prescricoes: prescricao, 
+        prescricoes: prescricao,
+        relatorio: null, 
     }
 
     const [lme, setLme] = useState(initialLME)
@@ -51,7 +52,6 @@ export default function InsertLME(props) {
     }
 
     const changerelatorio = param => () => {
-        console.log('sdlkgjdlfsjgçldfks'  + param)
         setLme({
             ...lme,
             relatorio: param
