@@ -56,12 +56,16 @@ export default function InsertPrescricoes(props) {
     const [validacao, setValidacao] = useState(false)
     const [redirect, setRedirect] = useState('')
 
-    const [showMedicamentoSet, setShowMedicamentoSet] = useState(true);
-    const [showApresentacaoSet, setShowApresentacaoSet] = useState(false);
-    const [showPosologiaSet, setShowPosologiaSet] = useState(false);
-    const [showPosologiaNaoPadraoSet, setShowPosologiaNaoPadraoSet] = useState(false);
-    const [showOutrasVariaveisSet, setShowOutrasVariaveisSet] = useState(false);
-    const [showLMEForkSet, setShowLMEForkSet] = useState(false);
+    const [showStep, setStep] = useState(11);
+
+        
+
+    // const [showMedicamentoSet, setShowMedicamentoSet] = useState(true);
+    // const [showApresentacaoSet, setShowApresentacaoSet] = useState(false);
+    // const [showPosologiaSet, setShowPosologiaSet] = useState(false);
+    // const [showPosologiaNaoPadraoSet, setShowPosologiaNaoPadraoSet] = useState(false);
+     const [showOutrasVariaveisSet, setShowOutrasVariaveisSet] = useState(false);
+     const [showLMEForkSet, setShowLMEForkSet] = useState(false);
 
     const changeMedicamento = param => () => {
         setPrescricao({
@@ -69,8 +73,9 @@ export default function InsertPrescricoes(props) {
             medicamentoId: param.id
         })
         setMedicamento(param)
-        setShowMedicamentoSet(false)
-        setShowApresentacaoSet(true)
+        setStep(21)
+        // setShowMedicamentoSet(false)
+        // setShowApresentacaoSet(true)
     }
 
     const changeApresentacao = (paramMed, paramAp) => () => {
@@ -79,8 +84,9 @@ export default function InsertPrescricoes(props) {
             apresentacoId: paramAp.id
         })
         setMedicamento(paramMed)
-        setShowApresentacaoSet(false)
-        setShowPosologiaSet(true)
+        setStep(31)
+        // setShowApresentacaoSet(false)
+        // setShowPosologiaSet(true)
     }
 
     const changePosologia = param => () => {
@@ -89,13 +95,15 @@ export default function InsertPrescricoes(props) {
             usoposologiapadrao: true,
             posologiaId: param.id
         })
-        setShowPosologiaSet(false)
-        setShowOutrasVariaveisSet(true)
+        setStep(41)
+        // setShowPosologiaSet(false)
+        // setShowOutrasVariaveisSet(true)
     }
 
     const changePosoligiaPadraoToNaoPadrao = () => {
-        setShowPosologiaSet(false)
-        setShowPosologiaNaoPadraoSet(true)
+        setStep(32)
+        // setShowPosologiaSet(false)
+        // setShowPosologiaNaoPadraoSet(true)
     }
 
     const changePosologiaNaoPadrao = param => () => {
@@ -107,8 +115,9 @@ export default function InsertPrescricoes(props) {
             quantidadenaopadrao: param.quantidadenaopadrao,
             formanaopadrao: param.formanaopadrao,
         })
-        setShowPosologiaNaoPadraoSet(false)
-        setShowOutrasVariaveisSet(true)
+        setStep(41)
+        // setShowPosologiaNaoPadraoSet(false)
+        // setShowOutrasVariaveisSet(true)
     }
 
     const changeOutrasVariaveis = (param, paramLME) => () => {
@@ -119,10 +128,12 @@ export default function InsertPrescricoes(props) {
             orientacoes: param.orientacoes,
             inicio: param.inicio
         })
-        setShowOutrasVariaveisSet(false)
+        setStep(0)
+        //setShowOutrasVariaveisSet(false)
         
         if (paramLME) {
-            setShowLMEForkSet(true)
+            setStep(41)
+            //setShowLMEForkSet(true)
             // se a resposta for true lá no LMEForkSet ele pega essa {prescricao} e redireciona para o LME insert e de lá faz o submit 
         } else {
             // fazer uma validação de verdade depois
@@ -160,7 +171,7 @@ export default function InsertPrescricoes(props) {
             <div>
                 <ClienteHeader cliente={cliente} />
                 <Container fluid >
-                    <Button
+                    {/* <Button
                         variant="outline-primary"
                         onClick={() => {
                             setPrescricao(initialPrescricao)
@@ -168,7 +179,7 @@ export default function InsertPrescricoes(props) {
                             setValidacao(false)
                             setShowMedicamentoSet(true)
                         }}
-                    > Escolhe outro Medicamento </Button>
+                    > Escolhe outro Medicamento </Button> */}
                     <Button
                         className="ml-2"
                         variant="outline-success"
@@ -177,12 +188,12 @@ export default function InsertPrescricoes(props) {
                 </Container>
                 <Container className="mt-2">
                     <Card body>
-                        {showMedicamentoSet && <MedicamentoSet passMedicamento={changeMedicamento} />}
-                        {showApresentacaoSet && <ApresentacaoSet medicamento={medicamento} passApresentacao={changeApresentacao} />}
-                        {showPosologiaSet && <PosologiaSet medicamento={medicamento} passPosologia={changePosologia} naoPadrao={changePosoligiaPadraoToNaoPadrao} />}
-                        {showPosologiaNaoPadraoSet && <PosologiaNaoPadraoSet passPosologiaNaoPadrao={changePosologiaNaoPadrao} />}
-                        {showOutrasVariaveisSet && <OutrasVariaveisSet passVariaveis={changeOutrasVariaveis} />}
-                        {showLMEForkSet && <LMEForkSet cliente={cliente} prescricao={prescricao} medicamento={medicamento} redirect={setRedirect} />}
+                        {showStep === 11 && <MedicamentoSet passMedicamento={changeMedicamento} />}
+                        {showStep === 21 && <ApresentacaoSet medicamento={medicamento} passApresentacao={changeApresentacao} />}
+                        {showStep === 31 && <PosologiaSet medicamento={medicamento} passPosologia={changePosologia} naoPadrao={changePosoligiaPadraoToNaoPadrao} />}
+                        {showStep === 32 && <PosologiaNaoPadraoSet passPosologiaNaoPadrao={changePosologiaNaoPadrao} />}
+                        {showStep === 41 && <OutrasVariaveisSet passVariaveis={changeOutrasVariaveis} />}
+                        {showStep === 51 && <LMEForkSet cliente={cliente} prescricao={prescricao} medicamento={medicamento} redirect={setRedirect} />}
                     </Card>
                 </Container>
                 <Container className="mt-2">
