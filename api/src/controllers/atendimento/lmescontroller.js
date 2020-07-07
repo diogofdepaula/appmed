@@ -4,12 +4,6 @@ const Relatorios = require('../../models/atendimento/relatorios')
 
 exports.Insert = (req, res, next) => {
 
-    if(req.body.relatorio){
-        console.log('teste1    HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ' + req.body.relatorio)
-    } else {
-        console.log('teste2    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ' + req.body.relatorio)
-    }
-
     Lmes.create(
         req.body, {
         include: [Prescricoes, Relatorios] // quando cria uma lme presume-se que virá com uma nova prescricao também

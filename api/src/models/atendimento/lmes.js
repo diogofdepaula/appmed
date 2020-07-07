@@ -49,10 +49,4 @@ Lmes.belongsTo(Clientes)
 Lmes.hasOne(Relatorios)
 Lmes.hasMany(Prescricoes)
 
-// Lmes.hasMany(Prescricoes,{
-//     foreignKey: {
-//       allowNull: true
-//     }
-//   });
-
 module.exports = Lmes

@@ -81,11 +81,6 @@ export default function InsertLME(props) {
         return (
 
             <div>
-                {/* {JSON.stringify(cliente)} */}
-                {/* {JSON.stringify(prescricao)} */}
-                {JSON.stringify(lme)}
-                {/* {JSON.stringify(medicamento)} */}
-
                 <Container fluid >
                     {/* <Button 
                         variant="outline-primary"
