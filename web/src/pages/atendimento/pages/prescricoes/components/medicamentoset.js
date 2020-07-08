@@ -47,8 +47,6 @@ export default function MedicamentoSet(props) {
         [prescricao, props]
     );
 
-
-    
     return (
         <div>
             <h5>Escolha o fármaco</h5>
