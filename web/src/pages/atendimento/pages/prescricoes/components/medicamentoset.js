@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { Container, ListGroup, FormControl } from 'react-bootstrap'
 
 export default function MedicamentoSet(props) {
 
+    const [prescricao, setPrescricao] = useState(props.prescricao)
     const [medicamentos, setmedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
 
@@ -36,9 +37,20 @@ export default function MedicamentoSet(props) {
         }
     }
 
+    const handleChange = param => {
+        setPrescricao({ ...prescricao, medicamentoId: param.id })
+    }
+
+    const sendNextStep = useCallback(
+        // tirei o () =>  daqui e deixei invocado lá no clique para poder passar duas funções ao mesmo tempo
+        props.passNextStep(prescricao, 21),
+        [prescricao, props]
+    );
+
     return (
         <div>
             <h5>Escolha o fármaco</h5>
+            {JSON.stringify(prescricao)}
             <Container>
                 <FormControl
                     autoFocus
@@ -53,7 +65,10 @@ export default function MedicamentoSet(props) {
                     {medicamentosfiltrados.map(medicamento =>
                         <ListGroup.Item
                             key={medicamento.id}
-                            onClick={props.passMedicamento(medicamento)}
+                            onClick={() => {
+                                handleChange(medicamento)
+                                sendNextStep()
+                            }}
                         >{medicamento.farmaco} {medicamento.abreviatura && "(" + medicamento.abreviatura + ")"}
                         </ListGroup.Item>
                     )}
