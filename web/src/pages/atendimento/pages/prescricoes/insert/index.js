@@ -55,17 +55,7 @@ export default function InsertPrescricoes(props) {
 
     const [validacao, setValidacao] = useState(false)
     const [redirect, setRedirect] = useState('')
-
     const [showStep, setStep] = useState(11);
-
-        
-
-    // const [showMedicamentoSet, setShowMedicamentoSet] = useState(true);
-    // const [showApresentacaoSet, setShowApresentacaoSet] = useState(false);
-    // const [showPosologiaSet, setShowPosologiaSet] = useState(false);
-    // const [showPosologiaNaoPadraoSet, setShowPosologiaNaoPadraoSet] = useState(false);
-     const [showOutrasVariaveisSet, setShowOutrasVariaveisSet] = useState(false);
-     const [showLMEForkSet, setShowLMEForkSet] = useState(false);
 
     const changeMedicamento = param => () => {
         setPrescricao({
@@ -74,8 +64,6 @@ export default function InsertPrescricoes(props) {
         })
         setMedicamento(param)
         setStep(21)
-        // setShowMedicamentoSet(false)
-        // setShowApresentacaoSet(true)
     }
 
     const changeApresentacao = (paramMed, paramAp) => () => {
@@ -85,8 +73,6 @@ export default function InsertPrescricoes(props) {
         })
         setMedicamento(paramMed)
         setStep(31)
-        // setShowApresentacaoSet(false)
-        // setShowPosologiaSet(true)
     }
 
     const changePosologia = param => () => {
@@ -96,14 +82,10 @@ export default function InsertPrescricoes(props) {
             posologiaId: param.id
         })
         setStep(41)
-        // setShowPosologiaSet(false)
-        // setShowOutrasVariaveisSet(true)
     }
 
     const changePosoligiaPadraoToNaoPadrao = () => {
         setStep(32)
-        // setShowPosologiaSet(false)
-        // setShowPosologiaNaoPadraoSet(true)
     }
 
     const changePosologiaNaoPadrao = param => () => {
@@ -116,8 +98,6 @@ export default function InsertPrescricoes(props) {
             formanaopadrao: param.formanaopadrao,
         })
         setStep(41)
-        // setShowPosologiaNaoPadraoSet(false)
-        // setShowOutrasVariaveisSet(true)
     }
 
     const changeOutrasVariaveis = (param, paramLME) => () => {
@@ -129,11 +109,9 @@ export default function InsertPrescricoes(props) {
             inicio: param.inicio
         })
         setStep(0)
-        //setShowOutrasVariaveisSet(false)
         
         if (paramLME) {
-            setStep(41)
-            //setShowLMEForkSet(true)
+            setStep(51)
             // se a resposta for true lá no LMEForkSet ele pega essa {prescricao} e redireciona para o LME insert e de lá faz o submit 
         } else {
             // fazer uma validação de verdade depois
