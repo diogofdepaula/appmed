@@ -12,7 +12,7 @@ export default function MedicamentoSet(props) {
         // fazer algo depois para ele ir buscando as incluções somente o que for selecionado
         // para não precisar trazer todo o bando de medicamento com inclusões junto
         // do tipo http://localhost:4001/api.appmed/medicamentos/parcial ou completa
-        fetch('http://localhost:4001/api.appmed/medicamentos')
+        fetch('http://localhost:4001/api.appmed/medicamentos/shrink')
             .then(response => response.json())
             .then(response => setmedicamentos(response))
             .catch(err => console.log(err))

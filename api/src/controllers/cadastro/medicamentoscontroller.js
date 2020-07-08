@@ -26,6 +26,16 @@ exports.SearchAll = (req, res, next) => {
         })
 }
 
+exports.SearchAllShrink = (req, res, next) => {
+    // tinha que fazer um query para buscar somente o nome
+    Medicamentos.findAll({
+        attributes: ['farmaco', 'abreviatura']
+      })
+        .then((medicamentos) => {
+            return res.json(medicamentos)
+        })
+}
+
 exports.SearchOne = (req, res, next) => {
     const id = req.params.id;
     Medicamentos.findByPk(id, { include: [Nomescomerciais, Apresentacoes, Posologias] })
