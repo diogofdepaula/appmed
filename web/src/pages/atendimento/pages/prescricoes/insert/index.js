@@ -149,15 +149,15 @@ export default function InsertPrescricoes(props) {
             <div>
                 <ClienteHeader cliente={cliente} />
                 <Container fluid >
-                    {/* <Button
+                    <Button
                         variant="outline-primary"
                         onClick={() => {
                             setPrescricao(initialPrescricao)
                             setMedicamento(initialMedicamento)
                             setValidacao(false)
-                            setShowMedicamentoSet(true)
+                            setStep(11)
                         }}
-                    > Escolhe outro Medicamento </Button> */}
+                    > Escolhe outro Medicamento </Button>
                     <Button
                         className="ml-2"
                         variant="outline-success"
