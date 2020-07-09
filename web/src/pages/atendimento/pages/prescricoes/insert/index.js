@@ -58,32 +58,23 @@ export default function InsertPrescricoes(props) {
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramPresc, paramStep) => () => {
-        console.log('teste', paramPresc + "  "  + paramStep)
+     
         setPrescricao(paramPresc)
-       // setStep(paramStep)
+        setStep(paramStep)
     }
 
     // const handlePreviousStep = () => {
     //     setStep(showStep - 1)
     // }
 
-    const changeMedicamento = param => () => {
-        // setPrescricao({
-        //     ...prescricao,
-        //     medicamentoId: param.id
-        // })
-        // setMedicamento(param)
-        // setStep(21)
-    }
-
-    const changeApresentacao = (paramMed, paramAp) => () => {
-        setPrescricao({
-            ...prescricao,
-            apresentacoId: paramAp.id
-        })
-        setMedicamento(paramMed)
-        setStep(31)
-    }
+    // const changeApresentacao = (paramMed, paramAp) => () => {
+    //     setPrescricao({
+    //         ...prescricao,
+    //         apresentacoId: paramAp.id
+    //     })
+    //     setMedicamento(paramMed)
+    //     setStep(31)
+    // }
 
     const changePosologia = param => () => {
         setPrescricao({
@@ -176,8 +167,8 @@ export default function InsertPrescricoes(props) {
                 </Container>
                 <Container className="mt-2">
                     <Card body>
-                        {showStep === 11 && <MedicamentoSet passMedicamento={changeMedicamento} prescricao={prescricao} passNextStep={handleNextStep} />}
-                        {showStep === 21 && <ApresentacaoSet medicamento={medicamento} passApresentacao={changeApresentacao} />}
+                        {showStep === 11 && <MedicamentoSet prescricao={prescricao} passNextStep={handleNextStep} />}
+                        {showStep === 21 && <ApresentacaoSet prescricao={prescricao} passNextStep={handleNextStep} />}
                         {showStep === 31 && <PosologiaSet medicamento={medicamento} passPosologia={changePosologia} naoPadrao={changePosoligiaPadraoToNaoPadrao} />}
                         {showStep === 32 && <PosologiaNaoPadraoSet passPosologiaNaoPadrao={changePosologiaNaoPadrao} />}
                         {showStep === 41 && <OutrasVariaveisSet passVariaveis={changeOutrasVariaveis} />}

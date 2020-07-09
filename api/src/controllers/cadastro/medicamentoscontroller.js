@@ -14,26 +14,22 @@ exports.Insert = (req, res, next) => {
         } else {
             res.send("inssucesso do cadastro do medicamento")
         }
-    })
-        .catch(error => next(error))
+    }).catch(error => next(error))
 }
 
 exports.SearchAll = (req, res, next) => {
-    // tinha que fazer um query para buscar somente o nome
     Medicamentos.findAll({ include: [Nomescomerciais] })
         .then((medicamentos) => {
             return res.json(medicamentos)
-        })
+        }).catch(error => next(error))
 }
 
-exports.SearchAllShrink = (req, res, next) => {
-    // tinha que fazer um query para buscar somente o nome
+exports.SearchAllShort = (req, res, next) => {
     Medicamentos.findAll({
-        attributes: ['farmaco', 'abreviatura']
-      })
-        .then((medicamentos) => {
-            return res.json(medicamentos)
-        })
+        attributes: ['id', 'farmaco', 'abreviatura']
+    }).then((medicamentos) => {
+        return res.json(medicamentos)
+    }).catch(error => next(error))
 }
 
 exports.SearchOne = (req, res, next) => {

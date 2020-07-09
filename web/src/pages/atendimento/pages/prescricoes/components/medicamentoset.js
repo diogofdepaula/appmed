@@ -6,13 +6,10 @@ export default function MedicamentoSet(props) {
     const [prescricao, setPrescricao] = useState(props.prescricao)
     const [medicamentos, setmedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
+    const [validacao, setValidacao] = useState(false)
 
     useEffect(() => {
-
-        // fazer algo depois para ele ir buscando as incluções somente o que for selecionado
-        // para não precisar trazer todo o bando de medicamento com inclusões junto
-        // do tipo http://localhost:4001/api.appmed/medicamentos/parcial ou completa
-        fetch('http://localhost:4001/api.appmed/medicamentos/shrink')
+        fetch('http://localhost:4001/api.appmed/medicamentos/short')
             .then(response => response.json())
             .then(response => setmedicamentos(response))
             .catch(err => console.log(err))
@@ -37,15 +34,22 @@ export default function MedicamentoSet(props) {
         }
     }
 
-    const handleChange = param => {
+    const handleChange = param => () => {
         setPrescricao({ ...prescricao, medicamentoId: param.id })
+        setValidacao(true) // nesse caso fica aqui dentro, mas para os outros fica no botão ou seja depois de terminar
     }
 
     const sendNextStep = useCallback(
-        // tirei o () =>  daqui e deixei invocado lá no clique para poder passar duas funções ao mesmo tempo
         props.passNextStep(prescricao, 21),
         [prescricao, props]
-    );
+    )
+
+    useEffect(() => {
+        if (validacao){
+            sendNextStep()
+        }
+    }, [validacao, sendNextStep])
+ 
 
     return (
         <div>
@@ -62,13 +66,10 @@ export default function MedicamentoSet(props) {
             </Container>
             <Container className="mt-2" >
                 <ListGroup className="mt-2">
-                    {medicamentosfiltrados.map(medicamento =>
+                    {medicamentosfiltrados.map((medicamento, index) =>
                         <ListGroup.Item
-                            key={medicamento.id}
-                            onClick={() => {
-                                handleChange(medicamento)
-                                sendNextStep()
-                            }}
+                            key={index}
+                            onClick={handleChange(medicamento)}
                         >{medicamento.farmaco} {medicamento.abreviatura && "(" + medicamento.abreviatura + ")"}
                         </ListGroup.Item>
                     )}

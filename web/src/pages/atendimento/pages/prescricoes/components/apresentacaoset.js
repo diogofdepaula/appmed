@@ -1,16 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { Container, ListGroup } from 'react-bootstrap'
 
 export default function ApresentacaoSet(props) {
 
+    const [prescricao, setPrescricao] = useState(props.prescricao)
     const [medicamentocominclude, setmedicamentocominclude] = useState(props.medicamento)
 
     useEffect(() => {
-        fetch(`http://localhost:4001/api.appmed/medicamentos/${props.medicamento.id}`)
+        fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricao.medicamentoId.id}`)
             .then(response => response.json())
             .then(response => setmedicamentocominclude(response))
             .catch(err => console.log(err))
-    }, [props.medicamento])
+    }, [prescricao])
+
+   // console.log('pre', pre)
+    console.log('medicamentocominclude', medicamentocominclude)
+
+    const handleChange = param => {
+        setPrescricao({ ...prescricao, apresentacoId: param.id })
+    }
+
+    const sendNextStep = useCallback(
+        props.passNextStep(prescricao, 31),
+        [prescricao, props]
+    );
+
 
     return (
         <div>
@@ -20,7 +34,10 @@ export default function ApresentacaoSet(props) {
                     {medicamentocominclude.apresentacoes && medicamentocominclude.apresentacoes.map(apresentacao =>
                         <ListGroup.Item
                             key={apresentacao.id}
-                            onClick={props.passApresentacao(medicamentocominclude, apresentacao)}  // passei o medicamento aqui para não ter que buscar posologias de novo
+                            onClick={() => {
+                                handleChange(medicamentocominclude)
+                                sendNextStep()
+                            }}
                         >{apresentacao.descricao}
                         </ListGroup.Item>
                     )}
