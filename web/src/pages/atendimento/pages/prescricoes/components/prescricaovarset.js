@@ -1,22 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { Container, Form, Button, Col, Row } from 'react-bootstrap'
 
 export default function PrescricaoVarSet(props) {
 
-    const [variaveis, setvariaveis] = useState({
-        continuo: false, // optei para deixar como false como padrão. Se resolver mudar para true como padrão então deixe '' aqui e true lá no model
-        imprimirorientacoes: false,
-        orientacoes: '',
-        inicio: new Date().toISOString().slice(0, 10), //"yyyy-MM-dd"
-    })
+    const [prescricao, setPrescricao] = useState(props.prescricao)
+    const [validacao, setValidacao] = useState(false)
 
     const handleChange = event => {
-        setvariaveis({ ...variaveis, [event.target.name]: event.target.value })
+        const target = event.target;
+        const name = target.name;
+        const value = target.name === 'continuo' ? target.checked : target.name === 'imprimirorientacoes' ? target.checked : target.value;
+        setPrescricao({...prescricao, [name]: value })
     }
+
+    const sendNextStep = useCallback(
+        props.passNextStep(prescricao, 0),
+        [prescricao, props]
+    )
+
+    useEffect(() => {
+        if (validacao){
+            sendNextStep()
+        }
+    }, [validacao, sendNextStep])
 
     return (
         <div>
             <h5>Defina as outras variáveis</h5>
+            {JSON.stringify(prescricao)}
             <Container>
                 <Form>
                     <Row>
@@ -27,7 +38,7 @@ export default function PrescricaoVarSet(props) {
                                     type="checkbox"
                                     label="Contínuo"
                                     name="continuo"
-                                    value={variaveis.continuo}
+                                    value={prescricao.continuo}
                                     onChange={handleChange}
                                 />
                             </Form.Group>
@@ -37,7 +48,7 @@ export default function PrescricaoVarSet(props) {
                                     type="checkbox"
                                     label="Imprimir orientações"
                                     name="imprimirorientacoes"
-                                    value={variaveis.imprimirorientacoes}
+                                    value={prescricao.imprimirorientacoes}
                                     onChange={handleChange}
                                 />
                             </Form.Group>
@@ -47,7 +58,7 @@ export default function PrescricaoVarSet(props) {
                                 className="mt-2"
                                 type="date"
                                 name="inicio"
-                                value={variaveis.inicio}
+                                value={prescricao.inicio}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -60,7 +71,7 @@ export default function PrescricaoVarSet(props) {
                                 rows="5"
                                 name="orientacoes"
                                 placeholder="Orientações adicionais"
-                                value={variaveis.orientacoes}
+                                value={prescricao.orientacoes}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -70,13 +81,16 @@ export default function PrescricaoVarSet(props) {
             <Container fluid className="mt-2">
                 <Button
                     variant="outline-primary"
-                    onClick={props.passVariaveis(variaveis, false)}
+                    onClick={() => setValidacao(true)}
                 >Encerrar
                 </Button>
                 <Button
                     className="ml-2"
                     variant="outline-primary"
-                    onClick={props.passVariaveis(variaveis, true)}
+                    onClick={  useCallback(
+                        props.passNextStep(prescricao, 51),
+                        [prescricao, props]
+                    )}
                 >vincular a uma LME
                 </Button>
             </Container>

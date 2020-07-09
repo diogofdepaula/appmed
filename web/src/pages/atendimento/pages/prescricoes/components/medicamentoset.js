@@ -4,16 +4,19 @@ import { Container, ListGroup, FormControl } from 'react-bootstrap'
 export default function MedicamentoSet(props) {
 
     const [prescricao, setPrescricao] = useState(props.prescricao)
-    const [medicamentos, setmedicamentos] = useState([])
+    const [medicamentos, setMedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
     const [validacao, setValidacao] = useState(false)
 
-    useEffect(() => {
-        fetch('http://localhost:4001/api.appmed/medicamentos/short')
-            .then(response => response.json())
-            .then(response => setmedicamentos(response))
-            .catch(err => console.log(err))
+    const fetchData = useCallback(async () => {
+        const res = await fetch('http://localhost:4001/api.appmed/medicamentos/short')
+        const json = await res.json();
+        setMedicamentos(json);
     }, [])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
 
     const filterMedicamento = event => {
 
@@ -54,7 +57,6 @@ export default function MedicamentoSet(props) {
     return (
         <div>
             <h5>Escolha o fármaco</h5>
-            {JSON.stringify(prescricao)}
             <Container>
                 <FormControl
                     autoFocus

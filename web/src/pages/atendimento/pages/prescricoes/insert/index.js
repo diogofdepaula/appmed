@@ -15,7 +15,7 @@ export default function InsertPrescricoes(props) {
     const [cliente] = useState(props.location.state.cliente)
 
     const initialPrescricao = {
-        continuo: false, // optei para deixar como false como padrão. Se resolver mudar para true como padrão então deixe '' aqui e true lá no model
+        continuo: true,
         imprimirorientacoes: false,
         emuso: true,
         orientacoes: '',
@@ -26,7 +26,7 @@ export default function InsertPrescricoes(props) {
         lmemes1: '',
         lmemes2: '',
         lmemes3: '',
-        inicio: '', //new Date().toISOString().slice(0, 10), //"yyyy-MM-dd"
+        inicio: new Date().toISOString().slice(0, 10), //"yyyy-MM-dd"
         termino: null,
         motivotermico: '',
         clienteId: cliente.id,
@@ -52,81 +52,19 @@ export default function InsertPrescricoes(props) {
     }
 
     const [medicamento, setMedicamento] = useState(initialMedicamento)
-
     const [validacao, setValidacao] = useState(false)
     const [redirect, setRedirect] = useState('')
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramPresc, paramStep) => () => {
-     
         setPrescricao(paramPresc)
         setStep(paramStep)
-    }
-
-    // const handlePreviousStep = () => {
-    //     setStep(showStep - 1)
-    // }
-
-    // const changeApresentacao = (paramMed, paramAp) => () => {
-    //     setPrescricao({
-    //         ...prescricao,
-    //         apresentacoId: paramAp.id
-    //     })
-    //     setMedicamento(paramMed)
-    //     setStep(31)
-    // }
-
-    const changePosologia = param => () => {
-        setPrescricao({
-            ...prescricao,
-            usoposologiapadrao: true,
-            posologiaId: param.id
-        })
-        setStep(41)
-    }
-
-    const changePosoligiaPadraoToNaoPadrao = () => {
-        setStep(32)
-    }
-
-    const changePosologiaNaoPadrao = param => () => {
-        setPrescricao({
-            ...prescricao,
-            usoposologiapadrao: false,
-            posologiaId: null,
-            posologianaopadrao: param.posologianaopadrao,
-            quantidadenaopadrao: param.quantidadenaopadrao,
-            formanaopadrao: param.formanaopadrao,
-        })
-        setStep(41)
-    }
-
-    const changeOutrasVariaveis = (param, paramLME) => () => {
-        setPrescricao({
-            ...prescricao,
-            continuo: param.continuo,
-            imprimirorientacoes: param.imprimirorientacoes,
-            orientacoes: param.orientacoes,
-            inicio: param.inicio
-        })
-        setStep(0) 
-        
-        if (paramLME) {
-            setStep(51)
-            // se a resposta for true lá no LMEForkSet ele pega essa {prescricao} e redireciona para o LME insert e de lá faz o submit 
-        } else {
-            // fazer uma validação de verdade depois
-            // se tudo OK setValidacao(true)
-            setValidacao(true)
-        }
     }
 
     const handleSubmit = event => {
 
         if (validacao) {
-
             event.preventDefault();
-
             fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`, {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
@@ -146,9 +84,9 @@ export default function InsertPrescricoes(props) {
         return <Redirect to={redirect} /> //ou <Redirect to={"/search/" + this.state.name} />
     } else {
         return (
-
             <div>
                 <ClienteHeader cliente={cliente} />
+                {JSON.stringify(prescricao)}
                 <Container fluid >
                     <Button
                         variant="outline-primary"
@@ -169,9 +107,9 @@ export default function InsertPrescricoes(props) {
                     <Card body>
                         {showStep === 11 && <MedicamentoSet prescricao={prescricao} passNextStep={handleNextStep} />}
                         {showStep === 21 && <ApresentacaoSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                        {showStep === 31 && <PosologiaSet medicamento={medicamento} passPosologia={changePosologia} naoPadrao={changePosoligiaPadraoToNaoPadrao} />}
-                        {showStep === 32 && <PosologiaNaoPadraoSet passPosologiaNaoPadrao={changePosologiaNaoPadrao} />}
-                        {showStep === 41 && <OutrasVariaveisSet passVariaveis={changeOutrasVariaveis} />}
+                        {showStep === 31 && <PosologiaSet prescricao={prescricao} passNextStep={handleNextStep} />}
+                        {showStep === 32 && <PosologiaNaoPadraoSet prescricao={prescricao} passNextStep={handleNextStep} />}
+                        {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} />}
                         {showStep === 51 && <LMEForkSet cliente={cliente} prescricao={prescricao} medicamento={medicamento} redirect={setRedirect} />}
                     </Card>
                 </Container>

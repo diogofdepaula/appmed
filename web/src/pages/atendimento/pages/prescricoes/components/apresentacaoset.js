@@ -4,40 +4,45 @@ import { Container, ListGroup } from 'react-bootstrap'
 export default function ApresentacaoSet(props) {
 
     const [prescricao, setPrescricao] = useState(props.prescricao)
-    const [medicamentocominclude, setmedicamentocominclude] = useState(props.medicamento)
+    const [medicamentocominclude, setMedicamentoComInclude] = useState(props.medicamento)
+    const [validacao, setValidacao] = useState(false)
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${props.prescricao.medicamentoId}`)
+        const json = await res.json();
+        setMedicamentoComInclude(json);
+    }, [props])
 
     useEffect(() => {
-        fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricao.medicamentoId.id}`)
-            .then(response => response.json())
-            .then(response => setmedicamentocominclude(response))
-            .catch(err => console.log(err))
-    }, [prescricao])
+        fetchData();
+    }, [fetchData])
 
-   // console.log('pre', pre)
-    console.log('medicamentocominclude', medicamentocominclude)
-
-    const handleChange = param => {
+    const handleChange = param => () => {
         setPrescricao({ ...prescricao, apresentacoId: param.id })
+        setValidacao(true)
     }
 
     const sendNextStep = useCallback(
         props.passNextStep(prescricao, 31),
         [prescricao, props]
-    );
+    )
 
-
+    useEffect(() => {
+        if (validacao){
+            sendNextStep()
+        }
+ 
+    }, [validacao, sendNextStep])
+ 
     return (
         <div>
             <h5>Escolha uma Apresentação</h5>
             <Container className="mt-2" >
                 <ListGroup className="mt-2">
-                    {medicamentocominclude.apresentacoes && medicamentocominclude.apresentacoes.map(apresentacao =>
+                    {medicamentocominclude && medicamentocominclude.apresentacoes && medicamentocominclude.apresentacoes.map(apresentacao =>
                         <ListGroup.Item
                             key={apresentacao.id}
-                            onClick={() => {
-                                handleChange(medicamentocominclude)
-                                sendNextStep()
-                            }}
+                            onClick={handleChange(medicamentocominclude)}
                         >{apresentacao.descricao}
                         </ListGroup.Item>
                     )}

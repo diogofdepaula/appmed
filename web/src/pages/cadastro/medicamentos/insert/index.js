@@ -48,7 +48,6 @@ function Insert() {
         const target = event.target;
         const name = target.name;
         const value = target.name === 'lme' ? target.checked : target.name === 'controlado' ? target.checked : target.name === 'favorito' ? target.checked : target.value;
-
         setmedicamento({...medicamento, [name]: value })
     }
 
