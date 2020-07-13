@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { Container, Card, Button } from 'react-bootstrap'
 import RelatorioSet1 from './components/relatorioset1'
 import RelatorioSet2 from './components/relatorioset2'
@@ -10,8 +10,6 @@ import RelatorioSet6 from './components/relatorioset6'
 export default function RelatorioVarSet(props) {
 
     const [lme, setlme] = useState(props.lme)
-
-tem que colocar esse relatorio na lme 
 
     const relatorioinitial = {
         tempodoencaanos: '',
@@ -95,7 +93,32 @@ tem que colocar esse relatorio na lme
         eva: '',
     }
 
-    const [showStep, setStep] = useState(1);
+    const lmerelatorio = useCallback(
+        () => {
+            setlme({
+                ...lme,
+                relatorio: relatorioinitial
+            })
+        },
+        [lme, relatorioinitial],
+    )
+
+    useEffect(() => {
+        if (!lme.relatorio){
+            lmerelatorio()
+            setStep(1)
+        }
+    }, [lme, lmerelatorio])
+
+
+
+    // useEffect(() => {
+    //     if (showStep === 7){
+    //         props.passNextStep(lme, 0)
+    //     }
+    // }, [input])
+
+    const [showStep, setStep] = useState(0);
 
     const handleNextStep = param => () => {
         setlme({
@@ -131,9 +154,7 @@ tem que colocar esse relatorio na lme
                     > Encerrar relatorio
                     </Button>
                 }
-                {JSON.stringify(lme)}
             </Container>
         </div >
     )
-
 }
