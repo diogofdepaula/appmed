@@ -85,7 +85,7 @@ export default function InsertLME(props) {
                     </Card>
                 </Container>
                 <Container className="mt-2">
-                    {/* {JSON.stringify(lme)} */}
+                    {JSON.stringify(lme)}
                     {/* <Card body>
                         <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
                     </Card>

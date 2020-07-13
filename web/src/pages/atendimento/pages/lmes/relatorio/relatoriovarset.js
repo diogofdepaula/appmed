@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react'
-import { Container, Card, Button } from 'react-bootstrap'
+import { Container, Card } from 'react-bootstrap'
 import RelatorioSet1 from './components/relatorioset1'
 import RelatorioSet2 from './components/relatorioset2'
 import RelatorioSet3 from './components/relatorioset3'
@@ -8,8 +8,6 @@ import RelatorioSet5 from './components/relatorioset5'
 import RelatorioSet6 from './components/relatorioset6'
 
 export default function RelatorioVarSet(props) {
-
-    const [lme, setlme] = useState(props.lme)
 
     const relatorioinitial = {
         tempodoencaanos: '',
@@ -93,6 +91,9 @@ export default function RelatorioVarSet(props) {
         eva: '',
     }
 
+    const [lme, setlme] = useState(props.lme)
+    const [showStep, setStep] = useState(0);
+
     const lmerelatorio = useCallback(
         () => {
             setlme({
@@ -104,21 +105,17 @@ export default function RelatorioVarSet(props) {
     )
 
     useEffect(() => {
-        if (!lme.relatorio){
+        if (!lme.relatorio) {
             lmerelatorio()
             setStep(1)
         }
     }, [lme, lmerelatorio])
 
-
-
-    // useEffect(() => {
-    //     if (showStep === 7){
-    //         props.passNextStep(lme, 0)
-    //     }
-    // }, [input])
-
-    const [showStep, setStep] = useState(0);
+    const directpass = useCallback(
+        props.passNextStep(lme, 0)
+        ,
+        [props, lme],
+    )
 
     const handleNextStep = param => () => {
         setlme({
@@ -126,6 +123,9 @@ export default function RelatorioVarSet(props) {
             relatorio: param
         })
         setStep(showStep + 1)
+        if (showStep === 6) {
+            directpass()
+        }
     }
 
     const handlePreviousStep = () => {
@@ -146,14 +146,14 @@ export default function RelatorioVarSet(props) {
                         {showStep === 6 && <RelatorioSet6 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
                     </Card>
                 }
-                {showStep === 7 &&
+                {/* {showStep === 7 &&
                     <Button
                         className="ml-1"
                         variant="outline-success"
                         onClick={props.passNextStep(lme, 0)}
                     > Encerrar relatorio
                     </Button>
-                }
+                } */}
             </Container>
         </div >
     )
