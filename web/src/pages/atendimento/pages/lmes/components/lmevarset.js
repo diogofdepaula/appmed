@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Accordion, Button, Card, Container, Form } from 'react-bootstrap';
 
 export default function LMEVarSet(props) {
 
     const [lme, setlme] = useState(props.lme)
+    const [validacao, setValidacao] = useState(false)
 
     const handleChange = event => {
         const target = event.target;
@@ -11,6 +12,17 @@ export default function LMEVarSet(props) {
         const value = target.name === 'tratamentoprevio' ? target.checked : target.name === 'atestadocapacidade' ? target.checked : target.value;;
         setlme({ ...lme, [name]: value })
     }
+
+    const sendNextStep = useCallback(
+        props.passNextStep(lme, 41),
+        [lme, props]
+    )
+
+    useEffect(() => {
+        if (validacao) {
+            sendNextStep()
+        }
+    }, [validacao, sendNextStep])
 
     return (
         <div>
@@ -108,19 +120,16 @@ export default function LMEVarSet(props) {
                     </Accordion>
                 </Form>
             </Container>
-            {/* COLOCAR UM IF SE A MEDICAÇÃO FOR SE RELATÓRIO APARECER SOMENTE O BOTAO PREENCHER RELATÓRIO
-                    SE NÃO FOR COLOCAR SOMENTE O BOTÃO Encerrar
-                    VOU CONFIRGUAR O BOTÃO ENCERRAR POIS O RELATÓRIO AINDA NÃO FOI DEFINIDO */}
             <Container fluid className="mt-2">
                 <Button
                     variant="outline-primary"
-                    onClick={props.passlme(lme, false)}
+                    onClick={props.passNextStep(lme, 0)}
                 >Encerrar
                 </Button>
                 <Button
                     className="ml-2"
                     variant="outline-primary"
-                    onClick={props.passlme(lme, true)}
+                    onClick={() => setValidacao(true)}
                 >preencher Relatório
                 </Button>
             </Container>

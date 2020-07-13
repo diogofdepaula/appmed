@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ListGroup, Container, FormControl } from 'react-bootstrap';
 
 export default function CID10List(props) {
 
     const [cid10, setcid10] = useState([])
     const [cidsfiltrados, setcidsfiltrados] = useState([])
+    const [lme, setLME] = useState(props.lme)
+    const [validacao, setValidacao] = useState(false)
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch('http://localhost:4001/api.appmed/cid10')
+        const json = await res.json();
+        setcid10(json);
+    }, [])
 
     useEffect(() => {
-        fetch('http://localhost:4001/api.appmed/cid10')
-            .then(response => response.json())
-            .then(response => setcid10(response))
-            .catch(err => console.log(err))
-    }, [])
+        fetchData();
+    }, [fetchData])
 
     const filterCID10 = event => {
 
@@ -34,6 +39,27 @@ export default function CID10List(props) {
         }
     }
 
+    const handleChange = param => () => {
+        setLME({
+            ...lme,
+            cid10: param.cid10,
+            diagnostico: param.descricao,
+        })
+        setValidacao(true)
+    }
+
+    const sendNextStep = useCallback(
+        props.passNextStep(lme, 31),
+        [lme, props]
+    )
+
+    useEffect(() => {
+        if (validacao) {
+            sendNextStep()
+        }
+
+    }, [validacao, sendNextStep])
+
     return (
         <div>
             <h5>Escolha o CID</h5>
@@ -51,7 +77,7 @@ export default function CID10List(props) {
                     {cidsfiltrados.map(cid =>
                         <ListGroup.Item
                             key={cid.id}
-                            onClick={props.passcid(cid)}
+                            onClick={handleChange(cid)}
                         >{cid.cid10} - {cid.descricao}
                         </ListGroup.Item>
                     )}

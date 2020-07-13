@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Button, Card, Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
-import { Container, Card, Button } from 'react-bootstrap'
-import CID10List from '../../../../cadastro/cid10/components/cid10list'
+import CID10List from '../../../../cadastro/cid10/components/cid10list';
+import ClienteHeader from '../../../component/clienteheader';
+import LMEForkSet from '../components/lmeforkset';
 //import PrescricaoData from '../../prescricoes/components/prescricaodata'
-import LMEVarSet from '../components/lmevarset'
+import LMEVarSet from '../components/lmevarset';
 //import LMEData from '../components/lmedata';
 import RelatorioVarSet from '../relatorio/relatoriovarset';
-import LMEForkSet from '../components/lmeforkset'
 
 export default function InsertLME(props) {
 
     const cliente = props.location.state.cliente
     //const medicamento = props.location.state.medicamento
-   // const prescricao = props.location.state.prescricao // deixei assim se vir por Link 
+    // const prescricao = props.location.state.prescricao // deixei assim se vir por Link 
 
     const initialLME = {
         cid10: '',
@@ -31,42 +32,12 @@ export default function InsertLME(props) {
 
     const [lme, setLme] = useState(initialLME)
     const [redirect, setRedirect] = useState('')
-
-    const [showCID10Set, setShowCID10Set] = useState(false);
-    const [showLMEVarSet, setShowLMEVarSet] = useState(false);
-    const [showRelatorioVarSet, setShowRelatorioVarSet] = useState(false);
-
-
     // const [validacao, setValidacao] = useState(false)
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramLme, paramStep) => () => {
         setLme(paramLme)
         setStep(paramStep)
-    }
-
-    const changecid = param => () => {
-        setLme({
-            ...lme,
-            cid10: param.cid10,
-            diagnostico: param.descricao,
-        })
-        setShowCID10Set(false)
-        setShowLMEVarSet(true)
-    }
-
-    const changelme = (paramLME, paramRel) => () => {
-        setLme(paramLME)
-        setShowLMEVarSet(false)
-        setShowRelatorioVarSet(paramRel)
-    }
-
-    const changerelatorio = param => () => {
-        setLme({
-            ...lme,
-            relatorio: param
-        })
-        setShowRelatorioVarSet(false)
     }
 
     const handleSubmit = event => {
@@ -89,34 +60,34 @@ export default function InsertLME(props) {
         return <Redirect to={redirect} />
     } else {
         return (
-
             <div>
+                <ClienteHeader cliente={cliente} />
                 <Container fluid >
-                    {/* <Button 
+                    <Button
                         variant="outline-primary"
-                        onClick={() => {
-                            setPrescricao(initialPrescricao)
-                            setMedicamento(initialMedicamento)
-                            setValidacao(false)
-                            setShowMedicamentoSet(true)
-                        }}
-                    > Escolhe outro Medicamento </Button> */}
+                    // onClick={() => {
+                    //     setPrescricao(initialPrescricao)
+                    //     setMedicamento(initialMedicamento)
+                    //     setValidacao(false)
+                    //     setShowMedicamentoSet(true)
+                    // }}
+                    > Deixei aqui para manter a design </Button>
                     <Button
                         className="ml-2"
                         variant="outline-success"
                         onClick={handleSubmit}
                     > Submeter </Button>
                 </Container>
-                <Container>
+                <Container className="mt-2">
                     <Card body>
-                        {showStep === 11 && <LMEForkSet lme={lme} passNextStep={handleNextStep} /> }
-                        {/* FAZER OS NOVAS STEPS SEGUINDO O PADRÃO */}
-                        {showCID10Set && <CID10List passcid={changecid} />}
-                        {showLMEVarSet && <LMEVarSet lme={lme} passlme={changelme} />}
-                        {showRelatorioVarSet && <RelatorioVarSet cid10={lme.cid10} passrelatorio={changerelatorio} />}
+                        {showStep === 11 && <LMEForkSet lme={lme} passNextStep={handleNextStep} />}
+                        {showStep === 21 && <CID10List lme={lme} passNextStep={handleNextStep} />}
+                        {showStep === 31 && <LMEVarSet lme={lme} passNextStep={handleNextStep} />}
+                        {showStep === 41 && <RelatorioVarSet lme={lme} passNextStep={handleNextStep} />}
                     </Card>
                 </Container>
                 <Container className="mt-2">
+                    {JSON.stringify(lme)}
                     {/* <Card body>
                         <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
                     </Card>
@@ -124,6 +95,7 @@ export default function InsertLME(props) {
                         <LMEData lme={lme} />
                     </Card> */}
                 </Container>
+
             </div>
         )
     }

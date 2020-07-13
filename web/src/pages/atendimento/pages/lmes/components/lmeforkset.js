@@ -6,7 +6,7 @@ export default function LMEForkSet(props) {
 
     return (
         <div>
-            LMEfORKSET
+            <h5>Escolha a qual LME</h5>
             <Container className="mt-2" >
                 <ListGroup.Item
                  onClick={props.passNextStep(props.lme, 21)}
