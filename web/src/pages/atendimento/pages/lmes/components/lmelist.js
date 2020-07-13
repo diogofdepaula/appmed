@@ -3,15 +3,13 @@ import { ListGroup } from 'react-bootstrap';
 
 export default function LMEList(props) {
 
-    const cliente = props.cliente
     const [lmes, setlmes] = useState([])
-
     useEffect(() => {
-        fetch(`http://localhost:4001/api.appmed/lmes/${cliente.id}`)
+        fetch(`http://localhost:4001/api.appmed/lmes/${props.clienteId}`)
             .then(response => response.json())
             .then(response => setlmes(response))
             .catch(err => console.log(err))
-    }, [cliente])
+    }, [props])
 
     return (
         <div>

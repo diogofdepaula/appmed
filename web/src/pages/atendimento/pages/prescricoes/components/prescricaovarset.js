@@ -27,7 +27,6 @@ export default function PrescricaoVarSet(props) {
     return (
         <div>
             <h5>Defina as outras variáveis</h5>
-            {JSON.stringify(prescricao)}
             <Container>
                 <Form>
                     <Row>

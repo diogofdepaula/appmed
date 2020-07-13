@@ -17,6 +17,7 @@ sequelize
 (async () => {
     await sequelize
         .sync()
+       // .sync({alter: true})
         .then(() => {
             const MedicamentosData = require('./initialdata/MedicamentoData')
             const CID10 = require('./initialdata/CID10Data')

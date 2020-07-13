@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap'
 import CID10List from '../../../../cadastro/cid10/components/cid10list'
-import PrescricaoData from '../../prescricoes/components/prescricaodata'
+//import PrescricaoData from '../../prescricoes/components/prescricaodata'
 import LMEVarSet from '../components/lmevarset'
-import LMEData from '../components/lmedata';
+//import LMEData from '../components/lmedata';
 import RelatorioVarSet from '../relatorio/relatoriovarset';
+import LMEForkSet from '../components/lmeforkset'
 
 export default function InsertLME(props) {
 
     const cliente = props.location.state.cliente
-    const medicamento = props.location.state.medicamento
-    const prescricao = props.location.state.prescricao // deixei assim se vir por Link 
+    //const medicamento = props.location.state.medicamento
+   // const prescricao = props.location.state.prescricao // deixei assim se vir por Link 
 
     const initialLME = {
         cid10: '',
@@ -24,16 +25,25 @@ export default function InsertLME(props) {
         preenchidoporCPF: '',
         raca: '',
         clienteId: cliente.id,
-        prescricoes: prescricao,
-        relatorio: null, 
+        prescricoes: props.location.state.prescricao,
+        relatorio: null,
     }
 
     const [lme, setLme] = useState(initialLME)
     const [redirect, setRedirect] = useState('')
 
-    const [showCID10Set, setShowCID10Set] = useState(true);
+    const [showCID10Set, setShowCID10Set] = useState(false);
     const [showLMEVarSet, setShowLMEVarSet] = useState(false);
     const [showRelatorioVarSet, setShowRelatorioVarSet] = useState(false);
+
+
+    // const [validacao, setValidacao] = useState(false)
+    const [showStep, setStep] = useState(11);
+
+    const handleNextStep = (paramLme, paramStep) => () => {
+        setLme(paramLme)
+        setStep(paramStep)
+    }
 
     const changecid = param => () => {
         setLme({
@@ -97,22 +107,22 @@ export default function InsertLME(props) {
                         onClick={handleSubmit}
                     > Submeter </Button>
                 </Container>
-
-
                 <Container>
                     <Card body>
+                        {showStep === 11 && <LMEForkSet lme={lme} passNextStep={handleNextStep} /> }
+                        {/* FAZER OS NOVAS STEPS SEGUINDO O PADRÃO */}
                         {showCID10Set && <CID10List passcid={changecid} />}
                         {showLMEVarSet && <LMEVarSet lme={lme} passlme={changelme} />}
                         {showRelatorioVarSet && <RelatorioVarSet cid10={lme.cid10} passrelatorio={changerelatorio} />}
                     </Card>
                 </Container>
                 <Container className="mt-2">
-                    <Card body>
+                    {/* <Card body>
                         <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
                     </Card>
                     <Card body>
                         <LMEData lme={lme} />
-                    </Card>
+                    </Card> */}
                 </Container>
             </div>
         )

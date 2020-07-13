@@ -43,6 +43,15 @@ Prescricoes.init({
     lmemes3: {
         type: DataTypes.STRING,
     },
+    lmemes4: {
+        type: DataTypes.STRING,
+    },
+    lmemes5: {
+        type: DataTypes.STRING,
+    },
+    lmemes6: {
+        type: DataTypes.STRING,
+    },
     inicio: {
         type: DataTypes.DATEONLY
     },

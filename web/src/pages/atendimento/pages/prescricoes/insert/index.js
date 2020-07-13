@@ -7,8 +7,8 @@ import ApresentacaoSet from '../components/apresentacaoset'
 import PosologiaSet from '../components/posologiaset'
 import PosologiaNaoPadraoSet from '../components/posologianaopadraoset'
 import OutrasVariaveisSet from '../components/prescricaovarset'
-import PrescricaoData from '../components/prescricaodata'
-import LMEForkSet from '../components/lmeforkset'
+//import PrescricaoData from '../components/prescricaodata'
+import Lmedoses from '../components/lmedoses'
 
 export default function InsertPrescricoes(props) {
 
@@ -38,32 +38,36 @@ export default function InsertPrescricoes(props) {
 
     const [prescricao, setPrescricao] = useState(initialPrescricao)
 
-    const initialMedicamento = {
-        farmaco: '',
-        apresentacoes: [{
-            descricao: '',
-            uso: '',
-        }],
-        posologias: [{
-            posologia: '',
-            quantidade: '',
-            forma: ''
-        }]
-    }
+    // const initialMedicamento = {
+    //     farmaco: '',
+    //     apresentacoes: [{
+    //         descricao: '',
+    //         uso: '',
+    //     }],
+    //     posologias: [{
+    //         posologia: '',
+    //         quantidade: '',
+    //         forma: ''
+    //     }]
+    // }
 
-    const [medicamento, setMedicamento] = useState(initialMedicamento)
-    const [validacao, setValidacao] = useState(false)
+  //  const [medicamento, setMedicamento] = useState(initialMedicamento)
+   // const [validacao, setValidacao] = useState(false)
     const [redirect, setRedirect] = useState('')
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramPresc, paramStep) => () => {
         setPrescricao(paramPresc)
-        setStep(paramStep)
+        if (paramStep === 'lme') {
+            setRedirect({ pathname: `/lmes/${cliente.id}/insert`, state: { cliente, prescricao } })
+        } else {
+            setStep(paramStep)
+        }
     }
 
     const handleSubmit = event => {
 
-        if (validacao) {
+      //  if (validacao) {
             event.preventDefault();
             fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`, {
                 method: 'post',
@@ -75,9 +79,9 @@ export default function InsertPrescricoes(props) {
                         setRedirect({ pathname: `/prescricoes/${cliente.id}`, state: { cliente } })
                     }
                 })
-        } else {
-            console.log('Faltou alguma coisa na prescrição, prescreve novamente!')
-        }
+        // } else {
+        //     console.log('Faltou alguma coisa na prescrição, prescreve novamente!')
+        // }
     }
 
     if (redirect !== '') {
@@ -86,14 +90,13 @@ export default function InsertPrescricoes(props) {
         return (
             <div>
                 <ClienteHeader cliente={cliente} />
-                {JSON.stringify(prescricao)}
                 <Container fluid >
                     <Button
                         variant="outline-primary"
                         onClick={() => {
                             setPrescricao(initialPrescricao)
-                            setMedicamento(initialMedicamento)
-                            setValidacao(false)
+                           // setMedicamento(initialMedicamento)
+                           // setValidacao(false)
                             setStep(11)
                         }}
                     > Escolhe outro Medicamento </Button>
@@ -110,13 +113,13 @@ export default function InsertPrescricoes(props) {
                         {showStep === 31 && <PosologiaSet prescricao={prescricao} passNextStep={handleNextStep} />}
                         {showStep === 32 && <PosologiaNaoPadraoSet prescricao={prescricao} passNextStep={handleNextStep} />}
                         {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                        {showStep === 51 && <LMEForkSet cliente={cliente} prescricao={prescricao} medicamento={medicamento} redirect={setRedirect} />}
+                        {showStep === 51 && <Lmedoses prescricao={prescricao} passNextStep={handleNextStep} />}
                     </Card>
                 </Container>
                 <Container className="mt-2">
-                    <Card body>
+                    {/* <Card body>
                         <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
-                    </Card>
+                    </Card> */}
                 </Container>
             </div>
         )
