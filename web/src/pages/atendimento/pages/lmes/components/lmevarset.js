@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Accordion, Button, Card, Container, Form } from 'react-bootstrap';
 
 export default function LMEVarSet(props) {
@@ -19,10 +19,11 @@ export default function LMEVarSet(props) {
     )
 
     useEffect(() => {
-        if (validacao) {
+        if (validacao){
             sendNextStep()
         }
     }, [validacao, sendNextStep])
+
 
     return (
         <div>

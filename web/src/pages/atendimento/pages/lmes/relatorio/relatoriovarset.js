@@ -10,7 +10,10 @@ import RelatorioSet6 from './components/relatorioset6'
 export default function RelatorioVarSet(props) {
 
     const [lme, setlme] = useState(props.lme)
-    const [relatorio, setRelatorio] = useState({
+
+tem que colocar esse relatorio na lme 
+
+    const relatorioinitial = {
         tempodoencaanos: '',
         tempodoencameses: '',
         vhs: '',
@@ -90,12 +93,11 @@ export default function RelatorioVarSet(props) {
         asdas: '',
         mda: '',
         eva: '',
-    })
+    }
 
     const [showStep, setStep] = useState(1);
 
     const handleNextStep = param => () => {
-        setRelatorio(param)
         setlme({
             ...lme,
             relatorio: param
@@ -109,17 +111,16 @@ export default function RelatorioVarSet(props) {
 
     return (
         <div>
-
             <Container>
                 {showStep >= 1 && showStep <= 6 &&
                     <Card body>
                         <h5>Preencha o relatório de médico específico</h5>
-                        {showStep === 1 && <RelatorioSet1 relatorio={relatorio} passNext={handleNextStep} />}
-                        {showStep === 2 && <RelatorioSet2 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} cid10={props.lme.cid10} />}
-                        {showStep === 3 && <RelatorioSet3 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                        {showStep === 4 && <RelatorioSet4 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                        {showStep === 5 && <RelatorioSet5 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                        {showStep === 6 && <RelatorioSet6 relatorio={relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                        {showStep === 1 && <RelatorioSet1 relatorio={lme.relatorio} passNext={handleNextStep} />}
+                        {showStep === 2 && <RelatorioSet2 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} cid10={props.lme.cid10} />}
+                        {showStep === 3 && <RelatorioSet3 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                        {showStep === 4 && <RelatorioSet4 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                        {showStep === 5 && <RelatorioSet5 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                        {showStep === 6 && <RelatorioSet6 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
                     </Card>
                 }
                 {showStep === 7 &&

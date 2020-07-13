@@ -12,8 +12,6 @@ import RelatorioVarSet from '../relatorio/relatoriovarset';
 export default function InsertLME(props) {
 
     const cliente = props.location.state.cliente
-    //const medicamento = props.location.state.medicamento
-    // const prescricao = props.location.state.prescricao // deixei assim se vir por Link 
 
     const initialLME = {
         cid10: '',
