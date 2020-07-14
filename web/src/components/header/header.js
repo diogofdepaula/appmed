@@ -20,7 +20,7 @@ const Header = () => {
                         </NavDropdown>
                         <Nav.Item>
 
-                            <Nav.Link href="/atendimento/choose">Atendimento</Nav.Link>
+                            <Nav.Link href="/atendimento">Atendimento</Nav.Link>
                         </Nav.Item>
                         {/* <NavDropdown title="Atendimento">
                             <NavDropdown.Item href="/prescricoes">Prescrição</NavDropdown.Item>

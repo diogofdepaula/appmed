@@ -6,8 +6,8 @@ function Choose(props) {
 
     const [clientesinicial, setclientesinicial] = useState([])
     const [clientes, setclientes] = useState([])
-    const [redirect, setredirect] = useState(false)
-    const [cliente, setcliente] = useState()
+    const [redirect, ] = useState(false)
+    const [cliente, ] = useState()
 
     useEffect(() => {
         fetch('http://localhost:4001/api.appmed/clientes')
@@ -29,10 +29,21 @@ function Choose(props) {
         setclientes(filteredClientes)
     }
 
-    const rowClick = param => () => {
-        setcliente(param.cliente)
-        return setredirect(true)
-    }
+    // const rowClick = param => () => {
+    //     setcliente(param.cliente)
+    //     return setredirect(true)
+    // }
+
+    // const setpage = useCallback(
+    //     props.passNextStep(prescricao, 0),
+    //     [prescricao, props]
+    // )
+
+    // useEffect(() => {
+    //     if (validacao){
+    //         sendNextStep()
+    //     }
+    // }, [validacao, sendNextStep])
 
     if (redirect) {
         return <Redirect to={{ pathname: `/atendimento/main/${cliente.id}`, state: { cliente }}} />  // quando for um <Redirect tem que passar o props dentro do to=
@@ -64,7 +75,10 @@ function Choose(props) {
                             {clientes.map(cliente =>
                                 <tr
                                     key={cliente.id}
-                                    onClick={rowClick({ cliente })}
+                                    onClick={
+                                    //    rowClick({ cliente })
+                                        props.passCliente(cliente)
+                                    }
                                 >
                                     <td xs={1} md={1} sm={1} >{cliente.id}</td>
                                     <td >{cliente.nome}</td>

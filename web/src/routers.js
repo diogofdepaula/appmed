@@ -11,8 +11,7 @@ import DetailsMedicamentos from './pages/cadastro/medicamentos/details';
 import InsertMedicamentos from './pages/cadastro/medicamentos/insert';
 import UpdateMedicamentos from './pages/cadastro/medicamentos/update';
 
-import ChooseAtendimento from './pages/atendimento/choose';
-import MainAtendimento from './pages/atendimento/main';
+import Atendimento from './pages/atendimento'
 
 //import MainLMEs from './pages/atendimento/pages/lmes/main';
 import InsertLMEs from './pages/atendimento/pages/lmes/insert'
@@ -35,9 +34,7 @@ export default function Routes() {
                 <Route exact path="/medicamentos/:id" component={DetailsMedicamentos} />
                 <Route exact path="/updatemedicamento/:id" component={UpdateMedicamentos} />
 
-                <Route exact path="/atendimento/choose" component={ChooseAtendimento} />
-                {/* id nesse caso é do id do cliente escolhido para atendimento */}
-                <Route exact path="/atendimento/main/:id" component={MainAtendimento} /> 
+                <Route exact path="/atendimento" component={Atendimento} />
 
                 {/* id nesse caso é do id do cliente escolhido para atendimento */}
                 {/* <Route exact path="/lmes/:idcliente" component={MainLMEs} /> */}
