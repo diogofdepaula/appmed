@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Col, ListGroup, Row, Container } from 'react-bootstrap';
-import PrescricaoInfo from './prescricaoinfo';
+//import PrescricaoInfo from './prescricaoinfo';
+import PrescricaoData from './prescricaodata'
 
 export default function PrescricaoList(props) {
 
@@ -25,7 +26,7 @@ export default function PrescricaoList(props) {
                         </ListGroup>
                     </Col>
                     <Col sm={6}>
-                        <PrescricaoInfo prescricao={prescricao} />
+                        <PrescricaoData prescricao={prescricao} />
                     </Col>
                 </Row>
             </Container>

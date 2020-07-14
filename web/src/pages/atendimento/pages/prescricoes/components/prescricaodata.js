@@ -5,36 +5,43 @@ export default function PrescricaoData(props) {
 
     const prescricao = props.prescricao
 
-    const medicamento = props.medicamento
-
-    // tem que fazer esse if se não dá erro devido o undefined quando carrega
     if (!prescricao) {
         return <div></div>
     } else {
         return (
             <div>
-                <Container>
-                    <p>Resumo da prescrição</p>
-                    {prescricao.apresentacoId && 
-                        <h5>{medicamento.farmaco} ({medicamento.apresentacoes.filter(y => y.id === prescricao.apresentacoId).map(w => w.descricao)})</h5>
+                <Container className="mt-2" >
+                    <h5>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</h5>
+                    {prescricao.continuo
+                        ? <p>Contínuo: sim</p>
+                        : <p>Contínuo: não</p>
                     }
-                    {prescricao.usoposologiapadrao
-                        ?
-                        <h6>{medicamento.posologias && medicamento.posologias.filter(x => x.id === prescricao.posologiaId).map(y => y.posologia)}</h6>
+                    {prescricao.usoposologiapadrao ?
+                        <div>
+                            Posologia:
+                        <p>{prescricao.posologia.posologia}</p>
+                            <p>{prescricao.posologia.quantidade} {prescricao.posologia.forma}</p>
+                        </div>
                         :
-                        <>
-                            <h6>Posologia Não Padrão: {prescricao.posologianaopadrao}</h6>
-                            <h6>Quantidade Não Padrão: {prescricao.quantidadenaopadrao}  {prescricao.formanaopadrao}</h6>
-                        </>
+                        <div>
+                            Posologia:
+                        <p>{prescricao.posologianaopadrao}</p>
+                            <p>{prescricao.quantidadenaopadrao} {prescricao.formanaopadrao}</p>
+                        </div>
                     }
-                    {prescricao.continuo && <p>uso contínuo</p>}
-                    {prescricao.imprimirorientacoes &&
-                        <>
-                            <p>Imprimirá a seguintes orientações</p>
-                            <p>{prescricao.orientacoes}</p>
-                        </>
+                    {prescricao.imprimirorientacoes
+                        ? <p>Imprimir orientações: sim</p>
+                        : <p>Imprimir orientações: não</p>
                     }
-                    {prescricao.inicio && <p>Início: {prescricao.inicio}</p>}
+                    <p>Orientações: {prescricao.orientacoes}</p>
+                    <p>LME: {prescricao.lmemes1} | {prescricao.lmemes2} | {prescricao.lmemes3}</p>
+                    <p>Início: {prescricao.inicio}</p>
+                    {prescricao.termino &&
+                        <div>
+                            <p>Termino: {prescricao.termino} </p>
+                            <p>Motivo do termimo: {prescricao.motivotermico}</p>
+                        </div>
+                    }
                 </Container>
             </div>
         )
