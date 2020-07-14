@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { Button, Card, Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
-import { Button, Container, Card, } from 'react-bootstrap'
-import ClienteHeader from '../../../component/clienteheader'
-import MedicamentoSet from '../components/medicamentoset'
-import ApresentacaoSet from '../components/apresentacaoset'
-import PosologiaSet from '../components/posologiaset'
-import PosologiaNaoPadraoSet from '../components/posologianaopadraoset'
-import OutrasVariaveisSet from '../components/prescricaovarset'
+import ClienteHeader from '../../../component/clienteheader';
+import ApresentacaoSet from '../components/apresentacaoset';
 //import PrescricaoData from '../components/prescricaodata'
-import Lmedoses from '../components/lmedoses'
+import Lmedoses from '../components/lmedoses';
+import MedicamentoSet from '../components/medicamentoset';
+import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
+import PosologiaSet from '../components/posologiaset';
+import OutrasVariaveisSet from '../components/prescricaovarset';
 
 export default function InsertPrescricoes(props) {
 
@@ -37,48 +37,34 @@ export default function InsertPrescricoes(props) {
     }
 
     const [prescricao, setPrescricao] = useState(initialPrescricao)
-
-    // const initialMedicamento = {
-    //     farmaco: '',
-    //     apresentacoes: [{
-    //         descricao: '',
-    //         uso: '',
-    //     }],
-    //     posologias: [{
-    //         posologia: '',
-    //         quantidade: '',
-    //         forma: ''
-    //     }]
-    // }
-
-  //  const [medicamento, setMedicamento] = useState(initialMedicamento)
-   // const [validacao, setValidacao] = useState(false)
     const [redirect, setRedirect] = useState('')
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramPresc, paramStep) => () => {
         setPrescricao(paramPresc)
-        if (paramStep === 'lme') {
-            setRedirect({ pathname: `/lmes/${cliente.id}/insert`, state: { cliente, prescricao } })
-        } else {
-            setStep(paramStep)
-        }
+        setStep(paramStep)
     }
+
+    useEffect(() => {
+        if (showStep === 'lme'){
+            setRedirect({ pathname: `/lmes/${cliente.id}/insert`, state: { cliente, prescricao } })
+        }
+    }, [cliente, prescricao, showStep])
 
     const handleSubmit = event => {
 
-      //  if (validacao) {
-            event.preventDefault();
-            fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`, {
-                method: 'post',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(prescricao)
+        //  if (validacao) {
+        event.preventDefault();
+        fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(prescricao)
+        })
+            .then(data => {
+                if (data.ok) {
+                    setRedirect({ pathname: `/prescricoes/${cliente.id}`, state: { cliente } })
+                }
             })
-                .then(data => {
-                    if (data.ok) {
-                        setRedirect({ pathname: `/prescricoes/${cliente.id}`, state: { cliente } })
-                    }
-                })
         // } else {
         //     console.log('Faltou alguma coisa na prescrição, prescreve novamente!')
         // }
@@ -95,8 +81,8 @@ export default function InsertPrescricoes(props) {
                         variant="outline-primary"
                         onClick={() => {
                             setPrescricao(initialPrescricao)
-                           // setMedicamento(initialMedicamento)
-                           // setValidacao(false)
+                            // setMedicamento(initialMedicamento)
+                            // setValidacao(false)
                             setStep(11)
                         }}
                     > Escolhe outro Medicamento </Button>
@@ -121,7 +107,6 @@ export default function InsertPrescricoes(props) {
                         <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
                     </Card> */}
                 </Container>
-                InsertPrescricoes: {JSON.stringify(prescricao)}
             </div>
         )
     }

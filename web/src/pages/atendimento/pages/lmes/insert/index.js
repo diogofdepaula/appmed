@@ -39,7 +39,7 @@ export default function InsertLME(props) {
     }
 
     const handleSubmit = event => {
-
+ 
         event.preventDefault();
 
         fetch(`http://localhost:4001/api.appmed/lmes/${cliente.id}`, {
@@ -85,7 +85,7 @@ export default function InsertLME(props) {
                     </Card>
                 </Container>
                 <Container className="mt-2">
-                    {JSON.stringify(lme)}
+                InsertLME: {JSON.stringify(lme)}
                     {/* <Card body>
                         <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
                     </Card>

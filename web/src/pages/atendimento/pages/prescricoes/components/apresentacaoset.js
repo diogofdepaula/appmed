@@ -31,7 +31,6 @@ export default function ApresentacaoSet(props) {
         if (validacao){
             sendNextStep()
         }
- 
     }, [validacao, sendNextStep])
  
     return (

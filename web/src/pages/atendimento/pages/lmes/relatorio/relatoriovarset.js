@@ -123,10 +123,13 @@ export default function RelatorioVarSet(props) {
             relatorio: param
         })
         setStep(showStep + 1)
-        if (showStep === 6) {
+    }
+
+    useEffect(() => {
+        if (showStep === 7){
             directpass()
         }
-    }
+    }, [directpass, showStep])
 
     const handlePreviousStep = () => {
         setStep(showStep - 1)

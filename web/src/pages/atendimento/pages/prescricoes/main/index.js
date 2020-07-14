@@ -56,7 +56,6 @@ export default function Main(props) {
             <Container>
                 <PrescricaoList prescricoes={prescricoes} />
             </Container>
-            Main Prescricao: {JSON.stringify(prescricoes)}
         </div>
     )
 }
