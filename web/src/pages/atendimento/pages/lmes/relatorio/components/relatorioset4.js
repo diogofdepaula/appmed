@@ -8,11 +8,8 @@ export default function RelatorioSet3(props) {
 
     const handleChange = event => {
         if (event.type === 'checkbox') {
-
-            console.log('tem que ver se isso está certo pos eçe ,amda p type como change')
             setRelatorio({ ...relatorio, [event.target.name]: event.target.checked })
         } else {
-            console.log('tem que ver se isso está certo')
             setRelatorio({ ...relatorio, [event.target.name]: event.target.value })
         }
     }

@@ -3,19 +3,19 @@ import { Container } from 'react-bootstrap';
 
 export default function PrescricaoData(props) {
 
-    const prescricao = props.prescricao
+    const prescricao = props.prescricao;
 
     if (!prescricao) {
-        return <div></div>
-    } else {
+        return <div></div>;
+    }
+    else {
         return (
             <div>
-                <Container className="mt-2" >
+                <Container className="mt-2">
                     <h5>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</h5>
                     {prescricao.continuo
                         ? <p>Contínuo: sim</p>
-                        : <p>Contínuo: não</p>
-                    }
+                        : <p>Contínuo: não</p>}
                     {prescricao.usoposologiapadrao ?
                         <div>
                             Posologia:
@@ -27,12 +27,10 @@ export default function PrescricaoData(props) {
                             Posologia:
                         <p>{prescricao.posologianaopadrao}</p>
                             <p>{prescricao.quantidadenaopadrao} {prescricao.formanaopadrao}</p>
-                        </div>
-                    }
+                        </div>}
                     {prescricao.imprimirorientacoes
                         ? <p>Imprimir orientações: sim</p>
-                        : <p>Imprimir orientações: não</p>
-                    }
+                        : <p>Imprimir orientações: não</p>}
                     <p>Orientações: {prescricao.orientacoes}</p>
                     <p>LME: {prescricao.lmemes1} | {prescricao.lmemes2} | {prescricao.lmemes3}</p>
                     <p>Início: {prescricao.inicio}</p>
@@ -40,10 +38,9 @@ export default function PrescricaoData(props) {
                         <div>
                             <p>Termino: {prescricao.termino} </p>
                             <p>Motivo do termimo: {prescricao.motivotermico}</p>
-                        </div>
-                    }
+                        </div>}
                 </Container>
             </div>
-        )
+        );
     }
 }

@@ -3,7 +3,7 @@ import { Button, Card, Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import ClienteHeader from '../../../component/clienteheader';
 import ApresentacaoSet from '../components/apresentacaoset';
-//import PrescricaoData from '../components/prescricaodata'
+//import PrescricaoData from "../components/prescricaodata";
 import Lmedoses from '../components/lmedoses';
 import MedicamentoSet from '../components/medicamentoset';
 import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
@@ -104,7 +104,7 @@ export default function InsertPrescricoes(props) {
                 </Container>
                 <Container className="mt-2">
                     {/* <Card body>
-                        <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
+                        <PrescricaoData prescricao={prescricao} />
                     </Card> */}
                 </Container>
             </div>

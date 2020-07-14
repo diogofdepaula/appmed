@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Col, ListGroup, Row, Container } from 'react-bootstrap';
-//import PrescricaoInfo from './prescricaoinfo';
 import PrescricaoData from './prescricaodata'
 
 export default function PrescricaoList(props) {
