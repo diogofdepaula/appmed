@@ -42,7 +42,7 @@ export default function ApresentacaoSet(props) {
                     {medicamentocominclude && medicamentocominclude.apresentacoes && medicamentocominclude.apresentacoes.map(apresentacao =>
                         <ListGroup.Item
                             key={apresentacao.id}
-                            onClick={handleChange(medicamentocominclude)}
+                            onClick={handleChange(apresentacao)}
                         >{apresentacao.descricao}
                         </ListGroup.Item>
                     )}

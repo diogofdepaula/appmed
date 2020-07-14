@@ -33,6 +33,7 @@ export default function LMEDoses(props) {
     return (
         <div>
             <h5>Doses referente a cada mês</h5>
+            LMEDoses: {JSON.stringify(prescricao)}
             <Container>
                 <Row>
                     {indices && indices.map((w) =>

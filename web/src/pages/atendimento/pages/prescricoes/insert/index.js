@@ -121,6 +121,7 @@ export default function InsertPrescricoes(props) {
                         <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
                     </Card> */}
                 </Container>
+                InsertPrescricoes: {JSON.stringify(prescricao)}
             </div>
         )
     }

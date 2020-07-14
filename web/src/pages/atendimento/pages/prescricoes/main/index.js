@@ -56,43 +56,7 @@ export default function Main(props) {
             <Container>
                 <PrescricaoList prescricoes={prescricoes} />
             </Container>
+            Main Prescricao: {JSON.stringify(prescricoes)}
         </div>
     )
 }
-
-
-    // const [prescricoes, setprescricoes] = useState([{
-    //     id: '',
-    //     continuo: '',
-    //     imprimirorientacoes: '',
-    //     emuso: '',
-    //     usoposologiapadrao: '',
-    //     orientacoes: '',
-    //     posologianaopadrao: '',
-    //     quantidadenaopadrao: '',
-    //     formanaopadrao: '',
-    //     lmemes1: '',
-    //     lmemes2: '',
-    //     lmemes3: '',
-    //     inicio: '',
-    //     termino: '',
-    //     motivotermico: '',
-    //     clienteId: '',
-    //     lmeId: '',
-    //     medicamentoId: '',
-    //     apresentacoId: '',
-    //     posologiaId: '',
-    //     medicamento: {
-    //         farmaco: '',
-    //         orientacoes: '',
-    //     },
-    //     apresentaco: { // tem que ficar como apresentaco mesmo porque o sequelize nomeia assim
-    //         descricao: '',
-    //         uso: '',
-    //     },
-    //     posologia: {
-    //         posologia: '',
-    //         quantidade: '',
-    //         forma: ''
-    //     }
-    // }])
