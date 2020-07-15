@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 import { ClienteContext, PageContext } from '../..';
 import ApresentacaoSet from '../components/apresentacaoset';
 //import PrescricaoData from "../components/prescricaodata";
@@ -10,7 +10,7 @@ import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
 import OutrasVariaveisSet from '../components/prescricaovarset';
 
-export default function PrescricaoInsert() {
+export default function PrescricaoInsert(props) {
 
     const cliente = useContext(ClienteContext)
     const page = useContext(PageContext)
@@ -27,6 +27,9 @@ export default function PrescricaoInsert() {
         lmemes1: '',
         lmemes2: '',
         lmemes3: '',
+        lmemes4: '',
+        lmemes5: '',
+        lmemes6: '',
         inicio: new Date().toISOString().slice(0, 10), //"yyyy-MM-dd"
         termino: null,
         motivotermico: '',
@@ -38,7 +41,7 @@ export default function PrescricaoInsert() {
     }
 
     const [prescricao, setPrescricao] = useState(initialPrescricao)
-    const [redirect, setRedirect] = useState('')
+    //const [redirect, setRedirect] = useState('')
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramPresc, paramStep) => () => {
@@ -48,11 +51,12 @@ export default function PrescricaoInsert() {
 
     useEffect(() => {
         if (showStep === 'lme') {
-             // não sei se não vai ter que dar um useCalback
-            page('main1')
+            // não sei se não vai ter que dar um useCalback
+            props.passPrescricao(prescricao)
+            page('lmeinsert')
             //setRedirect({ pathname: `/lmes/${cliente.id}/insert`, state: { cliente, prescricao } })
         }
-    }, [cliente, prescricao, showStep, page])
+    }, [showStep, props, prescricao, page])
 
     const handleSubmit = event => {
 

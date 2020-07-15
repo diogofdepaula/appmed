@@ -12,7 +12,7 @@ export const PageContext = createContext('main')
 export default function AtendimentoMain(props) {
 
     const [page, setPage] = useState()
- //   const [buttons, setButtons] = useState(true)
+    const [prescricao, setPrescricao] = useState()
 
     const indices = [
         ['prescricoes', 'Prescrições'],
@@ -45,8 +45,8 @@ export default function AtendimentoMain(props) {
                 <PageContext.Provider value={setPage}>
                     <Container>
                         {page === 'prescricoes' && <PrescricaoMain passPage={setPage} />}
-                        {page === 'prescricaoinsert' && <PrescricaoInsert />}
-                        {page === 'lmeinsert' && <LMEInsert />}
+                        {page === 'prescricaoinsert' && <PrescricaoInsert passPrescricao={setPrescricao} />}
+                        {page === 'lmeinsert' && <LMEInsert prescricao={prescricao} />}
                     </Container>
                 </PageContext.Provider>
             </ClienteContext.Provider>
