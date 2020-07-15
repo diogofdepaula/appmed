@@ -1,96 +1,77 @@
-import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom';
-import { Table, Container, Form, FormControl } from 'react-bootstrap';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Container, FormControl, ListGroup } from 'react-bootstrap';
 
-function Choose(props) {
+export default function ClienteSet(props) {
 
-    const [clientesinicial, setclientesinicial] = useState([])
-    const [clientes, setclientes] = useState([])
-    const [redirect, ] = useState(false)
-    const [cliente, ] = useState()
+    const [cliente, setCliente] = useState()
+    const [clientes, setClientes] = useState([])
+    // tem que ter o clientesfiltrados porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
+    // fica com um clientesinitial
+    const [clientesfiltrados, setClientesFiltrados] = useState([])
+    const [validacao, setValidacao] = useState(false)
 
-    useEffect(() => {
-        fetch('http://localhost:4001/api.appmed/clientes')
-            .then(response => response.json())
-            .then(response => {
-                setclientes(response)
-                setclientesinicial(response)
-            })
-            .catch(err => console.log(err))
+    const fetchData = useCallback(async () => {
+        const res = await fetch('http://localhost:4001/api.appmed/clientes')
+        const json = await res.json()
+        setClientes(json)
+        setClientesFiltrados(json)
     }, [])
 
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
+
     const filterClientes = event => {
-        
-        let filteredClientes = clientesinicial.filter(w =>
-            w.nome.toLowerCase().indexOf(event.target.value) !== -1 ||
-            w.nascimento.toLowerCase().indexOf(event.target.value) !== -1 ||
-            w.cpf.toLowerCase().indexOf(event.target.value) !== -1
+
+        let filtro = [...clientes].filter(w =>
+            w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
+            w.nascimento.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
         )
-        setclientes(filteredClientes)
+        if (filtro.length === 0) {
+            filtro.push({
+                id: 0,
+                nome: "nenhum cliente encontrado"
+            })
+        }
+        setClientesFiltrados(filtro)
     }
 
-    // const rowClick = param => () => {
-    //     setcliente(param.cliente)
-    //     return setredirect(true)
-    // }
+    const sendNextStep = useCallback(
+        props.pass(cliente, 2),
+        [cliente, props]
+    )
 
-    // const setpage = useCallback(
-    //     props.passNextStep(prescricao, 0),
-    //     [prescricao, props]
-    // )
+    useEffect(() => {
+        if (validacao) {
+            sendNextStep()
+        }
+    }, [validacao, sendNextStep])
 
-    // useEffect(() => {
-    //     if (validacao){
-    //         sendNextStep()
-    //     }
-    // }, [validacao, sendNextStep])
-
-    if (redirect) {
-        return <Redirect to={{ pathname: `/atendimento/main/${cliente.id}`, state: { cliente }}} />  // quando for um <Redirect tem que passar o props dentro do to=
-    } else {
-        return (
-            <div>
-                <Container>
-                    <Form xs={2} md={4} lg={6} className="mt-2 mb-2" >
-                        <FormControl
-                            type="text"
-                            placeholder="Filtrar por nome do cliente, data de nascimento ou CPF"
-                            className="mr-1"
-                            onChange={filterClientes}
-                        />
-                    </Form>
-
-                </Container>
-
-                <Container>
-                    <Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>DN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {clientes.map(cliente =>
-                                <tr
-                                    key={cliente.id}
-                                    onClick={
-                                    //    rowClick({ cliente })
-                                        props.passCliente(cliente)
-                                    }
-                                >
-                                    <td xs={1} md={1} sm={1} >{cliente.id}</td>
-                                    <td >{cliente.nome}</td>
-                                    <td>{cliente.nascimento}</td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </Table>
-                </Container>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <Container>
+                <FormControl
+                    autoFocus
+                    type="text"
+                    placeholder="Filtrar por nome do cliente, data de nascimento ou CPF"
+                    className="mt-2 mb-2"
+                    onChange={filterClientes}
+                />
+            </Container>
+            <Container className="mt-2" >
+                <ListGroup className="mt-2">
+                    {clientesfiltrados.map((cliente, index) =>
+                        <ListGroup.Item
+                            key={index}
+                            onClick={() => {
+                                setCliente(cliente)
+                                setValidacao(true)
+                            }}
+                        >{cliente.nome}     - {cliente.nascimento}
+                        </ListGroup.Item>
+                    )}
+                </ListGroup>
+            </Container>
+        </div>
+    )
 }
-
-export default Choose;

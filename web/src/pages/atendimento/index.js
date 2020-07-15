@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ClienteSet from './component/clienteset';
 import Main from './pages';
 
@@ -7,24 +7,15 @@ export default function Atendimento() {
     const [page, setPage] = useState(1)
     const [cliente, setCliente] = useState()
 
-    const pageset = useCallback(
-        () => {
-            setPage(2)
-        }, []
-    )
-
-    useEffect(() => {
-        pageset()
-    }, [cliente, pageset])
-
-    console.log('page ', page )
+    const changePage = (paramCli, paramPg) => () => {
+        setCliente(paramCli)
+        setPage(paramPg)
+    }
 
     return (
         <div>
-            {page === 1 && <ClienteSet passCliente={setCliente} />}
+            {page === 1 && <ClienteSet pass={changePage} />}
             {page === 2 && <Main cliente={cliente} />}
         </div>
     )
 }
-
-//https://pt-br.reactjs.org/docs/context.html
