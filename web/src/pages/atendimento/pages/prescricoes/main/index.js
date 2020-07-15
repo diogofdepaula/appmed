@@ -4,7 +4,7 @@ import { Button, Container } from 'react-bootstrap';
 import { ClienteContext } from '../..';
 import PrescricaoList from '../components/prescricaolist';
 
-export default function Main() {
+export default function Main(props) {
 
     const cliente = useContext(ClienteContext)
     const [prescricoes, setPrescricoes] = useState([])
@@ -19,11 +19,8 @@ export default function Main() {
         fetchData();
     }, [fetchData])
 
-    const [page, setPage] = useState(1)
-    const [buttons, setButtons] = useState(true)
-
     const indices = [
-        ['nova', 'Nova Prescrição'],
+        ['prescricaoinsert', 'Nova Prescrição'],
         ['editar', 'Editar Prescricao'],
         ['xxxxxxxxxxx', 'XXXXXX'],
         ['yyyyyyy', 'YYYYYYY'],
@@ -32,22 +29,19 @@ export default function Main() {
 
     return (
         <div>
-            {buttons &&
-                < Container fluid className="mt-2">
-                    {indices.map(x =>
-                        <Button
-                            key={x[0]}
-                            variant="outline-primary"
-                            className="ml-2"
-                            onClick={() => {
-                                setPage(x[0])
-                                setButtons(false)
-                            }}
-                        >{x[1]}
-                        </Button>
-                    )}
-                </Container>
-            }
+            <Container fluid className="mt-2">
+                {indices.map(x =>
+                    <Button
+                        key={x[0]}
+                        variant="outline-primary"
+                        className="ml-2"
+                        onClick={() => {
+                            props.passPage(x[0])
+                        }}
+                    >{x[1]}
+                    </Button>
+                )}
+            </Container>
             <Container>
                 <PrescricaoList prescricoes={prescricoes} />
             </Container>
