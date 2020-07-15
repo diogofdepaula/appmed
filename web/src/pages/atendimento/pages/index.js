@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import ClienteHeader from '../component/clienteheader'
-import PrescricaoMain from './prescricoes/main'
 import PrescricaoInsert from './prescricoes/insert'
+import PrescricaoMain from './prescricoes/main'
 
 export const ClienteContext = createContext(null)
 
@@ -23,13 +23,13 @@ export default function Main(props) {
         <div>
             <ClienteContext.Provider value={props.cliente}>
                 <ClienteHeader />
-                <p>
+                {/* <p>
                     EU QUERIA DEIXAR UNS BOTÕES BEM GRANDÕES PARECENDO CARDS
                     FAZER ISSO DEPOIS PARA DIFERENCIAR E FACILITAR O CLICK
-                </p>
+                </p> */}
                 {buttons &&
-                    < Container fluid className="mt-2">
-                        {indices.map(x => 
+                    <Container fluid className="mt-2">
+                        {indices.map(x =>
                             <Button
                                 key={x[0]}
                                 variant="outline-primary"
@@ -44,7 +44,7 @@ export default function Main(props) {
                     </Container>
                 }
                 <Container>
-                    {page === 'prescricoes' && <PrescricaoMain />}
+                    {page === 'prescricoes' && <PrescricaoMain passPage={setPage} />}
                     {page === 'nova' && <PrescricaoInsert />}
                 </Container>
             </ClienteContext.Provider>

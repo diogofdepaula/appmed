@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
-import ClienteHeader from '../../../component/clienteheader';
+import { ClienteContext } from '../..';
 import ApresentacaoSet from '../components/apresentacaoset';
 //import PrescricaoData from "../components/prescricaodata";
 import Lmedoses from '../components/lmedoses';
@@ -10,9 +10,9 @@ import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
 import OutrasVariaveisSet from '../components/prescricaovarset';
 
-export default function PrescricaoInsert(props) {
+export default function PrescricaoInsert() {
 
-    const [cliente] = useState(props.location.state.cliente)
+    const cliente = useContext(ClienteContext)
 
     const initialPrescricao = {
         continuo: true,
@@ -75,8 +75,7 @@ export default function PrescricaoInsert(props) {
     } else {
         return (
             <div>
-                <ClienteHeader cliente={cliente} />
-                <Container fluid >
+                <Container fluid className='mt-2'>
                     <Button
                         variant="outline-primary"
                         onClick={() => {
