@@ -1,10 +1,10 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { ClienteContext } from '../..';
 import PrescricaoList from '../components/prescricaolist';
 
-export default function Main(props) {
+export default function Main() {
 
     const cliente = useContext(ClienteContext)
     const [prescricoes, setPrescricoes] = useState([])
@@ -19,31 +19,35 @@ export default function Main(props) {
         fetchData();
     }, [fetchData])
 
+    const [page, setPage] = useState(1)
+    const [buttons, setButtons] = useState(true)
+
+    const indices = [
+        ['nova', 'Nova Prescrição'],
+        ['editar', 'Editar Prescricao'],
+        ['xxxxxxxxxxx', 'XXXXXX'],
+        ['yyyyyyy', 'YYYYYYY'],
+        ['zzzzzzzzzz', 'ZZZZZZ'],
+    ]
+
     return (
         <div>
-            {/* NAVBAR DA PRESCRICAO */}
-            <Container fluid className="mt-2">
-                <Link to={{ pathname: `/prescricoes/${cliente.id}/insert`, state: { cliente } }}>
-                    <Button variant="outline-primary" className="ml-2">Nova Prescrição</Button>
-                </Link>
-                <Button
-                    variant="outline-primary"
-                    className="ml-2"
-                // onClick={handleButtonEdicaoPrescricao}
-                >Editar Prescricao
-                </Button>
-                <Button variant="outline-primary" className="ml-2">
-                    XXXXXXX
-                </Button>
-                <Button variant="outline-primary" className="ml-2">
-                    XXXXXXX
-                </Button>
-                <Button variant="outline-primary" className="ml-2">
-                    XXXXXXX
-                </Button>
-            </Container>
-
-            {/* CONTEUDO */}
+            {buttons &&
+                < Container fluid className="mt-2">
+                    {indices.map(x =>
+                        <Button
+                            key={x[0]}
+                            variant="outline-primary"
+                            className="ml-2"
+                            onClick={() => {
+                                setPage(x[0])
+                                setButtons(false)
+                            }}
+                        >{x[1]}
+                        </Button>
+                    )}
+                </Container>
+            }
             <Container>
                 <PrescricaoList prescricoes={prescricoes} />
             </Container>

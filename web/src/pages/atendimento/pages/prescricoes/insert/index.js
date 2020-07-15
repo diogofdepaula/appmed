@@ -10,7 +10,7 @@ import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
 import OutrasVariaveisSet from '../components/prescricaovarset';
 
-export default function InsertPrescricoes(props) {
+export default function PrescricaoInsert(props) {
 
     const [cliente] = useState(props.location.state.cliente)
 
