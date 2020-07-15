@@ -1,39 +1,41 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
+import { Button, Container } from 'react-bootstrap'
 import ClienteHeader from '../component/clienteheader'
-import { Link } from 'react-router-dom'
-import { Container, Button } from 'react-bootstrap';
+import PrescricaoMain from './prescricoes/main'
 
 export const ClienteContext = createContext(null)
 
 export default function Main(props) {
 
-    const cliente = props.cliente
+    const [page, setPage] = useState(1)
+    const [buttons, setButtons] = useState(true)
 
     return (
         <div>
             <ClienteContext.Provider value={props.cliente}>
                 <ClienteHeader />
-
                 <p>
                     EU QUERIA DEIXAR UNS BOTÕES BEM GRANDÕES PARECENDO CARDS
                     FAZER ISSO DEPOIS PARA DIFERENCIAR E FACILITAR O CLICK
-            </p>
-                <Container fluid className="mt-2">
-                    <Link to={{ pathname: `/prescricoes/${cliente.id}`, state: { cliente } }} >
-                        <Button variant="outline-primary" className="ml-2">Prescrições</Button>
-                    </Link>
-                    <Link to={{ pathname: `/lmes/${cliente.id}`, state: { cliente } }}>
+                </p>
+                {buttons &&
+                    <Container fluid className="mt-2">
+                        <Button
+                            variant="outline-primary"
+                            className="ml-2"
+                            onClick={() => {
+                                setPage('prescricao')
+                                setButtons(false)
+                            }}
+                        >Prescrições</Button>
                         <Button variant="outline-primary" className="ml-2">LME</Button>
-                    </Link>
-                    <Link to="/##">
                         <Button variant="outline-primary" className="ml-2">Solicitações</Button>
-                    </Link>
-                    <Link to="/###">
                         <Button variant="outline-primary" className="ml-2">Atestados</Button>
-                    </Link>
-                    <Link to="/###">
                         <Button variant="outline-primary" className="ml-2">Termos de consentimento</Button>
-                    </Link>
+                    </Container>
+                }
+                <Container>
+                    {page === 'prescricao' && <PrescricaoMain />}
                 </Container>
             </ClienteContext.Provider>
         </div>

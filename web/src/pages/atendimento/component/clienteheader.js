@@ -1,5 +1,5 @@
-import React, {useContext} from 'react'
-import { Col, Row, Container } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Card, Col, Row } from 'react-bootstrap';
 import { ClienteContext } from '../pages';
 
 export default function ClienteHeader() {
@@ -8,16 +8,16 @@ export default function ClienteHeader() {
 
     return (
         <div>
-            <Container>
-                <Row className="align-middle">
+            <Card className="mt-2">
+                <Row className="justify-content-md-center">
                     <Col sm={7}>
                         <h2>{cliente.nome}</h2>
                     </Col>
                     <Col sm={3}>
-                        <h4>{cliente.nascimento}({cliente.id})</h4>
+                        <h4>{cliente.nascimento} ({cliente.id})</h4>
                     </Col>
                 </Row>
-            </Container>
+            </Card>
         </div>
     )
 }
