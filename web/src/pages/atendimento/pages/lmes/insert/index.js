@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
+import { ClienteContext, PageContext } from '../..';
 import CID10List from '../../../../cadastro/cid10/components/cid10list';
 import ClienteHeader from '../../../component/clienteheader';
 import LMEForkSet from '../components/lmeforkset';
@@ -11,7 +12,8 @@ import RelatorioVarSet from '../relatorio/relatoriovarset';
 
 export default function InsertLME(props) {
 
-    const cliente = props.location.state.cliente
+    const cliente = useContext(ClienteContext)
+    const page = useContext(PageContext)
 
     const initialLME = {
         cid10: '',

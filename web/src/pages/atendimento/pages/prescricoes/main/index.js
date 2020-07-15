@@ -20,7 +20,7 @@ export default function Main(props) {
     }, [fetchData])
 
     const indices = [
-        ['nova', 'Nova Prescrição'],
+        ['prescricaoinsert', 'Nova Prescrição'],
         ['editar', 'Editar Prescricao'],
         ['xxxxxxxxxxx', 'XXXXXX'],
         ['yyyyyyy', 'YYYYYYY'],
@@ -29,7 +29,7 @@ export default function Main(props) {
 
     return (
         <div>
-            < Container fluid className="mt-2">
+            <Container fluid className="mt-2">
                 {indices.map(x =>
                     <Button
                         key={x[0]}
