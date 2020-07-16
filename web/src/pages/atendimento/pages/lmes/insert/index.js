@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 import CID10List from '../../../../cadastro/cid10/components/cid10list';
-import ClienteHeader from '../../../component/clienteheader';
 import LMEForkSet from '../components/lmeforkset';
 import LMEVarSet from '../components/lmevarset';
 import RelatorioVarSet from '../relatorio/relatoriovarset';
@@ -55,7 +54,6 @@ export default function InsertLME() {
 
     return (
         <div>
-            <ClienteHeader cliente={cliente} />
             <Container fluid >
                 <Button
                     variant="outline-primary"

@@ -50,7 +50,6 @@ export default function PrescricaoUpdate(props) {
             </Container>
 
             <Container className="mt-2">
-                {/* <PrescricaoList prescricoes={prescricoes} /> */}
                 <Card body>
                     {/* {showStep === 11 && <MedicamentoSet prescricao={prescricao} passNextStep={handleNextStep} />} */}
                     {showStep === 21 && <ApresentacaoSet prescricao={prescricao} passNextStep={handleNextStep} />} 

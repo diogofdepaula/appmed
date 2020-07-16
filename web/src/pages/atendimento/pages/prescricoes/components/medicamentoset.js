@@ -20,7 +20,7 @@ export default function MedicamentoSet(props) {
 
     const filterMedicamento = event => {
 
-        if (event.target.value.length >= 3) {
+        if (event.target.value.length >= 2) {
             let filtro = [...medicamentos].filter(w =>
                 w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
                 w.abreviatura.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
