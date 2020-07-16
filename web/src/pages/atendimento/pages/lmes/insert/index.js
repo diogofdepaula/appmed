@@ -1,19 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
-//import { Redirect } from 'react-router-dom';
-import { ClienteContext, PageContext } from '../..';
+import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 import CID10List from '../../../../cadastro/cid10/components/cid10list';
 import ClienteHeader from '../../../component/clienteheader';
 import LMEForkSet from '../components/lmeforkset';
-//import PrescricaoData from '../../prescricoes/components/prescricaodata'
 import LMEVarSet from '../components/lmevarset';
-//import LMEData from '../components/lmedata';
 import RelatorioVarSet from '../relatorio/relatoriovarset';
 
-export default function InsertLME(props) {
+export default function InsertLME() {
 
     const cliente = useContext(ClienteContext)
     const page = useContext(PageContext)
+    const { prescricaoMain } = useContext(PrescricaoMainContext)
 
     const initialLME = {
         cid10: '',
@@ -26,13 +24,11 @@ export default function InsertLME(props) {
         preenchidoporCPF: '',
         raca: '',
         clienteId: cliente.id,
-        prescricoes: props.prescricao,
+        prescricoes: prescricaoMain,
         relatorio: null,
     }
 
     const [lme, setLme] = useState(initialLME)
-    //const [redirect, setRedirect] = useState('')
-    // const [validacao, setValidacao] = useState(false)
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramLme, paramStep) => () => {

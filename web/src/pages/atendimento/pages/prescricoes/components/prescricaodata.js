@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap';
+import { PrescricaoMainContext } from '../..';
 
 export default function PrescricaoData(props) {
 
-    const prescricao = props.prescricao;
+    const { prescricaoMain } = useContext(PrescricaoMainContext)
+    const prescricao = prescricaoMain;
 
     if (!prescricao) {
         return <div></div>;

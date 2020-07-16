@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
-//import { Redirect } from 'react-router-dom';
-import { ClienteContext, PageContext } from '../..';
+import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 import ApresentacaoSet from '../components/apresentacaoset';
 //import PrescricaoData from "../components/prescricaodata";
 import Lmedoses from '../components/lmedoses';
@@ -14,6 +13,7 @@ export default function PrescricaoInsert(props) {
 
     const cliente = useContext(ClienteContext)
     const page = useContext(PageContext)
+    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 
     const initialPrescricao = {
         continuo: true,
@@ -51,12 +51,10 @@ export default function PrescricaoInsert(props) {
 
     useEffect(() => {
         if (showStep === 'lme') {
-            // não sei se não vai ter que dar um useCalback
-            props.passPrescricao(prescricao)
+            setPrescricaoMain(prescricao)
             page('lmeinsert')
-            //setRedirect({ pathname: `/lmes/${cliente.id}/insert`, state: { cliente, prescricao } })
         }
-    }, [showStep, props, prescricao, page])
+    }, [showStep, setPrescricaoMain, prescricao, page])
 
     const handleSubmit = event => {
 

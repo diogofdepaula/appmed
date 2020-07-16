@@ -1,34 +1,46 @@
-import React, { useState } from 'react';
-import { Col, ListGroup, Row, Container } from 'react-bootstrap';
-import PrescricaoData from './prescricaodata'
+import React, { useState, useContext, useCallback, useEffect } from 'react';
+import { ListGroup, Badge } from 'react-bootstrap';
+import { ClienteContext, PrescricaoMainContext, PageContext } from '../..';
 
-export default function PrescricaoList(props) {
+export default function PrescricaoList() {
 
-    const [prescricao, setprescricao] = useState()
+    const cliente = useContext(ClienteContext)
+    const page = useContext(PageContext)
+    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const [prescricoes, setPrescricoes] = useState([])
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`)
+        const json = await res.json();
+        setPrescricoes(json);
+    }, [cliente])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
 
     return (
         <div>
-            <Container className="mt-2" >
-                <Row>
-                    <Col sm={4}>
-                        <ListGroup className="mt-2">
-                            {props.prescricoes && props.prescricoes.map(prescricao =>
-                                prescricao.emuso && (
-                                    <ListGroup.Item
-                                        key={prescricao.id}
-                                        onClick={() => setprescricao(prescricao)}
-                                    >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
-                                    </ListGroup.Item>
-                                )
-                            )}
-                            <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
-                        </ListGroup>
-                    </Col>
-                    <Col sm={6}>
-                        <PrescricaoData prescricao={prescricao} />
-                    </Col>
-                </Row>
-            </Container>
+            <ListGroup className="mt-2">
+                {prescricoes && prescricoes.map(prescricao =>
+                    prescricao.emuso && (
+                        <ListGroup.Item
+                            key={prescricao.id}
+                            onClick={() => setPrescricaoMain(prescricao)}
+                        >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
+                            <Badge
+                                variant="light"
+                                onClick={() => {
+                                    setPrescricaoMain(prescricao)
+                                    page('prescricaoupdate')
+                                }}
+                            >Editar
+                                    </Badge>
+                        </ListGroup.Item>
+                    )
+                )}
+                <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
+            </ListGroup>
         </div>
     )
 }

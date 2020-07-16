@@ -2,17 +2,21 @@ import React, { createContext, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import ClienteHeader from '../component/clienteheader'
 import PrescricaoInsert from './prescricoes/insert'
-import PrescricaoMain from './prescricoes/main'
+import PrescricaoUpdate from './prescricoes/update'
+import Main from './prescricoes/main'
 import LMEInsert from './lmes/insert'
 
 export const ClienteContext = createContext(null)
 // para as paginas mais profundas terem acesso a essa pagina
 export const PageContext = createContext('main')
+// é a prescricao que está sendo trabalhada, editada ou escolhida
+// para atravessar de um lado para outro mais facilmente
+export const PrescricaoMainContext = createContext(null)
 
 export default function AtendimentoMain(props) {
 
     const [page, setPage] = useState()
-    const [prescricao, setPrescricao] = useState()
+    const [prescricaoMain, setPrescricaoMain] = useState()
 
     const indices = [
         ['prescricoes', 'Prescrições'],
@@ -21,8 +25,6 @@ export default function AtendimentoMain(props) {
         ['atestados', 'Atestados'],
         ['consentimento', 'Termos de consentimento'],
     ]
-
-    console.log('page', page)
 
     return (
         <div>
@@ -35,8 +37,8 @@ export default function AtendimentoMain(props) {
                             variant="outline-primary"
                             className="ml-2"
                             onClick={() => {
+                                setPrescricaoMain(null)
                                 setPage(x[0])
-                                //setButtons(false)
                             }}
                         >{x[1]}
                         </Button>
@@ -44,9 +46,12 @@ export default function AtendimentoMain(props) {
                 </Container>
                 <PageContext.Provider value={setPage}>
                     <Container>
-                        {page === 'prescricoes' && <PrescricaoMain passPage={setPage} />}
-                        {page === 'prescricaoinsert' && <PrescricaoInsert passPrescricao={setPrescricao} />}
-                        {page === 'lmeinsert' && <LMEInsert prescricao={prescricao} />}
+                        <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
+                            {page === 'prescricoes' && <Main />}
+                            {page === 'prescricaoinsert' && <PrescricaoInsert />}
+                            {page === 'prescricaoupdate' && <PrescricaoUpdate />}
+                            {page === 'lmeinsert' && <LMEInsert />}
+                        </PrescricaoMainContext.Provider>
                     </Container>
                 </PageContext.Provider>
             </ClienteContext.Provider>

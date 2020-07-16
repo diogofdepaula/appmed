@@ -1,27 +1,16 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { Button, Container } from 'react-bootstrap';
-//import { Link } from 'react-router-dom';
-import { ClienteContext } from '../..';
+import React, { useContext } from 'react';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import PrescricaoList from '../components/prescricaolist';
+import PrescricaoData from '../components/prescricaodata'
+import { PageContext } from '../..';
 
 export default function Main(props) {
 
-    const cliente = useContext(ClienteContext)
-    const [prescricoes, setPrescricoes] = useState([])
-
-    const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`)
-        const json = await res.json();
-        setPrescricoes(json);
-    }, [cliente])
-
-    useEffect(() => {
-        fetchData();
-    }, [fetchData])
-
+    const page = useContext(PageContext)
+    
     const indices = [
         ['prescricaoinsert', 'Nova Prescrição'],
-        ['editar', 'Editar Prescricao'],
+        ['prescricaoupdate', 'Editar Prescricao'],
         ['xxxxxxxxxxx', 'XXXXXX'],
         ['yyyyyyy', 'YYYYYYY'],
         ['zzzzzzzzzz', 'ZZZZZZ'],
@@ -36,14 +25,21 @@ export default function Main(props) {
                         variant="outline-primary"
                         className="ml-2"
                         onClick={() => {
-                            props.passPage(x[0])
+                            page(x[0])
                         }}
                     >{x[1]}
                     </Button>
                 )}
             </Container>
             <Container>
-                <PrescricaoList prescricoes={prescricoes} />
+                <Row>
+                    <Col sm={4}>
+                        <PrescricaoList />
+                    </Col>
+                    <Col sm={6}>
+                        <PrescricaoData />
+                    </Col>
+                </Row>
             </Container>
         </div>
     )
