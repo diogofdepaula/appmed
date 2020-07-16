@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, createContext } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 import ApresentacaoSet from '../components/apresentacaoset';
@@ -8,6 +8,8 @@ import MedicamentoSet from '../components/medicamentoset';
 import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
 import OutrasVariaveisSet from '../components/prescricaovarset';
+
+export const PrescricaoContext = createContext(null)
 
 export default function PrescricaoInsert(props) {
 
@@ -89,12 +91,14 @@ export default function PrescricaoInsert(props) {
             </Container>
             <Container className="mt-2">
                 <Card body>
-                    {showStep === 11 && <MedicamentoSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                    {showStep === 21 && <ApresentacaoSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                    {showStep === 31 && <PosologiaSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                    {showStep === 32 && <PosologiaNaoPadraoSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                    {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} passHowCalls={'insert'}/>}
-                    {showStep === 51 && <Lmedoses prescricao={prescricao} passNextStep={handleNextStep} />}
+                    <PrescricaoContext.Provider value={{ prescricaoContext: prescricao, setPrescricaoContext: setPrescricao, setStepContext: setStep }} >
+                        {showStep === 11 && <MedicamentoSet />}
+                        {showStep === 21 && <ApresentacaoSet />}
+                        {showStep === 31 && <PosologiaSet prescricao={prescricao} passNextStep={handleNextStep} />}
+                        {showStep === 32 && <PosologiaNaoPadraoSet prescricao={prescricao} passNextStep={handleNextStep} />}
+                        {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} passHowCalls={'insert'} />}
+                        {showStep === 51 && <Lmedoses prescricao={prescricao} passNextStep={handleNextStep} />}
+                    </PrescricaoContext.Provider>
                 </Card>
             </Container>
             <Container className="mt-2">

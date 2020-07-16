@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
 import { Button, Container, ListGroup } from 'react-bootstrap'
+import { PrescricaoContext } from '../insert'
 
 export default function PosologiaSet(props) {
 
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
     const [medicamentoId] = useState(props.prescricao.medicamentoId)
-    const [prescricao, setPrescricao] = useState(props.prescricao)
     const [medicamentocominclude, setMedicamentoComInclude] = useState(props.medicamento)
-    const [validacao, setValidacao] = useState(false)
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${medicamentoId}`)
@@ -18,26 +18,6 @@ export default function PosologiaSet(props) {
         fetchData();
     }, [fetchData])
 
-    const handleChange = param => () => {
-        setPrescricao({
-            ...prescricao,
-            usoposologiapadrao: true,
-            posologiaId: param.id
-        })
-        setValidacao(true)
-    }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(prescricao, 41),
-        [prescricao, props]
-    )
-
-    useEffect(() => {
-        if (validacao) {
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
-
     return (
         <div>
             <h5>Escolha uma Posologia</h5>
@@ -46,7 +26,14 @@ export default function PosologiaSet(props) {
                     {medicamentocominclude && medicamentocominclude.posologias && medicamentocominclude.posologias.map(posologia =>
                         <ListGroup.Item
                             key={posologia.id}
-                            onClick={handleChange(posologia)}
+                            onClick={() => {
+                                setPrescricaoContext({
+                                    ...prescricaoContext,
+                                    usoposologiapadrao: true,
+                                    posologiaId: posologia.id
+                                })
+                                setStepContext(41)
+                            }}
                         >{posologia.posologia}
                         </ListGroup.Item>
                     )}
@@ -55,14 +42,12 @@ export default function PosologiaSet(props) {
             <Button
                 className="mt-2"
                 variant="outline-danger"
-                onClick={
-                    useCallback(
-                        props.passNextStep(prescricao, 32),
-                        [prescricao, props]
-                    )
-                }
+                onClick={() => {
+                    setPrescricaoContext(prescricaoContext)
+                    setStepContext(41)
+                }}
             >Usar posologia não padronizada
-                    </Button>
+                </Button>
         </div>
     )
 }

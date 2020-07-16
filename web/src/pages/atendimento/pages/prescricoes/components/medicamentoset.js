@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useContext } from 'react'
 import { Container, ListGroup, FormControl } from 'react-bootstrap'
+import { PrescricaoContext } from '../insert'
 
-export default function MedicamentoSet(props) {
+export default function MedicamentoSet() {
 
-    const [prescricao, setPrescricao] = useState(props.prescricao)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
     const [medicamentos, setMedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
-    const [validacao, setValidacao] = useState(false)
 
     const fetchData = useCallback(async () => {
         const res = await fetch('http://localhost:4001/api.appmed/medicamentos/short')
@@ -37,23 +37,6 @@ export default function MedicamentoSet(props) {
         }
     }
 
-    const handleChange = param => () => {
-        setPrescricao({ ...prescricao, medicamentoId: param.id })
-        setValidacao(true) // nesse caso fica aqui dentro, mas para os outros fica no botão ou seja depois de terminar
-    }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(prescricao, 21),
-        [prescricao, props]
-    )
-
-    useEffect(() => {
-        if (validacao){
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
- 
-
     return (
         <div>
             <h5>Escolha o fármaco</h5>
@@ -71,12 +54,15 @@ export default function MedicamentoSet(props) {
                     {medicamentosfiltrados.map((medicamento, index) =>
                         <ListGroup.Item
                             key={index}
-                            onClick={handleChange(medicamento)}
+                            onClick={() => {
+                                setPrescricaoContext({ ...prescricaoContext, medicamentoId: medicamento.id })
+                                setStepContext(21)
+                            }}
                         >{medicamento.farmaco} {medicamento.abreviatura && "(" + medicamento.abreviatura + ")"}
                         </ListGroup.Item>
                     )}
                 </ListGroup>
             </Container>
-        </div>
+        </div >
     )
 }

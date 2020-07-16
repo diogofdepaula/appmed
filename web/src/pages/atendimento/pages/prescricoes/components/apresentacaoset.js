@@ -1,38 +1,22 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useContext } from 'react'
 import { Container, ListGroup } from 'react-bootstrap'
+import { PrescricaoContext } from '../insert'
 
-export default function ApresentacaoSet(props) {
+export default function ApresentacaoSet() {
 
-    const [prescricao, setPrescricao] = useState(props.prescricao)
-    const [medicamentocominclude, setMedicamentoComInclude] = useState(props.medicamento)
-    const [validacao, setValidacao] = useState(false)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
+    const [medicamentocominclude, setMedicamentoComInclude] = useState()
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${props.prescricao.medicamentoId}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
         const json = await res.json();
         setMedicamentoComInclude(json);
-    }, [props])
+    }, [prescricaoContext])
 
     useEffect(() => {
         fetchData();
     }, [fetchData])
 
-    const handleChange = param => () => {
-        setPrescricao({ ...prescricao, apresentacoId: param.id })
-        setValidacao(true)
-    }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(prescricao, 31),
-        [prescricao, props]
-    )
-
-    useEffect(() => {
-        if (validacao){
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
- 
     return (
         <div>
             <h5>Escolha uma Apresentação</h5>
@@ -41,7 +25,10 @@ export default function ApresentacaoSet(props) {
                     {medicamentocominclude && medicamentocominclude.apresentacoes && medicamentocominclude.apresentacoes.map(apresentacao =>
                         <ListGroup.Item
                             key={apresentacao.id}
-                            onClick={handleChange(apresentacao)}
+                            onClick={() => {
+                                setPrescricaoContext({ ...prescricaoContext, apresentacoId: apresentacao.id })
+                                setStepContext(31)
+                            }}
                         >{apresentacao.descricao}
                         </ListGroup.Item>
                     )}
