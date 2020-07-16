@@ -52,6 +52,7 @@ export default function AtendimentoMain(props) {
                             {page === 'prescricaoupdate' && <PrescricaoUpdate />}
                             {page === 'lmeinsert' && <LMEInsert />}
                         </PrescricaoMainContext.Provider>
+                        
                     </Container>
                 </PageContext.Provider>
             </ClienteContext.Provider>

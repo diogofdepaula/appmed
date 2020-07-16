@@ -11,7 +11,7 @@ export default function InsertLME() {
 
     const cliente = useContext(ClienteContext)
     const setPage = useContext(PageContext)
-    const { prescricaoMain } = useContext(PrescricaoMainContext)
+    const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
 
     const initialLME = {
         cid10: '',
@@ -40,12 +40,13 @@ export default function InsertLME() {
 
         event.preventDefault();
 
-        fetch(`http://localhost:4001/api.appmed/lmes/${cliente.id}`, {
+        fetch(`http://localhost:4001/api.appmed/lmes`, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(lme)
         }).then(data => {
             if (data.ok) {
+                setPrescricaoMain(null)
                 setPage('prescricoes')
                 //setRedirect({ pathname: `/prescricoes/${cliente.id}`, state: { cliente } })
             }

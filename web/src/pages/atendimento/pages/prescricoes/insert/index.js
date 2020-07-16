@@ -41,7 +41,6 @@ export default function PrescricaoInsert(props) {
     }
 
     const [prescricao, setPrescricao] = useState(initialPrescricao)
-    //const [redirect, setRedirect] = useState('')
     const [showStep, setStep] = useState(11);
 
     const handleNextStep = (paramPresc, paramStep) => () => {
@@ -59,7 +58,7 @@ export default function PrescricaoInsert(props) {
     const handleSubmit = event => {
 
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`, {
+        fetch(`http://localhost:4001/api.appmed/prescricoes`, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(prescricao)
@@ -94,7 +93,7 @@ export default function PrescricaoInsert(props) {
                     {showStep === 21 && <ApresentacaoSet prescricao={prescricao} passNextStep={handleNextStep} />}
                     {showStep === 31 && <PosologiaSet prescricao={prescricao} passNextStep={handleNextStep} />}
                     {showStep === 32 && <PosologiaNaoPadraoSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                    {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} />}
+                    {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} passHowCalls={'insert'}/>}
                     {showStep === 51 && <Lmedoses prescricao={prescricao} passNextStep={handleNextStep} />}
                 </Card>
             </Container>

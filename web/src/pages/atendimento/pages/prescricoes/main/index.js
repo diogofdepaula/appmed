@@ -10,7 +10,7 @@ export default function Main(props) {
     
     const indices = [
         ['prescricaoinsert', 'Nova Prescrição'],
-        ['prescricaoupdate', 'Editar Prescricao'],
+        ['prescricaoprint', 'Imprimir Prescrições'],
         ['xxxxxxxxxxx', 'XXXXXX'],
         ['yyyyyyy', 'YYYYYYY'],
         ['zzzzzzzzzz', 'ZZZZZZ'],

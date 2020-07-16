@@ -7,8 +7,7 @@ exports.Insert = (req, res, next) => {
     Lmes.create(
         req.body, {
         include: [Prescricoes, Relatorios] // quando cria uma lme presume-se que virá com uma nova prescricao também
-    }
-    ).then(lme => {
+    }).then(lme => {
         if (lme) {
             res.send("sucesso do cadastro do LME")
         } else {
@@ -18,9 +17,9 @@ exports.Insert = (req, res, next) => {
 }
 
 exports.SearchAll = (req, res, next) => {
-    const idcliente = req.params.idcliente;
+    const id = req.params.id;
     //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
-    Lmes.findAll({ where: { clienteId: idcliente } })
+    Lmes.findAll({ where: { clienteId: id } })
         .then((lmes) => {
             return res.json(lmes)
         })
@@ -35,8 +34,6 @@ exports.SearchOne = (req, res, next) => {
 }
 
 exports.Update = (req, res, next) => {
-
-    // presume-se que já tenha prescrições na LME
 
     const id = req.params.id;
     Lmes.findByPk(id)

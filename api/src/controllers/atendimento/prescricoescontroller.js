@@ -12,14 +12,12 @@ exports.Insert = (req, res, next) => {
             } else {
                 res.send("inssucesso do cadastro do prescricao")
             }
-        })
-        .catch(error => next(error))
+        }).catch(error => next(error))
 }
 
 exports.SearchAll = (req, res) => {
-
-    const idcliente = req.params.idcliente;
-    Prescricoes.findAll({ where: { clienteId: idcliente }, include: [ Apresentacoes, Medicamentos, Posologias] })
+    const id = req.params.id; // nesse caso é o idCliente 
+    Prescricoes.findAll({ where: { clienteId: id }, include: [ Apresentacoes, Medicamentos, Posologias] })
         .then((prescricao) => {
             return res.json(prescricao)
         })

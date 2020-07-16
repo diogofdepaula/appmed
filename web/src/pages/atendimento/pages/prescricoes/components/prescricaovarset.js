@@ -5,12 +5,13 @@ export default function PrescricaoVarSet(props) {
 
     const [prescricao, setPrescricao] = useState(props.prescricao)
     const [validacao, setValidacao] = useState(false)
+    const howcalls = props.passHowCalls
 
     const handleChange = event => {
         const target = event.target;
         const name = target.name;
         const value = target.name === 'continuo' ? target.checked : target.name === 'imprimirorientacoes' ? target.checked : target.value;
-        setPrescricao({...prescricao, [name]: value })
+        setPrescricao({ ...prescricao, [name]: value })
     }
 
     const sendNextStep = useCallback(
@@ -19,7 +20,7 @@ export default function PrescricaoVarSet(props) {
     )
 
     useEffect(() => {
-        if (validacao){
+        if (validacao) {
             sendNextStep()
         }
     }, [validacao, sendNextStep])
@@ -78,20 +79,39 @@ export default function PrescricaoVarSet(props) {
                 </Form>
             </Container>
             <Container fluid className="mt-2">
-                <Button
-                    variant="outline-primary"
-                    onClick={() => setValidacao(true)}
-                >Encerrar
+                {howcalls === 'insert' ?
+                    <>
+                        <Button
+                            variant="outline-primary"
+                            onClick={() => setValidacao(true)}
+                        >Encerrar
+                        </Button>
+                        <Button
+                            className="ml-2"
+                            variant="outline-primary"
+                            onClick={() => props.passNextStep(prescricao, 51)}
+                        >vincular a uma LME
+                        </Button>
+                    </>
+                    :
+                    <>
+                        <Button
+                            variant="outline-primary"
+                            onClick={() => setValidacao(true)}
+                        >Atualizar
+                        </Button>
+                        <Button
+                            className="ml-2"
+                            variant="outline-primary"
+                            // onClick={useCallback(
+                            //     props.passNextStep(prescricao, 51),
+                            //     [prescricao, props]
+                            // )}
+                        >Editar LME
                 </Button>
-                <Button
-                    className="ml-2"
-                    variant="outline-primary"
-                    onClick={  useCallback(
-                        props.passNextStep(prescricao, 51),
-                        [prescricao, props]
-                    )}
-                >vincular a uma LME
-                </Button>
+                    </>
+                }
+
             </Container>
         </div>
     )
