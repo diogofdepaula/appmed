@@ -12,7 +12,7 @@ import OutrasVariaveisSet from '../components/prescricaovarset';
 export default function PrescricaoInsert(props) {
 
     const cliente = useContext(ClienteContext)
-    const page = useContext(PageContext)
+    const setPage = useContext(PageContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 
     const initialPrescricao = {
@@ -52,9 +52,9 @@ export default function PrescricaoInsert(props) {
     useEffect(() => {
         if (showStep === 'lme') {
             setPrescricaoMain(prescricao)
-            page('lmeinsert')
+            setPage('lmeinsert')
         }
-    }, [showStep, setPrescricaoMain, prescricao, page])
+    }, [showStep, setPrescricaoMain, prescricao, setPage])
 
     const handleSubmit = event => {
 
@@ -65,7 +65,7 @@ export default function PrescricaoInsert(props) {
             body: JSON.stringify(prescricao)
         }).then(data => {
             if (data.ok) {
-                page('prescricoes')
+                setPage('prescricoes')
             }
         })
     }

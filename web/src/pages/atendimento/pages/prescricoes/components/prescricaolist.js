@@ -5,7 +5,7 @@ import { ClienteContext, PrescricaoMainContext, PageContext } from '../..';
 export default function PrescricaoList() {
 
     const cliente = useContext(ClienteContext)
-    const page = useContext(PageContext)
+    const setPage = useContext(PageContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [prescricoes, setPrescricoes] = useState([])
 
@@ -32,7 +32,7 @@ export default function PrescricaoList() {
                                 variant="light"
                                 onClick={() => {
                                     setPrescricaoMain(prescricao)
-                                    page('prescricaoupdate')
+                                    setPage('prescricaoupdate')
                                 }}
                             >Editar
                                     </Badge>

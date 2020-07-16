@@ -10,7 +10,7 @@ import RelatorioVarSet from '../relatorio/relatoriovarset';
 export default function InsertLME() {
 
     const cliente = useContext(ClienteContext)
-    const page = useContext(PageContext)
+    const setPage = useContext(PageContext)
     const { prescricaoMain } = useContext(PrescricaoMainContext)
 
     const initialLME = {
@@ -46,7 +46,7 @@ export default function InsertLME() {
             body: JSON.stringify(lme)
         }).then(data => {
             if (data.ok) {
-                page('prescricoes')
+                setPage('prescricoes')
                 //setRedirect({ pathname: `/prescricoes/${cliente.id}`, state: { cliente } })
             }
         })

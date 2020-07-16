@@ -6,7 +6,7 @@ import { PageContext } from '../..';
 
 export default function Main(props) {
 
-    const page = useContext(PageContext)
+    const setPage = useContext(PageContext)
     
     const indices = [
         ['prescricaoinsert', 'Nova Prescrição'],
@@ -25,7 +25,7 @@ export default function Main(props) {
                         variant="outline-primary"
                         className="ml-2"
                         onClick={() => {
-                            page(x[0])
+                            setPage(x[0])
                         }}
                     >{x[1]}
                     </Button>
