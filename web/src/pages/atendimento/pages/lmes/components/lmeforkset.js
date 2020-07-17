@@ -1,19 +1,25 @@
-import React from 'react'
-import LMEList from './lmelist'
-import { ListGroup, Container } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Container, ListGroup } from 'react-bootstrap';
+import { LMEContext } from '../insert';
+import LMEList from './lmelist';
 
-export default function LMEForkSet(props) {
+export default function LMEForkSet() {
+
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
 
     return (
         <div>
             <h5>Escolha a qual LME</h5>
             <Container className="mt-2" >
                 <ListGroup.Item
-                 onClick={props.passNextStep(props.lme, 21)}
+                 onClick={() => {
+                    setLmeContext(lmeContext)
+                    setStepContext(21)                     
+                 }}
                 >Criar uma nova LME
                 </ListGroup.Item>
                 <br/>
-                <LMEList clienteId={props.lme.clienteId} /> 
+                <LMEList /> 
             </Container>
         </div>
     )

@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { PrescricaoContext } from '../insert'
 
 export default function LMEDoses(props) {
 
-    const [prescricao, setPrescricao] = useState(props.prescricao)
-    const [validacao, setValidacao] = useState(false)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
 
     const indices = [
         ['lmemes1', '1º mês'],
@@ -16,24 +16,12 @@ export default function LMEDoses(props) {
     ]
 
     const handleChange = event => {
-        setPrescricao({ ...prescricao, [event.target.name]: event.target.value })
+        setPrescricaoContext({ ...prescricaoContext, [event.target.name]: event.target.value })
     }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(prescricao, 'lme'),
-        [prescricao, props]
-    )
-
-    useEffect(() => {
-        if (validacao) {
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
 
     return (
         <div>
             <h5>Doses referente a cada mês</h5>
-            LMEDoses: {JSON.stringify(prescricao)}
             <Container>
                 <Row>
                     {indices && indices.map((w) =>
@@ -58,7 +46,10 @@ export default function LMEDoses(props) {
                 <Button
                     className="ml-1"
                     variant="outline-success"
-                    onClick={() => setValidacao(true)}
+                    onClick={() => {
+                        setPrescricaoContext(prescricaoContext)
+                        setStepContext('lme')
+                    }}
                 > Próximo
                     </Button>
             </Container>

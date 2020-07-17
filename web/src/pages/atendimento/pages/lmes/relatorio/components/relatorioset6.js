@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-
+import { RelatorioContent } from '../relatoriovarset'
 
 export default function RelatorioSet3(props) {
 
-    const [relatorio, setRelatorio] = useState(props.relatorio)
+    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
 
     const handleChange = event => {
-        setRelatorio({ ...relatorio, [event.target.name]: event.target.value })
+        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
     }
 
     const indices = ['das28', 'cdai', 'sdai', 'basdai', 'asdas', 'mda', 'eva']
@@ -33,13 +33,19 @@ export default function RelatorioSet3(props) {
             <Container className="mt-2">
                 <Button
                     variant="outline-success"
-                    onClick={props.passPrevious}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(5)
+                    }}
                 > Anterior
                     </Button>
                 <Button
                     className="ml-1"
                     variant="outline-success"
-                    onClick={props.passNext(relatorio)}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(7)
+                    }}
                 > Finalizar
                     </Button>
             </Container>

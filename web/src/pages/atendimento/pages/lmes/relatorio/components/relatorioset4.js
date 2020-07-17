@@ -1,25 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { RelatorioContent } from '../relatoriovarset'
 
 
 export default function RelatorioSet3(props) {
 
-    const [relatorio, setRelatorio] = useState(props.relatorio)
+    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
 
     const handleChange = event => {
         if (event.type === 'checkbox') {
-            setRelatorio({ ...relatorio, [event.target.name]: event.target.checked })
+            setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.checked })
         } else {
-            setRelatorio({ ...relatorio, [event.target.name]: event.target.value })
+            setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
         }
     }
 
     const handleChangeppdresultado = param => () => {
-        setRelatorio({ ...relatorio, ppdresultado: param })
+        setRelatorioContext({ ...relatorioContext, ppdresultado: param })
     }
 
     const handleChangerxtoraxresultado = param => () => {
-        setRelatorio({ ...relatorio, rxtoraxresultado: param })
+        setRelatorioContext({ ...relatorioContext, rxtoraxresultado: param })
     }
 
     return (
@@ -33,7 +34,7 @@ export default function RelatorioSet3(props) {
                                 id="ppddata"
                                 name="ppddata"
                                 placeholder="PPD"
-                                value={relatorio.ppddata}
+                                value={relatorioContext.ppddata}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -73,7 +74,7 @@ export default function RelatorioSet3(props) {
                                 id="rxtoraxdata"
                                 name="rxtoraxdata"
                                 placeholder="RxTórax"
-                                value={relatorio.rxtoraxdata}
+                                value={relatorioContext.rxtoraxdata}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -96,14 +97,14 @@ export default function RelatorioSet3(props) {
                             />
                         </Col>
                     </Row>
-                    {relatorio.rxtoraxresultado &&
+                    {relatorioContext.rxtoraxresultado &&
                         <Row className="mt-1">
                             <Col>
                                 <Form.Control
                                     type="text"
                                     name="rxtoraxalteracao"
                                     placeholder="Resultado do Rx"
-                                    value={relatorio.rxtoraxalteracao}
+                                    value={relatorioContext.rxtoraxalteracao}
                                     onChange={handleChange}
                                 />
                             </Col>
@@ -116,7 +117,7 @@ export default function RelatorioSet3(props) {
                                 id="bhcgdata"
                                 name="bhcgdata"
                                 placeholder="Beta-HCG"
-                                value={relatorio.bhcgdata}
+                                value={relatorioContext.bhcgdata}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -126,7 +127,7 @@ export default function RelatorioSet3(props) {
                                 id="bhcgjustificativa"
                                 name="bhcgjustificativa"
                                 placeholder="Justificativa do Beta-HCG"
-                                value={relatorio.bhcgjustificativa}
+                                value={relatorioContext.bhcgjustificativa}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -136,13 +137,19 @@ export default function RelatorioSet3(props) {
             <Container className="mt-2">
                 <Button
                     variant="outline-success"
-                    onClick={props.passPrevious}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(3)
+                    }}
                 > Anterior
                   </Button>
                 <Button
                     className="ml-1"
                     variant="outline-success"
-                    onClick={props.passNext(relatorio)}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(5)
+                    }}
                 > Próximo
                     </Button>
             </Container>

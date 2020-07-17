@@ -1,29 +1,17 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Accordion, Button, Card, Container, Form } from 'react-bootstrap';
+import { LMEContext } from '../insert';
 
 export default function LMEVarSet(props) {
 
-    const [lme, setlme] = useState(props.lme)
-    const [validacao, setValidacao] = useState(false)
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
 
     const handleChange = event => {
         const target = event.target;
         const name = target.name;
         const value = target.name === 'tratamentoprevio' ? target.checked : target.name === 'atestadocapacidade' ? target.checked : target.value;;
-        setlme({ ...lme, [name]: value })
+        setLmeContext({ ...lmeContext, [name]: value })
     }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(lme, 41),
-        [lme, props]
-    )
-
-    useEffect(() => {
-        if (validacao){
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
-
 
     return (
         <div>
@@ -37,7 +25,7 @@ export default function LMEVarSet(props) {
                             id="anamnese"
                             name="anamnese"
                             placeholder="Insira os dados clínicos"
-                            value={lme.anamnese}
+                            value={lmeContext.anamnese}
                             onChange={handleChange}
                         />
                     </Form.Group>
@@ -56,18 +44,18 @@ export default function LMEVarSet(props) {
                                                 type="checkbox"
                                                 label="Tratamento Prévio"
                                                 name="tratamentoprevio"
-                                                value={lme.tratamentoprevio}
+                                                value={lmeContext.tratamentoprevio}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
-                                        {lme.tratamentoprevio &&
+                                        {lmeContext.tratamentoprevio &&
                                             <Form.Group>
                                                 <Form.Control
                                                     type="text"
                                                     id="tratamentopreviotexto"
                                                     name="tratamentopreviotexto"
                                                     placeholder="Descrever tratamentos prévios"
-                                                    value={lme.tratamentopreviotexto}
+                                                    value={lmeContext.tratamentopreviotexto}
                                                     onChange={handleChange}
                                                 />
                                             </Form.Group>
@@ -77,7 +65,7 @@ export default function LMEVarSet(props) {
                                                 type="checkbox"
                                                 label="Atestado de capacidade"
                                                 name="atestadocapacidade"
-                                                value={lme.atestadocapacidade}
+                                                value={lmeContext.atestadocapacidade}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
@@ -88,7 +76,7 @@ export default function LMEVarSet(props) {
                                                 id="preenchidopor"
                                                 name="preenchidopor"
                                                 placeholder="Preenchido por"
-                                                value={lme.preenchidopor}
+                                                value={lmeContext.preenchidopor}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
@@ -99,7 +87,7 @@ export default function LMEVarSet(props) {
                                                 id="preenchidoporCPF"
                                                 name="preenchidoporCPF"
                                                 placeholder="CPF"
-                                                value={lme.preenchidoporCPF}
+                                                value={lmeContext.preenchidoporCPF}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
@@ -110,7 +98,7 @@ export default function LMEVarSet(props) {
                                                 id="raca"
                                                 name="raca"
                                                 placeholder="raca"
-                                                value={lme.raca}
+                                                value={lmeContext.raca}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
@@ -124,13 +112,19 @@ export default function LMEVarSet(props) {
             <Container fluid className="mt-2">
                 <Button
                     variant="outline-primary"
-                    onClick={props.passNextStep(lme, 0)}
+                    onClick={() => {
+                        setLmeContext(lmeContext)
+                        setStepContext(0)                     
+                     }}
                 >Encerrar
                 </Button>
                 <Button
                     className="ml-2"
                     variant="outline-primary"
-                    onClick={() => setValidacao(true)}
+                    onClick={() => {
+                        setLmeContext(lmeContext)
+                        setStepContext(41)                     
+                     }}
                 >preencher Relatório
                 </Button>
             </Container>

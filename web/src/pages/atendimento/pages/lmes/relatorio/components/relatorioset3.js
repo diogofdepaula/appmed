@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
 import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
+import { RelatorioContent } from '../relatoriovarset'
 
 export default function RelatorioSet3(props) {
 
-    const [relatorio, setRelatorio] = useState(props.relatorio)
+    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
 
     const handleChange = event => {
-        setRelatorio({ ...relatorio, [event.target.name]: event.target.value })
+        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
     }
 
     const [meds, setMeds] = useState([])
@@ -94,7 +95,10 @@ export default function RelatorioSet3(props) {
             <Container className="mt-2">
                 <Button
                     variant="outline-success"
-                    onClick={props.passPrevious}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(2)
+                    }}
                 > Anterior
                 </Button>
                 <Button
@@ -106,7 +110,10 @@ export default function RelatorioSet3(props) {
                 <Button
                     className="ml-1"
                     variant="outline-success"
-                    onClick={props.passNext(relatorio)}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(4)
+                    }}
                 > Próximo
                 </Button>
             </Container>

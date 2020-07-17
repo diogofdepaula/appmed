@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
+import { RelatorioContent } from '../relatoriovarset'
+import { LMEContext } from '../../insert'
 
+export default function RelatorioSet2() {
 
-export default function RelatorioSet2(props) {
-
-    const [relatorio, setRelatorio] = useState(props.relatorio)
+    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
+    const { lmeContext } = useContext(LMEContext)
     const [list, setList] = useState([])
 
     const getList = useCallback(() => {
@@ -42,20 +44,20 @@ export default function RelatorioSet2(props) {
         const eapcid = ['M070', 'M073']
         const eaacid = ['M45']
 
-        if (arcid.includes(props.cid10)) {
+        if (arcid.includes(lmeContext.cid10)) {
             setList(ar)
-        } else if (aijcid.includes(props.cid10)) {
+        } else if (aijcid.includes(lmeContext.cid10)) {
             setList(ar)
-        } else if (eaicid.includes(props.cid10)) {
+        } else if (eaicid.includes(lmeContext.cid10)) {
             setList(eap)
-        } else if (eapcid.includes(props.cid10)) {
+        } else if (eapcid.includes(lmeContext.cid10)) {
             setList(eap)
-        } else if (eaacid.includes(props.cid10)) {
+        } else if (eaacid.includes(lmeContext.cid10)) {
             setList(eaa)
         }
         // não sei como tirar toda essa lógica aqui de dentro.
         // as const quando estão lá fora e são postas na lista de dependências dá loop infinito
-    }, [props.cid10])
+    }, [lmeContext])
 
     useEffect(() => {
         getList()
@@ -63,7 +65,7 @@ export default function RelatorioSet2(props) {
 
 
     const handleChange = event => {
-        setRelatorio({ ...relatorio, [event.target.name]: event.target.checked })
+        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.checked })
     }
 
     return (
@@ -84,13 +86,19 @@ export default function RelatorioSet2(props) {
             <Container className="mt-2">
                 <Button
                     variant="outline-success"
-                    onClick={props.passPrevious}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(1)
+                    }}
                 > Anterior
                   </Button>
                 <Button
                     className="ml-1"
                     variant="outline-success"
-                    onClick={props.passNext(relatorio)}
+                    onClick={() => {
+                        setRelatorioContext(relatorioContext)
+                        setStepContext(3)
+                    }}
                 > Próximo
                     </Button>
             </Container>

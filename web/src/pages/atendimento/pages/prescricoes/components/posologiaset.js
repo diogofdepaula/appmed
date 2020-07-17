@@ -5,14 +5,13 @@ import { PrescricaoContext } from '../insert'
 export default function PosologiaSet(props) {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
-    const [medicamentoId] = useState(props.prescricao.medicamentoId)
-    const [medicamentocominclude, setMedicamentoComInclude] = useState(props.medicamento)
+    const [medicamentocominclude, setMedicamentoComInclude] = useState()
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${medicamentoId}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
         const json = await res.json();
         setMedicamentoComInclude(json);
-    }, [medicamentoId])
+    }, [prescricaoContext])
 
     useEffect(() => {
         fetchData();
@@ -44,12 +43,10 @@ export default function PosologiaSet(props) {
                 variant="outline-danger"
                 onClick={() => {
                     setPrescricaoContext(prescricaoContext)
-                    setStepContext(41)
+                    setStepContext(32)
                 }}
             >Usar posologia não padronizada
                 </Button>
-
-                
         </div>
     )
 }

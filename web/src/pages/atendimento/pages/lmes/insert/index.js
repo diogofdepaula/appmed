@@ -1,10 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, createContext } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 import CID10List from '../../../../cadastro/cid10/components/cid10list';
 import LMEForkSet from '../components/lmeforkset';
 import LMEVarSet from '../components/lmevarset';
 import RelatorioVarSet from '../relatorio/relatoriovarset';
+
+export const LMEContext = createContext(null)
 
 export default function InsertLME() {
 
@@ -30,11 +32,6 @@ export default function InsertLME() {
     const [lme, setLme] = useState(initialLME)
     const [showStep, setStep] = useState(11);
 
-    const handleNextStep = (paramLme, paramStep) => () => {
-        setLme(paramLme)
-        setStep(paramStep)
-    }
-
     const handleSubmit = event => {
 
         event.preventDefault();
@@ -47,7 +44,6 @@ export default function InsertLME() {
             if (data.ok) {
                 setPrescricaoMain(null)
                 setPage('prescricoes')
-                //setRedirect({ pathname: `/prescricoes/${cliente.id}`, state: { cliente } })
             }
         })
     }
@@ -72,10 +68,12 @@ export default function InsertLME() {
             </Container>
             <Container className="mt-2">
                 <Card body>
-                    {showStep === 11 && <LMEForkSet lme={lme} passNextStep={handleNextStep} />}
-                    {showStep === 21 && <CID10List lme={lme} passNextStep={handleNextStep} />}
-                    {showStep === 31 && <LMEVarSet lme={lme} passNextStep={handleNextStep} />}
-                    {showStep === 41 && <RelatorioVarSet lme={lme} passNextStep={handleNextStep} />}
+                    <LMEContext.Provider value={{ lmeContext: lme, setLmeContext: setLme, setStepContext: setStep }} >
+                        {showStep === 11 && <LMEForkSet />}
+                        {showStep === 21 && <CID10List />}
+                        {showStep === 31 && <LMEVarSet />}
+                        {showStep === 41 && <RelatorioVarSet />}
+                    </LMEContext.Provider>
                 </Card>
             </Container>
             <Container className="mt-2">

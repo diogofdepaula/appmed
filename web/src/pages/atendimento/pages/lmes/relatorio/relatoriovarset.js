@@ -1,5 +1,6 @@
-import React, { useCallback, useState, useEffect } from 'react'
-import { Container, Card } from 'react-bootstrap'
+import React, { useCallback, useContext, useEffect, useState, createContext } from 'react'
+import { Card, Container } from 'react-bootstrap'
+import { LMEContext } from '../insert'
 import RelatorioSet1 from './components/relatorioset1'
 import RelatorioSet2 from './components/relatorioset2'
 import RelatorioSet3 from './components/relatorioset3'
@@ -7,7 +8,11 @@ import RelatorioSet4 from './components/relatorioset4'
 import RelatorioSet5 from './components/relatorioset5'
 import RelatorioSet6 from './components/relatorioset6'
 
+export const RelatorioContent = createContext(null)
+
 export default function RelatorioVarSet(props) {
+
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
 
     const relatorioinitial = {
         tempodoencaanos: '',
@@ -91,49 +96,23 @@ export default function RelatorioVarSet(props) {
         eva: '',
     }
 
-    const [lme, setlme] = useState(props.lme)
-    const [showStep, setStep] = useState(0);
+    const [showStep, setStep] = useState(1);
+    //se vem para cá é porque é nova LME
+    const [relatorio, setRelatorio] = useState(relatorioinitial)
 
-    const lmerelatorio = useCallback(
-        () => {
-            setlme({
-                ...lme,
-                relatorio: relatorioinitial
-            })
-        },
-        [lme, relatorioinitial],
-    )
-
-    useEffect(() => {
-        if (!lme.relatorio) {
-            lmerelatorio()
-            setStep(1)
-        }
-    }, [lme, lmerelatorio])
-
-    const directpass = useCallback(
-        props.passNextStep(lme, 0)
-        ,
-        [props, lme],
-    )
-
-    const handleNextStep = param => () => {
-        setlme({
-            ...lme,
-            relatorio: param
+    const returnlmeinsert = useCallback(() => {
+        setLmeContext({
+            ...lmeContext,
+            relatorio: relatorio
         })
-        setStep(showStep + 1)
-    }
+        setStepContext(0)
+    }, [setLmeContext, setStepContext, lmeContext, relatorio])
 
     useEffect(() => {
-        if (showStep === 7){
-            directpass()
+        if (showStep === 7) {
+            returnlmeinsert()
         }
-    }, [directpass, showStep])
-
-    const handlePreviousStep = () => {
-        setStep(showStep - 1)
-    }
+    }, [returnlmeinsert, showStep])
 
     return (
         <div>
@@ -141,12 +120,14 @@ export default function RelatorioVarSet(props) {
                 {showStep >= 1 && showStep <= 6 &&
                     <Card body>
                         <h5>Preencha o relatório de médico específico</h5>
-                        {showStep === 1 && <RelatorioSet1 relatorio={lme.relatorio} passNext={handleNextStep} />}
-                        {showStep === 2 && <RelatorioSet2 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} cid10={props.lme.cid10} />}
-                        {showStep === 3 && <RelatorioSet3 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                        {showStep === 4 && <RelatorioSet4 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                        {showStep === 5 && <RelatorioSet5 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
-                        {showStep === 6 && <RelatorioSet6 relatorio={lme.relatorio} passNext={handleNextStep} passPrevious={handlePreviousStep} />}
+                        <RelatorioContent.Provider value={{ relatorioContext: relatorio, setRelatorioContext: setRelatorio, setStepContext: setStep }} >
+                            {showStep === 1 && <RelatorioSet1 />}
+                            {showStep === 2 && <RelatorioSet2 />}
+                            {showStep === 3 && <RelatorioSet3 />}
+                            {showStep === 4 && <RelatorioSet4 />}
+                            {showStep === 5 && <RelatorioSet5 />}
+                            {showStep === 6 && <RelatorioSet6 />}
+                        </RelatorioContent.Provider>
                     </Card>
                 }
                 {/* {showStep === 7 &&

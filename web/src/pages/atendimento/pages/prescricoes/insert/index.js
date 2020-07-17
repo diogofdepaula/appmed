@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState, createContext } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 import ApresentacaoSet from '../components/apresentacaoset';
 //import PrescricaoData from "../components/prescricaodata";
-import Lmedoses from '../components/lmedoses';
+import LmeDoses from '../components/lmedoses';
 import MedicamentoSet from '../components/medicamentoset';
 import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
@@ -44,11 +44,6 @@ export default function PrescricaoInsert(props) {
 
     const [prescricao, setPrescricao] = useState(initialPrescricao)
     const [showStep, setStep] = useState(11);
-
-    const handleNextStep = (paramPresc, paramStep) => () => {
-        setPrescricao(paramPresc)
-        setStep(paramStep)
-    }
 
     useEffect(() => {
         if (showStep === 'lme') {
@@ -94,10 +89,10 @@ export default function PrescricaoInsert(props) {
                     <PrescricaoContext.Provider value={{ prescricaoContext: prescricao, setPrescricaoContext: setPrescricao, setStepContext: setStep }} >
                         {showStep === 11 && <MedicamentoSet />}
                         {showStep === 21 && <ApresentacaoSet />}
-                        {showStep === 31 && <PosologiaSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                        {showStep === 32 && <PosologiaNaoPadraoSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                        {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} passHowCalls={'insert'} />}
-                        {showStep === 51 && <Lmedoses prescricao={prescricao} passNextStep={handleNextStep} />}
+                        {showStep === 31 && <PosologiaSet />}
+                        {showStep === 32 && <PosologiaNaoPadraoSet />}
+                        {showStep === 41 && <OutrasVariaveisSet />}
+                        {showStep === 51 && <LmeDoses />}
                     </PrescricaoContext.Provider>
                 </Card>
             </Container>

@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { ListGroup, Container, FormControl } from 'react-bootstrap';
+import { LMEContext } from '../../../atendimento/pages/lmes/insert';
 
-export default function CID10List(props) {
+export default function CID10List() {
 
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
     const [cid10, setcid10] = useState([])
     const [cidsfiltrados, setcidsfiltrados] = useState([])
-    const [lme, setLME] = useState(props.lme)
-    const [validacao, setValidacao] = useState(false)
 
     const fetchData = useCallback(async () => {
         const res = await fetch('http://localhost:4001/api.appmed/cid10')
@@ -39,27 +39,6 @@ export default function CID10List(props) {
         }
     }
 
-    const handleChange = param => () => {
-        setLME({
-            ...lme,
-            cid10: param.cid10,
-            diagnostico: param.descricao,
-        })
-        setValidacao(true)
-    }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(lme, 31),
-        [lme, props]
-    )
-
-    useEffect(() => {
-        if (validacao) {
-            sendNextStep()
-        }
-
-    }, [validacao, sendNextStep])
-
     return (
         <div>
             <h5>Escolha o CID</h5>
@@ -77,7 +56,14 @@ export default function CID10List(props) {
                     {cidsfiltrados.map(cid =>
                         <ListGroup.Item
                             key={cid.id}
-                            onClick={handleChange(cid)}
+                            onClick={() => {
+                                setLmeContext({
+                                    ...lmeContext,
+                                    cid10: cid.cid10,
+                                    diagnostico: cid.descricao,
+                                })
+                                setStepContext(31)                     
+                             }}
                         >{cid.cid10} - {cid.descricao}
                         </ListGroup.Item>
                     )}

@@ -1,25 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useContext } from 'react'
 import { Container, Form, Row, Col, Button } from 'react-bootstrap'
+import { PrescricaoContext } from '../insert'
 
 export default function PosologiaNaoPadraoSet(props) {
 
-    const [prescricao, setPrescricao] = useState(props.prescricao)
-    const [validacao, setValidacao] = useState(false)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
 
     const handleChange = event => {
-        setPrescricao({ ...prescricao, [event.target.name]: event.target.value })
+        setPrescricaoContext({ ...prescricaoContext, [event.target.name]: event.target.value })
     }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(prescricao, 41),
-        [prescricao, props]
-    )
-
-    useEffect(() => {
-        if (validacao) {
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
 
     return (
         <div>
@@ -56,7 +45,10 @@ export default function PosologiaNaoPadraoSet(props) {
             <Button
                 className="mt-2"
                 variant="outline-danger"
-                onClick={() => setValidacao(true)}
+                onClick={() => {
+                    setPrescricaoContext(prescricaoContext)
+                    setStepContext(41)
+                }}
             >Usar posologia não padronizada
             </Button>
         </div>

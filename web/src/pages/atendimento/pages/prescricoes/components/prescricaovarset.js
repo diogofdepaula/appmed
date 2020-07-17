@@ -1,29 +1,17 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useContext } from 'react'
 import { Container, Form, Button, Col, Row } from 'react-bootstrap'
+import { PrescricaoContext } from '../insert'
 
 export default function PrescricaoVarSet(props) {
 
-    const [prescricao, setPrescricao] = useState(props.prescricao)
-    const [validacao, setValidacao] = useState(false)
-    const howcalls = props.passHowCalls
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
 
     const handleChange = event => {
         const target = event.target;
         const name = target.name;
         const value = target.name === 'continuo' ? target.checked : target.name === 'imprimirorientacoes' ? target.checked : target.value;
-        setPrescricao({ ...prescricao, [name]: value })
+        setPrescricaoContext({ ...prescricaoContext, [name]: value })
     }
-
-    const sendNextStep = useCallback(
-        props.passNextStep(prescricao, 0),
-        [prescricao, props]
-    )
-
-    useEffect(() => {
-        if (validacao) {
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
 
     return (
         <div>
@@ -38,7 +26,7 @@ export default function PrescricaoVarSet(props) {
                                     type="checkbox"
                                     label="Contínuo"
                                     name="continuo"
-                                    value={prescricao.continuo}
+                                    value={prescricaoContext.continuo}
                                     onChange={handleChange}
                                 />
                             </Form.Group>
@@ -48,7 +36,7 @@ export default function PrescricaoVarSet(props) {
                                     type="checkbox"
                                     label="Imprimir orientações"
                                     name="imprimirorientacoes"
-                                    value={prescricao.imprimirorientacoes}
+                                    value={prescricaoContext.imprimirorientacoes}
                                     onChange={handleChange}
                                 />
                             </Form.Group>
@@ -58,7 +46,7 @@ export default function PrescricaoVarSet(props) {
                                 className="mt-2"
                                 type="date"
                                 name="inicio"
-                                value={prescricao.inicio}
+                                value={prescricaoContext.inicio}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -71,7 +59,7 @@ export default function PrescricaoVarSet(props) {
                                 rows="5"
                                 name="orientacoes"
                                 placeholder="Orientações adicionais"
-                                value={prescricao.orientacoes}
+                                value={prescricaoContext.orientacoes}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -79,41 +67,25 @@ export default function PrescricaoVarSet(props) {
                 </Form>
             </Container>
             <Container fluid className="mt-2">
-                {howcalls === 'insert' ?
-                    <>
-                        <Button
-                            variant="outline-primary"
-                            onClick={() => setValidacao(true)}
-                        >Encerrar
-                        </Button>
-                        <Button
-                            className="ml-2"
-                            variant="outline-primary"
-                            onClick={() => props.passNextStep(prescricao, 51)}
-                        >vincular a uma LME
-                        </Button>
-                    </>
-                    :
-                    <>
-                        <Button
-                            variant="outline-primary"
-                            onClick={() => setValidacao(true)}
-                        >Atualizar
-                        </Button>
-                        <Button
-                            className="ml-2"
-                            variant="outline-primary"
-                            // onClick={useCallback(
-                            //     props.passNextStep(prescricao, 51),
-                            //     [prescricao, props]
-                            // )}
-                        >Editar LME
+                <Button
+                    variant="outline-primary"
+                    onClick={() => {
+                        setPrescricaoContext(prescricaoContext)
+                        setStepContext(0)
+                    }}
+                >{!prescricaoContext.id ? 'Encerrar' : 'Atualizar'}
                 </Button>
-                    </>
-                }
-
+                <Button
+                    className="ml-2"
+                    variant="outline-primary"
+                    onClick={() => {
+                        setPrescricaoContext(prescricaoContext)
+                        setStepContext(51)
+                    }}
+                >{!prescricaoContext.id ? 'Vincular a uma LME' : 'Editar LME'}
+                </Button>
             </Container>
-        </div>
+        </div >
     )
 }
 
