@@ -10,9 +10,7 @@ import Lmedoses from '../components/lmedoses'
 
 export default function PrescricaoUpdate(props) {
 
-    
-    // Commit na master para novo braço
-
+    // commmmmit
 
     const setPage = useContext(PageContext)
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
