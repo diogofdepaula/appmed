@@ -1,19 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState, useCallback } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { PrescricaoEditorContext } from '../editor'
 
 export default function LMEDoses(props) {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
+    const [indices, setIndices] = useState([])
 
-    const indices = [
-        ['lmemes1', '1º mês'],
-        ['lmemes2', '2º mês'],
-        ['lmemes3', '3º mês'],
-        ['lmemes4', '4º mês'],
-        ['lmemes5', '5º mês'],
-        ['lmemes6', '6º mês'],
-    ]
+    const funcaoTeste = useCallback(() => {
+        setIndices([
+            ['lmemes1', '1º mês', prescricaoContext.lmemes1],
+            ['lmemes2', '2º mês', prescricaoContext.lmemes2],
+            ['lmemes3', '3º mês', prescricaoContext.lmemes3],
+            ['lmemes4', '4º mês', prescricaoContext.lmemes4],
+            ['lmemes5', '5º mês', prescricaoContext.lmemes5],
+            ['lmemes6', '6º mês', prescricaoContext.lmemes6]
+        ])
+    },[prescricaoContext])
+
+    useEffect(() => {
+            funcaoTeste()
+      }, [funcaoTeste])
 
     const handleChange = event => {
         setPrescricaoContext({ ...prescricaoContext, [event.target.name]: event.target.value })
@@ -25,16 +32,16 @@ export default function LMEDoses(props) {
             <Container>
                 <Row>
                     {indices && indices.map((w) =>
-                        <Col key={w}>
+                        <Col key={w[0]}>
                             <Form.Control
                                 type="text"
                                 name={w[0]}
                                 placeholder={w[1]}
-                                //value={w[0]}
+                                value={w[2]}
                                 onChange={handleChange}
                             />
                         </Col>
-                    )}
+                     )}
                 </Row>
             </Container>
             <Container className="mt-2">

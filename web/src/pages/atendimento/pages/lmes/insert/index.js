@@ -48,8 +48,6 @@ export default function InsertLME() {
         })
     }
 
-    console.log('prescricaoMain', prescricaoMain)
-
     return (
         <div>
             <Container fluid className="mt-2">

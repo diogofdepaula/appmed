@@ -36,6 +36,9 @@ export default function PrescricaoList() {
                                 }}
                             >Editar
                                     </Badge>
+                                    <>
+                                    {prescricao.lmeId !== null && '(LME)'}
+                                    </>
                         </ListGroup.Item>
                     )
                 )}

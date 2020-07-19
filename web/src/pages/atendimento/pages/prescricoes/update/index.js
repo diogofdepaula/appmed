@@ -13,6 +13,7 @@ export default function PrescricaoUpdate(props) {
     const step = 21
 
     const backPrescricao = useCallback((param) => {
+        console.log('teste do retorno para UpdatePrescricao')
         setPrescricao(param)
     }, [])
 
