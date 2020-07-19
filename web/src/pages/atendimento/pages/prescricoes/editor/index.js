@@ -19,6 +19,10 @@ export default function PrescricaoInsert(props) {
 
     useEffect(() => {
         if (step === 0) {
+            // sem mandar para lme
+            backPrescricao(false)
+        } else if (step === 1){
+            // manda para lme
             backPrescricao(true)
         }
     }, [step, backPrescricao])

@@ -1,12 +1,7 @@
-import React, { useContext, useState, createContext } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
-import CID10List from '../../../../cadastro/cid10/components/cid10list';
-import LMEForkSet from '../components/lmeforkset';
-import LMEVarSet from '../components/lmevarset';
-import RelatorioVarSet from '../relatorio/relatoriovarset';
-
-export const LMEContext = createContext(null)
+import LMEEditor from '../editor'
 
 export default function InsertLME() {
 
@@ -30,12 +25,16 @@ export default function InsertLME() {
     }
 
     const [lme, setLme] = useState(initialLME)
-    const [showStep, setStep] = useState(11);
+    const step = 11
+
+    const backLme = useCallback((paramLME ) => {
+        setLme(paramLME)
+    }, [])
+
 
     const handleSubmit = event => {
 
         event.preventDefault();
-
         fetch(`http://localhost:4001/api.appmed/lmes`, {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -43,7 +42,7 @@ export default function InsertLME() {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoMain(null)
-                setPage('prescricoes')
+                setPage('prescricoes') // ou para onde for
             }
         })
     }
@@ -64,28 +63,13 @@ export default function InsertLME() {
                     className="ml-2"
                     variant="outline-success"
                     onClick={handleSubmit}
-                > Submeter </Button>
+                > Submeter LME</Button>
             </Container>
             <Container className="mt-2">
                 <Card body>
-                    <LMEContext.Provider value={{ lmeContext: lme, setLmeContext: setLme, setStepContext: setStep }} >
-                        {showStep === 11 && <LMEForkSet />}
-                        {showStep === 21 && <CID10List />}
-                        {showStep === 31 && <LMEVarSet />}
-                        {showStep === 41 && <RelatorioVarSet />}
-                    </LMEContext.Provider>
+                    <LMEEditor lme={lme} sendLme={backLme} step={step} />
                 </Card>
             </Container>
-            <Container className="mt-2">
-                InsertLME: {JSON.stringify(lme)}
-                {/* <Card body>
-                        <PrescricaoData prescricao={prescricao} medicamento={medicamento} />
-                    </Card>
-                    <Card body>
-                        <LMEData lme={lme} />
-                    </Card> */}
-            </Container>
-
         </div>
     )
 }

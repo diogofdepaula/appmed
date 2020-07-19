@@ -19,7 +19,7 @@ export default function PrescricaoUpdate(props) {
             setPrescricaoMain(prescricao)
             setPage('lmeupdate')            
         }
-    }, [])
+    }, [prescricao, setPage, setPrescricaoMain])
 
     const handleSubmit = event => {
 

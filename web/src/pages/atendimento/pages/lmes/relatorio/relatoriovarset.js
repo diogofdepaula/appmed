@@ -1,6 +1,6 @@
-import React, { useCallback, useContext, useEffect, useState, createContext } from 'react'
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { Card, Container } from 'react-bootstrap'
-import { LMEContext } from '../insert'
+import { LMEEditorContext } from '../editor'
 import RelatorioSet1 from './components/relatorioset1'
 import RelatorioSet2 from './components/relatorioset2'
 import RelatorioSet3 from './components/relatorioset3'
@@ -12,7 +12,7 @@ export const RelatorioContent = createContext(null)
 
 export default function RelatorioVarSet(props) {
 
-    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
 
     const relatorioinitial = {
         tempodoencaanos: '',

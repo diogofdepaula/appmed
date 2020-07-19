@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Accordion, Button, Card, Container, Form } from 'react-bootstrap';
-import { LMEContext } from '../insert';
+import { LMEEditorContext } from '../editor';
 
 export default function LMEVarSet(props) {
 
-    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
 
     const handleChange = event => {
         const target = event.target;

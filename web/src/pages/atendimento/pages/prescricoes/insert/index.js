@@ -40,13 +40,14 @@ export default function PrescricaoInsert(props) {
     const step = 11
 
     const backPrescricao = useCallback((paramPres, paramLME) => {
-        setPrescricao(paramPres)
-        //Mandará para a LME
         if (paramLME) {
-            setPrescricaoMain(prescricao)
-            setPage('lmeinsert')            
+            //Mandará para a LME
+            setPrescricaoMain(paramPres)
+            setPage('lmeinsert')
+        } else {
+            setPrescricao(paramPres)
         }
-    }, [prescricao, setPrescricaoMain, setPage])
+    }, [setPrescricaoMain, setPage])
 
     const handleSubmit = event => {
 

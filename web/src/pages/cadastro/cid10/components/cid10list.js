@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
-import { ListGroup, Container, FormControl } from 'react-bootstrap';
-import { LMEContext } from '../../../atendimento/pages/lmes/insert';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Container, FormControl, ListGroup } from 'react-bootstrap';
+import { LMEEditorContext } from '../../../atendimento/pages/lmes/editor';
 
 export default function CID10List() {
 
-    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
     const [cid10, setcid10] = useState([])
     const [cidsfiltrados, setcidsfiltrados] = useState([])
 

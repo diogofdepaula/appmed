@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
+import LMEEditor from '../editor'
 
 export default function UpdateLME(props) {
 
@@ -8,7 +9,7 @@ export default function UpdateLME(props) {
     const setPage = useContext(PageContext)
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [lme, setLme] = useState()
-    const [showStep, setStep] = useState(11);
+    const step = 31
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${cliente.id}`)
@@ -19,6 +20,12 @@ export default function UpdateLME(props) {
     useEffect(() => {
         fetchData();
     }, [fetchData])
+
+    const backLME = useCallback((paramLME) => {
+        console.log('prescricaoMain pus só para náo esquecer', prescricaoMain)
+        setLme(paramLME)
+        setPage('prescricoes') // ou para onde for
+    }, [setPage, prescricaoMain])
 
 
     const handleSubmit = event => {
@@ -57,7 +64,7 @@ export default function UpdateLME(props) {
             </Container>
             <Container className="mt-2">
                 <Card body>
-                    <h5>UpdateLME</h5>
+                    <LMEEditor lme={lme} sendLme={backLME} step={step} />
                     {/* <LMEContext.Provider value={{ lmeContext: lme, setLmeContext: setLme, setStepContext: setStep }} >
                         {showStep === 11 && <LMEForkSet />}
                         {showStep === 21 && <CID10List />}
