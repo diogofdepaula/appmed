@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react'
 import { Container, ListGroup, FormControl } from 'react-bootstrap'
-import { PrescricaoContext } from '../insert'
+import { PrescricaoEditorContext } from '../editor'
 
 export default function MedicamentoSet() {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
     const [medicamentos, setMedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
 

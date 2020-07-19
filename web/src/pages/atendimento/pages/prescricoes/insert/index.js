@@ -1,19 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
-import ApresentacaoSet from '../components/apresentacaoset';
-//import PrescricaoData from "../components/prescricaodata";
-import LmeDoses from '../components/lmedoses';
-import MedicamentoSet from '../components/medicamentoset';
-import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
-import PosologiaSet from '../components/posologiaset';
-import OutrasVariaveisSet from '../components/prescricaovarset';
+import PrescricaoEditor from '../editor'
 
 export const PrescricaoContext = createContext(null)
 
 export default function PrescricaoInsert(props) {
-
-    // testando
 
     const cliente = useContext(ClienteContext)
     const setPage = useContext(PageContext)
@@ -45,14 +37,17 @@ export default function PrescricaoInsert(props) {
     }
 
     const [prescricao, setPrescricao] = useState(initialPrescricao)
-    const [showStep, setStep] = useState(11);
+    const step = 11
 
-    useEffect(() => {
-        if (showStep === 'lme') {
+    const backPrescricao = useCallback((param) => {
+        setPrescricao(param)
+
+        //Manda para a LME
+        if (prescricao.lmemes1 !== '') {
             setPrescricaoMain(prescricao)
-            setPage('lmeinsert')
+            setPage('lmeinsert')            
         }
-    }, [showStep, setPrescricaoMain, prescricao, setPage])
+    }, [prescricao, setPrescricaoMain, setPage])
 
     const handleSubmit = event => {
 
@@ -77,7 +72,7 @@ export default function PrescricaoInsert(props) {
                         setPrescricao(initialPrescricao)
                         // setMedicamento(initialMedicamento)
                         // setValidacao(false)
-                        setStep(11)
+                        // setStep(11)
                     }}
                 > Escolhe outro Medicamento </Button>
                 <Button
@@ -88,14 +83,7 @@ export default function PrescricaoInsert(props) {
             </Container>
             <Container className="mt-2">
                 <Card body>
-                    <PrescricaoContext.Provider value={{ prescricaoContext: prescricao, setPrescricaoContext: setPrescricao, setStepContext: setStep }} >
-                        {showStep === 11 && <MedicamentoSet />}
-                        {showStep === 21 && <ApresentacaoSet />}
-                        {showStep === 31 && <PosologiaSet />}
-                        {showStep === 32 && <PosologiaNaoPadraoSet />}
-                        {showStep === 41 && <OutrasVariaveisSet />}
-                        {showStep === 51 && <LmeDoses />}
-                    </PrescricaoContext.Provider>
+                    <PrescricaoEditor prescricao={prescricao} sendPrescricao={backPrescricao} step={step} />
                 </Card>
             </Container>
             <Container className="mt-2">

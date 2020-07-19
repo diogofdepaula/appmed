@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { Container, Form, Row, Col, Button } from 'react-bootstrap'
-import { PrescricaoContext } from '../insert'
+import { PrescricaoEditorContext } from '../editor'
 
 export default function PosologiaNaoPadraoSet(props) {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
 
     const handleChange = event => {
         setPrescricaoContext({ ...prescricaoContext, [event.target.name]: event.target.value })

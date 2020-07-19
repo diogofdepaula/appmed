@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react'
 import { Button, Container, ListGroup } from 'react-bootstrap'
-import { PrescricaoContext } from '../insert'
+import { PrescricaoEditorContext } from '../editor'
 
 export default function PosologiaSet(props) {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
     const [medicamentocominclude, setMedicamentoComInclude] = useState()
 
     const fetchData = useCallback(async () => {

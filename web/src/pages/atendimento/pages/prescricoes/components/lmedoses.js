@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { PrescricaoContext } from '../insert'
+import { PrescricaoEditorContext } from '../editor'
 
 export default function LMEDoses(props) {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoContext)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
 
     const indices = [
         ['lmemes1', '1º mês'],
@@ -48,7 +48,7 @@ export default function LMEDoses(props) {
                     variant="outline-success"
                     onClick={() => {
                         setPrescricaoContext(prescricaoContext)
-                        setStepContext('lme')
+                        setStepContext(0)
                     }}
                 > Próximo
                     </Button>

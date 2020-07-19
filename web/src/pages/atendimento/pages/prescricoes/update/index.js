@@ -1,27 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useCallback, useState } from 'react';
 import { Container, Button, Card } from 'react-bootstrap';
 import { PrescricaoMainContext, PageContext } from '../..';
-import ApresentacaoSet from '../components/apresentacaoset';
-import PosologiaSet from '../components/posologiaset';
-import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
-import OutrasVariaveisSet from '../components/prescricaovarset'
-import Lmedoses from '../components/lmedoses'
-
+import PrescricaoEditor from '../editor'
 
 export default function PrescricaoUpdate(props) {
 
-    // commmmmit
-
     const setPage = useContext(PageContext)
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
+    //Não dá para usar o prescricaoMain porque dá um erro
+    //Cannot update a component from inside the function body of a different component
     const [prescricao, setPrescricao] = useState(prescricaoMain)
+    const step = 21
 
-    const [showStep, setStep] = useState(21);
-
-    const handleNextStep = (paramPresc, paramStep) => () => {
-        setPrescricao(paramPresc)
-        setStep(paramStep)
-    }
+    const backPrescricao = useCallback((param) => {
+        setPrescricao(param)
+    }, [])
 
     const handleSubmit = event => {
 
@@ -53,12 +46,7 @@ export default function PrescricaoUpdate(props) {
 
             <Container className="mt-2">
                 <Card body>
-                    {/* {showStep === 11 && <MedicamentoSet prescricao={prescricao} passNextStep={handleNextStep} />} */}
-                    {showStep === 21 && <ApresentacaoSet prescricao={prescricao} passNextStep={handleNextStep} />} 
-                    {showStep === 31 && <PosologiaSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                    {showStep === 32 && <PosologiaNaoPadraoSet prescricao={prescricao} passNextStep={handleNextStep} />}
-                    {showStep === 41 && <OutrasVariaveisSet prescricao={prescricao} passNextStep={handleNextStep} passHowCalls={'update'}/>}
-                    {showStep === 51 && <Lmedoses prescricao={prescricao} passNextStep={handleNextStep}  />}
+                    <PrescricaoEditor prescricao={prescricao} sendPrescricao={backPrescricao} step={step} />
                 </Card>
             </Container>
         </div>
