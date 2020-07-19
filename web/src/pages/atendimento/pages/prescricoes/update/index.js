@@ -12,9 +12,13 @@ export default function PrescricaoUpdate(props) {
     const [prescricao, setPrescricao] = useState(prescricaoMain)
     const step = 21
 
-    const backPrescricao = useCallback((param) => {
-        console.log('teste do retorno para UpdatePrescricao')
-        setPrescricao(param)
+    const backPrescricao = useCallback((paramPres, paramLME ) => {
+        setPrescricao(paramPres)
+         //Mandará para a LME
+         if (paramLME) {
+            setPrescricaoMain(prescricao)
+            setPage('lmeupdate')            
+        }
     }, [])
 
     const handleSubmit = event => {

@@ -13,13 +13,13 @@ export default function PrescricaoInsert(props) {
     const [prescricao, setPrescricao] = useState(props.prescricao)
     const [step, setStep] = useState(props.step);
 
-    const backPrescricao = useCallback(() => {
-        props.sendPrescricao(prescricao)
+    const backPrescricao = useCallback((param) => {
+        props.sendPrescricao(prescricao, param)
     }, [props, prescricao])
 
     useEffect(() => {
         if (step === 0) {
-            backPrescricao()
+            backPrescricao(true)
         }
     }, [step, backPrescricao])
 
