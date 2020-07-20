@@ -47,6 +47,8 @@ export default function InsertLME() {
         })
     }
 
+    console.log('lme no insert', lme)
+
     return (
         <div>
             <Container fluid className="mt-2">

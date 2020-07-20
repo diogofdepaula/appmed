@@ -6,7 +6,7 @@ import RelatorioVarSet from '../relatorio/relatoriovarset'
 
 export const LMEEditorContext = createContext()
 
-export default function PrescricaoInsert(props) {
+export default function PrescricaoEditor(props) {
 
     const [lme, setLme] = useState(props.lme)
     const [step, setStep] = useState(props.step);

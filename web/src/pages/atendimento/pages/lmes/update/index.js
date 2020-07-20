@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useState, useCallback } from 'react';
+import React, { useContext, useState, useCallback, useLayoutEffect } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
-import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
+import { PageContext, PrescricaoMainContext } from '../..';
 import LMEEditor from '../editor'
 
-export default function UpdateLME(props) {
+export default function UpdateLME() {
 
-    const cliente = useContext(ClienteContext)
+    // const cliente = useContext(ClienteContext)
     const setPage = useContext(PageContext)
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [lme, setLme] = useState()
     const step = 31
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${cliente.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
         const json = await res.json();
         setLme(json);
-    }, [cliente])
+    }, [prescricaoMain])
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         fetchData();
     }, [fetchData])
 
@@ -64,13 +64,9 @@ export default function UpdateLME(props) {
             </Container>
             <Container className="mt-2">
                 <Card body>
-                    <LMEEditor lme={lme} sendLme={backLME} step={step} />
-                    {/* <LMEContext.Provider value={{ lmeContext: lme, setLmeContext: setLme, setStepContext: setStep }} >
-                        {showStep === 11 && <LMEForkSet />}
-                        {showStep === 21 && <CID10List />}
-                        {showStep === 31 && <LMEVarSet />}
-                        {showStep === 41 && <RelatorioVarSet />}
-                    </LMEContext.Provider> */}
+                    {lme &&
+                        <LMEEditor lme={lme} sendLme={backLME} step={step} />
+                    }
                 </Card>
             </Container>
         </div>

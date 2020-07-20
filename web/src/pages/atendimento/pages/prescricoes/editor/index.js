@@ -8,7 +8,7 @@ import OutrasVariaveisSet from '../components/prescricaovarset';
 
 export const PrescricaoEditorContext = createContext()
 
-export default function PrescricaoInsert(props) {
+export default function PrescricaoEditor(props) {
 
     const [prescricao, setPrescricao] = useState(props.prescricao)
     const [step, setStep] = useState(props.step);

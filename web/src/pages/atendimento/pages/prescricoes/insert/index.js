@@ -43,7 +43,11 @@ export default function PrescricaoInsert(props) {
         if (paramLME) {
             //Mandará para a LME
             setPrescricaoMain(paramPres)
-            setPage('lmeinsert')
+            if (paramPres.lmeId === null) {
+                setPage('lmeinsert')
+            } else {
+                setPage('lmeupdate')
+            }
         } else {
             setPrescricao(paramPres)
         }
