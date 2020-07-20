@@ -1,27 +1,76 @@
-import React, { useState, useEffect } from 'react'
-import LMEVarSet from '../components/lmevarset'
+import React, { useContext, useState, useCallback, useLayoutEffect } from 'react';
+import { Button, Card, Container } from 'react-bootstrap';
+import { PageContext, PrescricaoMainContext } from '../..';
+import LMEEditor from '../editor'
 
-export default function UpdateLME(props) {
+export default function UpdateLME() {
 
-  // // comment para commit
+// comment para commit
 
-    const cliente = props.cliente  // se vir por import
-    //const [cliente] = useState(props.location.state.cliente)  se vir por Link
+    // const cliente = useContext(ClienteContext)
+    const setPage = useContext(PageContext)
+    const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const [lme, setLme] = useState()
+    const step = 31
 
-    const [lme, setlme] = useState()
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
+        const json = await res.json();
+        setLme(json);
+    }, [prescricaoMain])
 
-    useEffect(() => {
-        const { id } = 1 // colocar a props.lmeId que vier depois
-        fetch(`http://localhost:4001/api.appmed/medicamentos/${cliente.id}/${id}`)
-            .then(response => response.json())
-            .then(response => setlme(response))
-            .catch(err => console.log(err))
-    }, [cliente.id])
+    useLayoutEffect(() => {
+        fetchData();
+    }, [fetchData])
+
+    const backLME = useCallback((paramLME) => {
+        console.log('prescricaoMain pus só para náo esquecer', prescricaoMain)
+        setLme(paramLME)
+        setPage('prescricoes') // ou para onde for
+    }, [setPage, prescricaoMain])
+
+
+    const handleSubmit = event => {
+
+        event.preventDefault();
+
+        fetch(`http://localhost:4001/api.appmed/lmes`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(lme)
+        }).then(data => {
+            if (data.ok) {
+                setPrescricaoMain(null)
+                setPage('prescricoes')
+            }
+        })
+    }
 
     return (
         <div>
-            <LMEVarSet lme={lme} />
-            {/* fazer depois um RelatórioDATA */}
+            <Container fluid className="mt-2">
+                <Button
+                    variant="outline-primary"
+                // onClick={() => {
+                //     setPrescricao(initialPrescricao)
+                //     setMedicamento(initialMedicamento)
+                //     setValidacao(false)
+                //     setShowMedicamentoSet(true)
+                // }}
+                > Deixei aqui para manter a design </Button>
+                <Button
+                    className="ml-2"
+                    variant="outline-success"
+                    onClick={handleSubmit}
+                > Submeter </Button>
+            </Container>
+            <Container className="mt-2">
+                <Card body>
+                    {lme &&
+                        <LMEEditor lme={lme} sendLme={backLME} step={step} />
+                    }
+                </Card>
+            </Container>
         </div>
     )
 }

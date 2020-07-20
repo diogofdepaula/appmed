@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Container, ListGroup } from 'react-bootstrap';
-import { LMEContext } from '../insert';
+import { LMEEditorContext } from '../editor';
 import LMEList from './lmelist';
 
 export default function LMEForkSet() {
 
-    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
 
     return (
         <div>

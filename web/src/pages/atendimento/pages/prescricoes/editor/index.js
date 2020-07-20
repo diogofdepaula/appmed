@@ -8,20 +8,24 @@ import OutrasVariaveisSet from '../components/prescricaovarset';
 
 export const PrescricaoEditorContext = createContext()
 
-export default function PrescricaoInsert(props) {
+export default function PrescricaoEditor(props) {
 
     const [prescricao, setPrescricao] = useState(props.prescricao)
     const [step, setStep] = useState(props.step);
 
-    const backPrescricao = useCallback(() => {
-        props.sendPrescricao(prescricao)
+    const backToPrescricao = useCallback((param) => {
+        props.sendPrescricao(prescricao, param)
     }, [props, prescricao])
 
     useEffect(() => {
         if (step === 0) {
-            backPrescricao()
+            // sem mandar para lme
+            backToPrescricao(false)
+        } else if (step === 1){
+            // manda para lme
+            backToPrescricao(true)
         }
-    }, [step, backPrescricao])
+    }, [step, backToPrescricao])
 
     return (
         <div>

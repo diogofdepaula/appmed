@@ -1,12 +1,12 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
+import { LMEEditorContext } from '../../editor'
 import { RelatorioContent } from '../relatoriovarset'
-import { LMEContext } from '../../insert'
 
 export default function RelatorioSet2() {
 
     const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
-    const { lmeContext } = useContext(LMEContext)
+    const { lmeContext } = useContext(LMEEditorContext)
     const [list, setList] = useState([])
 
     const getList = useCallback(() => {

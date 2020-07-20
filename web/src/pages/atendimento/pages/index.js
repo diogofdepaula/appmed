@@ -5,6 +5,7 @@ import PrescricaoInsert from './prescricoes/insert'
 import PrescricaoUpdate from './prescricoes/update'
 import Main from './prescricoes/main'
 import LMEInsert from './lmes/insert'
+import LMEUpdate from './lmes/update'
 
 export const ClienteContext = createContext(null)
 // para as paginas mais profundas terem acesso a essa pagina
@@ -51,8 +52,8 @@ export default function AtendimentoMain(props) {
                             {page === 'prescricaoinsert' && <PrescricaoInsert />}
                             {page === 'prescricaoupdate' && <PrescricaoUpdate />}
                             {page === 'lmeinsert' && <LMEInsert />}
+                            {page === 'lmeupdate' && <LMEUpdate />}
                         </PrescricaoMainContext.Provider>
-                        
                     </Container>
                 </PageContext.Provider>
             </ClienteContext.Provider>

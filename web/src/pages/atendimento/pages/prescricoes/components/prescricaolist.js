@@ -10,7 +10,7 @@ export default function PrescricaoList() {
     const [prescricoes, setPrescricoes] = useState([])
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/${cliente.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
         const json = await res.json();
         setPrescricoes(json);
     }, [cliente])
@@ -36,6 +36,9 @@ export default function PrescricaoList() {
                                 }}
                             >Editar
                                     </Badge>
+                                    <>
+                                    {prescricao.lmeId !== null && '(LME)'}
+                                    </>
                         </ListGroup.Item>
                     )
                 )}
