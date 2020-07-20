@@ -2,6 +2,7 @@ const Prescricoes = require('../../models/atendimento/prescricoes')
 const Medicamentos = require("../../models/cadastro/medicamentos")
 const Apresentacoes = require("../../models/cadastro/apresentacoes")
 const Posologias = require("../../models/cadastro/posologias")
+const { findByPk, findAll } = require('../../models/cadastro/apresentacoes')
 
 exports.Insert = (req, res, next) => {
 
@@ -23,6 +24,10 @@ exports.SearchAll = (req, res) => {
         })
 }
 
+
+// dever ter o mesmo problemas que no lmecontroller em que o findByPk vem sem includes (não tem como por)
+// tem que fazer um findAll e lá na web tem que colocar [0], pois ele manda uma array de um
+// não adianta colocar aqui [0] pois ele continua mandando uma array
 exports.SearchOne = (req, res) => {
     const id = req.params.id;
     Prescricoes.findByPk(id)

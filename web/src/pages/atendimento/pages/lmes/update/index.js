@@ -14,7 +14,7 @@ export default function UpdateLME() {
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
         const json = await res.json();
-        setLme(json);
+        setLme(json[0]); // ele manda como uma array se um item
     }, [prescricaoMain])
 
     useLayoutEffect(() => {

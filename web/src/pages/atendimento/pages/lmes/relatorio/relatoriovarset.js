@@ -15,7 +15,7 @@ export default function RelatorioVarSet(props) {
     const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
 
     const relatorioinitial = {
-        tempodoencaanos: '',
+        tempodoencaanos: 'testeinitial',
         tempodoencameses: '',
         vhs: '',
         pcr: '',
@@ -97,24 +97,9 @@ export default function RelatorioVarSet(props) {
     }
 
     const [step, setStep] = useState(1);
-    const [relatorio, setRelatorio] = useState()
+    const [relatorio, setRelatorio] = useState(lmeContext.relatorio === null ? relatorioinitial : lmeContext.relatorio)
 
-    const relatorioInit = useCallback(() => {
-        setRelatorio(relatorioinitial)
-        // deixei aqui para negativar o if do useEffect se não entra em loop
-        // ele vai ser substituido no final
-        // deve ter algum jeito de ir mudando direto no lmeContext conforme vai editando
-        // mas não achei
-        setLmeContext({ ...lmeContext, relatorio: relatorioinitial })
-    }, [setLmeContext, lmeContext, relatorioinitial])
-
-    useEffect(() => {
-        if (lmeContext.relatorio === null) {
-            relatorioInit()
-        }
-    }, [lmeContext, relatorioInit, step])
-
-        const backToEditor = useCallback(() => {
+     const backToEditor = useCallback(() => {
         setLmeContext({
             ...lmeContext,
             relatorio: relatorio

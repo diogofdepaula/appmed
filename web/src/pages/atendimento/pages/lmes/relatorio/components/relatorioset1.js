@@ -19,7 +19,7 @@ export default function RelatorioSet1() {
                             type="text"
                             name="tempodoencaanos"
                             placeholder="Anos"
-                            //value={relatorioContext.tempodoencaanos}
+                            value={relatorioContext.tempodoencaanos}
                             onChange={handleChange}
                         />
                     </Col>
@@ -28,7 +28,7 @@ export default function RelatorioSet1() {
                             type="text"
                             name="tempodoencameses"
                             placeholder="Meses"
-                            //value={relatorioContext.tempodoencameses}
+                            value={relatorioContext.tempodoencameses}
                             onChange={handleChange}
                         />
                     </Col>
@@ -37,7 +37,7 @@ export default function RelatorioSet1() {
                             type="text"
                             name="vhs"
                             placeholder="VHS"
-                            //value={relatorioContext.vhs}
+                            value={relatorioContext.vhs}
                             onChange={handleChange}
                         />
                     </Col>
@@ -46,7 +46,7 @@ export default function RelatorioSet1() {
                             type="text"
                             name="pcr"
                             placeholder="PCR"
-                            //value={relatorioContext.pcr}
+                            value={relatorioContext.pcr}
                             onChange={handleChange}
                         />
                     </Col>
@@ -55,7 +55,7 @@ export default function RelatorioSet1() {
                             type="text"
                             name="pcrvn"
                             placeholder="PCR NL"
-                            //value={relatorioContext.pcrvn}
+                            value={relatorioContext.pcrvn}
                             onChange={handleChange}
                         />
                     </Col>

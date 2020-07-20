@@ -11,31 +11,31 @@ export default function RelatorioSet2() {
 
     const getList = useCallback(() => {
         const ar = [
-            ['ara', 'Rigidez articular'],
-            ['arb', 'Artrite em três ou mais áreas'],
-            ['arc', 'Artrite em articulações das mãos'],
-            ['ard', 'Artrite simétrica'],
-            ['are', 'Nódulos reumatóides'],
-            ['arf', 'Fator reumatóide sérico'],
-            ['arg', 'Alterações radiológicas'],
+            ['ara', 'Rigidez articular', relatorioContext.ara ],
+            ['arb', 'Artrite em três ou mais áreas', relatorioContext.arb ],
+            ['arc', 'Artrite em articulações das mãos', relatorioContext.arc ],
+            ['ard', 'Artrite simétrica', relatorioContext.ard ],
+            ['are', 'Nódulos reumatóides', relatorioContext.are ],
+            ['arf', 'Fator reumatóide sérico', relatorioContext.arf ],
+            ['arg', 'Alterações radiológicas', relatorioContext.arg ],
         ]
 
         const eap = [
-            ['eapa', 'Psoríase'],
-            ['eapb', 'Artrite'],
-            ['eapc', 'Entesite'],
-            ['eapd', 'Dactilite'],
-            ['eape', 'Alterações extrarticulares'],
-            ['eapf', 'Distrofia ungueal'],
-            ['eapg', 'Proliferação óssea na radiografia']
+            ['eapa', 'Psoríase', relatorioContext.eapa ],
+            ['eapb', 'Artrite', relatorioContext.eapb ],
+            ['eapc', 'Entesite', relatorioContext.eapc ],
+            ['eapd', 'Dactilite', relatorioContext.eapd ],
+            ['eape', 'Alterações extrarticulares', relatorioContext.eape ],
+            ['eapf', 'Distrofia ungueal', relatorioContext.eapf ],
+            ['eapg', 'Proliferação óssea na radiografia', relatorioContext.eapg ],
         ]
 
         const eaa = [
-            ['eaaa', 'Dor lombar inflamatória'],
-            ['eaab', 'HLA-B27 detectado'],
-            ['eaac', 'Sacroileíte / Lesões Axiais'],
-            ['eaad', 'RM típica'],
-            ['eaae', 'Alterações Extrarticulares']
+            ['eaaa', 'Dor lombar inflamatória', relatorioContext.eaaa ],
+            ['eaab', 'HLA-B27 detectado', relatorioContext.eaab ],
+            ['eaac', 'Sacroileíte / Lesões Axiais', relatorioContext.eaac ],
+            ['eaad', 'RM típica', relatorioContext.eaad ],
+            ['eaae', 'Alterações Extrarticulares', relatorioContext.eaae ],
         ]
 
         const arcid = ['M050', 'M051', 'M052', 'M053', 'M058', 'M060', 'M068']
@@ -57,7 +57,7 @@ export default function RelatorioSet2() {
         }
         // não sei como tirar toda essa lógica aqui de dentro.
         // as const quando estão lá fora e são postas na lista de dependências dá loop infinito
-    }, [lmeContext])
+    }, [lmeContext, relatorioContext])
 
     useEffect(() => {
         getList()
@@ -71,14 +71,14 @@ export default function RelatorioSet2() {
     return (
         <div>
             <Container>
-                {list && list.map((w, index) =>
+                {list && list.map((w) =>
                     <Form.Check
                         key={w[0]}
                         type="checkbox"
                         label={w[1]}
                         id={w[0]}
                         name={w[0]}
-                        value={w[0]}
+                        checked={w[2]}
                         onChange={handleChange}
                     />
                 )}

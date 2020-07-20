@@ -20,17 +20,23 @@ exports.SearchAll = (req, res, next) => {
     const id = req.params.id;
     //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
     Lmes.findAll({ where: { clienteId: id } })
-        .then((lmes) => {
-            return res.json(lmes)
+        .then((lme) => {
+            return res.json(lme)
         })
 }
 
 exports.SearchOne = (req, res, next) => {
     const id = req.params.id;
-    Lmes.findByPk(id)
-        .then((lme) => {
-            return res.json(lme)
+    Lmes.findAll({ where: { id: id }, include: [Relatorios, Prescricoes] })
+        .then((lmes) => {
+            return res.json(lmes)
         })
+
+    // const id = req.params.id;
+    // Lmes.findByPk(id)
+    //     .then((lme) => {
+    //         return res.json(lme)
+    //     })
 }
 
 exports.Update = (req, res, next) => {
