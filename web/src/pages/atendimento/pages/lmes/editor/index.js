@@ -11,15 +11,15 @@ export default function PrescricaoEditor(props) {
     const [lme, setLme] = useState(props.lme)
     const [step, setStep] = useState(props.step);
 
-    const backLme = useCallback(() => {
+    const backToLme = useCallback(() => {
         props.sendLme(lme)
     }, [props, lme])
 
     useEffect(() => {
         if (step === 0) {
-            backLme()
+            backToLme()
         }
-    }, [step, backLme])
+    }, [step, backToLme])
 
     return (
         <div>

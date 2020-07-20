@@ -96,48 +96,54 @@ export default function RelatorioVarSet(props) {
         eva: '',
     }
 
-    const [showStep, setStep] = useState(1);
-    //se vem para cá é porque é nova LME
-    const [relatorio, setRelatorio] = useState(relatorioinitial)
+    const [step, setStep] = useState(1);
+    const [relatorio, setRelatorio] = useState()
 
-    const returnlmeinsert = useCallback(() => {
+    const relatorioInit = useCallback(() => {
+        setRelatorio(relatorioinitial)
+        // deixei aqui para negativar o if do useEffect se não entra em loop
+        // ele vai ser substituido no final
+        // deve ter algum jeito de ir mudando direto no lmeContext conforme vai editando
+        // mas não achei
+        setLmeContext({ ...lmeContext, relatorio: relatorioinitial })
+    }, [setLmeContext, lmeContext, relatorioinitial])
+
+    useEffect(() => {
+        if (lmeContext.relatorio === null) {
+            relatorioInit()
+        }
+    }, [lmeContext, relatorioInit, step])
+
+        const backToEditor = useCallback(() => {
         setLmeContext({
             ...lmeContext,
             relatorio: relatorio
         })
         setStepContext(0)
-    }, [setLmeContext, setStepContext, lmeContext, relatorio])
+    }, [setLmeContext, lmeContext, setStepContext, relatorio])
 
     useEffect(() => {
-        if (showStep === 7) {
-            returnlmeinsert()
+        if (step === 7) {
+            backToEditor()
         }
-    }, [returnlmeinsert, showStep])
+    }, [backToEditor, step])
 
     return (
         <div>
             <Container>
-                {showStep >= 1 && showStep <= 6 &&
+                {step >= 1 && step <= 6 &&
                     <Card body>
                         <h5>Preencha o relatório de médico específico</h5>
                         <RelatorioContent.Provider value={{ relatorioContext: relatorio, setRelatorioContext: setRelatorio, setStepContext: setStep }} >
-                            {showStep === 1 && <RelatorioSet1 />}
-                            {showStep === 2 && <RelatorioSet2 />}
-                            {showStep === 3 && <RelatorioSet3 />}
-                            {showStep === 4 && <RelatorioSet4 />}
-                            {showStep === 5 && <RelatorioSet5 />}
-                            {showStep === 6 && <RelatorioSet6 />}
+                            {step === 1 && <RelatorioSet1 />}
+                            {step === 2 && <RelatorioSet2 />}
+                            {step === 3 && <RelatorioSet3 />}
+                            {step === 4 && <RelatorioSet4 />}
+                            {step === 5 && <RelatorioSet5 />}
+                            {step === 6 && <RelatorioSet6 />}
                         </RelatorioContent.Provider>
                     </Card>
                 }
-                {/* {showStep === 7 &&
-                    <Button
-                        className="ml-1"
-                        variant="outline-success"
-                        onClick={props.passNextStep(lme, 0)}
-                    > Encerrar relatorio
-                    </Button>
-                } */}
             </Container>
         </div >
     )
