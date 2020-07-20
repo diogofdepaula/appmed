@@ -7,7 +7,10 @@ export default function PosologiaNaoPadraoSet(props) {
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
 
     const handleChange = event => {
-        setPrescricaoContext({ ...prescricaoContext, [event.target.name]: event.target.value })
+        setPrescricaoContext({ ...prescricaoContext, 
+            posologiaId: null,
+            [event.target.name]: event.target.value
+        } )
     }
 
     return (
@@ -20,6 +23,7 @@ export default function PosologiaNaoPadraoSet(props) {
                         rows="4"
                         name="posologianaopadrao"
                         placeholder="Posologia não padronizada"
+                        value={prescricaoContext.posologianaopadrao}
                         onChange={handleChange}
                     />
                 </Row>
@@ -29,6 +33,7 @@ export default function PosologiaNaoPadraoSet(props) {
                             type="text"
                             name="quantidadenaopadrao"
                             placeholder="Quantidade"
+                            value={prescricaoContext.quantidadenaopadrao}
                             onChange={handleChange}
                         />
                     </Col>
@@ -37,6 +42,7 @@ export default function PosologiaNaoPadraoSet(props) {
                             type="text"
                             name="formanaopadrao"
                             placeholder="Forma"
+                            value={prescricaoContext.formanaopadrao}
                             onChange={handleChange}
                         />
                     </Col>

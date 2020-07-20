@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Accordion, Button, Card, Container, Form } from 'react-bootstrap';
-import { LMEContext } from '../insert';
+import { LMEEditorContext } from '../editor';
 
 export default function LMEVarSet(props) {
 
-    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEContext)
+    const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
 
     const handleChange = event => {
         const target = event.target;
@@ -42,9 +42,11 @@ export default function LMEVarSet(props) {
                                         <Form.Group controlId="formBasicCheckboxA">
                                             <Form.Check
                                                 type="checkbox"
+                                                id="tratamentoprevio"
                                                 label="Tratamento Prévio"
                                                 name="tratamentoprevio"
-                                                value={lmeContext.tratamentoprevio}
+                                                checked={lmeContext.tratamentoprevio}
+                                               // value={lmeContext.tratamentoprevio}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
@@ -64,8 +66,10 @@ export default function LMEVarSet(props) {
                                             <Form.Check
                                                 type="checkbox"
                                                 label="Atestado de capacidade"
+                                                id="atestadocapacidade"
                                                 name="atestadocapacidade"
-                                                value={lmeContext.atestadocapacidade}
+                                                checked={lmeContext.atestadocapacidade}
+                                               // value={lmeContext.atestadocapacidade}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>

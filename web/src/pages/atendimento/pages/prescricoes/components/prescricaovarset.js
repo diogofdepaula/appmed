@@ -26,7 +26,7 @@ export default function PrescricaoVarSet(props) {
                                     type="checkbox"
                                     label="Contínuo"
                                     name="continuo"
-                                    value={prescricaoContext.continuo}
+                                    checked={prescricaoContext.continuo}
                                     onChange={handleChange}
                                 />
                             </Form.Group>
@@ -36,7 +36,7 @@ export default function PrescricaoVarSet(props) {
                                     type="checkbox"
                                     label="Imprimir orientações"
                                     name="imprimirorientacoes"
-                                    value={prescricaoContext.imprimirorientacoes}
+                                    checked={prescricaoContext.imprimirorientacoes}
                                     onChange={handleChange}
                                 />
                             </Form.Group>

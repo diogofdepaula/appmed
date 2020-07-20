@@ -29,7 +29,11 @@ export default function ApresentacaoSet() {
                                 setPrescricaoContext({ ...prescricaoContext, apresentacoId: apresentacao.id })
                                 setStepContext(31)
                             }}
-                        >{apresentacao.descricao}
+                        >
+                        <>
+                            {prescricaoContext.apresentacoId === apresentacao.id && <h6>(opção atual)</h6>}
+                        </>
+                        {apresentacao.descricao}
                         </ListGroup.Item>
                     )}
                 </ListGroup>

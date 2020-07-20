@@ -12,9 +12,19 @@ export default function PrescricaoUpdate(props) {
     const [prescricao, setPrescricao] = useState(prescricaoMain)
     const step = 21
 
-    const backPrescricao = useCallback((param) => {
-        setPrescricao(param)
-    }, [])
+    const backPrescricao = useCallback((paramPres, paramLME) => {
+        if (paramLME) {
+            //Mandará para a LME
+            setPrescricaoMain(paramPres)
+            if (paramPres.lmeId === null) {
+                setPage('lmeinsert')
+            } else {
+                setPage('lmeupdate')
+            }
+        } else {
+            setPrescricao(paramPres)
+        }
+    }, [setPage, setPrescricaoMain])
 
     const handleSubmit = event => {
 

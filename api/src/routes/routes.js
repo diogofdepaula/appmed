@@ -24,14 +24,14 @@ router.get('/cid10', cid10controller.SearchAll);
 router.get('/cid10/:id', cid10controller.SearchOne);
 
 router.post('/prescricoes', prescricoescontroller.Insert);
-router.get('/prescricoes/:id', prescricoescontroller.SearchAll);
-router.get('/prescricoes/:id', prescricoescontroller.SearchOne);
+router.get('/prescricoes/all/:id', prescricoescontroller.SearchAll);
+router.get('/prescricoes/one/:id', prescricoescontroller.SearchOne);
 router.put('/prescricoes/:id', prescricoescontroller.Update);
 router.delete('/prescricoes/:id', prescricoescontroller.Delete);
 
 router.post('/lmes', lmescontroller.Insert);
-router.get('/lmes/:id', lmescontroller.SearchAll);
-router.get('/lmes/:id', lmescontroller.SearchOne);
+router.get('/lmes/all/:id', lmescontroller.SearchAll);
+router.get('/lmes/one/:id', lmescontroller.SearchOne);
 router.put('/lmes/:id', lmescontroller.Update);
 router.delete('/lmes/:id', lmescontroller.Delete);
 

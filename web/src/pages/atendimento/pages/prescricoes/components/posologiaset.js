@@ -33,7 +33,11 @@ export default function PosologiaSet(props) {
                                 })
                                 setStepContext(41)
                             }}
-                        >{posologia.posologia}
+                        >
+                            <>
+                                {prescricaoContext.posologiaId === posologia.id && <h6>(opção atual)</h6>}
+                            </>
+                            {posologia.posologia}
                         </ListGroup.Item>
                     )}
                 </ListGroup>
@@ -46,7 +50,10 @@ export default function PosologiaSet(props) {
                     setStepContext(32)
                 }}
             >Usar posologia não padronizada
-                </Button>
+                <>
+                    {prescricaoContext.posologiaId === null && <h6>  (opção atual)</h6>}
+                </>
+            </Button>
         </div>
     )
 }
