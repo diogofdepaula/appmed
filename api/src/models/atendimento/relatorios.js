@@ -186,13 +186,13 @@ Relatorios.init({
 		type: DataTypes.DATEONLY
 	},
 	ppdresultado: {
-		type: DataTypes.INTEGER
+		type: DataTypes.STRING
 	},
 	rxtoraxdata: {
 		type: DataTypes.DATEONLY
 	},
 	rxtoraxresultado: {
-		type: DataTypes.BOOLEAN
+		type: DataTypes.STRING
 	},
 	rxtoraxalteracao: {
 		type: DataTypes.STRING

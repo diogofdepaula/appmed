@@ -8,23 +8,16 @@ export default function RelatorioSet3(props) {
     const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
 
     const handleChange = event => {
-        if (event.type === 'checkbox') {
-            setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.checked })
-        } else {
-            setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
-        }
+        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
     }
 
-    const handleChangeppdresultado = param => () => {
-        setRelatorioContext({ ...relatorioContext, ppdresultado: param })
-    }
-
-    const handleChangerxtoraxresultado = param => () => {
-        setRelatorioContext({ ...relatorioContext, rxtoraxresultado: param })
+    const handleChangeRadio = event => {
+        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
     }
 
     return (
         <div>
+            {JSON.stringify(relatorioContext)}
             <Container>
                 <Form.Group>
                     <Row>
@@ -39,30 +32,37 @@ export default function RelatorioSet3(props) {
                             />
                         </Col>
                         <Col xs={9}>
-                            <Form.Group controlId="formHorizontalCheck">
+                            <Form.Group controlId="ppdcheckbox">
                                 <Form.Check
                                     inline
                                     label="Até 5 mm"
                                     type='radio'
-                                    name='ppdresultado'  //é o nome que define o grupo do radio  tem que se o mesmo para os item do grupo
-                                    id="formHorizontalRadios1"
-                                    onChange={handleChangeppdresultado(1)}
+                                    name='ppdresultado' 
+                                    id="ppdresultadoa"
+                                    value="a"
+                                    checked={relatorioContext.ppdresultado === "a"}
+                                    onChange={handleChangeRadio}
                                 />
                                 <Form.Check
+                                defaultChecked
                                     inline
                                     label="Acima de 5 mm"
                                     type='radio'
                                     name='ppdresultado'
-                                    id="formHorizontalRadios2"
-                                    onChange={handleChangeppdresultado(2)}
+                                    id="ppdresultadob"
+                                    value="b"
+                                    checked={relatorioContext.ppdresultado === "b"}
+                                    onChange={handleChangeRadio}
                                 />
                                 <Form.Check
                                     inline
                                     label="Não reator"
                                     type='radio'
                                     name='ppdresultado'
-                                    id="formHorizontalRadios3"
-                                    onChange={handleChangeppdresultado(3)}
+                                    id="ppdresultadoc"
+                                    value="c"
+                                    checked={relatorioContext.ppdresultado === "c"}
+                                    onChange={handleChangeRadio}
                                 />
                             </Form.Group>
                         </Col>
@@ -79,25 +79,32 @@ export default function RelatorioSet3(props) {
                             />
                         </Col>
                         <Col xs={9}>
+                        <Form.Group controlId="rxtcheckbox">
                             <Form.Check
                                 inline
                                 type="radio"
                                 label="Radiografia de tórax normal"
                                 name="rxtoraxresultado"
-                                //value={relatorio.rxtoraxresultado}
-                                onChange={handleChangerxtoraxresultado(false)}
+                                id="rxtoraxresultadoa"
+                                value="a"
+                                checked={relatorioContext.rxtoraxresultado === "a"}
+                                onChange={handleChangeRadio}
+
                             />
                             <Form.Check
                                 inline
                                 type="radio"
                                 label="Radiografia de tórax alterada"
                                 name="rxtoraxresultado"
-                                // value={relatorio.rxtoraxresultado}
-                                onChange={handleChangerxtoraxresultado(true)}
+                                id="rxtoraxresultadob"
+                                value={"b"}
+                                checked={relatorioContext.rxtoraxresultado === "b"}
+                                onChange={handleChangeRadio}
                             />
+                            </Form.Group>
                         </Col>
                     </Row>
-                    {relatorioContext.rxtoraxresultado &&
+                    {relatorioContext.rxtoraxresultado === "b" &&
                         <Row className="mt-1">
                             <Col>
                                 <Form.Control
