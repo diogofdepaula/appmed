@@ -24,8 +24,9 @@ export default function UpdateLME() {
     const backLME = useCallback((paramLME) => {
         console.log('prescricaoMain pus só para náo esquecer', prescricaoMain)
         setLme(paramLME)
-        setPage('prescricoes') // ou para onde for
-    }, [setPage, prescricaoMain])
+        console.log('na LME update')     
+          //  setPage('prescricoes') // ou para onde for
+    }, [ prescricaoMain])
 
 
     const handleSubmit = event => {
@@ -60,7 +61,7 @@ export default function UpdateLME() {
                     className="ml-2"
                     variant="outline-success"
                     onClick={handleSubmit}
-                > Submeter </Button>
+                > Submeter no LME update </Button>
             </Container>
             <Container className="mt-2">
                 <Card body>

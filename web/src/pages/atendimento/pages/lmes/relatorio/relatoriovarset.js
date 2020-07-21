@@ -96,8 +96,8 @@ export default function RelatorioVarSet(props) {
         eva: '',
     }
 
-    const [step, setStep] = useState(1);
     const [relatorio, setRelatorio] = useState(lmeContext.relatorio === null ? relatorioinitial : lmeContext.relatorio)
+    const [step, setStep] = useState(1);
 
      const backToEditor = useCallback(() => {
         setLmeContext({

@@ -17,7 +17,6 @@ export default function RelatorioSet3(props) {
 
     return (
         <div>
-            {JSON.stringify(relatorioContext)}
             <Container>
                 <Form.Group>
                     <Row>
@@ -56,6 +55,7 @@ export default function RelatorioSet3(props) {
                                 />
                                 <Form.Check
                                     inline
+                                    defaultChecked 
                                     label="Não reator"
                                     type='radio'
                                     name='ppdresultado'
@@ -82,6 +82,7 @@ export default function RelatorioSet3(props) {
                         <Form.Group controlId="rxtcheckbox">
                             <Form.Check
                                 inline
+                                defaultChecked 
                                 type="radio"
                                 label="Radiografia de tórax normal"
                                 name="rxtoraxresultado"

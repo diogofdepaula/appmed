@@ -65,7 +65,7 @@ export default function InsertLME() {
                     className="ml-2"
                     variant="outline-success"
                     onClick={handleSubmit}
-                > Submeter LME</Button>
+                > Submeter LME no Insert</Button>
             </Container>
             <Container className="mt-2">
                 <Card body>

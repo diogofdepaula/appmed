@@ -11,12 +11,12 @@ export default function RelatorioSet3(props) {
     }
 
     const comorb = [
-        ['infeccaoviral', 'Infecção viral'],
-        ['hepatite', 'Hepatite'],
-        ['infeccaobacteriana', 'Infecção bacteriana'],
-        ['neoplasia', 'Neoplasia'],
-        ['anemia', 'Anemia'],
-        ['alteracaohepatica', 'Alterações hepáticas'],
+        ['infeccaoviral', 'Infecção viral', relatorioContext.infeccaoviral ],
+        ['hepatite', 'Hepatite', relatorioContext.hepatite ],
+        ['infeccaobacteriana', 'Infecção bacteriana', relatorioContext.infeccaobacteriana ],
+        ['neoplasia', 'Neoplasia', relatorioContext.neoplasia ],
+        ['anemia', 'Anemia', relatorioContext.anemia ],
+        ['alteracaohepatica', 'Alterações hepáticas', relatorioContext.alteracaohepatica ],
     ]
 
     return (
@@ -29,7 +29,7 @@ export default function RelatorioSet3(props) {
                         label={w[1]}
                         id={w[0]}
                         name={w[0]}
-                        // value={w}
+                        checked={w[2]}
                         onChange={handleChange}
                     />
                 )}

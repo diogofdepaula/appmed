@@ -10,20 +10,28 @@ export default function RelatorioSet3(props) {
         setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
     }
 
-    const indices = ['das28', 'cdai', 'sdai', 'basdai', 'asdas', 'mda', 'eva']
+    const indices = [
+        ['das28', relatorioContext.das28],
+        ['cdai', relatorioContext.cdai],
+        ['sdai', relatorioContext.sdai],
+        ['basdai', relatorioContext.basdai],
+        ['asdas', relatorioContext.asdas],
+        ['mda', relatorioContext.mda],
+        ['eva', relatorioContext.eva],
+    ]
 
     return (
         <div>
             <Container>
                 <Row>
                     {indices && indices.map((w) =>
-                        <Col key={w}>
+                        <Col key={w[0]}>
                             <Form.Control
                                 type="text"
-                                label={w}
-                                name={w}
-                                placeholder={w.toLocaleUpperCase()}
-                                // value={w}
+                                label={w[0]}
+                                name={w[0]}
+                                placeholder={w[0].toLocaleUpperCase()}
+                                value={w[1]}
                                 onChange={handleChange}
                             />
                         </Col>

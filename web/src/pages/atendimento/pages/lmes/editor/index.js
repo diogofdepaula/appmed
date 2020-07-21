@@ -23,6 +23,7 @@ export default function PrescricaoEditor(props) {
 
     return (
         <div>
+            <h5>No editor</h5>
             <LMEEditorContext.Provider  value={{ lmeContext: lme, setLmeContext: setLme, setStepContext: setStep }} >
                 {step === 11 && <LMEForkSet />}
                 {step === 21 && <CID10List />}
