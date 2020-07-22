@@ -15,8 +15,22 @@ export default function UpdateLME() {
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
         const json = await res.json();
-        setLme(json[0]); // ele manda como uma array se um item
-        console.log('json lme no updateLME', json[0])
+        console.log('json[0] antes', json[0])
+        
+        const upLme = json[0].prescricoes.filter(l => {
+            console.log('l.id', l.id)
+            console.log('prescricaoMain.id', prescricaoMain.id)
+            return l.id !== prescricaoMain.id
+        })
+
+        // console.log('index', index)
+        // if (index > -1) {
+        //     console.log('index', index)
+        //     json[0].prescricoes.splice(index, 1, prescricaoMain);
+        // }
+        console.log('json[0] depois', json[0])
+        setLme(json[0]) // ele manda como uma array se um item
+
     }, [prescricaoMain])
 
     useLayoutEffect(() => {
@@ -24,7 +38,7 @@ export default function UpdateLME() {
     }, [fetchData])
 
     const backLME = useCallback((paramLME) => {
-        //console.log('prescricaoMain pus só para náo esquecer', prescricaoMain)
+        console.log('paramLME só para saber no update LME', paramLME)
         setLme(paramLME)
           //  setPage('prescricoes') // ou para onde for
     }, [])
