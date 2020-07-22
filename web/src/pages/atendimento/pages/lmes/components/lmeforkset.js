@@ -13,6 +13,7 @@ export default function LMEForkSet() {
             <Container className="mt-2" >
                 <ListGroup.Item
                  onClick={() => {
+                     // tem que setar a prescricao.lmeId quando for fazer
                     setLmeContext(lmeContext)
                     setStepContext(21)                     
                  }}

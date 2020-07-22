@@ -19,7 +19,6 @@ export default function PrescricaoVarSet(props) {
             <Container>
                 <Form>
                     <Row>
-
                         <Col>
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check

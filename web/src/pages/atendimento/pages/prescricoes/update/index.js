@@ -1,4 +1,4 @@
-import React, { useContext, useCallback, useState } from 'react';
+import React, { useContext, useCallback, useState, useEffect } from 'react';
 import { Container, Button, Card } from 'react-bootstrap';
 import { PrescricaoMainContext, PageContext } from '../..';
 import PrescricaoEditor from '../editor'
@@ -10,21 +10,31 @@ export default function PrescricaoUpdate(props) {
     //Não dá para usar o prescricaoMain porque dá um erro
     //Cannot update a component from inside the function body of a different component
     const [prescricao, setPrescricao] = useState(prescricaoMain)
+    const [sendLME, setSendLME] = useState(false)
     const step = 21
 
-    const backPrescricao = useCallback((paramPres, paramLME) => {
-        if (paramLME) {
-            //Mandará para a LME
-            setPrescricaoMain(paramPres)
-            if (paramPres.lmeId === null) {
+    console.log('prescricaoMain fora de tudo', prescricaoMain)
+
+    useEffect(() => {
+        console.log('prescricaoMain dentro do useEffect', prescricaoMain)
+        if (sendLME) {
+            console.log('prescricaoMain dentro do IF do useEffect', prescricaoMain)
+            if (prescricaoMain.lmeId === null) {
                 setPage('lmeinsert')
             } else {
                 setPage('lmeupdate')
             }
-        } else {
-            setPrescricao(paramPres)
         }
-    }, [setPage, setPrescricaoMain])
+    }, [sendLME, prescricaoMain, setPage])
+
+    const backPrescricao = useCallback((paramPres, paramLME) => {
+        setPrescricaoMain(paramPres)
+        if (paramLME) {
+            setSendLME(true)
+        }
+        // nem precisava
+        setPrescricao(paramPres)
+    }, [setPrescricaoMain])
 
     const handleSubmit = event => {
 

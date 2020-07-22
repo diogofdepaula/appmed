@@ -25,7 +25,7 @@ export default function PrescricaoEditor(props) {
             // manda para lme
             backToPrescricao(true)
         }
-    }, [step, backToPrescricao])
+    }, [step, backToPrescricao, prescricao])
 
     return (
         <div>
