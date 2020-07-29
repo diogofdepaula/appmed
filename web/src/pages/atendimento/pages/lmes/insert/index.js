@@ -31,9 +31,6 @@ export default function InsertLME() {
         setLme(paramLME)
     }, [])
 
-
-
-    
     const handleSubmit = event => {
 
         event.preventDefault();

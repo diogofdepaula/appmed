@@ -3,7 +3,7 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { RelatorioContent } from '../relatoriovarset'
 
 
-export default function RelatorioSet3(props) {
+export default function RelatorioSet3() {
 
     const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
 
@@ -39,23 +39,21 @@ export default function RelatorioSet3(props) {
                                     name='ppdresultado' 
                                     id="ppdresultadoa"
                                     value="a"
-                                    checked={relatorioContext.ppdresultado === "a"}
+                                   checked={relatorioContext.ppdresultado === "a"}
                                     onChange={handleChangeRadio}
                                 />
                                 <Form.Check
-                                defaultChecked
                                     inline
                                     label="Acima de 5 mm"
                                     type='radio'
                                     name='ppdresultado'
                                     id="ppdresultadob"
                                     value="b"
-                                    checked={relatorioContext.ppdresultado === "b"}
+                                   checked={relatorioContext.ppdresultado === "b"}
                                     onChange={handleChangeRadio}
                                 />
                                 <Form.Check
                                     inline
-                                    defaultChecked 
                                     label="Não reator"
                                     type='radio'
                                     name='ppdresultado'
@@ -82,7 +80,6 @@ export default function RelatorioSet3(props) {
                         <Form.Group controlId="rxtcheckbox">
                             <Form.Check
                                 inline
-                                defaultChecked 
                                 type="radio"
                                 label="Radiografia de tórax normal"
                                 name="rxtoraxresultado"
@@ -98,7 +95,7 @@ export default function RelatorioSet3(props) {
                                 label="Radiografia de tórax alterada"
                                 name="rxtoraxresultado"
                                 id="rxtoraxresultadob"
-                                value={"b"}
+                                value="b"
                                 checked={relatorioContext.rxtoraxresultado === "b"}
                                 onChange={handleChangeRadio}
                             />
