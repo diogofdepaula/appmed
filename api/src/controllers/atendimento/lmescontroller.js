@@ -35,8 +35,6 @@ exports.SearchOne = (req, res, next) => {
 
 exports.Update = (req, res, next) => {
 
-    console.log('req.body', req.body)
-
     const idlme = req.params.id;
     Lmes.update(
         req.body, { where: { id: idlme } }
@@ -44,9 +42,7 @@ exports.Update = (req, res, next) => {
         req.body.prescricoes.map(presc => {
             Prescricoes.update(
                 presc, { where: { id: presc.id } }
-            ).then((data) => {
-                console.log('data do update prescricao', data )
-            })
+            )
         })
         if (req.body.relatorio !== null) {
             Relatorios.update(

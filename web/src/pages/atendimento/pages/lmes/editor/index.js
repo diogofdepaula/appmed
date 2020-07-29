@@ -12,7 +12,6 @@ export default function PrescricaoEditor(props) {
     const [step, setStep] = useState(props.step);
 
     const backToLme = useCallback(() => {
-        console.log('lme antes no Editor antes de encaminhar para o UPdate', lme )
         props.sendLme(lme)
     }, [props, lme])
 
