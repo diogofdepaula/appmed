@@ -38,24 +38,20 @@ exports.Update = (req, res, next) => {
     const idlme = req.params.id;
     Lmes.update(
         req.body, { where: { id: idlme } }
-    ).then((lme) => {
-        return res.json(lme)
+    ).then((data) => { 
+        req.body.prescricoes.map(presc => {
+            Prescricoes.update(
+                presc, { where: { id: presc.id } }
+            )
+        })
+        if (req.body.relatorio !== null) {
+            Relatorios.update(
+                req.body.relatorio, { where: { id: req.body.relatorio.id } }
+            )
+        }
+    }).then((data) => {
+        return res.json(data)
     })
-
-
-    ELE ATUALIZA A LME, MAS NÃO ATUALIZA AS INCLUDES
-    VEM DE LÁ DA WEB UM ARRAY DE PRESCRICOES E UM RELATORIO (lme.relatorio)
-
-
-    // const id = req.params.id;
-    // Lmes.findByPk(id)
-    //     .then(lme => {
-    //         lme.update(
-    //             req.body,
-    //             { where: { id: id } })
-    //     }).then((lme) => {
-    //         return res.json(lme)
-    //     })
 }
 
 exports.Delete = (req, res, next) => {

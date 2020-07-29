@@ -48,26 +48,11 @@ export default function PrescricaoInsert(props) {
                 setPage('lmeinsert')
             } else {
                 //JÁ DEIXEI AQUI PARA ENCAMINHAR QUANDO FOR VINCULAR A UMA LME JÁ EXISTENTE
-                console.log('paramPres.lmeId  2', paramPres.lmeId)
                 setPage('lmeupdate')
             }
         } else {
             setPrescricao(paramPres)
         }
-
-
-        // if (paramLME) {
-        //     //Mandará para a LME
-        //     setPrescricaoMain(paramPres)     
-        //     if (paramPres.lmeId === null) {
-        //         setPage('lmeinsert')
-        //     } else {
-        //         console.log('paramPres.lmeId', paramPres.lmeId)
-        //         setPage('lmeupdate')
-        //     }
-        // } else {
-        //     setPrescricao(paramPres)
-        // }
     }, [setPrescricaoMain, setPage])
 
     const handleSubmit = event => {

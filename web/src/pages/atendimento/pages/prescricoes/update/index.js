@@ -13,12 +13,8 @@ export default function PrescricaoUpdate(props) {
     const [sendLME, setSendLME] = useState(false)
     const step = 21
 
-    console.log('prescricaoMain fora de tudo', prescricaoMain)
-
     useEffect(() => {
-        console.log('prescricaoMain dentro do useEffect', prescricaoMain)
         if (sendLME) {
-            console.log('prescricaoMain dentro do IF do useEffect', prescricaoMain)
             if (prescricaoMain.lmeId === null) {
                 setPage('lmeinsert')
             } else {
