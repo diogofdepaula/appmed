@@ -55,7 +55,7 @@ export default function LMEDoses(props) {
                     variant="outline-success"
                     onClick={() => {
                         setPrescricaoContext(prescricaoContext)
-                        setStepContext(1)
+                        setStepContext(61)
                     }}
                 > Próximo
                     </Button>

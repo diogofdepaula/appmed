@@ -30,7 +30,8 @@ router.put('/prescricoes/:id', prescricoescontroller.Update);
 router.delete('/prescricoes/:id', prescricoescontroller.Delete);
 
 router.post('/lmes', lmescontroller.Insert);
-router.get('/lmes/all/:id', lmescontroller.SearchAll);
+router.get('/lmes/allfat/:id', lmescontroller.SearchAllFat);
+router.get('/lmes/allfit/:id', lmescontroller.SearchAllFit);
 router.get('/lmes/one/:id', lmescontroller.SearchOne);
 router.put('/lmes/:id', lmescontroller.Update);
 router.delete('/lmes/:id', lmescontroller.Delete);

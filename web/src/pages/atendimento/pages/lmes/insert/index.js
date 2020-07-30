@@ -25,7 +25,7 @@ export default function InsertLME() {
     }
 
     const [lme, setLme] = useState(initialLME)
-    const step = 11
+    const step = 21
 
     const backLme = useCallback((paramLME ) => {
         setLme(paramLME)

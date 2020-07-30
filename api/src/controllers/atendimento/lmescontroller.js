@@ -16,7 +16,16 @@ exports.Insert = (req, res, next) => {
     }).catch(error => next(error))
 }
 
-exports.SearchAll = (req, res, next) => {
+exports.SearchAllFat = (req, res, next) => {
+    const id = req.params.id;
+    //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
+    Lmes.findAll({ where: { clienteId: id }, include: [Relatorios, Prescricoes,] })
+        .then((lme) => {
+            return res.json(lme)
+        })
+}
+
+exports.SearchAllFit = (req, res, next) => {
     const id = req.params.id;
     //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
     Lmes.findAll({ where: { clienteId: id } })

@@ -5,6 +5,7 @@ import MedicamentoSet from '../components/medicamentoset';
 import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
 import OutrasVariaveisSet from '../components/prescricaovarset';
+import LMEForkSet from '../components/lmeforkset';
 
 export const PrescricaoEditorContext = createContext()
 
@@ -36,6 +37,7 @@ export default function PrescricaoEditor(props) {
                 {step === 32 && <PosologiaNaoPadraoSet />}
                 {step === 41 && <OutrasVariaveisSet />}
                 {step === 51 && <LmeDoses />}
+                {step === 61 && <LMEForkSet />}
             </PrescricaoEditorContext.Provider>
         </div>
     )
