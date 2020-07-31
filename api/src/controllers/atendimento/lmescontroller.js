@@ -4,6 +4,8 @@ const Relatorios = require('../../models/atendimento/relatorios')
 
 exports.Insert = (req, res, next) => {
 
+    console.log('req.body', req.body)
+
     Lmes.create(
         req.body, {
         include: [Prescricoes, Relatorios] // quando cria uma lme presume-se que virá com uma nova prescricao também
@@ -47,11 +49,16 @@ exports.Update = (req, res, next) => {
     const idlme = req.params.id;
     Lmes.update(
         req.body, { where: { id: idlme } }
-    ).then((data) => { 
+    ).then((data) => {
         req.body.prescricoes.map(presc => {
-            Prescricoes.update(
-                presc, { where: { id: presc.id } }
-            )
+
+            // if (presc.id === undefined) {
+            //     Prescricoes.create(req.body)
+            // } else {
+            //     Prescricoes.update(
+            //         presc, { where: { id: presc.id } }
+            //     )
+            // }
         })
         if (req.body.relatorio !== null) {
             Relatorios.update(

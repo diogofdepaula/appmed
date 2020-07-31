@@ -183,7 +183,14 @@ Relatorios.init({
 		type: DataTypes.STRING
 	},
 	ppddata: {
-		type: DataTypes.DATEONLY
+		type: DataTypes.DATEONLY,
+		validate: {
+			isEven(value) {
+				if ((value) === '') {
+					console.log('teste no WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW')
+				}
+			}
+		}
 	},
 	ppdresultado: {
 		type: DataTypes.STRING

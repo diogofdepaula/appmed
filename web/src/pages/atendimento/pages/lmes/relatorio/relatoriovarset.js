@@ -15,7 +15,7 @@ export default function RelatorioVarSet(props) {
     const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
 
     const relatorioinitial = {
-        tempodoencaanos: 'testeinitial',
+        tempodoencaanos: '',
         tempodoencameses: '',
         vhs: '',
         pcr: '',
@@ -112,6 +112,8 @@ export default function RelatorioVarSet(props) {
             backToEditor()
         }
     }, [backToEditor, step])
+
+    console.log('relatorio', relatorio)
 
     return (
         <div>

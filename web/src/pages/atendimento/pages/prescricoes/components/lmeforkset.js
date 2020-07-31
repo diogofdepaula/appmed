@@ -9,12 +9,12 @@ export default function LMEForkSet() {
 
     return (
         <div>
-            <h5>Escolha a qual LME</h5>
+            <h5>Escolha a qual LME - LMEForkSet </h5>
             <Container className="mt-2" >
                 <ListGroup.Item
                     onClick={() => {
                         // irá manter o prescricaoContext.lmeId = null
-                        setStepContext(21)
+                        setStepContext(1)
                     }}
                 >Criar uma nova LME
                 </ListGroup.Item>
