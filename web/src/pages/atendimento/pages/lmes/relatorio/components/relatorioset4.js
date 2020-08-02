@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useCallback, useEffect } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { RelatorioContent } from '../relatoriovarset'
 
@@ -6,6 +6,7 @@ import { RelatorioContent } from '../relatoriovarset'
 export default function RelatorioSet3() {
 
     const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
+    const [validation, setValidation] = useState(false)
 
     const handleChange = event => {
         setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
@@ -14,6 +15,24 @@ export default function RelatorioSet3() {
     const handleChangeRadio = event => {
         setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
     }
+
+    const send = useCallback(() => {
+        setRelatorioContext(prevState => ({
+            ...prevState,
+            ppddata: (relatorioContext.ppddata === '' ? null : relatorioContext.ppddata),
+            rxtoraxdata: (relatorioContext.rxtoraxdata === '' ? null : relatorioContext.rxtoraxdata),
+            bhcgdata: (relatorioContext.bhcgdata === '' ? null : relatorioContext.bhcgdata),
+        }))
+        setStepContext(5)
+    }, [relatorioContext, setRelatorioContext, setStepContext])
+ 
+    useEffect(() => {
+        if (validation) {
+            send()
+        }
+    }, [validation, send])
+
+
 
     return (
         <div>
@@ -151,10 +170,7 @@ export default function RelatorioSet3() {
                 <Button
                     className="ml-1"
                     variant="outline-success"
-                    onClick={() => {
-                        setRelatorioContext(relatorioContext)
-                        setStepContext(5)
-                    }}
+                    onClick={() => setValidation(true)}
                 > Próximo
                     </Button>
             </Container>
