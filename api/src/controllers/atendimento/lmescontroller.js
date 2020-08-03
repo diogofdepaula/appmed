@@ -4,8 +4,6 @@ const Relatorios = require('../../models/atendimento/relatorios')
 
 exports.Insert = (req, res, next) => {
 
-    console.log('req.body', req.body)
-
     Lmes.create(
         req.body, {
         include: [Prescricoes, Relatorios] // quando cria uma lme presume-se que virá com uma nova prescricao também
@@ -20,7 +18,6 @@ exports.Insert = (req, res, next) => {
 
 exports.SearchAllFat = (req, res, next) => {
     const id = req.params.id;
-    //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
     Lmes.findAll({ where: { clienteId: id }, include: [Relatorios, Prescricoes,] })
         .then((lme) => {
             return res.json(lme)
@@ -29,7 +26,6 @@ exports.SearchAllFat = (req, res, next) => {
 
 exports.SearchAllFit = (req, res, next) => {
     const id = req.params.id;
-    //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
     Lmes.findAll({ where: { clienteId: id } })
         .then((lme) => {
             return res.json(lme)
@@ -52,13 +48,13 @@ exports.Update = (req, res, next) => {
     ).then((data) => {
         req.body.prescricoes.map(presc => {
 
-            // if (presc.id === undefined) {
-            //     Prescricoes.create(req.body)
-            // } else {
-            //     Prescricoes.update(
-            //         presc, { where: { id: presc.id } }
-            //     )
-            // }
+            if (presc.id === undefined) {
+                Prescricoes.create(presc)
+            } else {
+                Prescricoes.update(
+                    presc, { where: { id: presc.id } }
+                )
+            }
         })
         if (req.body.relatorio !== null) {
             Relatorios.update(
