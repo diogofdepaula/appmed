@@ -16,9 +16,16 @@ exports.Insert = (req, res, next) => {
     }).catch(error => next(error))
 }
 
-exports.SearchAll = (req, res, next) => {
+exports.SearchAllFat = (req, res, next) => {
     const id = req.params.id;
-    //Lmes.findAll({ where: { clienteId: idcliente }, include: [Relatorios, Prescricoes,] })
+    Lmes.findAll({ where: { clienteId: id }, include: [Relatorios, Prescricoes,] })
+        .then((lme) => {
+            return res.json(lme)
+        })
+}
+
+exports.SearchAllFit = (req, res, next) => {
+    const id = req.params.id;
     Lmes.findAll({ where: { clienteId: id } })
         .then((lme) => {
             return res.json(lme)
@@ -38,11 +45,16 @@ exports.Update = (req, res, next) => {
     const idlme = req.params.id;
     Lmes.update(
         req.body, { where: { id: idlme } }
-    ).then((data) => { 
+    ).then((data) => {
         req.body.prescricoes.map(presc => {
-            Prescricoes.update(
-                presc, { where: { id: presc.id } }
-            )
+
+            if (presc.id === undefined) {
+                Prescricoes.create(presc)
+            } else {
+                Prescricoes.update(
+                    presc, { where: { id: presc.id } }
+                )
+            }
         })
         if (req.body.relatorio !== null) {
             Relatorios.update(

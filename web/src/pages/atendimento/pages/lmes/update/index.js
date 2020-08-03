@@ -8,11 +8,13 @@ export default function UpdateLME() {
 
     // const cliente = useContext(ClienteContext)
     const setPage = useContext(PageContext)
-    const { prescricaoMain } = useContext(PrescricaoMainContext)
+    const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [lme, setLme] = useState()
+    const [validation, setValidation] = useState(false)
     const step = 31
 
     const fetchData = useCallback(async () => {
+        console.log('prescricaoMain no fetchData', prescricaoMain)
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
         const json = await res.json();
         let lmeupdate = json[0]  // ele manda como uma array se um item
@@ -27,8 +29,10 @@ export default function UpdateLME() {
     }, [prescricaoMain])
 
     useLayoutEffect(() => {
-        fetchData();
-    }, [fetchData])
+        if(!validation){
+            fetchData();
+        }
+    }, [validation, fetchData])
 
     const backLME = useCallback((paramLME) => {
         setLme(paramLME)
@@ -45,8 +49,10 @@ export default function UpdateLME() {
             body: JSON.stringify(lme)
         }).then(data => {
             if (data.ok) {
-                // setPrescricaoMain(null)
+                setValidation(true)
+                setPrescricaoMain(null)
                 setPage('prescricoes')
+                console.log('passou por aqui')
             }
         })
     }

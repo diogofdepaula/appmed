@@ -15,7 +15,7 @@ export default function RelatorioVarSet(props) {
     const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
 
     const relatorioinitial = {
-        tempodoencaanos: 'testeinitial',
+        tempodoencaanos: '',
         tempodoencameses: '',
         vhs: '',
         pcr: '',
@@ -74,12 +74,12 @@ export default function RelatorioVarSet(props) {
         inicio7: '',
         fim7: '',
         motivo7: '',
-        ppddata: '',
+        ppddata: undefined,
         ppdresultado: '',
-        rxtoraxdata: '',
+        rxtoraxdata: undefined,
         rxtoraxresultado: '',
         rxtoraxalteracao: '',
-        bhcgdata: '',
+        bhcgdata: undefined,
         bhcgjustificativa: '',
         infeccaoviral: '',
         hepatite: '',
