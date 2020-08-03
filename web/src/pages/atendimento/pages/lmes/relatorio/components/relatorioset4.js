@@ -2,8 +2,7 @@ import React, { useContext } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { RelatorioContent } from '../relatoriovarset'
 
-
-export default function RelatorioSet3() {
+export default function RelatorioSet4() {
 
     const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
 
@@ -26,7 +25,7 @@ export default function RelatorioSet3() {
                                 id="ppddata"
                                 name="ppddata"
                                 placeholder="PPD"
-                                value={relatorioContext.ppddata}
+                                value={relatorioContext.ppddata || ''}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -72,7 +71,7 @@ export default function RelatorioSet3() {
                                 id="rxtoraxdata"
                                 name="rxtoraxdata"
                                 placeholder="RxTórax"
-                                value={relatorioContext.rxtoraxdata}
+                                value={relatorioContext.rxtoraxdata || ''}
                                 onChange={handleChange}
                             />
                         </Col>
@@ -122,7 +121,7 @@ export default function RelatorioSet3() {
                                 id="bhcgdata"
                                 name="bhcgdata"
                                 placeholder="Beta-HCG"
-                                value={relatorioContext.bhcgdata}
+                                value={relatorioContext.bhcgdata || ''}
                                 onChange={handleChange}
                             />
                         </Col>

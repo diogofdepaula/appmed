@@ -16,14 +16,23 @@ export default function LMEDoses(props) {
             ['lmemes5', '5º mês', prescricaoContext.lmemes5],
             ['lmemes6', '6º mês', prescricaoContext.lmemes6]
         ])
-    },[prescricaoContext])
+    }, [prescricaoContext])
 
     useEffect(() => {
-            funcaoTeste()
-      }, [funcaoTeste])
+        funcaoTeste()
+    }, [funcaoTeste])
 
     const handleChange = event => {
         setPrescricaoContext({ ...prescricaoContext, [event.target.name]: event.target.value })
+    }
+
+    const nextStep = () => {
+        setPrescricaoContext(prescricaoContext)
+        if (prescricaoContext.lmeId){
+            setStepContext(1) // manda para o lmeupdate
+        } else {
+            setStepContext(61) // continua a edição
+        }
     }
 
     return (
@@ -41,7 +50,7 @@ export default function LMEDoses(props) {
                                 onChange={handleChange}
                             />
                         </Col>
-                     )}
+                    )}
                 </Row>
             </Container>
             <Container className="mt-2">
@@ -53,10 +62,7 @@ export default function LMEDoses(props) {
                 <Button
                     className="ml-1"
                     variant="outline-success"
-                    onClick={() => {
-                        setPrescricaoContext(prescricaoContext)
-                        setStepContext(61)
-                    }}
+                    onClick={() => nextStep()}
                 > Próximo
                     </Button>
             </Container>

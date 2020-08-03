@@ -74,12 +74,12 @@ export default function RelatorioVarSet(props) {
         inicio7: '',
         fim7: '',
         motivo7: '',
-        ppddata: '',
+        ppddata: undefined,
         ppdresultado: '',
-        rxtoraxdata: '',
+        rxtoraxdata: undefined,
         rxtoraxresultado: '',
         rxtoraxalteracao: '',
-        bhcgdata: '',
+        bhcgdata: undefined,
         bhcgjustificativa: '',
         infeccaoviral: '',
         hepatite: '',
@@ -112,8 +112,6 @@ export default function RelatorioVarSet(props) {
             backToEditor()
         }
     }, [backToEditor, step])
-
-    console.log('relatorio', relatorio)
 
     return (
         <div>
