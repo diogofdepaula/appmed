@@ -1,11 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext, useState, useEffect } from 'react';
 import { Container, ListGroup } from 'react-bootstrap';
-import LMEList from '../../lmes/components/lmelist';
+import { ClienteContext } from '../..';
 import { PrescricaoEditorContext } from '../editor';
 
 export default function LMEForkSet() {
 
-    const { setStepContext } = useContext(PrescricaoEditorContext)
+    const cliente = useContext(ClienteContext)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
+    const [lmes, setlmes] = useState([])
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfit/${cliente.id}`)
+        const json = await res.json();
+        setlmes(json);
+    }, [cliente])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
 
     return (
         <div>
@@ -19,7 +31,21 @@ export default function LMEForkSet() {
                 >Criar uma nova LME
                 </ListGroup.Item>
                 <br />
-                <LMEList />
+                <ListGroup>
+                    {lmes && lmes.map(lme =>
+                        <ListGroup.Item
+                            key={lme.id}
+                            onClick={() => {
+                                setPrescricaoContext({
+                                    ...prescricaoContext,
+                                    lmeId: lme.id
+                                })
+                                setStepContext(1)
+                            }}
+                        >{lme.cid10} - {lme.diagnostico}
+                        </ListGroup.Item>
+                    )}
+                </ListGroup>
             </Container>
         </div>
     )
