@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, ListGroup, Badge,  } from 'react-bootstrap';
 import { LMEMainContext } from '../main';
 
 export default function LMEData() {
@@ -11,25 +11,24 @@ export default function LMEData() {
     } else {
         return (
             <div>
-                {JSON.stringify(lmeMain)}
                 <Container>
                     LME
                     <p>{lmeMain.cid10} - {lmeMain.diagnostico}</p>
                     <p>{lmeMain.anamnese}</p>
                     Prescrições
-                    {/* <ListGroup className="mt-2">
-                        {prescricoes && prescricoes.map(prescricao =>
+                    <ListGroup className="mt-2">
+                        {lmeMain.prescricoes && lmeMain.prescricoes.map(prescricao =>
                             prescricao.emuso && (
                                 <ListGroup.Item
                                     key={prescricao.id}
-                                    onClick={() => setPrescricaoMain(prescricao)}
+                                    //onClick={() => setPrescricaoMain(prescricao)}
                                 >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
                                     <Badge
                                         variant="light"
-                                        onClick={() => {
-                                            setPrescricaoMain(prescricao)
-                                            setPage('prescricaoupdate')
-                                        }}
+                                        // onClick={() => {
+                                        //     setPrescricaoMain(prescricao)
+                                        //     setPage('prescricaoupdate')
+                                        // }}
                                     >Editar
                                     </Badge>
                                     <>
@@ -39,7 +38,7 @@ export default function LMEData() {
                             )
                         )}
                         <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
-                    </ListGroup> */}
+                    </ListGroup>
                 </Container>
             </div>
         )

@@ -1,6 +1,9 @@
 const Lmes = require('../../models/atendimento/lmes')
 const Prescricoes = require('../../models/atendimento/prescricoes')
 const Relatorios = require('../../models/atendimento/relatorios')
+const Apresentacoes = require('../../models/cadastro/apresentacoes')
+const Medicamentos = require('../../models/cadastro/medicamentos')
+const Posologias = require('../../models/cadastro/posologias')
 
 exports.Insert = (req, res, next) => {
 
@@ -18,7 +21,16 @@ exports.Insert = (req, res, next) => {
 
 exports.SearchAllFat = (req, res, next) => {
     const id = req.params.id;
-    Lmes.findAll({ where: { clienteId: id }, include: [Relatorios, Prescricoes,] })
+    Lmes.findAll({
+        where: { clienteId: id }, include: [
+            Relatorios,
+            {
+                model: Prescricoes,
+                include: [Apresentacoes, Medicamentos, Posologias],
+                required: true
+            }
+        ]
+    })
         .then((lme) => {
             return res.json(lme)
         })
