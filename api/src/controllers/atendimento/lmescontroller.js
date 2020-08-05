@@ -59,7 +59,6 @@ exports.Update = (req, res, next) => {
         req.body, { where: { id: idlme } }
     ).then((data) => {
         req.body.prescricoes.map(presc => {
-
             if (presc.id === undefined) {
                 Prescricoes.create(presc)
             } else {

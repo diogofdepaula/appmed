@@ -7,6 +7,7 @@ import PrescricaoMain from './prescricoes/main'
 import LMEInsert from './lmes/insert'
 import LMEUpdate from './lmes/update'
 import LMEMain from './lmes/main'
+import PrescricaoDelete from './prescricoes/delete'
 
 export const ClienteContext = createContext(null)
 export const PageContext = createContext('main')
@@ -49,6 +50,7 @@ export default function AtendimentoMain(props) {
                             {page === 'prescricoes' && <PrescricaoMain />}
                             {page === 'prescricaoinsert' && <PrescricaoInsert />}
                             {page === 'prescricaoupdate' && <PrescricaoUpdate />}
+                            {page === 'prescricaodelete' && <PrescricaoDelete />}
                             {page === 'lmes' && <LMEMain />}
                             {page === 'lmeinsert' && <LMEInsert />}
                             {page === 'lmeupdate' && <LMEUpdate />}

@@ -7,13 +7,10 @@ export default function PrescricaoData() {
     const { prescricaoMain } = useContext(PrescricaoMainContext)
     const prescricao = prescricaoMain;
 
-    if (!prescricao) {
-        return <div></div>;
-    }
-    else {
-        return (
-            <div>
-                <Container className="mt-2">
+    return (
+        <div>
+            <Container className="mt-2">
+                {prescricaoMain &&
                     <div>
                         <h5>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</h5>
                         {prescricao.continuo
@@ -43,8 +40,8 @@ export default function PrescricaoData() {
                                 <p>Motivo do termimo: {prescricao.motivotermico}</p>
                             </div>}
                     </div>
-                </Container>
-            </div>
-        );
-    }
+                }
+            </Container>
+        </div>
+    );
 }

@@ -35,10 +35,18 @@ export default function PrescricaoList() {
                                     setPage('prescricaoupdate')
                                 }}
                             >Editar
-                                    </Badge>
-                                    <>
-                                    {prescricao.lmeId !== null && '(LME)'}
-                                    </>
+                            </Badge>
+                            <Badge
+                                variant="light"
+                                onClick={() => {
+                                    setPrescricaoMain(prescricao)
+                                    setPage('prescricaodelete')
+                                }}
+                            >Deletar
+                            </Badge>
+                            <>
+                                {prescricao.lmeId !== null && '(LME)'}
+                            </>
                         </ListGroup.Item>
                     )
                 )}

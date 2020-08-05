@@ -5,7 +5,7 @@ import PrescricaoEditor from '../editor'
 
 export const PrescricaoContext = createContext(null)
 
-export default function PrescricaoInsert(props) {
+export default function PrescricaoInsert() {
 
     const cliente = useContext(ClienteContext)
     const setPage = useContext(PageContext)
@@ -51,6 +51,7 @@ export default function PrescricaoInsert(props) {
                 setPage('lmeupdate')
             }
         } else {
+            setPrescricaoMain(null) 
             setPrescricao(paramPres)
         }
     }, [setPrescricaoMain, setPage])

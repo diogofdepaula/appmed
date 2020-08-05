@@ -18,7 +18,7 @@ exports.Insert = (req, res, next) => {
 
 exports.SearchAll = (req, res) => {
     const id = req.params.id; // nesse caso é o idCliente 
-    Prescricoes.findAll({ where: { clienteId: id }, include: [ Apresentacoes, Medicamentos, Posologias] })
+    Prescricoes.findAll({ where: { clienteId: id }, include: [Apresentacoes, Medicamentos, Posologias] })
         .then((prescricao) => {
             return res.json(prescricao)
         })
@@ -37,24 +37,37 @@ exports.SearchOne = (req, res) => {
 }
 
 exports.Update = (req, res) => {
-
     const id = req.params.id;
-    Prescricoes.findByPk(id)
-        .then(prescricao => {
-            prescricao.update(
-                req.body,
-                { where: { id: id } })
-        }).then((prescricao) => {
+    Prescricoes.update({ where: { id: id } })
+        .then((prescricao) => {
             return res.json(prescricao)
         })
+
+
+    // const id = req.params.id;
+    // Prescricoes.findByPk(id)
+    //     .then(prescricao => {
+    //         prescricao.update(
+    //             req.body,
+    //             { where: { id: id } })
+    //     }).then((prescricao) => {
+    //         return res.json(prescricao)
+    //     })
 }
 
 exports.Delete = (req, res) => {
     const id = req.params.id;
-    Prescricoes.findByPk(id)
-        .then(prescricao => {
-            prescricao.destroy(req.body, { where: { id: id }, })
-        }).then((prescricao) => {
+    Prescricoes.destroy({ where: { id: id } })
+        .then((prescricao) => {
             return res.json(prescricao)
         })
+
+
+    // const id = req.params.id;
+    // Prescricoes.findByPk(id)
+    //     .then(prescricao => {
+    //         prescricao.destroy(req.body, { where: { id: id }, })
+    //     }).then((prescricao) => {
+    //         return res.json(prescricao)
+    //     })
 }
