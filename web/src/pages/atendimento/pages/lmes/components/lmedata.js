@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import { Container, ListGroup, Badge,  } from 'react-bootstrap';
 import { LMEMainContext } from '../main';
+import { PageContext, PrescricaoMainContext } from '../..';
 
 export default function LMEData() {
 
     const { lmeMain } = useContext(LMEMainContext)
+    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const setPage = useContext(PageContext)
 
     if (!lmeMain) {
         return <></>
@@ -21,19 +24,15 @@ export default function LMEData() {
                             prescricao.emuso && (
                                 <ListGroup.Item
                                     key={prescricao.id}
-                                    //onClick={() => setPrescricaoMain(prescricao)}
                                 >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
                                     <Badge
                                         variant="light"
-                                        // onClick={() => {
-                                        //     setPrescricaoMain(prescricao)
-                                        //     setPage('prescricaoupdate')
-                                        // }}
+                                        onClick={() => {
+                                            setPrescricaoMain(prescricao)
+                                            setPage('prescricaoupdate')
+                                        }}
                                     >Editar
                                     </Badge>
-                                    <>
-                                        {prescricao.lmeId !== null && '(LME)'}
-                                    </>
                                 </ListGroup.Item>
                             )
                         )}
