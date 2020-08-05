@@ -4,7 +4,7 @@ import PrescricaoList from '../components/prescricaolist';
 import PrescricaoData from '../components/prescricaodata'
 import { PageContext } from '../..';
 
-export default function Main(props) {
+export default function PrescricaoMain() {
 
     const setPage = useContext(PageContext)
     

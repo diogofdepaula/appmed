@@ -1,23 +1,43 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Container, ListGroup, Badge,  } from 'react-bootstrap';
+import { LMEMainContext } from '../main';
+import { PageContext, PrescricaoMainContext } from '../..';
 
-export default function LMEData(props) {
+export default function LMEData() {
 
-    const lme = props.lme
+    const { lmeMain } = useContext(LMEMainContext)
+    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const setPage = useContext(PageContext)
 
-    // tem que fazer esse if se não dá erro devido o undefined quando carrega
-    if (!lme) {
+    if (!lmeMain) {
         return <></>
     } else {
         return (
             <div>
                 <Container>
                     LME
-                    {lme.cid10 && <p>{lme.cid10} - {lme.diagnostico}</p>}
-                    <p>{lme.anamnese}</p>
-                    Relatório
-                    <p>{lme.relatorio && lme.relatorio.vhs}</p>
-                    <p>{lme.relatorio && lme.relatorio.pcr}</p>
+                    <p>{lmeMain.cid10} - {lmeMain.diagnostico}</p>
+                    <p>{lmeMain.anamnese}</p>
+                    Prescrições
+                    <ListGroup className="mt-2">
+                        {lmeMain.prescricoes && lmeMain.prescricoes.map(prescricao =>
+                            prescricao.emuso && (
+                                <ListGroup.Item
+                                    key={prescricao.id}
+                                >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
+                                    <Badge
+                                        variant="light"
+                                        onClick={() => {
+                                            setPrescricaoMain(prescricao)
+                                            setPage('prescricaoupdate')
+                                        }}
+                                    >Editar
+                                    </Badge>
+                                </ListGroup.Item>
+                            )
+                        )}
+                        <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
+                    </ListGroup>
                 </Container>
             </div>
         )

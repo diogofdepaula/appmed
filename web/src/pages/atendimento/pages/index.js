@@ -3,15 +3,13 @@ import { Button, Container } from 'react-bootstrap'
 import ClienteHeader from '../component/clienteheader'
 import PrescricaoInsert from './prescricoes/insert'
 import PrescricaoUpdate from './prescricoes/update'
-import Main from './prescricoes/main'
+import PrescricaoMain from './prescricoes/main'
 import LMEInsert from './lmes/insert'
 import LMEUpdate from './lmes/update'
+import LMEMain from './lmes/main'
 
 export const ClienteContext = createContext(null)
-// para as paginas mais profundas terem acesso a essa pagina
 export const PageContext = createContext('main')
-// é a prescricao que está sendo trabalhada, editada ou escolhida
-// para atravessar de um lado para outro mais facilmente
 export const PrescricaoMainContext = createContext(null)
 
 export default function AtendimentoMain(props) {
@@ -48,9 +46,10 @@ export default function AtendimentoMain(props) {
                 <PageContext.Provider value={setPage}>
                     <Container>
                         <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
-                            {page === 'prescricoes' && <Main />}
+                            {page === 'prescricoes' && <PrescricaoMain />}
                             {page === 'prescricaoinsert' && <PrescricaoInsert />}
                             {page === 'prescricaoupdate' && <PrescricaoUpdate />}
+                            {page === 'lmes' && <LMEMain />}
                             {page === 'lmeinsert' && <LMEInsert />}
                             {page === 'lmeupdate' && <LMEUpdate />}
                         </PrescricaoMainContext.Provider>
