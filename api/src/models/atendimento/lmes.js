@@ -46,7 +46,7 @@ Lmes.init({
 });
 
 Lmes.belongsTo(Clientes) 
-Lmes.hasOne(Relatorios)
-Lmes.hasMany(Prescricoes)
+Lmes.hasOne(Relatorios, {onDelete: 'cascade'})
+Lmes.hasMany(Prescricoes, {onDelete: 'cascade'})
 
 module.exports = Lmes
