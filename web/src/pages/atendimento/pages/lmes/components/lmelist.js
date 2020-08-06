@@ -1,11 +1,11 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ListGroup } from 'react-bootstrap';
-import { ClienteContext } from '../..';
-import { LMEMainContext } from '../main';
+import { ListGroup, Button } from 'react-bootstrap';
+import { ClienteContext, LMEMainContext, PageContext } from '../..';
 
 export default function LMEList() {
 
     const cliente = useContext(ClienteContext)
+    const setPage = useContext(PageContext)    
     const { setLmeMain } = useContext(LMEMainContext)
     const [lmes, setlmes] = useState([])
 
@@ -29,6 +29,15 @@ export default function LMEList() {
                             setLmeMain(lme)
                         }}
                     >{lme.cid10} - {lme.diagnostico}
+                    <Button
+                                variant="link"
+                                size="sm"
+                                onClick={() => {
+                                    setLmeMain(lme)
+                                    setPage('lmedelete')
+                                }}
+                            >Suspender
+                            </Button>
                     </ListGroup.Item>
                 )}
             </ListGroup>

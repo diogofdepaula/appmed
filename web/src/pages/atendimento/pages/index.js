@@ -12,11 +12,13 @@ import PrescricaoDelete from './prescricoes/delete'
 export const ClienteContext = createContext(null)
 export const PageContext = createContext('main')
 export const PrescricaoMainContext = createContext(null)
+export const LMEMainContext = createContext(null)
 
 export default function AtendimentoMain(props) {
 
     const [page, setPage] = useState()
     const [prescricaoMain, setPrescricaoMain] = useState()
+    const [lmeMain, setLmeMain] = useState()
 
     const indices = [
         ['prescricoes', 'Prescrições'],
@@ -51,9 +53,11 @@ export default function AtendimentoMain(props) {
                             {page === 'prescricaoinsert' && <PrescricaoInsert />}
                             {page === 'prescricaoupdate' && <PrescricaoUpdate />}
                             {page === 'prescricaodelete' && <PrescricaoDelete />}
-                            {page === 'lmes' && <LMEMain />}
-                            {page === 'lmeinsert' && <LMEInsert />}
-                            {page === 'lmeupdate' && <LMEUpdate />}
+                            <LMEMainContext.Provider value={{ lmeMain: lmeMain, setLmeMain: setLmeMain }} >
+                                {page === 'lmes' && <LMEMain />}
+                                {page === 'lmeinsert' && <LMEInsert />}
+                                {page === 'lmeupdate' && <LMEUpdate />}
+                            </LMEMainContext.Provider>
                         </PrescricaoMainContext.Provider>
                     </Container>
                 </PageContext.Provider>

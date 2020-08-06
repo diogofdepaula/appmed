@@ -1,16 +1,13 @@
-import React, { useContext, useState, createContext } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { PageContext } from '../..';
-import LMEList from '../components/lmelist';
 import LMEData from '../components/lmedata';
-
-export const LMEMainContext = createContext(null)
+import LMEList from '../components/lmelist';
 
 export default function LMEMain() {
 
     const setPage = useContext(PageContext)
-    const [lmeMain, setLmeMain] = useState()
-
+   
     const indices = [
         ['prescricaoinsert', '(Nova) LME'],  // deixei aqui por deixar, pois a LME é iniciada na prescricao
         ['lmeprint', 'Imprimir LME'],
@@ -21,7 +18,7 @@ export default function LMEMain() {
 
     return (
         <div>
-            <LMEMainContext.Provider value={{ lmeMain: lmeMain, setLmeMain: setLmeMain }} >
+            
                 <Container fluid className="mt-2">
                     {indices.map(x =>
                         <Button
@@ -37,15 +34,14 @@ export default function LMEMain() {
                 </Container>
                 <Container  className="mt-2">
                     <Row>
-                        <Col sm={4}>
+                        <Col sm={6}>
                             <LMEList />
                         </Col>
-                        <Col sm={6}>
+                        <Col sm={4}>
                             <LMEData />
                         </Col>
                     </Row>
                 </Container>
-            </LMEMainContext.Provider>
         </div>
     )
 }

@@ -21,7 +21,7 @@ export default function LMEForkSet() {
 
     return (
         <div>
-            <h5>Escolha a qual LME - LMEForkSet </h5>
+            <h5>Escolha a qual LME</h5>
             <Container className="mt-2" >
                 <ListGroup.Item
                     onClick={() => {

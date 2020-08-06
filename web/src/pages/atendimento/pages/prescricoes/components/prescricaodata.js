@@ -12,7 +12,6 @@ export default function PrescricaoData() {
             <Container className="mt-4">
                 {prescricaoMain &&
                     <div>
-                        {JSON.stringify(prescricao.emuso)}
                         <h5>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</h5>
                         {prescricao.continuo
                             ? <p>Contínuo: sim</p>

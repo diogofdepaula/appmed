@@ -28,8 +28,6 @@ export default function PrescricaoEditor(props) {
         }
     }, [step, backToPrescricao, prescricao])
 
-    
-
     return (
         <div>
             <PrescricaoEditorContext.Provider value={{ prescricaoContext: prescricao, setPrescricaoContext: setPrescricao, setStepContext: setStep }} >

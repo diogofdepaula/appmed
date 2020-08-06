@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import { Container, ListGroup, Badge,  } from 'react-bootstrap';
-import { LMEMainContext } from '../main';
-import { PageContext, PrescricaoMainContext } from '../..';
+import { Badge, Container, ListGroup } from 'react-bootstrap';
+import { LMEMainContext, PageContext, PrescricaoMainContext } from '../..';
 
 export default function LMEData() {
 
