@@ -14,7 +14,6 @@ export default function UpdateLME() {
     const step = 31
 
     const fetchData = useCallback(async () => {
-        console.log('prescricaoMain no fetchData', prescricaoMain)
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
         const json = await res.json();
         let lmeupdate = json[0]  // ele manda como uma array se um item
@@ -52,7 +51,6 @@ export default function UpdateLME() {
                 setValidation(true)
                 setPrescricaoMain(null)
                 setPage('prescricoes')
-                console.log('passou por aqui')
             }
         })
     }
