@@ -33,10 +33,10 @@ export default function PrescricaoMain() {
             </Container>
             <Container>
                 <Row>
-                    <Col sm={4}>
+                    <Col sm={6}>
                         <PrescricaoList />
                     </Col>
-                    <Col sm={6}>
+                    <Col sm={4}>
                         <PrescricaoData />
                     </Col>
                 </Row>

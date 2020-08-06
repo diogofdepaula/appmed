@@ -9,9 +9,10 @@ export default function PrescricaoData() {
 
     return (
         <div>
-            <Container className="mt-2">
+            <Container className="mt-4">
                 {prescricaoMain &&
                     <div>
+                        {JSON.stringify(prescricao.emuso)}
                         <h5>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</h5>
                         {prescricao.continuo
                             ? <p>Contínuo: sim</p>

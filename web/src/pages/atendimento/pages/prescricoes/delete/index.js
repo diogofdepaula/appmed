@@ -1,12 +1,13 @@
 import React, { useContext, useState, useCallback, useEffect } from 'react';
 import { PrescricaoMainContext, PageContext } from '../..';
-import { Container, Button, Card } from 'react-bootstrap';
+import { Container, Button, Card, Row } from 'react-bootstrap';
 
 export default function PrescricaoDelete() {
 
     const setPage = useContext(PageContext)
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [lme, setLme] = useState()
+    const [change, setChange] = useState(0)
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
@@ -33,19 +34,6 @@ export default function PrescricaoDelete() {
         })
     }
 
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-    ///// TEM QUE DIFERENCIAR DESTRUIR (DELETAR) E INTILIZAR (emuso == 0)
-
-    // NÃO ESTÁ APAGANDO EM CASCATA
-    
-
     const handleDeletePrescricaoLME = () => event => {
 
         event.preventDefault();
@@ -58,6 +46,39 @@ export default function PrescricaoDelete() {
             }
         })
     }
+
+    const changeEmUso = useCallback(() => {
+        setPrescricaoMain({
+            ...prescricaoMain,
+            emuso: false,
+            termino: new Date().toISOString().slice(0, 10)
+        })
+        setChange(2)
+    }, [setPrescricaoMain, prescricaoMain])
+
+    const updateEmUso = useCallback(async () => {
+
+        fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricaoMain.id}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(prescricaoMain)
+        }).then(data => {
+            if (data.ok) {
+                setChange(3)
+            }
+        })
+    }, [prescricaoMain])
+
+    useEffect(() => {
+        if (change === 1) {
+            changeEmUso()
+        } else if (change === 2) {
+            updateEmUso()
+        } else if (change === 3) {
+            setPrescricaoMain(null)
+            setPage('prescricoes')
+        }
+    }, [change, changeEmUso, updateEmUso, setPrescricaoMain, setPage])
 
     return (
         <div>
@@ -81,19 +102,31 @@ export default function PrescricaoDelete() {
                         </Card>
                     </Container>
                     <Container>
-                        <Button
-                            className="mt-2"
-                            variant="outline-danger"
-                            onClick={handleDeletePrescricao()}
-                        >Deletar prescrição
-                      </Button>
-                        {prescricaoMain.lmeId &&
+                        <Row>
                             <Button
                                 className="mt-2 ml-2"
                                 variant="outline-danger"
-                                onClick={handleDeletePrescricaoLME()}
-                            >Deletar a prescrição e a LME
-                    </Button>
+                                onClick={() => setChange(1)}
+                            >Interromper o uso da prescrição (enviado a lista de Fez uso. Será mantida no bando de dados)
+                            </Button>
+                        </Row>
+                        <Row>
+                            <Button
+                                className="mt-2 ml-2"
+                                variant="outline-danger"
+                                onClick={handleDeletePrescricao()}
+                            >Remover a prescrição (apagará do bando de dados)
+                            </Button>
+                        </Row>
+                        {prescricaoMain.lmeId &&
+                            <Row>
+                                <Button
+                                    className="mt-2 ml-2"
+                                    variant="outline-danger"
+                                    onClick={handleDeletePrescricaoLME()}
+                                >Remover a prescrição e a LME (apagará ambos do bando de dados)
+                                </Button>
+                            </Row>
                         }
                     </Container>
                 </>

@@ -38,7 +38,7 @@ exports.SearchOne = (req, res) => {
 
 exports.Update = (req, res) => {
     const id = req.params.id;
-    Prescricoes.update({ where: { id: id } })
+    Prescricoes.update( req.body, { where: { id: id } })
         .then((prescricao) => {
             return res.json(prescricao)
         })

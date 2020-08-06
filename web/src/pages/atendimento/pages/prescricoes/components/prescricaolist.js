@@ -1,6 +1,6 @@
-import React, { useState, useContext, useCallback, useEffect } from 'react';
-import { ListGroup, Badge } from 'react-bootstrap';
-import { ClienteContext, PrescricaoMainContext, PageContext } from '../..';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Button, ListGroup } from 'react-bootstrap';
+import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 
 export default function PrescricaoList() {
 
@@ -21,6 +21,7 @@ export default function PrescricaoList() {
 
     return (
         <div>
+            <h5 className="mt-1 ml-3">Em uso atual</h5>
             <ListGroup className="mt-2">
                 {prescricoes && prescricoes.map(prescricao =>
                     prescricao.emuso && (
@@ -28,22 +29,24 @@ export default function PrescricaoList() {
                             key={prescricao.id}
                             onClick={() => setPrescricaoMain(prescricao)}
                         >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
-                            <Badge
-                                variant="light"
+                            <Button
+                                variant="link"
+                                size="sm"
                                 onClick={() => {
-                                    setPrescricaoMain(prescricao)
+                                    setPrescricaoMain(prescricao.id)
                                     setPage('prescricaoupdate')
                                 }}
                             >Editar
-                            </Badge>
-                            <Badge
-                                variant="light"
+                            </Button>
+                            <Button
+                                variant="link"
+                                size="sm"
                                 onClick={() => {
                                     setPrescricaoMain(prescricao)
                                     setPage('prescricaodelete')
                                 }}
-                            >Deletar
-                            </Badge>
+                            >Suspender
+                            </Button>
                             <>
                                 {prescricao.lmeId !== null && '(LME)'}
                             </>
@@ -52,6 +55,29 @@ export default function PrescricaoList() {
                 )}
                 <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
             </ListGroup>
+            <h5 className="mt-1 ml-3">Fez uso</h5>
+            <ListGroup className="mt-2">
+                {prescricoes && prescricoes.map(prescricao =>
+                    !prescricao.emuso && (
+                        <ListGroup.Item
+                            key={prescricao.id}
+                            onClick={() => setPrescricaoMain(prescricao)}
+                        >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
+                            <Button
+                                variant="link"
+                                size="sm"
+                                onClick={() => {
+                                    setPrescricaoMain(prescricao)
+                                    setPage('prescricaodelete')
+                                }}
+                            >Remover
+                            </Button>
+                        </ListGroup.Item>
+                    )
+                )}
+                <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
+            </ListGroup>
+
         </div>
     )
 }
