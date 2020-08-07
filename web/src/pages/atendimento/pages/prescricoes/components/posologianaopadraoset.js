@@ -8,6 +8,7 @@ export default function PosologiaNaoPadraoSet(props) {
 
     const handleChange = event => {
         setPrescricaoContext({ ...prescricaoContext, 
+            usoposologiapadrao: false,
             posologiaId: null,
             [event.target.name]: event.target.value
         } )

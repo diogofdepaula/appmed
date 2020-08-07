@@ -57,7 +57,7 @@ export default function PrescricaoInsert() {
     }, [setPrescricaoMain, setPage])
 
     const handleSubmit = event => {
-
+        console.log('prescricao', prescricao)
         event.preventDefault();
         fetch(`http://localhost:4001/api.appmed/prescricoes`, {
             method: 'post',
