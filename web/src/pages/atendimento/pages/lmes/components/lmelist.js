@@ -36,7 +36,7 @@ export default function LMEList() {
                                     setLmeMain(lme)
                                     setPage('lmedelete')
                                 }}
-                            >Suspender
+                            >Remover
                             </Button>
                     </ListGroup.Item>
                 )}

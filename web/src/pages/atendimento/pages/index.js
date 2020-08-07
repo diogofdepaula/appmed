@@ -1,13 +1,15 @@
 import React, { createContext, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import ClienteHeader from '../component/clienteheader'
-import PrescricaoInsert from './prescricoes/insert'
-import PrescricaoUpdate from './prescricoes/update'
-import PrescricaoMain from './prescricoes/main'
 import LMEInsert from './lmes/insert'
-import LMEUpdate from './lmes/update'
 import LMEMain from './lmes/main'
+import LMEUpdate from './lmes/update'
+// import LMEDelete from './lmes/delete'
 import PrescricaoDelete from './prescricoes/delete'
+import PrescricaoInsert from './prescricoes/insert'
+import PrescricaoMain from './prescricoes/main'
+import PrescricaoUpdate from './prescricoes/update'
+import LMEDelete from './lmes/delete'
 
 export const ClienteContext = createContext(null)
 export const PageContext = createContext('main')
@@ -57,6 +59,7 @@ export default function AtendimentoMain(props) {
                                 {page === 'lmes' && <LMEMain />}
                                 {page === 'lmeinsert' && <LMEInsert />}
                                 {page === 'lmeupdate' && <LMEUpdate />}
+                                {page === 'lmedelete' && <LMEDelete />}
                             </LMEMainContext.Provider>
                         </PrescricaoMainContext.Provider>
                     </Container>
