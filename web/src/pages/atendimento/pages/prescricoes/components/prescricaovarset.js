@@ -76,6 +76,7 @@ export default function PrescricaoVarSet(props) {
                 </Button>
                 <Button
                     className="ml-2"
+                   // disabled={prescricaoContext.medicamento.lme}
                     variant="outline-primary"
                     onClick={() => {
                         setPrescricaoContext(prescricaoContext)
@@ -84,6 +85,7 @@ export default function PrescricaoVarSet(props) {
                 >{!prescricaoContext.id ? 'Vincular a uma LME' : 'Editar LME'}
                 </Button>
             </Container>
+                    {JSON.stringify(prescricaoContext)}
         </div >
     )
 }

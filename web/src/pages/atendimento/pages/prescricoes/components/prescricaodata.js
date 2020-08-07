@@ -32,7 +32,7 @@ export default function PrescricaoData() {
                             ? <p>Imprimir orientações: sim</p>
                             : <p>Imprimir orientações: não</p>}
                         <p>Orientações: {prescricao.orientacoes}</p>
-                        <p>LME: {prescricao.lmemes1} | {prescricao.lmemes2} | {prescricao.lmemes3}</p>
+                        {prescricao.lmeId && <p>LME: {prescricao.lmemes1} | {prescricao.lmemes2} | {prescricao.lmemes3}</p>}
                         <p>Início: {prescricao.inicio}</p>
                         {prescricao.termino &&
                             <div>
