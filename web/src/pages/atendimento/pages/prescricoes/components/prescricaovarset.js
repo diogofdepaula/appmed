@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import { Container, Form, Button, Col, Row } from 'react-bootstrap'
-import { PrescricaoEditorContext } from '../editor'
+import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { PrescricaoEditorContext, MedicamentoEditorContext } from '../editor'
 
 export default function PrescricaoVarSet(props) {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
+    const { medicamentoContext } = useContext(MedicamentoEditorContext)
 
     const handleChange = event => {
         const target = event.target;
@@ -76,7 +77,7 @@ export default function PrescricaoVarSet(props) {
                 </Button>
                 <Button
                     className="ml-2"
-                   // disabled={prescricaoContext.medicamento.lme}
+                    disabled={!medicamentoContext.lme}
                     variant="outline-primary"
                     onClick={() => {
                         setPrescricaoContext(prescricaoContext)
@@ -85,7 +86,6 @@ export default function PrescricaoVarSet(props) {
                 >{!prescricaoContext.id ? 'Vincular a uma LME' : 'Editar LME'}
                 </Button>
             </Container>
-                    {JSON.stringify(prescricaoContext)}
         </div >
     )
 }

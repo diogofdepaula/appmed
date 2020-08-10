@@ -1,17 +1,19 @@
-import React, { useEffect, useState, useCallback, useContext } from 'react'
+import React, { useCallback, useContext, useEffect } from 'react'
 import { Container, ListGroup } from 'react-bootstrap'
-import { PrescricaoEditorContext } from '../editor'
+import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 
 export default function ApresentacaoSet() {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
-    const [medicamentocominclude, setMedicamentoComInclude] = useState()
+    const {medicamentoContext, setMedicamentoContext} = useContext(MedicamentoEditorContext)
+   // const [medicamentocominclude, setMedicamentoComInclude] = useState()
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
         const json = await res.json();
-        setMedicamentoComInclude(json);
-    }, [prescricaoContext])
+        setMedicamentoContext(json)
+       // setMedicamentoComInclude(json);
+    }, [prescricaoContext, setMedicamentoContext])
 
     useEffect(() => {
         fetchData();
@@ -21,6 +23,24 @@ export default function ApresentacaoSet() {
         <div>
             <h5>Escolha uma Apresentação</h5>
             <Container className="mt-2" >
+                <ListGroup className="mt-2">
+                    {medicamentoContext && medicamentoContext.apresentacoes && medicamentoContext.apresentacoes.map(apresentacao =>
+                        <ListGroup.Item
+                            key={apresentacao.id}
+                            onClick={() => {
+                                setPrescricaoContext({ ...prescricaoContext, apresentacoId: apresentacao.id })
+                                setStepContext(31)
+                            }}
+                        >
+                        <>
+                            {prescricaoContext.apresentacoId === apresentacao.id && <h6>(opção atual)</h6>}
+                        </>
+                        {apresentacao.descricao}
+                        </ListGroup.Item>
+                    )}
+                </ListGroup>
+            </Container>
+            {/* <Container className="mt-2" >
                 <ListGroup className="mt-2">
                     {medicamentocominclude && medicamentocominclude.apresentacoes && medicamentocominclude.apresentacoes.map(apresentacao =>
                         <ListGroup.Item
@@ -37,7 +57,7 @@ export default function ApresentacaoSet() {
                         </ListGroup.Item>
                     )}
                 </ListGroup>
-            </Container>
+            </Container> */}
         </div>
     )
 }

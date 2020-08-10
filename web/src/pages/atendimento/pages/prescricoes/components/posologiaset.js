@@ -1,28 +1,29 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Button, Container, ListGroup } from 'react-bootstrap'
-import { PrescricaoEditorContext } from '../editor'
+import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 
 export default function PosologiaSet(props) {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
-    const [medicamentocominclude, setMedicamentoComInclude] = useState()
+    const { medicamentoContext } = useContext(MedicamentoEditorContext)
+    //const [medicamentocominclude, setMedicamentoComInclude] = useState()
 
-    const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
-        const json = await res.json();
-        setMedicamentoComInclude(json);
-    }, [prescricaoContext])
+    // const fetchData = useCallback(async () => {
+    //     const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
+    //     const json = await res.json();
+    //     setMedicamentoComInclude(json);
+    // }, [prescricaoContext])
 
-    useEffect(() => {
-        fetchData();
-    }, [fetchData])
+    // useEffect(() => {
+    //     fetchData();
+    // }, [fetchData])
 
     return (
         <div>
             <h5>Escolha uma Posologia</h5>
             <Container className="mt-2" >
                 <ListGroup className="mt-2">
-                    {medicamentocominclude && medicamentocominclude.posologias && medicamentocominclude.posologias.map(posologia =>
+                    {medicamentoContext && medicamentoContext.posologias && medicamentoContext.posologias.map(posologia =>
                         <ListGroup.Item
                             key={posologia.id}
                             onClick={() => {
