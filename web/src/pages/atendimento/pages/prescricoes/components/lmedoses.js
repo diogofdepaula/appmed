@@ -54,11 +54,6 @@ export default function LMEDoses(props) {
                 </Row>
             </Container>
             <Container className="mt-2">
-                {/* <Button
-                    variant="outline-success"
-                    onClick={props.passPrevious}
-                > Anterior
-                    </Button> */}
                 <Button
                     className="ml-1"
                     variant="outline-success"

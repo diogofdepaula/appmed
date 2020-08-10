@@ -6,17 +6,6 @@ export default function PosologiaSet(props) {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
     const { medicamentoContext } = useContext(MedicamentoEditorContext)
-    //const [medicamentocominclude, setMedicamentoComInclude] = useState()
-
-    // const fetchData = useCallback(async () => {
-    //     const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
-    //     const json = await res.json();
-    //     setMedicamentoComInclude(json);
-    // }, [prescricaoContext])
-
-    // useEffect(() => {
-    //     fetchData();
-    // }, [fetchData])
 
     return (
         <div>

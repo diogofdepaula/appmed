@@ -6,13 +6,11 @@ export default function ApresentacaoSet() {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
     const {medicamentoContext, setMedicamentoContext} = useContext(MedicamentoEditorContext)
-   // const [medicamentocominclude, setMedicamentoComInclude] = useState()
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
         const json = await res.json();
         setMedicamentoContext(json)
-       // setMedicamentoComInclude(json);
     }, [prescricaoContext, setMedicamentoContext])
 
     useEffect(() => {
@@ -40,24 +38,6 @@ export default function ApresentacaoSet() {
                     )}
                 </ListGroup>
             </Container>
-            {/* <Container className="mt-2" >
-                <ListGroup className="mt-2">
-                    {medicamentocominclude && medicamentocominclude.apresentacoes && medicamentocominclude.apresentacoes.map(apresentacao =>
-                        <ListGroup.Item
-                            key={apresentacao.id}
-                            onClick={() => {
-                                setPrescricaoContext({ ...prescricaoContext, apresentacoId: apresentacao.id })
-                                setStepContext(31)
-                            }}
-                        >
-                        <>
-                            {prescricaoContext.apresentacoId === apresentacao.id && <h6>(opção atual)</h6>}
-                        </>
-                        {apresentacao.descricao}
-                        </ListGroup.Item>
-                    )}
-                </ListGroup>
-            </Container> */}
         </div>
     )
 }
