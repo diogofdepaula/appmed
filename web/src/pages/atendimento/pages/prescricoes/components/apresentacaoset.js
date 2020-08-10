@@ -5,7 +5,7 @@ import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 export default function ApresentacaoSet() {
 
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
-    const {medicamentoContext, setMedicamentoContext} = useContext(MedicamentoEditorContext)
+    const { medicamentoContext, setMedicamentoContext } = useContext(MedicamentoEditorContext)
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
@@ -30,10 +30,10 @@ export default function ApresentacaoSet() {
                                 setStepContext(31)
                             }}
                         >
-                        <>
-                            {prescricaoContext.apresentacoId === apresentacao.id && <h6>(opção atual)</h6>}
-                        </>
-                        {apresentacao.descricao}
+                            <>
+                                {prescricaoContext.apresentacoId === apresentacao.id && <h6>(opção atual)</h6>}
+                            </>
+                            {apresentacao.descricao}
                         </ListGroup.Item>
                     )}
                 </ListGroup>

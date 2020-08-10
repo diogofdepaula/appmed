@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Accordion, Button, Card, Container, Form } from 'react-bootstrap';
 import { LMEEditorContext } from '../editor';
+import { PrescricaoMainContext } from '../..';
 
 export default function LMEVarSet(props) {
 
     const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
+    const { prescricaoMain } = useContext(PrescricaoMainContext)
+    const [relatorioFork, setRelatorioFork] = useState(true)
 
     const handleChange = event => {
         const target = event.target;
@@ -12,6 +15,20 @@ export default function LMEVarSet(props) {
         const value = target.name === 'tratamentoprevio' ? target.checked : target.name === 'atestadocapacidade' ? target.checked : target.value;;
         setLmeContext({ ...lmeContext, [name]: value })
     }
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoMain.medicamentoId}`)
+        const json = await res.json();
+        if (json.classe === 'MMCDB') {
+            setRelatorioFork(false)
+            console.log('passou por aqui')
+        }
+    }, [prescricaoMain])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
+
 
     return (
         <div>
@@ -46,7 +63,7 @@ export default function LMEVarSet(props) {
                                                 label="Tratamento Prévio"
                                                 name="tratamentoprevio"
                                                 checked={lmeContext.tratamentoprevio}
-                                               // value={lmeContext.tratamentoprevio}
+                                                // value={lmeContext.tratamentoprevio}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
@@ -69,7 +86,7 @@ export default function LMEVarSet(props) {
                                                 id="atestadocapacidade"
                                                 name="atestadocapacidade"
                                                 checked={lmeContext.atestadocapacidade}
-                                               // value={lmeContext.atestadocapacidade}
+                                                // value={lmeContext.atestadocapacidade}
                                                 onChange={handleChange}
                                             />
                                         </Form.Group>
@@ -118,18 +135,19 @@ export default function LMEVarSet(props) {
                     variant="outline-primary"
                     onClick={() => {
                         setLmeContext(lmeContext)
-                        setStepContext(0)                     
-                     }}
+                        setStepContext(0)
+                    }}
                 >Encerrar
                 </Button>
-                <Button
-                    className="ml-2"
-                    variant="outline-primary"
-                    onClick={() => {
-                        setLmeContext(lmeContext)
-                        setStepContext(41)                     
-                     }}
-                >preencher Relatório
+                    <Button
+                        className="ml-2"
+                        variant="outline-primary"
+                        disabled={relatorioFork}
+                        onClick={() => {
+                            setLmeContext(lmeContext)
+                            setStepContext(41)
+                        }}
+                    >preencher Relatório
                 </Button>
             </Container>
         </div>
