@@ -7,7 +7,7 @@ export default function LMEVarSet(props) {
 
     const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
     const { prescricaoMain } = useContext(PrescricaoMainContext)
-    const [relatorioFork, setRelatorioFork] = useState(true)
+    const [ setRelatorioFork] = useState(true)
 
     const handleChange = event => {
         const target = event.target;
