@@ -7,7 +7,7 @@ export default function LMEVarSet(props) {
 
     const { lmeContext, setLmeContext, setStepContext } = useContext(LMEEditorContext)
     const { prescricaoMain } = useContext(PrescricaoMainContext)
-    const [ setRelatorioFork] = useState(true)
+    const [ relatorioFork, setRelatorioFork] = useState(true)
 
     const handleChange = event => {
         const target = event.target;
@@ -21,7 +21,6 @@ export default function LMEVarSet(props) {
         const json = await res.json();
         if (json.classe === 'MMCDB') {
             setRelatorioFork(false)
-            console.log('passou por aqui')
         }
     }, [prescricaoMain])
 
