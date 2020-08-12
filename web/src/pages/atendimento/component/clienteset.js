@@ -5,7 +5,7 @@ export default function ClienteSet(props) {
 
     const [cliente, setCliente] = useState()
     const [clientes, setClientes] = useState([])
-    // tem que ter o clientesfiltrados porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
+    // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
     // fica com um clientesinitial
     const [clientesfiltrados, setClientesFiltrados] = useState([])
     const [validacao, setValidacao] = useState(false)
