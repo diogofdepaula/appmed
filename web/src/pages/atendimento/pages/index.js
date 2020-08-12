@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import ClienteHeader from '../component/clienteheader'
+import LMEDelete from './lmes/delete'
 import LMEInsert from './lmes/insert'
 import LMEMain from './lmes/main'
 import LMEUpdate from './lmes/update'
@@ -9,7 +10,6 @@ import PrescricaoDelete from './prescricoes/delete'
 import PrescricaoInsert from './prescricoes/insert'
 import PrescricaoMain from './prescricoes/main'
 import PrescricaoUpdate from './prescricoes/update'
-import LMEDelete from './lmes/delete'
 
 export const ClienteContext = createContext(null)
 export const PageContext = createContext('main')

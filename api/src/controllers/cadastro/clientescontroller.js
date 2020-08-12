@@ -13,6 +13,23 @@ exports.Insert = (req, res, next) => {
         .catch(error => next(error))
 }
 
+exports.SearchAllFat = (req, res, next) => {
+    Clientes.findAll()
+        .then((clientes) => {
+            return res.json(clientes)
+        })
+}
+
+exports.SearchAllFit = (req, res, next) => {
+    Clientes.findAll({
+        attributes: ['id', 'nome', 'nascimento', 'cpf']
+      })
+        .then((clientes) => {
+            return res.json(clientes)
+        })
+}
+
+
 exports.SearchAll = (req, res, next) => {
     // tinha que fazer um query para buscar somente o nome
     Clientes.findAll()

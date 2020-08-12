@@ -11,7 +11,7 @@ export default function ClienteSet(props) {
     const [validacao, setValidacao] = useState(false)
 
     const fetchData = useCallback(async () => {
-        const res = await fetch('http://localhost:4001/api.appmed/clientes')
+        const res = await fetch('http://localhost:4001/api.appmed/clientes/allfit')
         const json = await res.json()
         setClientes(json)
         setClientesFiltrados(json)

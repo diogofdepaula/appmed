@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import MainClientes from './pages/cadastro/clientes/main';
+import Clientes from './pages/cadastro/clientes'
+//import MainClientes from './pages/cadastro/clientes/main';
 import DetailsClientes from './pages/cadastro/clientes/details';
 import InsertClientes from './pages/cadastro/clientes/insert';
 import UpdateClientes from './pages/cadastro/clientes/update';
@@ -24,7 +25,7 @@ export default function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/clientes" component={MainClientes} />
+                <Route exact path="/clientes" component={Clientes} />
                 <Route exact path="/insertcliente" component={InsertClientes} />
                 <Route exact path="/clientes/:id" component={DetailsClientes} />
                 <Route exact path="/updatecliente/:id" component={UpdateClientes} />

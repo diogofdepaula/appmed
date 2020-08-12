@@ -8,7 +8,8 @@ const prescricoescontroller = require('../controllers/atendimento/prescricoescon
 const lmescontroller = require('../controllers/atendimento/lmescontroller')
 
 router.post('/clientes', clientescontroller.Insert);
-router.get('/clientes', clientescontroller.SearchAll);
+router.get('/clientes/allfat', clientescontroller.SearchAllFat);
+router.get('/clientes/allfit', clientescontroller.SearchAllFit);
 router.get('/clientes/:id', clientescontroller.SearchOne);
 router.put('/clientes/:id', clientescontroller.Update);
 router.delete('/clientes/:id', clientescontroller.Delete);
