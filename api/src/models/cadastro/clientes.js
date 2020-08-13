@@ -12,7 +12,7 @@ Clientes.init({
         type: DataTypes.DATEONLY
     },
     sexo: {
-        type: DataTypes.BOOLEAN  // 0 = F  1 = M
+        type: DataTypes.STRING
     },
     peso: {
         type: DataTypes.STRING,

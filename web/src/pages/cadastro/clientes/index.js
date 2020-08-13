@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 import ClienteMain from './main';
 import ClienteDetails from './details';
 import ClienteInsert from './insert';
+import ClienteUpdate from './update';
 
 export const PageContext = createContext('clientemain')
 export const ClienteContext = createContext(null)
@@ -18,7 +19,7 @@ export default function Clientes() {
                     {page === 'clientemain' && <ClienteMain />}
                     {page === 'clientedetails' && <ClienteDetails />}
                     {page === 'clienteinsert' && <ClienteInsert />}
-                    {/* {page === 'clienteupdate' && <Main cliente={cliente} />} */} 
+                    {page === 'clienteupdate' && <ClienteUpdate />} 
                 </ClienteContext.Provider>
             </PageContext.Provider>
         </div>

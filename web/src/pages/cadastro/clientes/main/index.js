@@ -42,10 +42,15 @@ export default function ClienteMain() {
 
   return (
     <>
-      <Container >
+      <Container>
         <Grid container>
           <Grid item>
-            <IconButton aria-label="add">
+            <IconButton aria-label="add"
+              onClick={() => {
+                setCliente(null)
+                setPage('clienteinsert')
+              }}
+            >
               <AddIcon />
             </IconButton>
           </Grid>
@@ -63,34 +68,40 @@ export default function ClienteMain() {
           <Table aria-label="simple table">
             <TableBody>
               {clientesfiltrados.map(cliente =>
-                <TableRow
-                  key={cliente.id}
-                  onClick={() => {
-                    setCliente(cliente)
-                    setPage('clientedetails')
-                  }}
-                >
-                  <TableCell component="th" scope="row" >
+                <TableRow key={cliente.id}>
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    onClick={() => {
+                      setCliente(cliente)
+                      setPage('clientedetails')
+                    }}
+                    >
                     {cliente.nome}
                   </TableCell>
                   <TableCell align="right">{cliente.nascimento}</TableCell>
                   <TableCell align="right">{cliente.cpf}</TableCell>
-                  <TableCell padding="checkbox">
-                    <IconButton color="primary" aria-label="update">
-                      <EditIcon />
-                    </IconButton>
-                  </TableCell>
-                  <TableCell padding="checkbox">
-                    <IconButton aria-label="delete">
-                      <DeleteIcon />
-                    </IconButton>
-                  </TableCell>
+                <TableCell padding="checkbox">
+                  <IconButton color="primary" aria-label="update"
+                    onClick={() => {
+                      setCliente(cliente)
+                      setPage('clienteupdate')
+                    }}
+                  >
+                    <EditIcon />
+                  </IconButton>
+                </TableCell>
+                <TableCell padding="checkbox">
+                  <IconButton aria-label="delete">
+                    <DeleteIcon />
+                  </IconButton>
+                </TableCell>
                 </TableRow>
               )}
             </TableBody>
           </Table>
         </TableContainer>
-      </Container>
+    </Container>
     </>
   )
 }

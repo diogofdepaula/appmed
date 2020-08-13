@@ -1,4 +1,4 @@
-import { ButtonGroup, IconButton } from '@material-ui/core';
+import { Box, IconButton } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
@@ -23,20 +23,22 @@ export default function ClienteDetails() {
 
     return (
         <>
-            <ButtonGroup>
-                <IconButton>
-                    <ArrowBackIcon onClick={() => {
+            <Box>
+                <IconButton
+                    onClick={() => {
                         setCliente(null)
                         setPage('clientemain')
-                    }} />
+                    }}
+                >
+                    <ArrowBackIcon />
                 </IconButton>
-                <IconButton>
-                    <EditIcon onClick={() => setPage('clientemain')} />
+                <IconButton onClick={() => setPage('clientemain')}>
+                    <EditIcon />
                 </IconButton>
-                <IconButton>
-                    <DeleteIcon onClick={() => setPage('clientemain')} />
+                <IconButton onClick={() => setPage('clientemain')}>
+                    <DeleteIcon />
                 </IconButton>
-            </ButtonGroup>
+            </Box>
             <ClienteData />
         </>
     )
