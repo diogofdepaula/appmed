@@ -5,9 +5,26 @@ import EditIcon from '@material-ui/icons/Edit';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, PageContext } from '..';
 
+
 export default function ClienteMain() {
 
   const setPage = useContext(PageContext)
+
+  const novocliente = {
+    nome: "",
+    nascimento: "",
+    sexo: "feminino",
+    peso: "",
+    altura: "",
+    endereco: "",
+    telefone: "",
+    celular: "",
+    email: "",
+    cns: "",
+    cpf: "",
+    mae: ""
+  }
+
   const { setCliente } = useContext(ClienteContext)
   // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
   // fica com um clientesinitial
@@ -24,6 +41,25 @@ export default function ClienteMain() {
   useEffect(() => {
     fetchData();
   }, [fetchData])
+
+  const clienteEdit = async (param) => {
+    const res = await fetch(`http://localhost:4001/api.appmed/clientes/${param}`)
+    const json = await res.json();
+    setCliente(json);
+    setPage('clienteupdate')
+  }
+
+  const clienteDel = async (param) => {
+    fetch(`http://localhost:4001/api.appmed/clientes/${param}`, {
+      method: 'delete',
+    }).then(data => {
+      if (data.ok) {
+        setPage('clientemain')
+        setCliente(null)
+        fetchData()
+      }
+    })
+  }
 
   const filterClientes = event => {
 
@@ -42,12 +78,13 @@ export default function ClienteMain() {
 
   return (
     <>
+
       <Container>
         <Grid container>
           <Grid item>
             <IconButton aria-label="add"
               onClick={() => {
-                setCliente(null)
+                setCliente(novocliente)
                 setPage('clienteinsert')
               }}
             >
@@ -76,32 +113,31 @@ export default function ClienteMain() {
                       setCliente(cliente)
                       setPage('clientedetails')
                     }}
-                    >
+                  >
                     {cliente.nome}
                   </TableCell>
                   <TableCell align="right">{cliente.nascimento}</TableCell>
                   <TableCell align="right">{cliente.cpf}</TableCell>
-                <TableCell padding="checkbox">
-                  <IconButton color="primary" aria-label="update"
-                    onClick={() => {
-                      setCliente(cliente)
-                      setPage('clienteupdate')
-                    }}
-                  >
-                    <EditIcon />
-                  </IconButton>
-                </TableCell>
-                <TableCell padding="checkbox">
-                  <IconButton aria-label="delete">
-                    <DeleteIcon />
-                  </IconButton>
-                </TableCell>
+                  <TableCell padding="checkbox">
+                    <IconButton color="primary" aria-label="update"
+                      onClick={() => clienteEdit(cliente.id)}
+                    >
+                      <EditIcon />
+                    </IconButton>
+                  </TableCell>
+                  <TableCell padding="checkbox">
+                    <IconButton aria-label="delete"
+                      onClick={() => clienteDel(cliente.id)}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                  </TableCell>
                 </TableRow>
               )}
             </TableBody>
           </Table>
         </TableContainer>
-    </Container>
+      </Container>
     </>
   )
 }

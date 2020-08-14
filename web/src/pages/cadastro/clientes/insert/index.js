@@ -1,7 +1,7 @@
 import { Box, IconButton } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import SaveIcon from '@material-ui/icons/Save';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { ClienteContext, PageContext } from '..';
 import ClienteForm from '../components/clienteform';
 
@@ -9,34 +9,6 @@ export default function ClienteInsert() {
 
     const setPage = useContext(PageContext)
     const { cliente, setCliente } = useContext(ClienteContext)
-    const [novo, setNovo] = useState(true)
-
-    const [novocliente] = useState({
-        nome: "",
-        nascimento: "",
-        sexo: "feminino",
-        peso: "",
-        altura: "",
-        endereco: "",
-        telefone: "",
-        celular: "",
-        email: "",
-        cns: "",
-        cpf: "",
-        mae: ""
-    })
-
-    const fetchData = useCallback(() => {
-        setCliente(novocliente)
-    }, [setCliente, novocliente])
-
-    useEffect(() => {
-        if (novo) {
-            fetchData();
-        }
-        return () => setNovo(false)
-    }, [novo, fetchData])
-
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -46,7 +18,6 @@ export default function ClienteInsert() {
             body: JSON.stringify(cliente)
         }).then(data => {
             if (data.ok) {
-                setCliente(null)
                 setPage('clientemain')
             }
         })
@@ -69,8 +40,8 @@ export default function ClienteInsert() {
                     <SaveIcon />
                 </IconButton>
             </Box>
-            <Box>
-                {cliente && <ClienteForm />}
+            <Box m={2}>
+                <ClienteForm />
             </Box>
         </>
     )
