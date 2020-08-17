@@ -5,7 +5,6 @@ import EditIcon from '@material-ui/icons/Edit';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, PageContext } from '..';
 
-
 export default function ClienteMain() {
 
   const setPage = useContext(PageContext)
@@ -62,6 +61,8 @@ export default function ClienteMain() {
   }
 
   const filterClientes = event => {
+
+    ClienteDeleteTeste()
 
     let filtro = [...clientes].filter(w =>
       w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
