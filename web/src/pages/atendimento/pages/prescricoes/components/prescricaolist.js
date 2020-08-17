@@ -1,6 +1,9 @@
+import { IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { Button, ListGroup } from 'react-bootstrap';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 export default function PrescricaoList() {
 
@@ -20,64 +23,73 @@ export default function PrescricaoList() {
     }, [fetchData])
 
     return (
-        <div>
-            <h5 className="mt-1 ml-3">Em uso atual</h5>
-            <ListGroup className="mt-2">
+        <>
+            <Typography variant={'h6'}>Em uso atual</Typography>
+            <List>
                 {prescricoes && prescricoes.map(prescricao =>
                     prescricao.emuso && (
-                        <ListGroup.Item
+                        <ListItem
                             key={prescricao.id}
                             onClick={() => setPrescricaoMain(prescricao)}
-                        >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
-                            <Button
-                                variant="link"
-                                size="sm"
-                                onClick={() => {
-                                    setPrescricaoMain(prescricao.id)
-                                    setPage('prescricaoupdate')
-                                }}
-                            >Editar
-                            </Button>
-                            <Button
-                                variant="link"
-                                size="sm"
-                                onClick={() => {
-                                    setPrescricaoMain(prescricao)
-                                    setPage('prescricaodelete')
-                                }}
-                            >Suspender
-                            </Button>
-                            <>
-                                {prescricao.lmeId !== null && '(LME)'}
-                            </>
-                        </ListGroup.Item>
+                        >
+                            <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
+                            <ListItemSecondaryAction>
+                                <IconButton
+                                    aria-label="update"
+                                    onClick={() => {
+                                        setPrescricaoMain(prescricao.id)
+                                        setPage('prescricaoupdate')
+                                    }}
+                                >
+                                    <EditIcon />
+                                </IconButton>
+                                <IconButton
+                                    aria-label="delete"
+                                    onClick={() => {
+                                        setPrescricaoMain(prescricao)
+                                        setPage('prescricaodelete')
+                                    }}
+                                >
+                                    <HighlightOffIcon />
+                                </IconButton>
+                                <>
+                                    {prescricao.lmeId !== null && '(LME)'}
+                                </>
+                            </ListItemSecondaryAction>
+                        </ListItem>
                     )
                 )}
-                <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
-            </ListGroup>
-            <h5 className="mt-1 ml-3">Fez uso</h5>
-            <ListGroup className="mt-2">
+                <ListItem disabled>Porta ac consectetur ac</ListItem>
+            </List>
+            <Typography variant={'h6'}>Fez uso</Typography>
+            <List>
                 {prescricoes && prescricoes.map(prescricao =>
                     !prescricao.emuso && (
-                        <ListGroup.Item
+                        <ListItem
                             key={prescricao.id}
                             onClick={() => setPrescricaoMain(prescricao)}
-                        >{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})
-                            <Button
-                                variant="link"
-                                size="sm"
-                                onClick={() => {
-                                    setPrescricaoMain(prescricao)
-                                    setPage('prescricaodelete')
-                                }}
-                            >Remover
-                            </Button>
-                        </ListGroup.Item>
+                            dense
+                        >
+                            <ListItemText primary={prescricao.medicamento.farmaco} />
+                            <ListItemSecondaryAction>
+                                <IconButton
+                                    aria-label="delete"
+                                    onClick={() => {
+                                        setPrescricaoMain(prescricao)
+                                        setPage('prescricaodelete')
+                                    }}
+                                >
+                                    <DeleteIcon />
+                                </IconButton>
+                                <>
+                                    {prescricao.lmeId !== null && '(LME)'}
+                                </>
+                            </ListItemSecondaryAction>
+                        </ListItem>
                     )
                 )}
-                <ListGroup.Item disabled>Porta ac consectetur ac</ListGroup.Item>
-            </ListGroup>
-
-        </div>
+                <ListItem disabled>Porta ac consectetur ac</ListItem>
+            </List>
+        </>
     )
 }

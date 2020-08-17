@@ -1,5 +1,6 @@
+import { Box, List, ListItem, ListItemIcon, ListItemText, TextField } from '@material-ui/core';
+import PersonIcon from '@material-ui/icons/Person';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Container, FormControl, ListGroup } from 'react-bootstrap';
 
 export default function ClienteSet(props) {
 
@@ -49,29 +50,35 @@ export default function ClienteSet(props) {
 
     return (
         <div>
-            <Container>
-                <FormControl
+            <Box m={2}>
+                <TextField
+                    fullWidth
                     autoFocus
-                    type="text"
-                    placeholder="Filtrar por nome do cliente, data de nascimento ou CPF"
-                    className="mt-2 mb-2"
+                    label="Filtrar por nome do cliente, data de nascimento ou CPF"
                     onChange={filterClientes}
                 />
-            </Container>
-            <Container className="mt-2" >
-                <ListGroup className="mt-2">
+            </Box>
+            <Box m={2}>
+                <List >
                     {clientesfiltrados.map((cliente, index) =>
-                        <ListGroup.Item
-                            key={index}
-                            onClick={() => {
-                                setCliente(cliente)
-                                setValidacao(true)
-                            }}
-                        >{cliente.nome}     - {cliente.nascimento}
-                        </ListGroup.Item>
+                        <>
+                            <ListItem
+                                key={index}
+                                button
+                                onClick={() => {
+                                    setCliente(cliente)
+                                    setValidacao(true)
+                                }}
+                            >
+                                <ListItemIcon>
+                                    <PersonIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={cliente.nome} secondary={cliente.nascimento}></ListItemText>
+                            </ListItem>
+                        </>
                     )}
-                </ListGroup>
-            </Container>
+                </List>
+            </Box>
         </div>
     )
 }

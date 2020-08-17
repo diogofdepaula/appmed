@@ -1,13 +1,13 @@
+import { Button, Grid } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { Button, Container, Row, Col } from 'react-bootstrap';
-import PrescricaoList from '../components/prescricaolist';
-import PrescricaoData from '../components/prescricaodata'
 import { PageContext } from '../..';
+import PrescricaoData from '../components/prescricaodata';
+import PrescricaoList from '../components/prescricaolist';
 
 export default function PrescricaoMain() {
 
     const setPage = useContext(PageContext)
-    
+
     const indices = [
         ['prescricaoinsert', 'Nova Prescrição'],
         ['prescricaoprint', 'Imprimir Prescrições'],
@@ -17,30 +17,29 @@ export default function PrescricaoMain() {
     ]
 
     return (
-        <div>
-            <Container fluid className="mt-2">
+        <>
+            <Grid container spacing={1}>
                 {indices.map(x =>
-                    <Button
-                        key={x[0]}
-                        variant="outline-primary"
-                        className="ml-2"
-                        onClick={() => {
-                            setPage(x[0])
-                        }}
-                    >{x[1]}
-                    </Button>
+                    <Grid item>
+                        <Button
+                            key={x[0]}
+                            variant="contained"
+                            onClick={() => {
+                                setPage(x[0])
+                            }}
+                        >{x[1]}
+                        </Button>
+                    </Grid>
                 )}
-            </Container>
-            <Container>
-                <Row>
-                    <Col sm={6}>
-                        <PrescricaoList />
-                    </Col>
-                    <Col sm={4}>
-                        <PrescricaoData />
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={5}>
+                    <PrescricaoList />
+                </Grid>
+                <Grid item xs>
+                    <PrescricaoData />
+                </Grid>
+            </Grid>
+        </>
     )
 }

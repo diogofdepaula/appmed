@@ -1,5 +1,5 @@
+import { Box, Button, Grid } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
-import { Button, Container } from 'react-bootstrap'
 import ClienteHeader from '../component/clienteheader'
 import LMEDelete from './lmes/delete'
 import LMEInsert from './lmes/insert'
@@ -31,25 +31,26 @@ export default function AtendimentoMain(props) {
     ]
 
     return (
-        <div>
+        <>
             <ClienteContext.Provider value={props.cliente}>
                 <ClienteHeader />
-                <Container fluid className="mt-2">
+                <Grid container spacing={1}>
                     {indices.map(x =>
-                        <Button
-                            key={x[0]}
-                            variant="outline-primary"
-                            className="ml-2"
-                            onClick={() => {
-                                setPrescricaoMain(null)
-                                setPage(x[0])
-                            }}
-                        >{x[1]}
-                        </Button>
+                        <Grid item>
+                            <Button
+                                key={x[0]}
+                                variant="contained"
+                                onClick={() => {
+                                    setPrescricaoMain(null)
+                                    setPage(x[0])
+                                }}
+                            >{x[1]}
+                            </Button>
+                        </Grid>
                     )}
-                </Container>
-                <PageContext.Provider value={setPage}>
-                    <Container>
+                </Grid>
+                <Box>
+                    <PageContext.Provider value={setPage}>
                         <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
                             {page === 'prescricoes' && <PrescricaoMain />}
                             {page === 'prescricaoinsert' && <PrescricaoInsert />}
@@ -62,9 +63,9 @@ export default function AtendimentoMain(props) {
                                 {page === 'lmedelete' && <LMEDelete />}
                             </LMEMainContext.Provider>
                         </PrescricaoMainContext.Provider>
-                    </Container>
-                </PageContext.Provider>
+                    </PageContext.Provider>
+                </Box>
             </ClienteContext.Provider>
-        </div >
+        </>
     )
 }
