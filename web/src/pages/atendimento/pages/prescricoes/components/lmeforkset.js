@@ -1,5 +1,5 @@
-import React, { useCallback, useContext, useState, useEffect } from 'react';
-import { Container, ListGroup } from 'react-bootstrap';
+import { Box, Divider, ListItem, ListItemText, Typography, List } from '@material-ui/core';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext } from '../..';
 import { PrescricaoEditorContext } from '../editor';
 
@@ -21,19 +21,15 @@ export default function LMEForkSet() {
 
     return (
         <div>
-            <h5>Escolha a qual LME</h5>
-            <Container className="mt-2" >
-                <ListGroup.Item
-                    onClick={() => {
-                        // irá manter o prescricaoContext.lmeId = null
-                        setStepContext(1)
-                    }}
-                >Criar uma nova LME
-                </ListGroup.Item>
-                <br />
-                <ListGroup>
+            <Typography variant={'h5'}>Escolha a qual LME</Typography>
+            <Box mt={1}>
+                <ListItem onClick={() => setStepContext(1)} >
+                    <ListItemText primary="Criar uma nova LME" />
+                </ListItem>
+                <Divider />
+                <List>
                     {lmes && lmes.map(lme =>
-                        <ListGroup.Item
+                        <ListItem
                             key={lme.id}
                             onClick={() => {
                                 setPrescricaoContext({
@@ -42,11 +38,12 @@ export default function LMEForkSet() {
                                 })
                                 setStepContext(1)
                             }}
-                        >{lme.cid10} - {lme.diagnostico}
-                        </ListGroup.Item>
+                        >
+                            <ListItemText primary={lme.cid10 + ' - ' + lme.diagnostico} />
+                        </ListItem>
                     )}
-                </ListGroup>
-            </Container>
+                </List>
+            </Box>
         </div>
     )
 }

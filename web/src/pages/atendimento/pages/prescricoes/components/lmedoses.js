@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useState, useCallback } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Box, Button, Grid, TextField, Typography } from '@material-ui/core'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { PrescricaoEditorContext } from '../editor'
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 export default function LMEDoses(props) {
 
@@ -28,7 +29,7 @@ export default function LMEDoses(props) {
 
     const nextStep = () => {
         setPrescricaoContext(prescricaoContext)
-        if (prescricaoContext.lmeId){
+        if (prescricaoContext.lmeId) {
             setStepContext(1) // manda para o lmeupdate
         } else {
             setStepContext(61) // continua a edição
@@ -36,32 +37,32 @@ export default function LMEDoses(props) {
     }
 
     return (
-        <div>
-            <h5>Doses referente a cada mês</h5>
-            <Container>
-                <Row>
-                    {indices && indices.map((w) =>
-                        <Col key={w[0]}>
-                            <Form.Control
-                                type="text"
-                                name={w[0]}
-                                placeholder={w[1]}
-                                value={w[2]}
-                                onChange={handleChange}
-                            />
-                        </Col>
-                    )}
-                </Row>
-            </Container>
-            <Container className="mt-2">
+        <>
+            <Typography variant={'h5'}>Doses referente a cada mês</Typography>
+            <Box>
+                <Grid container spacing={5} nowrap >
+                {indices && indices.map((w) =>
+                    <Grid item xs> 
+                        <TextField
+                            size='small'
+                            key={w[0]}
+                            name={w[0]}
+                            label={w[1]}
+                            value={w[2]}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                )}
+                </Grid>
+            </Box>
+            <Box mt={2}>
                 <Button
-                    className="ml-1"
-                    variant="outline-success"
                     onClick={() => nextStep()}
+                    endIcon={<NavigateNextIcon />}
                 > Próximo
                     </Button>
-            </Container>
-        </div>
+            </Box>
+        </>
     )
 }
 
