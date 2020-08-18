@@ -1,5 +1,5 @@
+import { Box, List, ListItem, Typography } from '@material-ui/core'
 import React, { useCallback, useContext, useEffect } from 'react'
-import { Container, ListGroup } from 'react-bootstrap'
 import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 
 export default function ApresentacaoSet() {
@@ -18,12 +18,12 @@ export default function ApresentacaoSet() {
     }, [fetchData])
 
     return (
-        <div>
-            <h5>Escolha uma Apresentação</h5>
-            <Container className="mt-2" >
-                <ListGroup className="mt-2">
+        <>
+            <Typography variant={'h6'}>Escolha uma Apresentação</Typography>
+            <Box mt={1}>
+                <List>
                     {medicamentoContext && medicamentoContext.apresentacoes && medicamentoContext.apresentacoes.map(apresentacao =>
-                        <ListGroup.Item
+                        <ListItem
                             key={apresentacao.id}
                             onClick={() => {
                                 setPrescricaoContext({ ...prescricaoContext, apresentacoId: apresentacao.id })
@@ -31,13 +31,13 @@ export default function ApresentacaoSet() {
                             }}
                         >
                             <>
-                                {prescricaoContext.apresentacoId === apresentacao.id && <h6>(opção atual)</h6>}
+                                {prescricaoContext.apresentacoId === apresentacao.id && <Typography>(opção atual)</Typography>}
                             </>
                             {apresentacao.descricao}
-                        </ListGroup.Item>
+                        </ListItem>
                     )}
-                </ListGroup>
-            </Container>
-        </div>
+                </List>
+            </Box>
+        </>
     )
 }

@@ -1,5 +1,5 @@
 import { Container, Grid, IconButton, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
@@ -87,7 +87,7 @@ export default function ClienteMain() {
                 setPage('clienteinsert')
               }}
             >
-              <AddIcon />
+              <PersonAddIcon />
             </IconButton>
           </Grid>
           <Grid item >

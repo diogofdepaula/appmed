@@ -1,5 +1,5 @@
+import { Box, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { Container } from 'react-bootstrap';
 import { PrescricaoMainContext } from '../..';
 
 export default function PrescricaoData() {
@@ -8,40 +8,45 @@ export default function PrescricaoData() {
     const prescricao = prescricaoMain;
 
     return (
-        <div>
-            <Container className="mt-4">
+        <>
+            <Box mt={4}>
                 {prescricaoMain &&
-                    <div>
-                        <h5>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</h5>
+                    <>
+                        <Typography variant={'h6'}>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</Typography>
                         {prescricao.continuo
-                            ? <p>Contínuo: sim</p>
-                            : <p>Contínuo: não</p>}
+                            ? <Typography variant={'body1'}>Contínuo: sim</Typography>
+                            : <Typography variant={'body1'}>Contínuo: não</Typography>}
                         {prescricao.usoposologiapadrao ?
-                            <div>
+                            <>
                                 Posologia:
-                        <p>{prescricao.posologia.posologia}</p>
-                                <p>{prescricao.posologia.quantidade} {prescricao.posologia.forma}</p>
-                            </div>
+                                <Typography variant={'body1'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
+                                <Typography variant={'body1'}>{prescricao.posologia.quantidade} {prescricao.posologia.forma}</Typography>
+                            </>
                             :
-                            <div>
+                            <>
                                 Posologia:
-                        <p>{prescricao.posologianaopadrao}</p>
-                                <p>{prescricao.quantidadenaopadrao} {prescricao.formanaopadrao}</p>
-                            </div>}
+                                <Typography variant={'body1'} align={'justify'}>{prescricao.posologianaopadrao}</Typography>
+                                <Typography variant={'body1'}>{prescricao.quantidadenaopadrao} {prescricao.formanaopadrao}</Typography>
+                            </>}
                         {prescricao.imprimirorientacoes
-                            ? <p>Imprimir orientações: sim</p>
-                            : <p>Imprimir orientações: não</p>}
-                        <p>Orientações: {prescricao.orientacoes}</p>
-                        {prescricao.lmeId && <p>LME: {prescricao.lmemes1} | {prescricao.lmemes2} | {prescricao.lmemes3}</p>}
-                        <p>Início: {prescricao.inicio}</p>
+                            ? <Typography variant={'body1'}>Imprimir orientações: sim</Typography>
+                            : <Typography variant={'body1'}>Imprimir orientações: não</Typography>
+                        }
+                        <Typography variant={'body1'}>Orientações: {prescricao.orientacoes}</Typography>
+
+                        {prescricao.lmeId &&
+                            <Typography variant={'body1'}>LME: {prescricao.lmemes1} | {prescricao.lmemes2} | {prescricao.lmemes3}</Typography>
+                        }
+                        <Typography variant={'body1'}>Início: {prescricao.inicio}</Typography>
                         {prescricao.termino &&
-                            <div>
-                                <p>Termino: {prescricao.termino} </p>
-                                <p>Motivo do termimo: {prescricao.motivotermico}</p>
-                            </div>}
-                    </div>
+                            <>
+                                <Typography variant={'body1'}>Termino: {prescricao.termino} </Typography>
+                                <Typography variant={'body1'}>Motivo do termimo: {prescricao.motivotermico}</Typography>
+                            </>
+                        }
+                    </>
                 }
-            </Container>
-        </div>
+            </Box>
+        </>
     );
 }

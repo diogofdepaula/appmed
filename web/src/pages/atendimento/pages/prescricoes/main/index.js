@@ -1,45 +1,47 @@
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Box } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { PageContext } from '../..';
 import PrescricaoData from '../components/prescricaodata';
 import PrescricaoList from '../components/prescricaolist';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import PrintIcon from '@material-ui/icons/Print';
 
 export default function PrescricaoMain() {
 
     const setPage = useContext(PageContext)
 
-    const indices = [
-        ['prescricaoinsert', 'Nova Prescrição'],
-        ['prescricaoprint', 'Imprimir Prescrições'],
-        ['xxxxxxxxxxx', 'XXXXXX'],
-        ['yyyyyyy', 'YYYYYYY'],
-        ['zzzzzzzzzz', 'ZZZZZZ'],
-    ]
-
     return (
         <>
-            <Grid container spacing={1}>
-                {indices.map(x =>
+            <Box mt={1}>
+                <Grid container spacing={1}>
                     <Grid item>
                         <Button
-                            key={x[0]}
                             variant="contained"
+                            startIcon={<PostAddIcon />}
                             onClick={() => {
-                                setPage(x[0])
+                                setPage('prescricaoinsert')
                             }}
-                        >{x[1]}
-                        </Button>
+                        >Nova Prescrição</Button>
                     </Grid>
-                )}
-            </Grid>
-            <Grid container spacing={2}>
-                <Grid item xs={5}>
-                    <PrescricaoList />
+                    <Grid item>
+                        <Button
+                            variant="contained"
+                            startIcon={<PrintIcon />}
+                            onClick={() => {
+                                setPage('prescricaoprint')
+                            }}
+                        >Imprimir</Button>
+                    </Grid>
                 </Grid>
-                <Grid item xs>
-                    <PrescricaoData />
+                <Grid container spacing={2}>
+                    <Grid item xs={5}>
+                        <PrescricaoList />
+                    </Grid>
+                    <Grid item xs>
+                        <PrescricaoData />
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Box>
         </>
     )
 }

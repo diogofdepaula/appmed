@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
-import { Button, Card, Container } from 'react-bootstrap';
+import { Box, Button, Grid } from '@material-ui/core';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
-import PrescricaoEditor from '../editor'
+import PrescricaoEditor from '../editor';
 
 export const PrescricaoContext = createContext(null)
 
@@ -43,7 +43,7 @@ export default function PrescricaoInsert() {
         setPrescricaoMain(paramPres)
         if (paramLME) {
             //Mandará para a LME
-            setPrescricaoMain(paramPres)     
+            setPrescricaoMain(paramPres)
             if (paramPres.lmeId === null) {
                 setPage('lmeinsert')
             } else {
@@ -51,7 +51,7 @@ export default function PrescricaoInsert() {
                 setPage('lmeupdate')
             }
         } else {
-            setPrescricaoMain(null) 
+            setPrescricaoMain(null)
             setPrescricao(paramPres)
         }
     }, [setPrescricaoMain, setPage])
@@ -70,33 +70,33 @@ export default function PrescricaoInsert() {
     }
 
     return (
-        <div>
-            <Container fluid className='mt-2'>
-                <Button
-                    variant="outline-primary"
-                    onClick={() => {
-                        setPrescricao(initialPrescricao)
-                        // setMedicamento(initialMedicamento)
-                        // setValidacao(false)
-                        // setStep(11)
-                    }}
-                > Escolhe outro Medicamento </Button>
-                <Button
-                    className="ml-2"
-                    variant="outline-success"
-                    onClick={handleSubmit}
-                > Submeter </Button>
-            </Container>
-            <Container className="mt-2">
-                <Card body>
-                    <PrescricaoEditor prescricao={prescricao} sendPrescricao={backPrescricao} step={step} />
-                </Card>
-            </Container>
-            <Container className="mt-2">
-                {/* <Card body>
-                        <PrescricaoData prescricao={prescricao} />
-                    </Card> */}
-            </Container>
-        </div>
+        <>
+            <Box display='flex' mt={1}>
+                <Grid container spacing={1}>
+                    <Grid item>
+                        <Button
+                            variant="outlined"
+                            onClick={() => {
+                                setPrescricao(initialPrescricao)
+                                // setMedicamento(initialMedicamento)
+                                // setValidacao(false)
+                                // setStep(11)
+                            }}
+                        >Escolhe outro Medicamento</Button>
+                    </Grid>
+                    <Grid item>
+                        <Button
+                            className="ml-2"
+                            variant="outlined"
+                            color="secondary"
+                            onClick={handleSubmit}
+                        > Submeter </Button>
+                    </Grid>
+                </Grid>
+            </Box>
+            <Box mt={2}>
+                <PrescricaoEditor prescricao={prescricao} sendPrescricao={backPrescricao} step={step} />
+            </Box>
+        </>
     )
 }

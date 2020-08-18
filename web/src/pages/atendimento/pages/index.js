@@ -34,6 +34,7 @@ export default function AtendimentoMain(props) {
         <>
             <ClienteContext.Provider value={props.cliente}>
                 <ClienteHeader />
+                <Box mt={1}>
                 <Grid container spacing={1}>
                     {indices.map(x =>
                         <Grid item>
@@ -49,6 +50,7 @@ export default function AtendimentoMain(props) {
                         </Grid>
                     )}
                 </Grid>
+                </Box>
                 <Box>
                     <PageContext.Provider value={setPage}>
                         <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >

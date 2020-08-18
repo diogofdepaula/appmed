@@ -1,5 +1,5 @@
+import { Button, List, ListItem, Typography, Box } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { Button, Container, ListGroup } from 'react-bootstrap'
 import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 
 export default function PosologiaSet(props) {
@@ -8,12 +8,12 @@ export default function PosologiaSet(props) {
     const { medicamentoContext } = useContext(MedicamentoEditorContext)
 
     return (
-        <div>
-            <h5>Escolha uma Posologia</h5>
-            <Container className="mt-2" >
-                <ListGroup className="mt-2">
+        <>
+            <Typography variant={'h6'}>Escolha uma Posologia</Typography>
+            <Box mt={1}>
+                <List>
                     {medicamentoContext && medicamentoContext.posologias && medicamentoContext.posologias.map(posologia =>
-                        <ListGroup.Item
+                        <ListItem
                             key={posologia.id}
                             onClick={() => {
                                 setPrescricaoContext({
@@ -25,25 +25,26 @@ export default function PosologiaSet(props) {
                             }}
                         >
                             <>
-                                {prescricaoContext.posologiaId === posologia.id && <h6>(opção atual)</h6>}
+                                {prescricaoContext.posologiaId === posologia.id && <Typography>(opção atual)</Typography>}
                             </>
                             {posologia.posologia}
-                        </ListGroup.Item>
+                        </ListItem>
                     )}
-                </ListGroup>
-            </Container>
-            <Button
-                className="mt-2"
-                variant="outline-danger"
-                onClick={() => {
-                    setPrescricaoContext(prescricaoContext)
-                    setStepContext(32)
-                }}
-            >Usar posologia não padronizada
-                <>
-                    {prescricaoContext.posologiaId === null && <h6>  (opção atual)</h6>}
-                </>
-            </Button>
-        </div>
+                </List>
+            </Box>
+            <Box mt={1}>
+                <Button
+                    color='secondary'
+                    onClick={() => {
+                        setPrescricaoContext(prescricaoContext)
+                        setStepContext(32)
+                    }}
+                >Usar posologia não padronizada
+                    <>
+                        {prescricaoContext.posologiaId === null && <Typography>  (opção atual)</Typography>}
+                    </>
+                </Button>
+            </Box>
+        </>
     )
 }

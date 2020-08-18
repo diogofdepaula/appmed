@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useCallback, useContext } from 'react'
-import { Container, ListGroup, FormControl } from 'react-bootstrap'
+import { Box, List, ListItem, ListItemText, TextField, Typography } from '@material-ui/core'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { PrescricaoEditorContext } from '../editor'
 
 export default function MedicamentoSet() {
@@ -38,31 +38,32 @@ export default function MedicamentoSet() {
     }
 
     return (
-        <div>
-            <h5>Escolha o fármaco</h5>
-            <Container>
-                <FormControl
+        <>
+            <Typography variant={'h6'}>Escolha o fármaco</Typography>
+            <Box mt={1} mb={1}>
+                <TextField
+                    fullWidth
                     autoFocus
-                    type="text"
-                    placeholder="Insira o nome do fármaco"
-                    className="mt-2 mb-2"
+                    label='Digite o nome do fármaco'
                     onChange={filterMedicamento}
                 />
-            </Container>
-            <Container className="mt-2" >
-                <ListGroup className="mt-2">
+            </Box>
+            <Box mt={1} >
+                <List className="mt-2">
                     {medicamentosfiltrados.map((medicamento, index) =>
-                        <ListGroup.Item
+                        <ListItem
                             key={index}
                             onClick={() => {
                                 setPrescricaoContext({ ...prescricaoContext, medicamentoId: medicamento.id })
                                 setStepContext(21)
                             }}
-                        >{medicamento.farmaco} {medicamento.abreviatura && "(" + medicamento.abreviatura + ")"}
-                        </ListGroup.Item>
+                        >
+                            {/* {medicamento.farmaco} {medicamento.abreviatura && "(" + medicamento.abreviatura + ")"} */}
+                            <ListItemText primary={medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco} />
+                        </ListItem>
                     )}
-                </ListGroup>
-            </Container>
-        </div >
+                </List>
+            </Box>
+        </>
     )
 }
