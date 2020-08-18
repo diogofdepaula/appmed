@@ -58,7 +58,6 @@ export default function MedicamentoSet() {
                                 setStepContext(21)
                             }}
                         >
-                            {/* {medicamento.farmaco} {medicamento.abreviatura && "(" + medicamento.abreviatura + ")"} */}
                             <ListItemText primary={medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco} />
                         </ListItem>
                     )}
