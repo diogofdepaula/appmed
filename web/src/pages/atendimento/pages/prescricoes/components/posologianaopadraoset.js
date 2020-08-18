@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography, Grid } from '@material-ui/core'
+import { Box, Button, TextField, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { PrescricaoEditorContext } from '../editor'
 
@@ -15,6 +15,10 @@ export default function PosologiaNaoPadraoSet(props) {
         })
     }
 
+    const theme = {
+        spacing: 2,
+    }
+
     return (
         <>
             <Typography variant={'h6'}>Defina uma Posologia Não Padronizada</Typography>
@@ -29,25 +33,19 @@ export default function PosologiaNaoPadraoSet(props) {
                     onChange={handleChange}
                 />
             </Box>
-            <Box display='flex' mt={1}>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <TextField
-                            name="quantidadenaopadrao"
-                            label="Quantidade"
-                            value={prescricaoContext.quantidadenaopadrao}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item>
-                        <TextField
-                            name="formanaopadrao"
-                            label="Forma"
-                            value={prescricaoContext.formanaopadrao}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                </Grid>
+            <Box display='flex' mt={1} theme={theme}>
+                <TextField
+                    name="quantidadenaopadrao"
+                    label="Quantidade"
+                    value={prescricaoContext.quantidadenaopadrao}
+                    onChange={handleChange}
+                />
+                <TextField
+                    name="formanaopadrao"
+                    label="Forma"
+                    value={prescricaoContext.formanaopadrao}
+                    onChange={handleChange}
+                />
             </Box>
             <Box mt={1}>
                 <Button
