@@ -1,6 +1,6 @@
+import { Box, Button, Checkbox, FormControlLabel, TextField, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { PrescricaoEditorContext, MedicamentoEditorContext } from '../editor'
+import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 
 export default function PrescricaoVarSet(props) {
 
@@ -15,58 +15,49 @@ export default function PrescricaoVarSet(props) {
     }
 
     return (
-        <div>
-            <h5>Defina as outras variáveis</h5>
-            <Container>
-                <Form>
-                    <Row>
-                        <Col>
-                            <Form.Group controlId="formBasicCheckbox">
-                                <Form.Check
-                                    type="checkbox"
-                                    label="Contínuo"
-                                    name="continuo"
-                                    checked={prescricaoContext.continuo}
-                                    onChange={handleChange}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicImprimir">
-                                <Form.Check
-                                    className="mt-2"
-                                    type="checkbox"
-                                    label="Imprimir orientações"
-                                    name="imprimirorientacoes"
-                                    checked={prescricaoContext.imprimirorientacoes}
-                                    onChange={handleChange}
-                                />
-                            </Form.Group>
-                        </Col>
-                        <Col>
-                            <Form.Control
-                                className="mt-2"
-                                type="date"
-                                name="inicio"
-                                value={prescricaoContext.inicio}
+        <>
+            <Typography variant={'h5'}>Defina as outras variáveis</Typography>
+            <Box>
+                <Box display="flex">
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                name="continuo"
+                                checked={prescricaoContext.continuo}
                                 onChange={handleChange}
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <Form.Control
-                                className="mt-2"
-                                as="textarea"
-                                rows="5"
-                                name="orientacoes"
-                                placeholder="Orientações adicionais"
-                                value={prescricaoContext.orientacoes}
+                            />}
+                        label='Contínuo'
+                    />
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                name="imprimirorientacoes"
+                                checked={prescricaoContext.imprimirorientacoes}
                                 onChange={handleChange}
-                            />
-                        </Col>
-                    </Row>
-                </Form>
-            </Container>
-            <Container fluid className="mt-2">
+                            />}
+                        label='Imprimir orientações'
+                    />
+                    <TextField
+                        type="date"
+                        name="inicio"
+                        value={prescricaoContext.inicio}
+                        onChange={handleChange}
+                    />
+                </Box>
+            </Box >
+            <Box>
+                <TextField
+                    fullWidth
+                    multiline
+                    rows={4}
+                    name="orientacoes"
+                    label="Orientações adicionais"
+                    value={prescricaoContext.orientacoes}
+                    onChange={handleChange}
+                />
+            </Box>
+
+            <Box mt={1}>
                 <Button
                     variant="outline-primary"
                     onClick={() => {
@@ -85,8 +76,7 @@ export default function PrescricaoVarSet(props) {
                     }}
                 >{!prescricaoContext.id ? 'Vincular a uma LME' : 'Editar LME'}
                 </Button>
-            </Container>
-        </div >
+            </Box>
+        </>
     )
 }
-
