@@ -10,6 +10,7 @@ import PrescricaoDelete from './prescricoes/delete'
 import PrescricaoInsert from './prescricoes/insert'
 import PrescricaoMain from './prescricoes/main'
 import PrescricaoUpdate from './prescricoes/update'
+import Print from './print'
 
 export const ClienteContext = createContext(null)
 export const PageContext = createContext('main')
@@ -35,34 +36,36 @@ export default function AtendimentoMain(props) {
             <ClienteContext.Provider value={props.cliente}>
                 <ClienteHeader />
                 <Box mt={1}>
-                <Grid container spacing={1}>
-                    {indices.map(x =>
-                        <Grid item>
-                            <Button
-                                key={x[0]}
-                                variant="contained"
-                                onClick={() => {
-                                    setPrescricaoMain(null)
-                                    setPage(x[0])
-                                }}
-                            >{x[1]}
-                            </Button>
-                        </Grid>
-                    )}
-                </Grid>
+                    <Grid container spacing={1}>
+                        {indices.map(x =>
+                            <Grid item>
+                                <Button
+                                    key={x[0]}
+                                    variant="contained"
+                                    onClick={() => {
+                                        setPrescricaoMain(null)
+                                        setPage(x[0])
+                                    }}
+                                >{x[1]}
+                                </Button>
+                            </Grid>
+                        )}
+                    </Grid>
                 </Box>
                 <Box>
                     <PageContext.Provider value={setPage}>
                         <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
-                            {page === 'prescricoes' && <PrescricaoMain />}
-                            {page === 'prescricaoinsert' && <PrescricaoInsert />}
-                            {page === 'prescricaoupdate' && <PrescricaoUpdate />}
-                            {page === 'prescricaodelete' && <PrescricaoDelete />}
                             <LMEMainContext.Provider value={{ lmeMain: lmeMain, setLmeMain: setLmeMain }} >
+                                {page === 'prescricoes' && <PrescricaoMain />}
+                                {page === 'prescricaoinsert' && <PrescricaoInsert />}
+                                {page === 'prescricaoupdate' && <PrescricaoUpdate />}
+                                {page === 'prescricaodelete' && <PrescricaoDelete />}
+
                                 {page === 'lmes' && <LMEMain />}
                                 {page === 'lmeinsert' && <LMEInsert />}
                                 {page === 'lmeupdate' && <LMEUpdate />}
                                 {page === 'lmedelete' && <LMEDelete />}
+                                {page === 'print' && <Print />}
                             </LMEMainContext.Provider>
                         </PrescricaoMainContext.Provider>
                     </PageContext.Provider>

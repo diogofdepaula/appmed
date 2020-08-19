@@ -28,7 +28,7 @@ export default function PrescricaoMain() {
                             variant="contained"
                             startIcon={<PrintIcon />}
                             onClick={() => {
-                                setPage('prescricaoprint')
+                                setPage('print')
                             }}
                         >Imprimir</Button>
                     </Grid>
