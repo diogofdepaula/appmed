@@ -12,7 +12,6 @@ export default function Clientes() {
     const [page, setPage] = useState('clientemain')
     const [cliente, setCliente] = useState()
 
-    
     return (
         <div>
             <PageContext.Provider value={setPage}>
