@@ -60,22 +60,20 @@ export default function ClienteSet(props) {
             </Box>
             <Box m={2}>
                 <List >
-                    {clientesfiltrados.map((cliente, index) =>
-                        <>
-                            <ListItem
-                                key={index}
-                                button
-                                onClick={() => {
-                                    setCliente(cliente)
-                                    setValidacao(true)
-                                }}
-                            >
-                                <ListItemIcon>
-                                    <PersonIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={cliente.nome} secondary={cliente.nascimento}></ListItemText>
-                            </ListItem>
-                        </>
+                    {clientesfiltrados.map(cliente =>
+                        <ListItem
+                            key={cliente.id}
+                            button
+                            onClick={() => {
+                                setCliente(cliente)
+                                setValidacao(true)
+                            }}
+                        >
+                            <ListItemIcon>
+                                <PersonIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={cliente.nome} secondary={cliente.nascimento}></ListItemText>
+                        </ListItem>
                     )}
                 </List>
             </Box>

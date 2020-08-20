@@ -38,9 +38,8 @@ export default function AtendimentoMain(props) {
                 <Box mt={1}>
                     <Grid container spacing={1}>
                         {indices.map(x =>
-                            <Grid item>
+                            <Grid item key={x[0]}>
                                 <Button
-                                    key={x[0]}
                                     variant="contained"
                                     onClick={() => {
                                         setPrescricaoMain(null)
