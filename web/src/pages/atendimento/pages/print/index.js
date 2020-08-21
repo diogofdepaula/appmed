@@ -1,6 +1,6 @@
-import React, { useContext, useState, useCallback, useEffect } from 'react'
+import { Checkbox, Grid, List, ListItem, ListItemSecondaryAction, ListItemText, Typography, Slider, RadioGroup, Radio, FormControlLabel } from '@material-ui/core'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { ClienteContext, PageContext } from '..'
-import { Box, ListItemSecondaryAction, ListItemText, Checkbox, List, ListItem, Paper } from '@material-ui/core'
 
 export default function Print() {
 
@@ -11,11 +11,11 @@ export default function Print() {
 
     //variáveis para definir o que será impresso
 
-    const [impressao, setimpressao] = useState({
+    const [impressao, setImpressao] = useState({
         prescricoesSelecionadas: [],
         tipo: '', // simples, controlado
-        meses: 0,
-        local: '', // consultorio, cisgap, cisco
+        meses: 1,
+        local: 'consultorio', // consultorio, SUS (cisgap, cisco)
         lme: true,
         relatorio: true
     })
@@ -48,25 +48,38 @@ export default function Print() {
     const handleCheck = param => (event) => {
 
         if (event.target.checked) {
-            setimpressao(prevState => ({
+            setImpressao(prevState => ({
                 ...prevState,
                 prescricoesSelecionadas: prevState.prescricoesSelecionadas.concat(param)
             }))
         } else {
-            setimpressao(prevState => ({
+            setImpressao(prevState => ({
                 ...prevState,
                 prescricoesSelecionadas: prevState.prescricoesSelecionadas.filter(presc => presc.id !== param.id)
             }))
         }
     }
 
+    // const valuetext = (value) => {
+    //     return `${value} mês`;
+    // }
+
+    const handleChange = (event) => {
+        setImpressao({ ...impressao, [event.target.name]: event.target.value })
+    }
+
+    const handleSliderChange = (event, newValue) => {
+        setImpressao({ ...impressao, meses: newValue })
+    }
+
+
     return (
         <>
-            {JSON.stringify(impressao.prescricoesSelecionadas)}
-            <Box display='flex'>
-
-                <Box border={3}>
-                    <List>
+            {JSON.stringify(impressao)}
+            <Grid container>
+                <Grid item xs={3}>
+                    <Typography variant={'h6'}>Quais serão impressos</Typography>
+                    <List dense>
                         {prescricoes && prescricoes.map(prescricao =>
                             <ListItem key={prescricao.id}>
                                 <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
@@ -74,20 +87,41 @@ export default function Print() {
                                     <Checkbox
                                         edge="end"
                                         onChange={handleCheck(prescricao)}
-                                    //checked={checked.indexOf(value) !== -1}
-                                    //inputProps={{ 'aria-labelledby': labelId }}
                                     />
                                 </ListItemSecondaryAction>
                             </ListItem>
                         )}
                     </List>
-                </Box>
-                <Box border={3}>
-                    <Paper>
-                        Só para fazer volume
-                    </Paper>
-                </Box>
-            </Box>
+                </Grid>
+                <Grid container item xs>
+                    <Grid container>
+                        <Grid item xs={3}>
+                            <Typography id="discrete-slider" gutterBottom>Para quantos meses</Typography>
+                            <Slider
+                                defaultValue={1}
+                                getAriaValueText={(value) => `${value} mês`}
+                                //getAriaValueText={valuetext}
+                                aria-labelledby="discrete-slider"
+                                valueLabelDisplay="auto"
+                                step={1}
+                                marks
+                                min={1}
+                                max={6}
+                                onChange={handleSliderChange}
+                            />
+                        </Grid>
+                    </Grid>
+                    <Grid container item>
+                        <Grid item xs={3}>
+                            <Typography id="local" gutterBottom>Local</Typography>
+                            <RadioGroup aria-label="local" name="local" value={impressao.local} onChange={handleChange}>
+                                <FormControlLabel value="consultorio" control={<Radio />} label="Consultório" />
+                                <FormControlLabel value="sus" control={<Radio />} label="SUS" />
+                            </RadioGroup>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
         </>
     )
 }
