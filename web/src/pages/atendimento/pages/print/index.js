@@ -48,17 +48,23 @@ export default function Print() {
     const handleCheck = param => (event) => {
 
         if (event.target.checked) {
-            console.log('checked')
+            setimpressao(prevState => ({
+                ...prevState,
+                prescricoesSelecionadas: prevState.prescricoesSelecionadas.concat(param)
+            }))
         } else {
-            console.log('unchecked')
+            setimpressao(prevState => ({
+                ...prevState,
+                prescricoesSelecionadas: prevState.prescricoesSelecionadas.filter(presc => presc.id !== param.id)
+            }))
         }
-
-
     }
 
     return (
         <>
+            {JSON.stringify(impressao.prescricoesSelecionadas)}
             <Box display='flex'>
+
                 <Box border={3}>
                     <List>
                         {prescricoes && prescricoes.map(prescricao =>
