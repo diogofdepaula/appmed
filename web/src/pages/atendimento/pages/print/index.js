@@ -1,11 +1,11 @@
-import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Radio, RadioGroup, Slider, Typography, Box } from '@material-ui/core';
+import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Radio, RadioGroup, Slider, Typography } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import PrintIcon from '@material-ui/icons/Print';
-import React, { useCallback, useContext, useEffect, useState, useRef } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { ClienteContext, PageContext } from '..';
-import Receita from './components/consultorio/receita';
-
+import ReceitaConsultorio from './components/consultorio/receitaconsultorio';
+import ReceitaSUS from './components/sus/receitasus'
 
 export default function Print() {
 
@@ -132,8 +132,11 @@ export default function Print() {
                     </Grid>
                 </Grid>
                 <Grid container item>
-                    <div ref={componentRef}>
-                        <Receita />
+                    <div style={{ display: "none" }}>
+                        <div ref={componentRef} >
+                            {impressao.local === 'consultorio' && <ReceitaConsultorio />}
+                            {impressao.local === 'sus' && <ReceitaSUS />}
+                        </div>
                     </div>
                     <IconButton
                         onClick={handlePrint}
