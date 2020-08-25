@@ -1,6 +1,11 @@
-import { Checkbox, Grid, List, ListItem, ListItemSecondaryAction, ListItemText, Typography, Slider, RadioGroup, Radio, FormControlLabel } from '@material-ui/core'
-import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { ClienteContext, PageContext } from '..'
+import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Radio, RadioGroup, Slider, Typography, Box } from '@material-ui/core';
+import CancelIcon from '@material-ui/icons/Cancel';
+import PrintIcon from '@material-ui/icons/Print';
+import React, { useCallback, useContext, useEffect, useState, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
+import { ClienteContext, PageContext } from '..';
+import Receita from './components/consultorio/receita';
+
 
 export default function Print() {
 
@@ -61,7 +66,7 @@ export default function Print() {
     }
 
     // const valuetext = (value) => {
-    //     return `${value} mês`; afjladlfkjadsçlfkjkçaldjfkçakldjfkaç
+    //     return `${value} mês`; 
     // }
 
     const handleChange = (event) => {
@@ -72,11 +77,15 @@ export default function Print() {
         setImpressao({ ...impressao, meses: newValue })
     }
 
-    
+    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
 
     return (
         <>
-            {JSON.stringify(impressao)}
+            {/* {JSON.stringify(impressao)} */}
             <Grid container>
                 <Grid item xs={3}>
                     <Typography variant={'h6'}>Quais serão impressos</Typography>
@@ -122,7 +131,21 @@ export default function Print() {
                         </Grid>
                     </Grid>
                 </Grid>
+                <Grid container item>
+                    <div ref={componentRef}>
+                        <Receita />
+                    </div>
+                    <IconButton
+                        onClick={handlePrint}
+                    >
+                        <PrintIcon />
+                    </IconButton>
+                    <IconButton>
+                        <CancelIcon />
+                    </IconButton>
+                </Grid>
             </Grid>
+
         </>
     )
 }
