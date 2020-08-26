@@ -9,8 +9,8 @@ const ReceitaSUS = () => {
     
     return (
         <>
-            {/* tranferir esse if para a montagem ou para o index antes de enviar para aqui */}
-            {prescricoesSelecionadas[0] && <Typography variant={'h5'}>{prescricoesSelecionadas[0].id}</Typography>}
+            {/* tranferir esse if para a montagem ou para o index antes de enviar para aqui  fsdaf    */}
+            {prescricoesSelecionadas[0] && <Typography variant={'h4'}>{prescricoesSelecionadas[0].id}</Typography>}
         </>
     )
 }
