@@ -1,11 +1,13 @@
 import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Radio, RadioGroup, Slider, Typography } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import PrintIcon from '@material-ui/icons/Print';
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState, createContext } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { ClienteContext, PageContext } from '..';
 import ReceitaConsultorio from './components/consultorio/receitaconsultorio';
 import ReceitaSUS from './components/sus/receitasus'
+
+export const ImpressaoContext = createContext(null)
 
 export default function Print() {
 
@@ -85,18 +87,20 @@ export default function Print() {
 
     const FilaImpressao = () => {
 
+        //provavelmente não venha colocar ReceitaConsultorio aqui , mas depois de ter montado
+        // aqui passar já pronto após montagem
+        // Fazer do sus primeiro por ser A4
+        // Testar Context se pega passando lá por baixo
 
-        return (impressao.local === 'consultorio') ? (<ReceitaConsultorio />) : (<ReceitaSUS />)
-
-        // if (impressao.local === 'consultorio') {
-        //     return (
-        //         <ReceitaConsultorio />
-        //     )
-        // } else {
-        //     return (
-        //         <ReceitaSUS />
-        //     )
-        // }
+        if (impressao.local === 'consultorio') {
+            return (
+                <ReceitaConsultorio />
+            )
+        } else {
+            return (
+                <ReceitaSUS />
+            )
+        }
     }
 
     return (
@@ -148,11 +152,13 @@ export default function Print() {
                     </Grid>
                 </Grid>
                 <Grid container item>
-                    <div style={{ display: "none" }}>
-                        <div ref={componentRef} >
-                            <FilaImpressao />
+                    <ImpressaoContext.Provider value={impressao}>
+                        <div style={{ display: "none" }}>
+                            <div ref={componentRef} >
+                                <FilaImpressao />
+                            </div>
                         </div>
-                    </div>
+                    </ImpressaoContext.Provider>
                     <IconButton
                         onClick={handlePrint}
                     >
