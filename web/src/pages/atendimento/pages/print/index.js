@@ -83,6 +83,22 @@ export default function Print() {
         content: () => componentRef.current,
     });
 
+    const FilaImpressao = () => {
+
+
+        return (impressao.local === 'consultorio') ? (<ReceitaConsultorio />) : (<ReceitaSUS />)
+
+        // if (impressao.local === 'consultorio') {
+        //     return (
+        //         <ReceitaConsultorio />
+        //     )
+        // } else {
+        //     return (
+        //         <ReceitaSUS />
+        //     )
+        // }
+    }
+
     return (
         <>
             {/* {JSON.stringify(impressao)} */}
@@ -134,8 +150,7 @@ export default function Print() {
                 <Grid container item>
                     <div style={{ display: "none" }}>
                         <div ref={componentRef} >
-                            {impressao.local === 'consultorio' && <ReceitaConsultorio />}
-                            {impressao.local === 'sus' && <ReceitaSUS />}
+                            <FilaImpressao />
                         </div>
                     </div>
                     <IconButton
