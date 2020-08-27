@@ -1,11 +1,11 @@
 import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Radio, RadioGroup, Slider, Typography } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import PrintIcon from '@material-ui/icons/Print';
-import React, { useCallback, useContext, useEffect, useRef, useState, createContext } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { ClienteContext, PageContext } from '..';
-import ReceitaConsultorio from './components/consultorio/receitaconsultorio';
-import ReceitaSUS from './components/sus/receitasus'
+import ReceitaConsultorio from './pages/consultorio/receitaconsultorio';
+import MakerSUS from './pages/sus/makersus';
 
 export const ImpressaoContext = createContext(null)
 
@@ -22,7 +22,7 @@ export default function Print() {
         prescricoesSelecionadas: [],
         tipo: '', // simples, controlado
         meses: 1,
-        local: 'consultorio', // consultorio, SUS (cisgap, cisco)
+        local: 'sus', // consultorio, SUS (cisgap, cisco)
         lme: true,
         relatorio: true
     })
@@ -75,29 +75,29 @@ export default function Print() {
         setImpressao({ ...impressao, meses: newValue })
     }
 
-    
-
     const componentRef = useRef();
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
         //pageStyle: '@page { size: A4 portrait;}'
-        });
+    });
 
     const FilaImpressao = () => {
 
-        //provavelmente não venha colocar ReceitaConsultorio aqui , mas depois de ter montado
-        // aqui passar já pronto após montagem
-        // Fazer do sus primeiro por ser A4
-        // Testar Context se pega passando lá por baixo
-
-        if (impressao.local === 'consultorio') {
-            return (
-                <ReceitaConsultorio />
-            )
+        if (impressao.prescricoesSelecionadas.length > 0) {
+            if (impressao.local === 'consultorio') {
+                return (
+                    <ReceitaConsultorio />
+                )
+            } else {
+                return (
+                    <MakerSUS />
+                )
+            }
         } else {
             return (
-                <ReceitaSUS />
+                <>
+                </>
             )
         }
     }
@@ -123,7 +123,7 @@ export default function Print() {
                     </List>
                 </Grid>
                 <Grid container item xs>
-                    <Grid container>
+                    <Grid container >
                         <Grid item xs={3}>
                             <Typography id="discrete-slider" gutterBottom>Para quantos meses</Typography>
                             <Slider
@@ -151,21 +151,26 @@ export default function Print() {
                     </Grid>
                 </Grid>
                 <Grid container item>
-                    <ImpressaoContext.Provider value={impressao}>
-                        <div style={{ display: "none" }}>
-                            <div ref={componentRef} >
-                                <FilaImpressao />
+                    <Grid item xs={12}>
+                        <IconButton
+                            onClick={handlePrint}
+                        >
+                            <PrintIcon />
+                        </IconButton>
+                        <IconButton>
+                            <CancelIcon />
+                        </IconButton>
+                    </Grid>
+                    <Grid item >
+                        <ImpressaoContext.Provider value={impressao}>
+                            {/* <div style={{ display: "none" }}> */}
+                            <div>
+                                <div ref={componentRef} >
+                                    <FilaImpressao />
+                                </div>
                             </div>
-                        </div>
-                    </ImpressaoContext.Provider>
-                    <IconButton
-                        onClick={handlePrint}
-                    >
-                        <PrintIcon />
-                    </IconButton>
-                    <IconButton>
-                        <CancelIcon />
-                    </IconButton>
+                        </ImpressaoContext.Provider>
+                    </Grid>
                 </Grid>
             </Grid>
 
