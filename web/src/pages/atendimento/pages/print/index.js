@@ -67,10 +67,6 @@ export default function Print() {
         }
     }
 
-    // const valuetext = (value) => {
-    //     return `${value} mês`; 
-    // }
-
     const handleChange = (event) => {
         setImpressao({ ...impressao, [event.target.name]: event.target.value })
     }
@@ -79,11 +75,14 @@ export default function Print() {
         setImpressao({ ...impressao, meses: newValue })
     }
 
+    
+
     const componentRef = useRef();
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-    });
+        //pageStyle: '@page { size: A4 portrait;}'
+        });
 
     const FilaImpressao = () => {
 
