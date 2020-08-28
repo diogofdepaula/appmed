@@ -13,9 +13,9 @@ const CabecalhoSUS = () => {
                 borderColor="text.primary"
                 display="flex" 
                 justifyContent="center"
-                fontWeight="fontWeightBold"
+                mb={3}
             >
-                <Typography variant={'h4'}>{cliente.nome}</Typography>
+                <Typography variant={'h4'}><b>{cliente.nome}</b></Typography>
             </Box>
         </>
     )

@@ -9,7 +9,7 @@ const Linha3SUS = () => {
                 border={2}
                 borderColor="text.primary"
             >
-                Teste Linha3SUS
+                {/* <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} /> */}
             </Box>
         </>
     )

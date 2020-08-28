@@ -1,7 +1,10 @@
-import { Box } from '@material-ui/core'
-import React from 'react'
+import { Box, Grid, Typography } from '@material-ui/core'
+import React, { useContext } from 'react'
+import { PrescricaoSUSContext } from './prescricaosus'
 
 const Linha2SUS = () => {
+
+    const presc = useContext(PrescricaoSUSContext)
 
     return (
         <>
@@ -9,7 +12,11 @@ const Linha2SUS = () => {
                 border={2}
                 borderColor="text.primary"
             >
-                Teste Linha2SUS
+                <Grid container>
+                    <Grid item>
+                        <Typography variant={'h6'}><b>{presc.medicamento.farmaco}</b></Typography>
+                    </Grid>
+                </Grid>
             </Box>
         </>
     )

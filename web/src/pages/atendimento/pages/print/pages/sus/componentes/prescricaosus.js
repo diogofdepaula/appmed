@@ -9,6 +9,11 @@ import Linha5SUS from './linha5sus'
 export const PrescricaoSUSContext = createContext(null)
 
 const PrescricaoSUS = ({ presc }) => {
+    // +++++         Linha1 = Uso + Continuo                                    +++++
+    // +++++         Linha2 = NomesComerciais                                   +++++
+    // +++++         Linha3 = Farmaco + Apresentacao + Quantidade + Forma       +++++
+    // +++++         Linha4 = Posologia                                         +++++
+    // +++++         Linha5 = Comentarios                                       +++++
 
     return (
         <>
