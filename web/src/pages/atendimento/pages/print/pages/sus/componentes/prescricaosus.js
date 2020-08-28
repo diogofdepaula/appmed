@@ -8,7 +8,8 @@ import Linha5SUS from './linha5sus'
 
 export const PrescricaoSUSContext = createContext(null)
 
-const PrescricaoSUS = ({ presc }) => {
+const PrescricaoSUS = ({ prescricao }) => {
+    
     // +++++         Linha1 = Uso + Continuo                                    +++++
     // +++++         Linha2 = NomesComerciais                                   +++++
     // +++++         Linha3 = Farmaco + Apresentacao + Quantidade + Forma       +++++
@@ -21,7 +22,7 @@ const PrescricaoSUS = ({ presc }) => {
                 border={2}
                 borderColor="text.primary"
             >
-                <PrescricaoSUSContext.Provider value={presc}>
+                <PrescricaoSUSContext.Provider value={prescricao}>
                     <Linha1SUS />
                     <Linha2SUS />
                     <Linha3SUS />

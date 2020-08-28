@@ -1,17 +1,11 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
-import { ImpressaoContext } from '../..'
-import ReceitaSUS from './receitasus'
+import React, { useEffect, useRef, useState } from 'react';
+import ReceitaSUS from './receitasus';
 
 export default function MakerSUS() {
 
-    const { prescricoesSelecionadas } = useContext(ImpressaoContext)
-
-    prescricoesSelecionadas.map(presc =>
-        console.log(presc)
-    )
+    //const { prescricoesSelecionadas } = useContext(ImpressaoContext)
 
     const targetRef  = useRef();
-
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
     useEffect(() => {

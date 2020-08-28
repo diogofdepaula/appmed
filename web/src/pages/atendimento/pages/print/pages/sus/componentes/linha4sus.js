@@ -1,7 +1,10 @@
-import { Box } from '@material-ui/core'
-import React from 'react'
+import { Box, Grid, Typography } from '@material-ui/core'
+import React, { useContext } from 'react'
+import { PrescricaoSUSContext } from './prescricaosus'
 
 const Linha4SUS = () => {
+
+    const prescricao = useContext(PrescricaoSUSContext)
 
     return (
         <>
@@ -9,7 +12,11 @@ const Linha4SUS = () => {
                 border={2}
                 borderColor="text.primary"
             >
-                Teste Linha4SUS
+                <Grid container>
+                    <Grid item>
+                        <Typography variant={'body1'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
+                    </Grid>
+                </Grid>
             </Box>
         </>
     )

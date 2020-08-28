@@ -17,7 +17,7 @@ const ReceitaSUS = () => {
         prescricoesSelecionadas.forEach(element => {
             conteudo.push(
                 <div key={element}>
-                    <PrescricaoSUS presc={element} />
+                    <PrescricaoSUS prescricao={element} />
                 </div>
             )
         });

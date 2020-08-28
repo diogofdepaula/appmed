@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Radio, RadioGroup, Slider, Typography } from '@material-ui/core';
+import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemText, Radio, RadioGroup, Slider, Typography, ListItemIcon, TextField } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import PrintIcon from '@material-ui/icons/Print';
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
@@ -24,7 +24,9 @@ export default function Print() {
         meses: 1,
         local: 'sus', // consultorio, SUS (cisgap, cisco)
         lme: true,
-        relatorio: true
+        relatorio: true,
+        comentario: '',
+        database: new Date().toISOString()
     })
 
     // const [prescricoesSelecionadas, setPrescricoesSelecionadas] = useState([])
@@ -105,26 +107,31 @@ export default function Print() {
     return (
         <>
             {/* {JSON.stringify(impressao)} */}
-            <Grid container>
-                <Grid item xs={3}>
-                    <Typography variant={'h6'}>Quais serão impressos</Typography>
-                    <List dense>
-                        {prescricoes && prescricoes.map(prescricao =>
-                            <ListItem key={prescricao.id}>
-                                <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
-                                <ListItemSecondaryAction>
-                                    <Checkbox
-                                        edge="end"
-                                        onChange={handleCheck(prescricao)}
-                                    />
-                                </ListItemSecondaryAction>
-                            </ListItem>
-                        )}
-                    </List>
+            <Grid container spacing={2}>
+                <Grid container item xs={4} direction={'column'}>
+                    <Grid item>
+                        <Typography variant={'h6'}>Quais serão impressos</Typography>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <List dense>
+                            {prescricoes && prescricoes.map(prescricao =>
+                                prescricao.emuso &&
+                                <ListItem key={prescricao.id}>
+                                    <ListItemIcon>
+                                        <Checkbox
+                                            edge="start"
+                                            onChange={handleCheck(prescricao)}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
+                                </ListItem>
+                            )}
+                        </List>
+                    </Grid>
                 </Grid>
-                <Grid container item xs>
-                    <Grid container >
-                        <Grid item xs={3}>
+                <Grid container item xs={4} direction={'column'}>
+                    <Grid container item>
+                        <Grid item>
                             <Typography id="discrete-slider" gutterBottom>Para quantos meses</Typography>
                             <Slider
                                 defaultValue={1}
@@ -141,7 +148,7 @@ export default function Print() {
                         </Grid>
                     </Grid>
                     <Grid container item>
-                        <Grid item xs={3}>
+                        <Grid item >
                             <Typography id="local" gutterBottom>Local</Typography>
                             <RadioGroup aria-label="local" name="local" value={impressao.local} onChange={handleChange}>
                                 <FormControlLabel value="consultorio" control={<Radio />} label="Consultório" />
@@ -149,28 +156,46 @@ export default function Print() {
                             </RadioGroup>
                         </Grid>
                     </Grid>
+                    <Grid>
+                        <TextField
+                            type='date'
+                            name='database'
+                            onBlur={handleChange} //Não deixei onchange se não ele fica travando
+                        />
+                    </Grid>
                 </Grid>
-                <Grid container item>
-                    <Grid item xs={12}>
-                        <IconButton
-                            onClick={handlePrint}
-                        >
-                            <PrintIcon />
-                        </IconButton>
-                        <IconButton>
-                            <CancelIcon />
-                        </IconButton>
+                <Grid container item xs={4} direction={'column'}>
+                    <Grid item>
+                        <Typography variant={'h6'}>Adicionar orientação a receita</Typography>
                     </Grid>
-                    <Grid item >
-                        <ImpressaoContext.Provider value={impressao}>
-                            {/* <div style={{ display: "none" }}> */}
-                            <div>
-                                <div ref={componentRef} >
-                                    <FilaImpressao />
-                                </div>
+                    <Grid item>
+                        <TextField
+                            name='comentario'
+                            onBlur={handleChange} //Não deixei onchange se não ele fica travando
+                        />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid container>
+                <Grid item xs={12}>
+                    <IconButton
+                        onClick={handlePrint}
+                    >
+                        <PrintIcon />
+                    </IconButton>
+                    <IconButton>
+                        <CancelIcon />
+                    </IconButton>
+                </Grid>
+                <Grid item >
+                    <ImpressaoContext.Provider value={impressao}>
+                        {/* <div style={{ display: "none" }}> */}
+                        <div>
+                            <div ref={componentRef} >
+                                <FilaImpressao />
                             </div>
-                        </ImpressaoContext.Provider>
-                    </Grid>
+                        </div>
+                    </ImpressaoContext.Provider>
                 </Grid>
             </Grid>
 

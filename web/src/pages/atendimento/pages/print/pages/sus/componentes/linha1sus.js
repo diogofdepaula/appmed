@@ -2,9 +2,10 @@ import { Box, Typography, Grid } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { PrescricaoSUSContext } from './prescricaosus'
 
+
 const Linha1SUS = () => {
 
-    const presc = useContext(PrescricaoSUSContext)
+    const prescricao = useContext(PrescricaoSUSContext)
 
     return (
         <>
@@ -15,10 +16,10 @@ const Linha1SUS = () => {
                 <Grid container spacing={2} direction="row">
                     <Grid item xs={6} />
                     <Grid item >
-                        <Typography variant={'subtitle1'}>{presc.apresentaco.uso}</Typography>
+                        <Typography variant={'subtitle1'}>{prescricao.apresentaco.uso}</Typography>
                     </Grid>
                     <Grid item >
-                        {presc.continuo && <Typography variant={'subtitle1'}>uso contínuo</Typography>}
+                        {prescricao.continuo && <Typography variant={'subtitle1'}>uso contínuo</Typography>}
                     </Grid>
                 </Grid>
             </Box>

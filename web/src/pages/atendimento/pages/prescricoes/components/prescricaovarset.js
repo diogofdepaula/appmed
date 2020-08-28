@@ -1,6 +1,7 @@
-import { Box, Button, Checkbox, FormControlLabel, TextField, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
+import { Box, Button, Checkbox, FormControlLabel, TextField, Typography } from '@material-ui/core';
+import ChatIcon from '@material-ui/icons/Chat';
+import React, { useContext } from 'react';
+import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor';
 
 export default function PrescricaoVarSet(props) {
 
@@ -14,8 +15,19 @@ export default function PrescricaoVarSet(props) {
         setPrescricaoContext({ ...prescricaoContext, [name]: value })
     }
 
+    const handleOrientacoes = async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
+        const json = await res.json();
+        setPrescricaoContext({ ...prescricaoContext, 
+            orientacoes: json.orientacoes,
+            imprimirorientacoes: true
+        })
+
+    }
+
     return (
         <>
+        
             <Typography variant={'h5'}>Defina as outras variáveis</Typography>
             <Box>
                 <Box display="flex">
@@ -46,6 +58,11 @@ export default function PrescricaoVarSet(props) {
                 </Box>
             </Box >
             <Box>
+                <Button
+                    startIcon={<ChatIcon />}
+                    onClick={handleOrientacoes}
+                > Adicionar orientação padrão
+                </Button>
                 <TextField
                     fullWidth
                     multiline
