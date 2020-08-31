@@ -15,7 +15,7 @@ const CabecalhoSUS = () => {
                 justifyContent="center"
                 mb={3}
             >
-                <Typography variant={'h4'}><b>{cliente.nome}</b></Typography>
+                <Typography variant={'h3'}><b>{cliente.nome}</b></Typography>
             </Box>
         </>
     )

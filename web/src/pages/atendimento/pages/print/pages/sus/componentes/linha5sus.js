@@ -15,7 +15,7 @@ const Linha5SUS = () => {
                 {prescricao.imprimirorientacoes &&
                     <Grid container>
                         <Grid item>
-                            <Typography variant={'body1'} align={'justify'} > {prescricao.orientacoes}</Typography>
+                            <Typography variant={'h5'} align={'justify'} > {prescricao.orientacoes}</Typography>
                         </Grid>
                     </Grid>
                 }

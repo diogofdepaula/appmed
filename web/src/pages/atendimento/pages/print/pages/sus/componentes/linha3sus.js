@@ -14,14 +14,14 @@ const Linha3SUS = () => {
             >
                 <Grid container >
                     <Grid item xs={7}>
-                        <Typography variant={'body1'}>{prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}</Typography>
+                        <Typography variant={'h6'}>{prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}</Typography>
                     </Grid>
                     <Grid container item spacing={1} xs={5} direction="row" justify="flex-end"> 
                         <Grid item>
-                            <Typography variant={'body1'}>{prescricao.posologia.quantidade}</Typography>
+                            <Typography variant={'h6'}>{prescricao.posologia.quantidade}</Typography>
                         </Grid>
                         <Grid item>
-                            <Typography variant={'body1'}>{prescricao.posologia.forma}</Typography>
+                            <Typography variant={'h6'}>{prescricao.posologia.forma}</Typography>
                         </Grid>
                     </Grid>
                 </Grid>

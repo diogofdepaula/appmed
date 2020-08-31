@@ -16,10 +16,10 @@ const Linha1SUS = () => {
                 <Grid container spacing={2} direction="row">
                     <Grid item xs={6} />
                     <Grid item >
-                        <Typography variant={'subtitle1'}>{prescricao.apresentaco.uso}</Typography>
+                        <Typography variant={'h6'}>{prescricao.apresentaco.uso}</Typography>
                     </Grid>
                     <Grid item >
-                        {prescricao.continuo && <Typography variant={'subtitle1'}>uso contínuo</Typography>}
+                        {prescricao.continuo && <Typography variant={'h6'}>uso contínuo</Typography>}
                     </Grid>
                 </Grid>
             </Box>

@@ -1,4 +1,4 @@
-import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemText, Radio, RadioGroup, Slider, Typography, ListItemIcon, TextField } from '@material-ui/core';
+import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemIcon, ListItemText, Radio, RadioGroup, Slider, TextField, Typography } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import PrintIcon from '@material-ui/icons/Print';
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
@@ -190,8 +190,9 @@ export default function Print() {
                 <Grid item >
                     <ImpressaoContext.Provider value={impressao}>
                         {/* <div style={{ display: "none" }}> */}
-                        <div>
-                            <div ref={componentRef} >
+                        <div >
+                        {/* //está metade dos pixel para A$ a 300dpi */}
+                            <div ref={componentRef} overflow="hidden"  style={{ width:"1240px", height:"1754px" }} >
                                 <FilaImpressao />
                             </div>
                         </div>
