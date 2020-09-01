@@ -4,8 +4,7 @@ import PrintIcon from '@material-ui/icons/Print';
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { ClienteContext, PageContext } from '..';
-import ReceitaConsultorio from './pages/consultorio/receitaconsultorio';
-import MakerSUS from './pages/sus/makersus';
+import Factory from './pages';
 
 export const ImpressaoContext = createContext(null)
 
@@ -48,7 +47,6 @@ export default function Print() {
         setlmes(json);
     }, [cliente])
 
-
     useEffect(() => {
         fetchDataPrescricoes();
         fetchDataLmes();
@@ -83,26 +81,6 @@ export default function Print() {
         content: () => componentRef.current,
         //pageStyle: '@page { size: A4 portrait;}'
     });
-
-    const FilaImpressao = () => {
-
-        if (impressao.prescricoesSelecionadas.length > 0) {
-            if (impressao.local === 'consultorio') {
-                return (
-                    <ReceitaConsultorio />
-                )
-            } else {
-                return (
-                    <MakerSUS />
-                )
-            }
-        } else {
-            return (
-                <>
-                </>
-            )
-        }
-    }
 
     return (
         <>
@@ -189,12 +167,8 @@ export default function Print() {
                 </Grid>
                 <Grid item >
                     <ImpressaoContext.Provider value={impressao}>
-                        {/* <div style={{ display: "none" }}> */}
-                        <div >
-                        {/* //está metade dos pixel para A$ a 300dpi */}
-                            <div ref={componentRef} overflow="hidden"  style={{ width:"1240px", height:"1754px" }} >
-                                <FilaImpressao />
-                            </div>
+                        <div ref={componentRef}  >
+                            <Factory />
                         </div>
                     </ImpressaoContext.Provider>
                 </Grid>

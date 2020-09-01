@@ -5,7 +5,7 @@ import ComentarioSUS from './componentes/comentariosus'
 import DataSUS from './componentes/datasus'
 import PrescricaoSUS from './componentes/prescricaosus'
 import ViaSUS from './componentes/viasus'
-import { ImpressaoContext } from '../..'
+import { ImpressaoContext } from '../../..'
 
 const ReceitaSUS = () => {
 
@@ -26,21 +26,6 @@ const ReceitaSUS = () => {
     }
 
 
-    // commit antes de inicar o markerSUS
-    const targetRef = useRef();
-    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-    useEffect(() => {
-        if (targetRef.current) {
-            setDimensions({
-                width: targetRef.current.offsetWidth,
-                height: targetRef.current.offsetHeight
-            });
-        }
-    }, []);
-
-    console.log('dimensions', dimensions)
-
     return (
         <>
             <Box
@@ -51,9 +36,7 @@ const ReceitaSUS = () => {
             >
                 <ViaSUS />
                 <CabecalhoSUS />
-                <div ref={targetRef}>
-                    <BlocoPrescricoes />
-                </div>
+                <BlocoPrescricoes />
                 <ComentarioSUS />
                 <DataSUS />
             </Box>
