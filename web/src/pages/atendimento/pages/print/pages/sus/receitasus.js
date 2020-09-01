@@ -25,6 +25,8 @@ const ReceitaSUS = () => {
         return conteudo
     }
 
+
+    // commit antes de inicar o markerSUS
     const targetRef = useRef();
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
