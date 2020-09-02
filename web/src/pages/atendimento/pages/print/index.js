@@ -1,6 +1,7 @@
 import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemIcon, ListItemText, Radio, RadioGroup, Slider, TextField, Typography } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
 import PrintIcon from '@material-ui/icons/Print';
+import TuneIcon from '@material-ui/icons/Tune';
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { ClienteContext, PageContext } from '..';
@@ -14,6 +15,7 @@ export default function Print() {
     const cliente = useContext(ClienteContext)
     const [prescricoes, setPrescricoes] = useState([])
     const [lmes, setlmes] = useState([])
+    const [validacao, setValidacao] = useState(false)
 
     //variáveis para definir o que será impresso
 
@@ -164,11 +166,16 @@ export default function Print() {
                     <IconButton>
                         <CancelIcon />
                     </IconButton>
+                    <IconButton
+                        onClick={() => setValidacao(true)}
+                    >
+                        <TuneIcon />
+                    </IconButton>
                 </Grid>
                 <Grid item >
                     <ImpressaoContext.Provider value={impressao}>
                         <div ref={componentRef}  >
-                            <Factory />
+                            {validacao && <Factory />}
                         </div>
                     </ImpressaoContext.Provider>
                 </Grid>

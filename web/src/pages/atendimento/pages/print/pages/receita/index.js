@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ReceitaSUS from './sus';
+import { ImpressaoContext } from '../..';
 
 export default function FactoryReceitasSUS() {
 
-
     const { prescricoesSelecionadas } = useContext(ImpressaoContext)
 
-    // A <Receita /> já existe. Ela precisa saber somente quais prescricoes vão no BlocoPrescricoes
-    // Então passa por props (tem que ser props mesmo) para o <Receita /> quais serão as prescricoes
-    // então chama ela de volta aqui
-    // depios faz um if baseado no heigth para determinar quais irão 
-    // por agora faz de 0 a 3 e 3 a 7.
+    const SetReceitas = () => {
+
+        const receitas = []
+
+        receitas.push(
+            <div>
+                <ReceitaSUS prescricoes={prescricoesSelecionadas} />
+            </div>
+        )
+
+        return receitas
+    }
 
 
 
@@ -32,13 +39,13 @@ export default function FactoryReceitasSUS() {
 
 
 
-// al invez de chamar o <Receita /> lá em baixo.
-// fazer uma função de chama um "foreach" de receitas
+    // al invez de chamar o <Receita /> lá em baixo.
+    // fazer uma função de chama um "foreach" de receitas
 
     return (
         <>
-            <div overflow="hidden" style={{ width: "1240px", height: "1754px" }} >
-                <ReceitaSUS />
+            <div overflow="hidden" style={{ width: "1240px", height: "1754px" , backgroundColor: "red"}} >
+                <SetReceitas />
             </div>
         </>
     )
