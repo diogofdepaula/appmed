@@ -8,6 +8,13 @@ import ViaSUS from './componentes/viasus'
 
 const ReceitaSUS = ({ prescricoes }) => {
 
+    const a4size = {
+        width: 1240,
+        height: 1754
+    }
+
+    const [heightbloco, setHeightBloco] = useState(0)
+
     const boxRef = useRef()
     const viasusRef = useRef()
     const cabecalhoRef = useRef()
@@ -24,82 +31,84 @@ const ReceitaSUS = ({ prescricoes }) => {
     });
 
     useEffect(() => {
-        if (boxRef.current) {
-            setDimensions(prevState => ({
-                ...prevState,
-                boxsus: {
-                    width: boxRef.current.offsetWidth,
-                    height: boxRef.current.offsetHeight
-                },
-                viasus: {
-                    width: viasusRef.current.offsetWidth,
-                    height: viasusRef.current.offsetHeight
-                },
-                cabecalho: {
-                    width: cabecalhoRef.current.offsetWidth,
-                    height: cabecalhoRef.current.offsetHeight
-                },
-                blocoprescricoes: {
-                    width: blocoprescricoesRef.current.offsetWidth,
-                    height: blocoprescricoesRef.current.offsetHeight
-                },
-                comentarios: {
-                    width: comentariosRef.current.offsetWidth,
-                    height: comentariosRef.current.offsetHeight
-                },
-                data: {
-                    width: dataRef.current.offsetWidth,
-                    height: dataRef.current.offsetHeight
-                }
-            }))
-        }
+        setDimensions(prevState => ({
+            ...prevState,
+            boxsus: {
+                width: boxRef.current.offsetWidth,
+                height: boxRef.current.offsetHeight
+            },
+            viasus: {
+                width: viasusRef.current.offsetWidth,
+                height: viasusRef.current.offsetHeight
+            },
+            cabecalho: {
+                width: cabecalhoRef.current.offsetWidth,
+                height: cabecalhoRef.current.offsetHeight
+            },
+            blocoprescricoes: {
+                width: blocoprescricoesRef.current.offsetWidth,
+                height: blocoprescricoesRef.current.offsetHeight
+            },
+            comentarios: {
+                width: comentariosRef.current.offsetWidth,
+                height: comentariosRef.current.offsetHeight
+            },
+            data: {
+                width: dataRef.current.offsetWidth,
+                height: dataRef.current.offsetHeight
+            }
+        }))
+        console.log('teste 1')
     }, []);
 
-
-
-
+    const [teste, setTeste] = useState()
 
     const BlocoPrescricoes = () => {
         const conteudo = []
         prescricoes.forEach(element => {
             conteudo.push(
                 <div>
-                    <PrescricaoSUS prescricao={element} />
+                    <PrescricaoSUS prescricao={element} setTeste={setTeste} />
                 </div>
             )
         });
         return conteudo
     }
 
-    console.log(dimensions)
+    useEffect(() => {
+        setHeightBloco(a4size.height - (dimensions.viasus.height + dimensions.cabecalho.height + dimensions.comentarios.height + dimensions.data.height))
+        console.log('teste 3')
+    }, [a4size, dimensions])
+
+    console.log('heightxxx', heightbloco)
+
+    console.log('teste', teste)
 
     return (
         <>
-            <Box
-                ref={boxRef}
-                // border={5}
-                // borderColor="text.primary"
-                height="100%"
-                style={{ width: "1240px", height: "1754px" , backgroundColor: "red"}} 
-            // p={5}
-            >
-                <div ref={viasusRef}>
-                    <ViaSUS />
-                </div>
-                <div ref={cabecalhoRef}>
-                    <CabecalhoSUS />
-                </div>
-                {/* o height do blocoprescriçao deverá se variável (fazer uma const e useState com a soma de subtração) */}
-                <div ref={blocoprescricoesRef} style={{ height: "1000px" , backgroundColor: "blue"}}>
-                    <BlocoPrescricoes />
-                </div>
-                <div ref={comentariosRef}>
-                    <ComentarioSUS />
-                </div>
-                <div ref={dataRef}>
-                    <DataSUS />
-                </div>
-            </Box>
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "red" }} >
+                <Box
+                    ref={boxRef}
+                    height="100%"
+                    style={{ backgroundColor: "red" }}
+                >
+                    <div ref={viasusRef}>
+                        <ViaSUS />
+                    </div>
+                    <div ref={cabecalhoRef}>
+                        <CabecalhoSUS />
+                    </div>
+                    <div ref={blocoprescricoesRef} style={{ height: heightbloco, backgroundColor: "blue" }}>
+                        <BlocoPrescricoes />
+                    </div>
+                    <div ref={comentariosRef}>
+                        <ComentarioSUS />
+                    </div>
+                    <div ref={dataRef}>
+                        <DataSUS />
+                    </div>
+                </Box>
+            </div>
         </>
     )
 }

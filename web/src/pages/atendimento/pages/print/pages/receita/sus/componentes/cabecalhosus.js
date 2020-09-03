@@ -13,7 +13,7 @@ const CabecalhoSUS = () => {
                 borderColor="text.primary"
                 display="flex" 
                 justifyContent="center"
-                mb={3}
+                pb={3}
             >
                 <Typography variant={'h3'}><b>{cliente.nome}</b></Typography>
             </Box>

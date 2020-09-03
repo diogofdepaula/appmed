@@ -44,9 +44,7 @@ export default function FactoryReceitasSUS() {
 
     return (
         <>
-            <div overflow="hidden" style={{ width: "1240px", height: "1754px" , backgroundColor: "red"}} >
-                <SetReceitas />
-            </div>
+            <SetReceitas />
         </>
     )
 }
