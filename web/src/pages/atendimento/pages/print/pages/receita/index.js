@@ -12,63 +12,46 @@ export default function FactoryReceitasSUS() {
         height: 1754
     }
 
+    ///////////////////////////////////////////////////////////////////
+    /////  MÉTODO PARA DEFINIR O TAMANHO DAS PRESCRICOES  //////////////
     const divRef = useRef(null)
-    const [dimensions, setDimensions] = useState([{
-        width: 0,
-        height: 0
-    }])
+    const [dimensions, setDimensions] = useState([])
+    const [prescricao, setPrescricao] = useState()
+    const [count, setCount] = useState(0)
 
     useEffect(() => {
-        prescricoesSelecionadas.forEach(element =>
-            <div key={element.id} ref={divRef}>
-                <PrescricaoSUS prescricao={element} />
-            </div>
-        )
+        if (count <= prescricoesSelecionadas.length - 2) {
+            setCount(prevState => prevState + 1)
+        }
         if (divRef.current) {
             setDimensions(prevState => [...prevState, {
                 width: divRef.current.offsetWidth,
                 height: divRef.current.offsetHeight
             }])
         }
-    }, [divRef, prescricoesSelecionadas]);
+        // tem que deixar a prescricao aqui na array dependência para ele calcular após os modificação e render
+    }, [prescricoesSelecionadas, count, prescricao]);
 
-    const Tamanho = () => {
-        console.log('teste', dimensions)
-        let sizes
-
-        /// TEM QUE FORÇAR O RENDER PARA CADA LOOP
-        prescricoesSelecionadas.forEach(element =>
-            sizes = (
-            <div key={element.id} ref={divRef}>
-                <PrescricaoSUS prescricao={element} />
+    useEffect(() => {
+        setPrescricao(
+            <div key={prescricoesSelecionadas[count].id} ref={divRef}>
+                <PrescricaoSUS prescricao={prescricoesSelecionadas[count]} />
             </div>
-            )
-        );
-        return sizes
-    }
+        )
+    }, [prescricoesSelecionadas, count])
+    ///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
 
+    // PEGAR O dimentions e fazer as receitas 
 
-
-    // const SetReceitas = () => {
-    //     const receitas = []
-    //     receitas.push(
-    //         <div>
-    //             <ReceitaSUS prescricoes={prescricoesSelecionadas} />
-    //         </div>
-    //     )
-    //     return receitas
-    // }
-
-    console.log('dimensions FactoryReceitasSUS', dimensions)
 
     return (
         <>
             <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "red" }} >
                 <div>
-                    <Tamanho />
+                    {prescricao}
                 </div>
             </div>
-            {/* <SetReceitas /> */}
         </>
     )
 }
