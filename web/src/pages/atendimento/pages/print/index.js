@@ -4,17 +4,17 @@ import PrintIcon from '@material-ui/icons/Print';
 import TuneIcon from '@material-ui/icons/Tune';
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { ClienteContext, PageContext } from '..';
+import { ClienteContext } from '..';
 import Factory from './pages';
 
 export const ImpressaoContext = createContext(null)
 
 export default function Print() {
 
-    const setPage = useContext(PageContext)
+   // const setPage = useContext(PageContext)
     const cliente = useContext(ClienteContext)
     const [prescricoes, setPrescricoes] = useState([])
-    const [lmes, setlmes] = useState([])
+    //const [lmes, setlmes] = useState([])
     const [validacao, setValidacao] = useState(false)
 
     //variáveis para definir o que será impresso
@@ -44,10 +44,10 @@ export default function Print() {
     }, [cliente])
 
     const fetchDataLmes = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
-        const json = await res.json();
-        setlmes(json);
-    }, [cliente])
+        // const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
+        // const json = await res.json();
+        //setlmes(json);
+    }, [])
 
     useEffect(() => {
         fetchDataPrescricoes();
@@ -93,7 +93,7 @@ export default function Print() {
                         <Typography variant={'h6'}>Quais serão impressos</Typography>
                     </Grid>
                     <Grid item xs={10}>
-                        <List dense>
+                        <List dense style={{ overflow: 'auto', maxHeight: 300}}>
                             {prescricoes && prescricoes.map(prescricao =>
                                 prescricao.emuso &&
                                 <ListItem key={prescricao.id}>
@@ -176,6 +176,7 @@ export default function Print() {
                     <ImpressaoContext.Provider value={impressao}>
                         <div ref={componentRef}  >
                             {validacao && <Factory />}
+                            <Factory />
                         </div>
                     </ImpressaoContext.Provider>
                 </Grid>

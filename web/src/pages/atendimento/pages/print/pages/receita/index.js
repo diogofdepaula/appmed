@@ -1,50 +1,70 @@
-import React, { useContext } from 'react';
-import ReceitaSUS from './sus';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { ImpressaoContext } from '../..';
+import PrescricaoSUS from './sus/componentes/prescricaosus';
 
 export default function FactoryReceitasSUS() {
 
     const { prescricoesSelecionadas } = useContext(ImpressaoContext)
 
-    const SetReceitas = () => {
-
-        const receitas = []
-
-        receitas.push(
-            <div>
-                <ReceitaSUS prescricoes={prescricoesSelecionadas} />
-            </div>
-        )
-
-        return receitas
+    // ver se dá para tirar daqui e passar um Context geral 
+    const a4size = {
+        width: 1240,
+        height: 1754
     }
 
+    const divRef = useRef(null)
+    const [dimensions, setDimensions] = useState({
+        width: 0,
+        height: 0
+    })
 
+    const teste = useCallback(() => {
+        setDimensions({
+            width: divRef.current.offsetWidth,
+            height: divRef.current.offsetHeight
+        })
+    }, [])
 
+    useEffect(() => {
+        if (divRef.current) {
+            teste()
+        }
+    }, [divRef, teste]);
 
-    // // commit antes de inicar o markerSUS
-    // const targetRef = useRef();
-    // const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    const Tamanho = () => {
+        console.log('dimensions FactoryReceitasSUS', dimensions)
 
-    // useEffect(() => {
-    //     if (targetRef.current) {
-    //         setDimensions({
-    //             width: targetRef.current.offsetWidth,
-    //             height: targetRef.current.offsetHeight
-    //         });
-    //     }
-    // }, []);
+        const sizes = []
+        prescricoesSelecionadas.forEach(element => {
+            sizes.push(
+                <div key={element.id}>
+                    <PrescricaoSUS prescricao={element} />
+                </div>
+            )
+        });
+        return sizes
+    }
 
-    // console.log('dimensions', dimensions)
+    // const SetReceitas = () => {
+    //     const receitas = []
+    //     receitas.push(
+    //         <div>
+    //             <ReceitaSUS prescricoes={prescricoesSelecionadas} />
+    //         </div>
+    //     )
+    //     return receitas
+    // }
 
-
-
-    // al invez de chamar o <Receita /> lá em baixo.
-    // fazer uma função de chama um "foreach" de receitas
+    
 
     return (
         <>
-            <SetReceitas />
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "red" }} >
+                <div ref={divRef}>
+                    <Tamanho />
+                </div>
+            </div>
+            {/* <SetReceitas /> */}
         </>
     )
 }

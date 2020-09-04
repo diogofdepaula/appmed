@@ -58,17 +58,14 @@ const ReceitaSUS = ({ prescricoes }) => {
                 height: dataRef.current.offsetHeight
             }
         }))
-        console.log('teste 1')
     }, []);
-
-    const [teste, setTeste] = useState()
 
     const BlocoPrescricoes = () => {
         const conteudo = []
         prescricoes.forEach(element => {
             conteudo.push(
                 <div>
-                    <PrescricaoSUS prescricao={element} setTeste={setTeste} />
+                    <PrescricaoSUS prescricao={element} />
                 </div>
             )
         });
@@ -77,12 +74,7 @@ const ReceitaSUS = ({ prescricoes }) => {
 
     useEffect(() => {
         setHeightBloco(a4size.height - (dimensions.viasus.height + dimensions.cabecalho.height + dimensions.comentarios.height + dimensions.data.height))
-        console.log('teste 3')
     }, [a4size, dimensions])
-
-    console.log('heightxxx', heightbloco)
-
-    console.log('teste', teste)
 
     return (
         <>
