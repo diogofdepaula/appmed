@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ImpressaoContext } from '../..';
 import PrescricaoSUS from './sus/componentes/prescricaosus';
 
@@ -13,37 +13,41 @@ export default function FactoryReceitasSUS() {
     }
 
     const divRef = useRef(null)
-    const [dimensions, setDimensions] = useState({
+    const [dimensions, setDimensions] = useState([{
         width: 0,
         height: 0
-    })
-
-    const teste = useCallback(() => {
-        setDimensions({
-            width: divRef.current.offsetWidth,
-            height: divRef.current.offsetHeight
-        })
-    }, [])
+    }])
 
     useEffect(() => {
+        prescricoesSelecionadas.forEach(element =>
+            <div key={element.id} ref={divRef}>
+                <PrescricaoSUS prescricao={element} />
+            </div>
+        )
         if (divRef.current) {
-            teste()
+            setDimensions(prevState => [...prevState, {
+                width: divRef.current.offsetWidth,
+                height: divRef.current.offsetHeight
+            }])
         }
-    }, [divRef, teste]);
+    }, [divRef, prescricoesSelecionadas]);
 
     const Tamanho = () => {
-        console.log('dimensions FactoryReceitasSUS', dimensions)
+        console.log('teste', dimensions)
+        let sizes
 
-        const sizes = []
-        prescricoesSelecionadas.forEach(element => {
-            sizes.push(
-                <div key={element.id}>
-                    <PrescricaoSUS prescricao={element} />
-                </div>
+        /// TEM QUE FORÇAR O RENDER PARA CADA LOOP
+        prescricoesSelecionadas.forEach(element =>
+            sizes = (
+            <div key={element.id} ref={divRef}>
+                <PrescricaoSUS prescricao={element} />
+            </div>
             )
-        });
+        );
         return sizes
     }
+
+
 
     // const SetReceitas = () => {
     //     const receitas = []
@@ -55,12 +59,12 @@ export default function FactoryReceitasSUS() {
     //     return receitas
     // }
 
-    
+    console.log('dimensions FactoryReceitasSUS', dimensions)
 
     return (
         <>
             <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "red" }} >
-                <div ref={divRef}>
+                <div>
                     <Tamanho />
                 </div>
             </div>

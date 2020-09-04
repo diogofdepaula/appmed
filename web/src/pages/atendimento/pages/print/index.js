@@ -176,7 +176,7 @@ export default function Print() {
                     <ImpressaoContext.Provider value={impressao}>
                         <div ref={componentRef}  >
                             {validacao && <Factory />}
-                            <Factory />
+                            {/* <Factory /> */}
                         </div>
                     </ImpressaoContext.Provider>
                 </Grid>
