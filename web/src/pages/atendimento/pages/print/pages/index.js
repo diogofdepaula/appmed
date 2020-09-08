@@ -5,7 +5,7 @@ import FactoryReceitasSUS from './receita';
 
 export default function Factory() {
 
-    const impressao = useContext(ImpressaoContext)
+    const { impressao } = useContext(ImpressaoContext)
 
     const FilaImpressao = () => {
 

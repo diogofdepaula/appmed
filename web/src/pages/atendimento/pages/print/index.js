@@ -11,7 +11,7 @@ export const ImpressaoContext = createContext(null)
 
 export default function Print() {
 
-   // const setPage = useContext(PageContext)
+    // const setPage = useContext(PageContext)
     const cliente = useContext(ClienteContext)
     const [prescricoes, setPrescricoes] = useState([])
     //const [lmes, setlmes] = useState([])
@@ -27,7 +27,8 @@ export default function Print() {
         lme: true,
         relatorio: true,
         comentario: '',
-        database: new Date().toISOString()
+        database: new Date().toISOString(),
+        dimensoes: []
     })
 
     // const [prescricoesSelecionadas, setPrescricoesSelecionadas] = useState([])
@@ -40,7 +41,8 @@ export default function Print() {
     const fetchDataPrescricoes = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
         const json = await res.json();
-        setPrescricoes(json);
+        setPrescricoes([...json, { dimention: [] }]);
+        //setPrescricoes(json);
     }, [cliente])
 
     const fetchDataLmes = useCallback(async () => {
@@ -93,7 +95,7 @@ export default function Print() {
                         <Typography variant={'h6'}>Quais serão impressos</Typography>
                     </Grid>
                     <Grid item xs={10}>
-                        <List dense style={{ overflow: 'auto', maxHeight: 300}}>
+                        <List dense style={{ overflow: 'auto', maxHeight: 300 }}>
                             {prescricoes && prescricoes.map(prescricao =>
                                 prescricao.emuso &&
                                 <ListItem key={prescricao.id}>
@@ -173,7 +175,7 @@ export default function Print() {
                     </IconButton>
                 </Grid>
                 <Grid item >
-                    <ImpressaoContext.Provider value={impressao}>
+                    <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
                         <div ref={componentRef}  >
                             {validacao && <Factory />}
                             {/* <Factory /> */}

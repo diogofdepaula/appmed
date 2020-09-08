@@ -4,7 +4,7 @@ import PrescricaoSUS from './sus/componentes/prescricaosus';
 
 export default function FactoryReceitasSUS() {
 
-    const { prescricoesSelecionadas } = useContext(ImpressaoContext)
+    const { impressao, setImpressao } = useContext(ImpressaoContext)
 
     // ver se dá para tirar daqui e passar um Context geral 
     const a4size = {
@@ -20,7 +20,7 @@ export default function FactoryReceitasSUS() {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        if (count <= prescricoesSelecionadas.length - 2) {
+        if (count <= impressao.prescricoesSelecionadas.length - 2) {
             setCount(prevState => prevState + 1)
         }
         if (divRef.current) {
@@ -30,20 +30,21 @@ export default function FactoryReceitasSUS() {
             }])
         }
         // tem que deixar a prescricao aqui na array dependência para ele calcular após os modificação e render
-    }, [prescricoesSelecionadas, count, prescricao]);
+    }, [impressao, count, prescricao]);
 
     useEffect(() => {
         setPrescricao(
-            <div key={prescricoesSelecionadas[count].id} ref={divRef}>
-                <PrescricaoSUS prescricao={prescricoesSelecionadas[count]} />
+            <div key={impressao.prescricoesSelecionadas[count].id} ref={divRef}>
+                <PrescricaoSUS prescricao={impressao.prescricoesSelecionadas[count]} />
             </div>
         )
-    }, [prescricoesSelecionadas, count])
+    }, [impressao, count])
     ///////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
     // PEGAR O dimentions e fazer as receitas 
 
+    console.log(impressao)
 
     return (
         <>

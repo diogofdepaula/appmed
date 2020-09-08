@@ -4,7 +4,7 @@ import { ImpressaoContext } from '../../../..'
 
 const DataSUS = () => {
 
-    const impressao = useContext(ImpressaoContext)
+    const { impressao } = useContext(ImpressaoContext)
 
     return (
         <>
