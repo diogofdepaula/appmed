@@ -4,7 +4,7 @@ import PrescricaoSUS from './sus/componentes/prescricaosus';
 
 export default function FactoryReceitasSUS() {
 
-    const { impressao, setImpressao } = useContext(ImpressaoContext)
+    const { impressao } = useContext(ImpressaoContext)
 
     // ver se dá para tirar daqui e passar um Context geral 
     const a4size = {
@@ -29,7 +29,6 @@ export default function FactoryReceitasSUS() {
                 height: divRef.current.offsetHeight
             }])
         }
-        // tem que deixar a prescricao aqui na array dependência para ele calcular após os modificação e render
     }, [impressao, count, prescricao]);
 
     useEffect(() => {
@@ -39,12 +38,14 @@ export default function FactoryReceitasSUS() {
             </div>
         )
     }, [impressao, count])
-    ///////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////
 
-    // PEGAR O dimentions e fazer as receitas 
 
-    console.log(impressao)
+    /// TEM QUE DEFINIR O QUE VAI FAZER COM O DIMENTION 
+    // TEM QUE DEFINIR SE O DIMENTION FICA AQUI OU LÁ NO IMPRESSÁO
+    // SE NÁO FOR USAR EM OUTRO LUGAR PODE FICAR AQUI MESMO
+    // SE FOR FICAR AQUI O IDEAL É QUE AUTOMATIZE O PROCESSO 
+    // FAZER UM VALIDAcAO SE DIMENTION.LENGTH == PRESCRICAOSELECIONADAS.LENGHT
+    // ENTÃO FAZER UM METODO QUE DIVIDA AS RECEITAS E ENTÃO DEVOLVA SOMENTE AS RECEITAS
 
     return (
         <>

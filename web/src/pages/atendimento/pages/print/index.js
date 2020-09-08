@@ -27,8 +27,7 @@ export default function Print() {
         lme: true,
         relatorio: true,
         comentario: '',
-        database: new Date().toISOString(),
-        dimensoes: []
+        database: new Date().toISOString()
     })
 
     // const [prescricoesSelecionadas, setPrescricoesSelecionadas] = useState([])
@@ -41,20 +40,20 @@ export default function Print() {
     const fetchDataPrescricoes = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
         const json = await res.json();
-        setPrescricoes([...json, { dimention: [] }]);
-        //setPrescricoes(json);
+        //setPrescricoes([...json, { dimention: [] }]);
+        setPrescricoes(json);
     }, [cliente])
 
-    const fetchDataLmes = useCallback(async () => {
-        // const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
-        // const json = await res.json();
-        //setlmes(json);
-    }, [])
+    // const fetchDataLmes = useCallback(async () => {
+    //     // const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
+    //     // const json = await res.json();
+    //     //setlmes(json);
+    // }, [])
 
     useEffect(() => {
         fetchDataPrescricoes();
-        fetchDataLmes();
-    }, [fetchDataPrescricoes, fetchDataLmes])
+        //fetchDataLmes();
+    }, [fetchDataPrescricoes])
 
     const handleCheck = param => (event) => {
 
