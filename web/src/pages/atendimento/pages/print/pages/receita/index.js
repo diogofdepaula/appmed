@@ -1,6 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
 import { ImpressaoContext } from '../..';
 import PrescricaoSUS from './sus/componentes/prescricaosus';
+import ReceitaSUS from './sus';
 
 export default function FactoryReceitasSUS() {
 
@@ -14,11 +15,14 @@ export default function FactoryReceitasSUS() {
 
     ///////////////////////////////////////////////////////////////////
     /////  MÉTODO PARA DEFINIR O TAMANHO DAS PRESCRICOES  //////////////
+    /////  TALVEZ COLOCAR EM UM ARQUIVO SEPARADO PARA REAPROVEITAR ////
+    ////  SE USAR EM OUTRO LUGAR ENTÃO FAZER ISSO //////////////
+
     const divRef = useRef(null)
     const [dimensions, setDimensions] = useState([])
     const [prescricao, setPrescricao] = useState()
     const [count, setCount] = useState(0)
-
+    
     useEffect(() => {
         if (count <= impressao.prescricoesSelecionadas.length - 2) {
             setCount(prevState => prevState + 1)
@@ -29,6 +33,7 @@ export default function FactoryReceitasSUS() {
                 height: divRef.current.offsetHeight
             }])
         }
+
     }, [impressao, count, prescricao]);
 
     useEffect(() => {
@@ -39,6 +44,40 @@ export default function FactoryReceitasSUS() {
         )
     }, [impressao, count])
 
+    ///////////////////////////////////////////////////////////////////
+    
+
+    ///////////////////////////////////////////////////////////////////
+    //////      MÉTODO PARA DIVIDIR AS PRESCRICOES EM QUANTIDA- ///////
+    //////      QUE CAIBA EM CADA RECEITA                       ///////
+
+//    const [listPrescricoes, setListPrescricoes] = useState([])
+
+    const divide = useCallback(() => {
+        let soma = 0
+        let listIndex = []
+        let listOfListIndex = []
+        dimensions.forEach((w, index) => {
+            if (soma <= (a4size.height - 1000)) {
+                console.log('teste in')
+                soma = soma + w.height
+                listIndex.push(index)
+            } else {
+                listOfListIndex.push(listIndex)
+                listIndex = []
+                soma = 0
+                console.log('teste else')
+            }
+        })
+        console.log('listOfListIndex', listOfListIndex)
+        console.log('listIndex', listIndex)
+    }, [a4size, dimensions, ])
+
+    useEffect(() => {
+        if (dimensions.length === impressao.prescricoesSelecionadas.length) {
+            divide()
+        }
+    }, [divide, dimensions, impressao])
 
     /// TEM QUE DEFINIR O QUE VAI FAZER COM O DIMENTION 
     // TEM QUE DEFINIR SE O DIMENTION FICA AQUI OU LÁ NO IMPRESSÁO
