@@ -64,7 +64,7 @@ const ReceitaSUS = ({ prescricoes }) => {
         const conteudo = []
         prescricoes.forEach(element => {
             conteudo.push(
-                <div>
+                <div key={element.id}>
                     <PrescricaoSUS prescricao={element} />
                 </div>
             )
@@ -78,11 +78,11 @@ const ReceitaSUS = ({ prescricoes }) => {
 
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "red" }} >
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height}} >
                 <Box
                     ref={boxRef}
                     height="100%"
-                    style={{ backgroundColor: "red" }}
+                    style={{ backgroundColor: "lightgray" }}
                 >
                     <div ref={viasusRef}>
                         <ViaSUS />
@@ -90,7 +90,7 @@ const ReceitaSUS = ({ prescricoes }) => {
                     <div ref={cabecalhoRef}>
                         <CabecalhoSUS />
                     </div>
-                    <div ref={blocoprescricoesRef} style={{ height: heightbloco, backgroundColor: "blue" }}>
+                    <div ref={blocoprescricoesRef} style={{ height: heightbloco, backgroundColor: "lightyellow" }}>
                         <BlocoPrescricoes />
                     </div>
                     <div ref={comentariosRef}>

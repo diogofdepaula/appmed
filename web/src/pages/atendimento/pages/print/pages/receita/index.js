@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { ImpressaoContext } from '../..';
 import PrescricaoSUS from './sus/componentes/prescricaosus';
+import ReceitaSUS from './sus';
 
 export default function FactoryReceitasSUS() {
 
@@ -21,7 +22,7 @@ export default function FactoryReceitasSUS() {
     const [dimensions, setDimensions] = useState([])
     const [prescricao, setPrescricao] = useState()
     const [count, setCount] = useState(0)
-    
+
     useEffect(() => {
         if (count <= impressao.prescricoesSelecionadas.length - 2) {
             setCount(prevState => prevState + 1)
@@ -44,45 +45,45 @@ export default function FactoryReceitasSUS() {
     }, [impressao, count])
 
     ///////////////////////////////////////////////////////////////////
-    
+
 
     ///////////////////////////////////////////////////////////////////
     //////      MÉTODO PARA DIVIDIR AS PRESCRICOES EM QUANTIDA- ///////
     //////      QUE CAIBA EM CADA RECEITA                       ///////
 
-//    const [listPrescricoes, setListPrescricoes] = useState([])
+    const [listPrescricoes, setListPrescricoes] = useState([])
 
     const divide = useCallback(() => {
         let soma = 0
         let listIndex = []
         let listOfListIndex = []
         dimensions.forEach((w, index) => {
-            console.log('index ', index)
-            console.log('soma inicio ', soma )
-            if (soma <= 600) {  ///(a4size.height - 1000)
-                console.log('teste in')
+            if (soma <= 600) {  ///(a4size.height - 1000)  // fazer a definição em breve
                 soma = soma + w.height
                 listIndex.push(index)
             } else {
-                console.log('teste else')
                 listOfListIndex.push(listIndex)
                 listIndex = []
                 soma = w.height // recomeça a contagem
                 listIndex.push(index)
             }
-            if (index === dimensions.length -1 && listIndex.length > 0){
-                console.log('teste 333')
+            if (index === dimensions.length - 1 && listIndex.length > 0) {
                 listOfListIndex.push(listIndex)
             }
-            
-            console.log('soma final ', soma )
-            console.log('listOfListIndex ', listOfListIndex)
-            console.log('listIndex ', listIndex)
         })
-        // isso pega as sobras
-        console.log('listOfListIndex final', listOfListIndex)
-        
-    }, [dimensions, ])
+        let listReceitas = []
+
+        listOfListIndex.forEach(r => {
+            let grupoprescricoes = impressao.prescricoesSelecionadas.slice(r[0], r[r.length - 1] + 1)
+            listReceitas.push(
+                <div key={r}>
+                    <ReceitaSUS prescricoes={grupoprescricoes} />
+                </div>
+            )
+        })
+        setListPrescricoes(listReceitas)
+
+    }, [dimensions, impressao])
 
     useEffect(() => {
         if (dimensions.length === impressao.prescricoesSelecionadas.length) {
@@ -90,14 +91,12 @@ export default function FactoryReceitasSUS() {
         }
     }, [divide, dimensions, impressao])
 
-    /// PROXIMO PASSO É AO INVES DE LISTOFLISTINDEX FAZER UMA LISTA DE RECEITAS MESMO 
-    /// FAZ PRIMEIRO EM PARALELO E DEPOIS APAGA A PRIMEIRA
-
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "red" }} >
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height }} >
                 <div>
-                    {prescricao}
+                    {listPrescricoes.length === 0 && prescricao}
+                    {listPrescricoes && listPrescricoes}
                 </div>
             </div>
         </>
