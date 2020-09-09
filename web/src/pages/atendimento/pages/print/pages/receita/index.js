@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { ImpressaoContext } from '../..';
 import PrescricaoSUS from './sus/componentes/prescricaosus';
-import ReceitaSUS from './sus';
 
 export default function FactoryReceitasSUS() {
 
@@ -58,20 +57,32 @@ export default function FactoryReceitasSUS() {
         let listIndex = []
         let listOfListIndex = []
         dimensions.forEach((w, index) => {
-            if (soma <= (a4size.height - 1000)) {
+            console.log('index ', index)
+            console.log('soma inicio ', soma )
+            if (soma <= 600) {  ///(a4size.height - 1000)
                 console.log('teste in')
                 soma = soma + w.height
                 listIndex.push(index)
             } else {
+                console.log('teste else')
                 listOfListIndex.push(listIndex)
                 listIndex = []
-                soma = 0
-                console.log('teste else')
+                soma = w.height // recomeça a contagem
+                listIndex.push(index)
             }
+            if (index === dimensions.length -1 && listIndex.length > 0){
+                console.log('teste 333')
+                listOfListIndex.push(listIndex)
+            }
+            
+            console.log('soma final ', soma )
+            console.log('listOfListIndex ', listOfListIndex)
+            console.log('listIndex ', listIndex)
         })
-        console.log('listOfListIndex', listOfListIndex)
-        console.log('listIndex', listIndex)
-    }, [a4size, dimensions, ])
+        // isso pega as sobras
+        console.log('listOfListIndex final', listOfListIndex)
+        
+    }, [dimensions, ])
 
     useEffect(() => {
         if (dimensions.length === impressao.prescricoesSelecionadas.length) {
@@ -79,12 +90,8 @@ export default function FactoryReceitasSUS() {
         }
     }, [divide, dimensions, impressao])
 
-    /// TEM QUE DEFINIR O QUE VAI FAZER COM O DIMENTION 
-    // TEM QUE DEFINIR SE O DIMENTION FICA AQUI OU LÁ NO IMPRESSÁO
-    // SE NÁO FOR USAR EM OUTRO LUGAR PODE FICAR AQUI MESMO
-    // SE FOR FICAR AQUI O IDEAL É QUE AUTOMATIZE O PROCESSO 
-    // FAZER UM VALIDAcAO SE DIMENTION.LENGTH == PRESCRICAOSELECIONADAS.LENGHT
-    // ENTÃO FAZER UM METODO QUE DIVIDA AS RECEITAS E ENTÃO DEVOLVA SOMENTE AS RECEITAS
+    /// PROXIMO PASSO É AO INVES DE LISTOFLISTINDEX FAZER UMA LISTA DE RECEITAS MESMO 
+    /// FAZ PRIMEIRO EM PARALELO E DEPOIS APAGA A PRIMEIRA
 
     return (
         <>
