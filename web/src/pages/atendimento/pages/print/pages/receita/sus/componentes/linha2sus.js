@@ -8,13 +8,12 @@ const Linha2SUS = () => {
 
     return (
         <>
-            <Box
-                border={2}
-                borderColor="text.primary"
-            >
+            <Box>
                 <Grid container>
                     <Grid item>
-                        <Typography variant={'h4'}><b>{prescricao.medicamento.farmaco}</b></Typography>
+                        <Typography variant={'h3'}>
+                            <Box fontWeight="fontWeightBold" >{prescricao.medicamento.farmaco}</Box>
+                        </Typography>
                     </Grid>
                 </Grid>
             </Box>

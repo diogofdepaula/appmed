@@ -64,7 +64,7 @@ const ReceitaSUS = ({ prescricoes }) => {
         const conteudo = []
         prescricoes.forEach(element => {
             conteudo.push(
-                <div key={element.id}>
+                <div key={element.id} >
                     <PrescricaoSUS prescricao={element} />
                 </div>
             )
@@ -72,33 +72,41 @@ const ReceitaSUS = ({ prescricoes }) => {
         return conteudo
     }
 
+    const margemdeerro = 200
+
     useEffect(() => {
-        setHeightBloco(a4size.height - (dimensions.viasus.height + dimensions.cabecalho.height + dimensions.comentarios.height + dimensions.data.height))
+        setHeightBloco(a4size.height - (dimensions.viasus.height + dimensions.cabecalho.height + dimensions.comentarios.height + dimensions.data.height) - margemdeerro)
     }, [a4size, dimensions])
 
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height}} >
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "yellow"  }} >
                 <Box
+                    // Box que define o tamanho geral (apesar de ser definido pela div acima)
                     ref={boxRef}
                     height="100%"
-                    style={{ backgroundColor: "lightgray" }}
+                    style={{ backgroundColor: "blue" }}
                 >
-                    <div ref={viasusRef}>
-                        <ViaSUS />
-                    </div>
-                    <div ref={cabecalhoRef}>
-                        <CabecalhoSUS />
-                    </div>
-                    <div ref={blocoprescricoesRef} style={{ height: heightbloco, backgroundColor: "lightyellow" }}>
-                        <BlocoPrescricoes />
-                    </div>
-                    <div ref={comentariosRef}>
-                        <ComentarioSUS />
-                    </div>
-                    <div ref={dataRef}>
-                        <DataSUS />
-                    </div>
+                    <Box
+                        m={10}
+                        style={{ backgroundColor: "green" }}
+                    >
+                        <div ref={viasusRef}>
+                            <ViaSUS />
+                        </div>
+                        <div ref={cabecalhoRef}>
+                            <CabecalhoSUS />
+                        </div>
+                        <div ref={blocoprescricoesRef} style={{ height: heightbloco, backgroundColor: "lightyellow" }}>
+                            <BlocoPrescricoes />
+                        </div>
+                        <div ref={comentariosRef}>
+                            <ComentarioSUS />
+                        </div>
+                        <div ref={dataRef}>
+                            <DataSUS />
+                        </div>
+                    </Box>
                 </Box>
             </div>
         </>

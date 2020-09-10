@@ -9,11 +9,8 @@ const Linha1SUS = () => {
 
     return (
         <>
-            <Box
-                border={2}
-                borderColor="text.primary"
-            >
-                <Grid container spacing={2} direction="row">
+            <Box>
+                <Grid container spacing={3} direction="row">
                     <Grid item xs={6} />
                     <Grid item >
                         <Typography variant={'h6'}>{prescricao.apresentaco.uso}</Typography>

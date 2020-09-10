@@ -9,13 +9,14 @@ const CabecalhoSUS = () => {
     return (
         <>
             <Box
-                border={2}
-                borderColor="text.primary"
-                display="flex" 
+                display="flex"
                 justifyContent="center"
-                pb={3}
+                pt={3}
+                pb={7}
             >
-                <Typography variant={'h3'}><b>{cliente.nome}</b></Typography>
+                <Typography variant={'h2'} >
+                    <Box fontWeight="fontWeightBold" >{cliente.nome}</Box>
+                </Typography>
             </Box>
         </>
     )

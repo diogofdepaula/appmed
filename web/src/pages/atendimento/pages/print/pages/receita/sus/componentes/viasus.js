@@ -10,12 +10,10 @@ const ViaSUS = () => {
     return (
         <>
             <Box
-                border={2}
-                borderColor="text.primary"
                 display="flex" 
                 justifyContent="center"
             >
-                <Typography variant={'h6'}>{via}</Typography>
+                <Typography variant={'h5'}>{via}</Typography>
             </Box>
         </>
     )

@@ -157,7 +157,7 @@ export default function Print() {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid container>
+            <Grid container >
                 <Grid item xs={12}>
                     <IconButton
                         onClick={handlePrint}
@@ -173,9 +173,9 @@ export default function Print() {
                         <TuneIcon />
                     </IconButton>
                 </Grid>
-                <Grid item >
+                <Grid item  style={{ background:"brown"}} >
                     <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
-                        <div ref={componentRef}  >
+                        <div ref={componentRef} >
                             {validacao && <Factory />}
                             {/* <Factory /> */}
                         </div>
