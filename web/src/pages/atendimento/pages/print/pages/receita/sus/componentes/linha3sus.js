@@ -6,6 +6,7 @@ const Linha3SUS = () => {
 
     const prescricao = useContext(PrescricaoSUSContext)
     //Farmaco + Apresentacao + Quantidade + Forma
+   
     return (
         <>
             <Box>
