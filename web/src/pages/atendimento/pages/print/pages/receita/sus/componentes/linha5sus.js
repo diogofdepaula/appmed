@@ -8,17 +8,12 @@ const Linha5SUS = () => {
 
     return (
         <>
-            <Box
-                border={2}
-                borderColor="text.primary"
-            >
-                {prescricao.imprimirorientacoes &&
-                    <Grid container>
-                        <Grid item>
-                            <Typography variant={'h5'} align={'justify'} > {prescricao.orientacoes}</Typography>
-                        </Grid>
+            <Box mt={2} style={{ backgroundColor: "red" }}>
+                <Grid container>
+                    <Grid item>
+                        <Typography variant={'h5'} align={'justify'}> {prescricao.orientacoes}</Typography>
                     </Grid>
-                }
+                </Grid>
             </Box>
         </>
     )

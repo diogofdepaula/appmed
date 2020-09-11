@@ -12,7 +12,7 @@ const Linha2SUS = () => {
                 <Grid container>
                     <Grid item>
                         <Typography variant={'h3'}>
-                            <Box fontWeight="fontWeightBold" >{prescricao.medicamento.farmaco}</Box>
+                            <Box fontWeight="fontWeightBold"  letterSpacing={2} >{prescricao.medicamento.farmaco}</Box>
                         </Typography>
                     </Grid>
                 </Grid>

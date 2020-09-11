@@ -8,12 +8,9 @@ const Linha4SUS = () => {
 
     return (
         <>
-            <Box
-                border={2}
-                borderColor="text.primary"
-            >
+            <Box mt={1}>
                 <Grid container>
-                    <Grid item>
+                    <Grid item >
                         <Typography variant={'h4'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
                     </Grid>
                 </Grid>
