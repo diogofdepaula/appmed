@@ -8,13 +8,10 @@ const DataSUS = () => {
 
     return (
         <>
-            <Box
-                border={2}
-                borderColor="text.primary"
-            >
+            <Box>
                 <Grid container>
                     <Grid item>
-                        <Typography variant={'body1'}>Guarapuava, {impressao.database}</Typography>
+                        <Typography variant={'h5'}>Guarapuava, {impressao.database}</Typography>
                     </Grid>
                 </Grid>
             </Box>

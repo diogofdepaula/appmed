@@ -11,7 +11,7 @@ const Linha4SUS = () => {
             <Box mt={1}>
                 <Grid container>
                     <Grid item >
-                        <Typography variant={'h4'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
+                        <Typography variant={'h5'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
                     </Grid>
                 </Grid>
             </Box>

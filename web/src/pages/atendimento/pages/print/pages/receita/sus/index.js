@@ -80,16 +80,18 @@ const ReceitaSUS = ({ prescricoes }) => {
 
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, backgroundColor: "yellow"  }} >
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height }} >
                 <Box
                     // Box que define o tamanho geral (apesar de ser definido pela div acima)
                     ref={boxRef}
                     height="100%"
-                    style={{ backgroundColor: "blue" }}
                 >
                     <Box
                         m={10}
-                        style={{ backgroundColor: "green" }}
+                        p={5}
+                        border={3}
+                        borderColor={"black"}
+                        borderRadius={10}
                     >
                         <div ref={viasusRef}>
                             <ViaSUS />
@@ -97,7 +99,7 @@ const ReceitaSUS = ({ prescricoes }) => {
                         <div ref={cabecalhoRef}>
                             <CabecalhoSUS />
                         </div>
-                        <div ref={blocoprescricoesRef} style={{ height: heightbloco, backgroundColor: "lightyellow" }}>
+                        <div ref={blocoprescricoesRef} style={{ height: heightbloco}}>
                             <BlocoPrescricoes />
                         </div>
                         <div ref={comentariosRef}>

@@ -8,10 +8,7 @@ const ComentarioSUS = () => {
 
     return (
         <>
-            <Box
-                border={2}
-                borderColor="text.primary"
-            >
+            <Box>
                 <Grid container>
                     <Grid item>
                         <Typography variant={'body1'} align={'justify'}>{impressao.comentario}</Typography>

@@ -18,7 +18,7 @@ const PrescricaoSUS = (props) => {
 
     return (
         <>
-            <Box mt={2}>
+            <Box mt={4}>
                 <PrescricaoSUSContext.Provider value={props.prescricao}>
                     <Linha1SUS />
                     <Linha2SUS />

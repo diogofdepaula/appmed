@@ -173,7 +173,7 @@ export default function Print() {
                         <TuneIcon />
                     </IconButton>
                 </Grid>
-                <Grid item  style={{ background:"brown"}} >
+                <Grid item>
                     <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
                         <div ref={componentRef} >
                             {validacao && <Factory />}

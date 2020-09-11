@@ -93,7 +93,7 @@ export default function FactoryReceitasSUS() {
 
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height, background:"violet"}} >
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height}} >
                 <div>
                     {listPrescricoes.length === 0 && prescricao}
                     {listPrescricoes && listPrescricoes}
