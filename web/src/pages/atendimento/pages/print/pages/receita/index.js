@@ -58,7 +58,7 @@ export default function FactoryReceitasSUS() {
         let listIndex = []
         let listOfListIndex = []
         dimensions.forEach((w, index) => {
-            if (soma <= 600) {  ///(a4size.height - 1000)  // fazer a definição em breve
+            if (soma <= 900) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
                 soma = soma + w.height
                 listIndex.push(index)
             } else {
