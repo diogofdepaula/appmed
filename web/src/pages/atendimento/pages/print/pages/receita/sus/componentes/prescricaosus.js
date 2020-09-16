@@ -10,6 +10,7 @@ export const PrescricaoSUSContext = createContext(null)
 
 const PrescricaoSUS = (props) => {
 
+    console.log('teste 6')
     // +++++         Linha1 = Uso + Continuo                                    +++++
     // +++++         Linha2 = NomesComerciais                                   +++++
     // +++++         Linha3 = Farmaco + Apresentacao + Quantidade + Forma       +++++

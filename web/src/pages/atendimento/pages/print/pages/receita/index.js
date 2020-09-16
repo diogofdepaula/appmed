@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { ImpressaoContext } from '../..';
-import PrescricaoSUS from './sus/componentes/prescricaosus';
 import ReceitaSUS from './sus';
+import PrescricaoSUS from './sus/componentes/prescricaosus';
 
 export default function FactoryReceitasSUS() {
 
@@ -13,43 +13,12 @@ export default function FactoryReceitasSUS() {
         height: 1754
     }
 
-    ///////////////////////////////////////////////////////////////////
-    /////  MÉTODO PARA DEFINIR O TAMANHO DAS PRESCRICOES  //////////////
-    /////  TALVEZ COLOCAR EM UM ARQUIVO SEPARADO PARA REAPROVEITAR ////
-    ////  SE USAR EM OUTRO LUGAR ENTÃO FAZER ISSO //////////////
-
-    const divRef = useRef(null)
-    const [dimensions, setDimensions] = useState([])
-    const [prescricao, setPrescricao] = useState()
-    const [count, setCount] = useState(0)
+    const itemsRef = useRef([]);
 
     useEffect(() => {
-        if (count <= impressao.prescricoesSelecionadas.length - 2) {
-            setCount(prevState => prevState + 1)
-        }
-        if (divRef.current) {
-            setDimensions(prevState => [...prevState, {
-                width: divRef.current.offsetWidth,
-                height: divRef.current.offsetHeight
-            }])
-        }
-
-    }, [impressao, count, prescricao]);
-
-    useEffect(() => {
-        setPrescricao(
-            <div key={impressao.prescricoesSelecionadas[count].id} ref={divRef}>
-                <PrescricaoSUS prescricao={impressao.prescricoesSelecionadas[count]} />
-            </div>
-        )
-    }, [impressao, count])
-
-    ///////////////////////////////////////////////////////////////////
-
-
-    ///////////////////////////////////////////////////////////////////
-    //////      MÉTODO PARA DIVIDIR AS PRESCRICOES EM QUANTIDA- ///////
-    //////      QUE CAIBA EM CADA RECEITA                       ///////
+        itemsRef.current = itemsRef.current.slice(0, impressao.prescricoesSelecionadas.length);
+        console.log('teste 1')
+    }, [impressao]);
 
     const [listPrescricoes, setListPrescricoes] = useState([])
 
@@ -57,17 +26,17 @@ export default function FactoryReceitasSUS() {
         let soma = 0
         let listIndex = []
         let listOfListIndex = []
-        dimensions.forEach((w, index) => {
+        itemsRef.current.forEach((w, index) => {
             if (soma <= 900) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
-                soma = soma + w.height
+                soma = soma + w.offsetHeight
                 listIndex.push(index)
             } else {
                 listOfListIndex.push(listIndex)
                 listIndex = []
-                soma = w.height // recomeça a contagem
+                soma = w.offsetHeight // recomeça a contagem
                 listIndex.push(index)
             }
-            if (index === dimensions.length - 1 && listIndex.length > 0) {
+            if (index === itemsRef.current.length - 1 && listIndex.length > 0) {
                 listOfListIndex.push(listIndex)
             }
         })
@@ -82,21 +51,33 @@ export default function FactoryReceitasSUS() {
             )
         })
         setListPrescricoes(listReceitas)
-
-    }, [dimensions, impressao])
+        console.log('teste 2')
+    }, [impressao])
 
     useEffect(() => {
-        if (dimensions.length === impressao.prescricoesSelecionadas.length) {
+        console.log('teste 3')
+        if (itemsRef.current) {
             divide()
         }
-    }, [divide, dimensions, impressao])
+    }, [divide])
 
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height}} >
+            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height }} >
                 <div>
-                    {listPrescricoes.length === 0 && prescricao}
+                    
+                    
+                    {itemsRef.current.length === 0 &&
+                    impressao.prescricoesSelecionadas.map((p, i) =>
+                        <div key={i} ref={el => itemsRef.current[i] = el} >
+                            <PrescricaoSUS prescricao={p} />
+                        </div>
+                    )
+                    }
+                    
                     {listPrescricoes && listPrescricoes}
+                    {/* {listPrescricoes.length === 0 && prescricao}
+                    {listPrescricoes && listPrescricoes} */}
                 </div>
             </div>
         </>

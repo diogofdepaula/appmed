@@ -78,8 +78,6 @@ const ReceitaSUS = ({ prescricoes }) => {
         setHeightBloco(a4size.height - (dimensions.conteudoRef.height + dimensions.viasus.height + dimensions.cabecalho.height + dimensions.comentarios.height + dimensions.data.height) - margemdeerro)
     }, [a4size, dimensions])
 
-    console.log('heightbloco', heightbloco)
-
     return (
         <>
             <div overflow="hidden" style={{ width: a4size.width, height: a4size.height }} >
