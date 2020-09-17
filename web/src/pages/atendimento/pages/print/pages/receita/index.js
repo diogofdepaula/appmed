@@ -27,7 +27,7 @@ export default function FactoryReceitasSUS() {
         let listIndex = []
         let listOfListIndex = []
         itemsRef.current.forEach((w, index) => {
-            if (soma <= 900) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
+            if (soma <= 1000) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
                 soma = soma + w.offsetHeight
                 listIndex.push(index)
             } else {
