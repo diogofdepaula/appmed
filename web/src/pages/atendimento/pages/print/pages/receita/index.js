@@ -51,11 +51,11 @@ export default function FactoryReceitasSUS() {
             )
         })
         setListPrescricoes(listReceitas)
-        console.log('teste 2')
+        console.log('teste 3')
     }, [impressao])
 
     useEffect(() => {
-        console.log('teste 3')
+        console.log('teste 2')
         if (itemsRef.current) {
             divide()
         }
@@ -65,19 +65,14 @@ export default function FactoryReceitasSUS() {
         <>
             <div overflow="hidden" style={{ width: a4size.width, height: a4size.height }} >
                 <div>
-                    
-                    
                     {itemsRef.current.length === 0 &&
-                    impressao.prescricoesSelecionadas.map((p, i) =>
-                        <div key={i} ref={el => itemsRef.current[i] = el} >
-                            <PrescricaoSUS prescricao={p} />
-                        </div>
-                    )
+                        impressao.prescricoesSelecionadas.map((p, i) =>
+                            <div key={i} ref={el => itemsRef.current[i] = el} >
+                                <PrescricaoSUS prescricao={p} />
+                            </div>
+                        )
                     }
-                    
                     {listPrescricoes && listPrescricoes}
-                    {/* {listPrescricoes.length === 0 && prescricao}
-                    {listPrescricoes && listPrescricoes} */}
                 </div>
             </div>
         </>
