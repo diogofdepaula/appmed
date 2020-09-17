@@ -8,7 +8,7 @@ const Linha5SUS = () => {
 
     return (
         <>
-            <Box mt={2}>
+            <Box mt={3}>
                 <Grid container>
                     <Grid item>
                         <Typography variant={'h5'} align={'justify'}> {prescricao.orientacoes}</Typography>

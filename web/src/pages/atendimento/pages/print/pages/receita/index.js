@@ -10,7 +10,7 @@ export default function FactoryReceitasSUS() {
     // ver se dá para tirar daqui e passar um Context geral 
     const a4size = {
         width: 1240,
-        height: 1754
+        height: 1750 //1754
     }
 
     const itemsRef = useRef([]);
@@ -20,14 +20,14 @@ export default function FactoryReceitasSUS() {
         console.log('teste 1')
     }, [impressao]);
 
-    const [listPrescricoes, setListPrescricoes] = useState([])
+    const [listReceitas, setReceitas] = useState([])
 
     const divide = useCallback(() => {
         let soma = 0
         let listIndex = []
         let listOfListIndex = []
         itemsRef.current.forEach((w, index) => {
-            if (soma <= 1000) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
+            if (soma <= 900) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
                 soma = soma + w.offsetHeight
                 listIndex.push(index)
             } else {
@@ -50,7 +50,7 @@ export default function FactoryReceitasSUS() {
                 </div>
             )
         })
-        setListPrescricoes(listReceitas)
+        setReceitas(listReceitas)
         console.log('teste 3')
     }, [impressao])
 
@@ -60,6 +60,8 @@ export default function FactoryReceitasSUS() {
             divide()
         }
     }, [divide])
+
+   // enviar o comentário extra para o final e não para o receita
 
     return (
         <>
@@ -72,7 +74,7 @@ export default function FactoryReceitasSUS() {
                             </div>
                         )
                     }
-                    {listPrescricoes && listPrescricoes}
+                    {listReceitas && listReceitas}
                 </div>
             </div>
         </>
