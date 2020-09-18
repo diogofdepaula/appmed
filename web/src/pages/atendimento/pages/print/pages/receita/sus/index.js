@@ -5,6 +5,7 @@ import DataSUS from './componentes/datasus'
 import PrescricaoSUS from './componentes/prescricaosus'
 import ViaSUS from './componentes/viasus'
 import CabecalhoSUS from './componentes/cabecalhosus'
+import RodapeSUS from './componentes/rodapesus'
 
 const ReceitaSUS = ({ prescricoes }) => {
 
@@ -29,7 +30,7 @@ const ReceitaSUS = ({ prescricoes }) => {
                         p={5}
                         border={3}
                         borderColor={"black"}
-                        borderRadius={10}
+                       // borderRadius={10}
                     >
                         <Box
                             display="flex"
@@ -45,9 +46,7 @@ const ReceitaSUS = ({ prescricoes }) => {
                                         <IdentificacaoSUS />
                                     </Box>
                                 </Box>
-                                <Box
-                                    style={{ backgroundColor: "red" }}
-                                >
+                                <Box>
                                     {prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
                                 </Box>
                             </Box>
@@ -70,6 +69,9 @@ const ReceitaSUS = ({ prescricoes }) => {
                                 {/* </Box> */}
                             </Box>
                         </Box>
+                    </Box>
+                    <Box>
+                        <RodapeSUS />
                     </Box>
                 </Box>
             </div>

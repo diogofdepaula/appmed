@@ -9,19 +9,22 @@ const CabecalhoSUS = () => {
             <Box
                 display="flex"
                 justifyContent="center"
-                mb={2}
+                //  mb={2}
                 border={3}
                 borderColor={"black"}
-                borderRadius={10}
+                borderBottom={0}
+            //borderRadius={10}
             >
                 <Box my={2} display="flex" flexWrap="nowrap">
                     <CardMedia
-                        style={{ width: "100px", height: "50px" }}
+                        style={{ width: "108px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                         image={LogoSUS}
                     />
-                    <Typography variant={'h4'} >
-                        <Box fontWeight="fontWeightBold" >Receita Médica</Box>
-                    </Typography>
+                    <Box mx={30}>
+                        <Typography variant={'h3'} >
+                            <Box fontWeight="fontWeightBold" >Receita Médica</Box>
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
         </>
