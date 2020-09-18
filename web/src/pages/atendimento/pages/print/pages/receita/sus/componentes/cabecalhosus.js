@@ -1,8 +1,13 @@
 import { Box, CardMedia, Typography } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import LogoSUS from './logosuspng.png'
+import LogoCISGAP from './cisgaplogo.png'
+import LogoCISCO from './ciscologo.png'
+import { ImpressaoContext } from '../../../..'
 
 const CabecalhoSUS = () => {
+
+    const { impressao } = useContext(ImpressaoContext)
 
     return (
         <>
@@ -25,6 +30,10 @@ const CabecalhoSUS = () => {
                             <Box fontWeight="fontWeightBold" >Receita Médica</Box>
                         </Typography>
                     </Box>
+                    <CardMedia
+                        style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                        image={impressao.local === "sus" ? LogoCISGAP : LogoCISCO}
+                    />
                 </Box>
             </Box>
         </>
