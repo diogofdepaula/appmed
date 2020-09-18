@@ -25,14 +25,14 @@ const CabecalhoSUS = () => {
                         style={{ width: "108px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                         image={LogoSUS}
                     />
-                    <Box mx={30}>
+                    <Box mx={20}>
                         <Typography variant={'h3'} >
                             <Box fontWeight="fontWeightBold" >Receita Médica</Box>
                         </Typography>
                     </Box>
                     <CardMedia
                         style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                        image={impressao.local === "sus" ? LogoCISGAP : LogoCISCO}
+                        image={impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO}
                     />
                 </Box>
             </Box>
