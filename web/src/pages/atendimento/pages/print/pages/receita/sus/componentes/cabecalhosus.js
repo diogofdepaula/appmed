@@ -1,22 +1,28 @@
-import { Box, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { ClienteContext } from '../../../../..'
+import { Box, CardMedia, Typography } from '@material-ui/core'
+import React from 'react'
+import LogoSUS from './logosuspng.png'
 
 const CabecalhoSUS = () => {
-
-    const cliente = useContext(ClienteContext)
 
     return (
         <>
             <Box
                 display="flex"
                 justifyContent="center"
-                pt={3}
-                pb={7}
+                mb={2}
+                border={3}
+                borderColor={"black"}
+                borderRadius={10}
             >
-                <Typography variant={'h2'} >
-                    <Box fontWeight="fontWeightBold" >{cliente.nome}</Box>
-                </Typography>
+                <Box my={2} display="flex" flexWrap="nowrap">
+                    <CardMedia
+                        style={{ width: "100px", height: "50px" }}
+                        image={LogoSUS}
+                    />
+                    <Typography variant={'h4'} >
+                        <Box fontWeight="fontWeightBold" >Receita Médica</Box>
+                    </Typography>
+                </Box>
             </Box>
         </>
     )

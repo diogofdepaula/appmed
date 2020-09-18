@@ -1,9 +1,10 @@
 import { Box } from '@material-ui/core'
 import React from 'react'
-import CabecalhoSUS from './componentes/cabecalhosus'
+import IdentificacaoSUS from './componentes/identificacaosus'
 import DataSUS from './componentes/datasus'
 import PrescricaoSUS from './componentes/prescricaosus'
 import ViaSUS from './componentes/viasus'
+import CabecalhoSUS from './componentes/cabecalhosus'
 
 const ReceitaSUS = ({ prescricoes }) => {
 
@@ -14,39 +15,47 @@ const ReceitaSUS = ({ prescricoes }) => {
 
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height }} >
-            <Box
-                height="100%"
-                p={10}
-            >
+            <div style={{ width: a4size.width, height: a4size.height }} >
+                {/* overflow="hidden" */}
                 <Box
-                    height="100%"
-                    p={5}
-                    border={3}
-                    borderColor={"black"}
-                    borderRadius={10}
+                    height={1}
+                    p={10}
                 >
+                    <Box>
+                        <CabecalhoSUS />
+                    </Box>
                     <Box
-                        display="flex"
-                        flexWrap="wrap"
-                        height="100%"
+                        height='calc(100% - 80px)' // se mudar o Cabecalho tem que ajustar aqui depois
+                        p={5}
+                        border={3}
+                        borderColor={"black"}
+                        borderRadius={10}
                     >
-                        <Box justifyContent="center">
-                            <Box display="block">
-                                
-                                <Box>
-                                    <ViaSUS />
+                        <Box
+                            display="flex"
+                            flexWrap="wrap"
+                            height={1}
+                        >
+                            <Box justifyContent="center">
+                                <Box display="block">
+                                    <Box>
+                                        <ViaSUS />
+                                    </Box>
+                                    <Box>
+                                        <IdentificacaoSUS />
+                                    </Box>
                                 </Box>
-                                <Box>
-                                    <CabecalhoSUS />
+                                <Box
+                                    style={{ backgroundColor: "red" }}
+                                >
+                                    {prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
                                 </Box>
                             </Box>
-                            <Box>
-                                {prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
-                            </Box>
-                        </Box>
-                        <Box alignSelf="flex-end" justifyContent="flex-start">
-                            {/* <Box display="block" >
+                            <Box
+                                alignSelf="flex-end"
+                                justifyContent="flex-start"
+                            >
+                                {/* <Box display="block" >
                                 <Box>
 
                                     OS COMENTÁRIOS EXTRA FORAM RETIRARDOS POR MOMENTO
@@ -58,12 +67,12 @@ const ReceitaSUS = ({ prescricoes }) => {
                                 <Box>
                                     <DataSUS />
                                 </Box>
-                            {/* </Box> */}
+                                {/* </Box> */}
+                            </Box>
                         </Box>
                     </Box>
                 </Box>
-            </Box>
-        </div>
+            </div>
         </>
     )
 }

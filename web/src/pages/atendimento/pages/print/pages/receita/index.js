@@ -8,10 +8,10 @@ export default function FactoryReceitasSUS() {
     const { impressao } = useContext(ImpressaoContext)
 
     // ver se dá para tirar daqui e passar um Context geral 
-    const a4size = {
-        width: 1240,
-        height: 1750 //1754
-    }
+    // const a4size = {
+    //     width: 1240,
+    //     height: 1750 //1754
+    // }
 
     const itemsRef = useRef([]);
 
@@ -65,7 +65,9 @@ export default function FactoryReceitasSUS() {
 
     return (
         <>
-            <div overflow="hidden" style={{ width: a4size.width, height: a4size.height }} >
+            {/* <div style={{ width: a4size.width, height: a4size.height }} > */}
+
+            {/* overflow="hidden"  */}
                 <div>
                     {itemsRef.current.length === 0 &&
                         impressao.prescricoesSelecionadas.map((p, i) =>
@@ -76,7 +78,7 @@ export default function FactoryReceitasSUS() {
                     }
                     {listReceitas && listReceitas}
                 </div>
-            </div>
+            {/* </div> */}
         </>
     )
 }
