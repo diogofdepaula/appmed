@@ -6,34 +6,33 @@ import TuneIcon from '@material-ui/icons/Tune';
 import { ImpressaoContext } from '..';
 import { ClienteContext } from '../..';
 import { parseISO } from 'date-fns';
- 
+
 export default function ImpressaoSet(props) {
- 
+
     const cliente = useContext(ClienteContext)
     const { impressao, setImpressao } = useContext(ImpressaoContext)
     const [prescricoes, setPrescricoes] = useState([])
- 
+
     const fetchDataPrescricoes = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
         const json = await res.json();
-        //setPrescricoes([...json, { dimention: [] }]);
         setPrescricoes(json);
     }, [cliente])
- 
+
     // const fetchDataLmes = useCallback(async () => {
     //     // const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
     //     // const json = await res.json();
     //     //setlmes(json);
     // }, [])
- 
+
     useEffect(() => {
         fetchDataPrescricoes();
         //fetchDataLmes();
     }, [fetchDataPrescricoes])
- 
- 
+
+
     const handleCheck = param => (event) => {
- 
+
         if (event.target.checked) {
             setImpressao(prevState => ({
                 ...prevState,
@@ -46,15 +45,15 @@ export default function ImpressaoSet(props) {
             }))
         }
     }
- 
+
     const handleChange = (event) => {
         setImpressao({ ...impressao, [event.target.name]: event.target.value })
     }
- 
+
     const handleSliderChange = (event, newValue) => {
         setImpressao({ ...impressao, meses: newValue })
     }
- 
+
     const handleDateChange = (event) => {
         setImpressao({ ...impressao, [event.target.name]: parseISO(event.target.value) })
     }
@@ -116,6 +115,19 @@ export default function ImpressaoSet(props) {
                             type='date'
                             name='database'
                             onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
+                        />
+                    </Grid>
+                    <Grid>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={impressao.lme}
+                                    onChange={handleChange}
+                                    name="lme"
+                                    //color="primary"
+                                />
+                            }
+                            label="Imprimir LME"
                         />
                     </Grid>
                 </Grid>
