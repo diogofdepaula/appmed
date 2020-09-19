@@ -21,7 +21,7 @@ const RodapeSUS = () => {
                // borderRadius={10}
             >
                 <Typography variant={'h6'} >
-                    <Box fontWeight="fontWeightBold" >{endereco}</Box>
+                    <Box>{endereco}</Box>
                 </Typography>
             </Box>
         </>

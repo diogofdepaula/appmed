@@ -23,7 +23,7 @@ export default function Print() {
         lme: true,
         relatorio: true,
         comentario: '',
-        database: new Date().toISOString()
+        database: new Date()
     })
 
     const componentRef = useRef();

@@ -5,6 +5,7 @@ import PrintIcon from '@material-ui/icons/Print';
 import TuneIcon from '@material-ui/icons/Tune';
 import { ImpressaoContext } from '..';
 import { ClienteContext } from '../..';
+import { parseISO } from 'date-fns';
  
 export default function ImpressaoSet(props) {
  
@@ -54,7 +55,10 @@ export default function ImpressaoSet(props) {
         setImpressao({ ...impressao, meses: newValue })
     }
  
- 
+    const handleDateChange = (event) => {
+        setImpressao({ ...impressao, [event.target.name]: parseISO(event.target.value) })
+    }
+
     return (
         <>
             <Grid container item spacing={2}>
@@ -111,7 +115,7 @@ export default function ImpressaoSet(props) {
                         <TextField
                             type='date'
                             name='database'
-                            onBlur={handleChange} //Não deixei onchange se não ele fica travando
+                            onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
                         />
                     </Grid>
                 </Grid>
