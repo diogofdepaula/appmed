@@ -20,7 +20,7 @@ export default function Print() {
         tipo: '', // simples, controlado
         meses: 1,
         local: 'sus', // consultorio, SUS (cisgap, cisco)
-        lme: true,
+        lme: '',
         relatorio: true,
         comentario: '',
         database: new Date()

@@ -7,17 +7,10 @@ export default function FactoryReceitasSUS() {
 
     const { impressao } = useContext(ImpressaoContext)
 
-    // ver se dá para tirar daqui e passar um Context geral 
-    // const a4size = {
-    //     width: 1240,
-    //     height: 1750 //1754
-    // }
-
     const itemsRef = useRef([]);
 
     useEffect(() => {
         itemsRef.current = itemsRef.current.slice(0, impressao.prescricoesSelecionadas.length);
-        console.log('teste 1')
     }, [impressao]);
 
     const [listReceitas, setReceitas] = useState([])
@@ -51,34 +44,24 @@ export default function FactoryReceitasSUS() {
             )
         })
         setReceitas(listReceitas)
-        console.log('teste 3')
     }, [impressao])
 
     useEffect(() => {
-        console.log('teste 2')
         if (itemsRef.current) {
             divide()
         }
     }, [divide])
 
-   // enviar o comentário extra para o final e não para o receita
-
     return (
         <>
-            {/* <div style={{ width: a4size.width, height: a4size.height }} > */}
-
-            {/* overflow="hidden"  */}
-                <div>
-                    {itemsRef.current.length === 0 &&
-                        impressao.prescricoesSelecionadas.map((p, i) =>
-                            <div key={i} ref={el => itemsRef.current[i] = el} >
-                                <PrescricaoSUS prescricao={p} />
-                            </div>
-                        )
-                    }
-                    {listReceitas && listReceitas}
-                </div>
-            {/* </div> */}
+            {itemsRef.current.length === 0 &&
+                impressao.prescricoesSelecionadas.map((p, i) =>
+                    <div key={i} ref={el => itemsRef.current[i] = el} >
+                        <PrescricaoSUS prescricao={p} />
+                    </div>
+                )
+            }
+            {listReceitas && listReceitas}
         </>
     )
 }

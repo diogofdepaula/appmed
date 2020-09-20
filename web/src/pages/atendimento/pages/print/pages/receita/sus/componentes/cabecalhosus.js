@@ -1,8 +1,8 @@
 import { Box, CardMedia, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import LogoSUS from './logosuspng.png'
-import LogoCISGAP from './cisgaplogo.png'
-import LogoCISCO from './ciscologo.png'
+import LogoSUS from '../../../../component/imagens/logosuspng.png'
+import LogoCISGAP from '../../../../component/imagens/cisgaplogo.png'
+import LogoCISCO from '../../../../component/imagens/ciscologo.png'
 import { ImpressaoContext } from '../../../..'
 
 const CabecalhoSUS = () => {

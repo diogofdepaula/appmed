@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 //import ReceitaConsultorio from '../pages/receita/consultorio/receitaconsultorio'
 import { ImpressaoContext } from '..';
+import FactoryLME from './lme';
 import FactoryReceitasSUS from './receita';
 
 export default function Factory() {
@@ -23,6 +24,7 @@ export default function Factory() {
                 return (
                     <div>
                         <FactoryReceitasSUS />
+                        <FactoryLME />
                     </div>
                 )
             }

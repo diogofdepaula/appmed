@@ -36,7 +36,7 @@ export default function ImpressaoSet(props) {
         if (event.target.checked) {
             setImpressao(prevState => ({
                 ...prevState,
-                prescricoesSelecionadas: prevState.prescricoesSelecionadas.concat(param)
+                prescricoesSelecionadas: prevState.prescricoesSelecionadas.concat(param),
             }))
         } else {
             setImpressao(prevState => ({
@@ -118,17 +118,19 @@ export default function ImpressaoSet(props) {
                         />
                     </Grid>
                     <Grid>
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={impressao.lme}
-                                    onChange={handleChange}
-                                    name="lme"
+                        {impressao.lme &&  // AINDA NÃO FIZ O REMOVE
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={impressao.lme}
+                                        onChange={handleChange}
+                                        name="lme"
                                     //color="primary"
-                                />
-                            }
-                            label="Imprimir LME"
-                        />
+                                    />
+                                }
+                                label="Imprimir LME"
+                            />
+                        }
                     </Grid>
                 </Grid>
                 <Grid container item xs={4} direction={'column'}>

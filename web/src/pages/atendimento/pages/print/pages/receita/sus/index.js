@@ -17,7 +17,6 @@ const ReceitaSUS = ({ prescricoes }) => {
     return (
         <>
             <div style={{ width: a4size.width, height: a4size.height }} >
-                {/* overflow="hidden" */}
                 <Box
                     height={1}
                     p={10}
