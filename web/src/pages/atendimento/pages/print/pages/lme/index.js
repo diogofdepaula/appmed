@@ -2,6 +2,7 @@ import { Box } from '@material-ui/core';
 import React from 'react';
 import Linha1LME from './component/linha1';
 import Linha2LME from './component/linha2';
+import Linha3LME from './component/linha3';
 // import LogoSUS from '../../component/imagens/logosuspng.png'
 // import LogoCISGAP from '../../component/imagens/cisgaplogo.png'
 // import LogoCISCO from '../../component/imagens/ciscologo.png'
@@ -31,6 +32,7 @@ export default function FactoryLME() {
                     >
                         <Linha1LME />
                         <Linha2LME />
+                        <Linha3LME />
 
 
 
