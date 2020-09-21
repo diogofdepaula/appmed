@@ -119,17 +119,26 @@ export default function FactoryLME() {
                             </Typography>
                         </Box>
                         <Box
+                            mt={2}
                         >
-                            <Grid container>
+                            <Grid container spacing={1}>
                                 <Grid item xs={3}>
                                     <Box
                                         width={1}
                                         border={1}
                                         borderColor="black"
+                                        display="block"
                                     >
+                                        <Box mt={-1} ml={3} width="15%" bgcolor="white" justifyContent="center">
+                                            <Typography variant="caption" align={'center'}>
+                                                <Box>CNES</Box>
+                                            </Typography>
+                                        </Box>
+                                        <Box>
                                         <Typography variant={'body1'} align={'center'}>
-                                            <Box>CNES</Box>
+                                            <Box>023.987.8</Box>
                                         </Typography>
+                                        </Box>
                                     </Box>
                                 </Grid>
                                 <Grid item xs={9}>
@@ -137,16 +146,24 @@ export default function FactoryLME() {
                                         width={1}
                                         border={1}
                                         borderColor="black"
+                                        display="block"
                                     >
-                                        <Typography variant={'body1'} align={'left'}>
-                                            <Box >Nome do médico solicitante</Box>
-                                        </Typography>
+                                        <Box mt={-1} ml={3} width="15%" bgcolor="white" justifyContent="center">
+                                            <Typography variant="caption" align={'center'}>
+                                                <Box>Médico solicitante</Box>
+                                            </Typography>
+                                        </Box>
+                                        <Box ml={1}>
+                                            <Typography variant={'body1'} align={'left'}>
+                                                <Box>Dr. Diogo F. de Paula</Box>
+                                            </Typography>
+                                        </Box>
                                     </Box>
                                 </Grid>
                             </Grid>
 
 
-                           
+
                         </Box>
 
 

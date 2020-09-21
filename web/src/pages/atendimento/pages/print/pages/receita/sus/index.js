@@ -21,56 +21,49 @@ const ReceitaSUS = ({ prescricoes }) => {
                     height={1}
                     p={10}
                 >
-                    <Box>
-                        <CabecalhoSUS />
-                    </Box>
                     <Box
-                        height='calc(100% - 80px)' // se mudar o Cabecalho tem que ajustar aqui depois
-                        p={5}
-                        border={3}
-                        borderColor={"black"}
-                       // borderRadius={10}
+                        width={1}
+                        height={1}
+                        display="block"
+                        style={{ backgroundColor: "red" }}
                     >
+                        <Box>
+                            <CabecalhoSUS />
+                        </Box>
                         <Box
-                            display="flex"
-                            flexWrap="wrap"
-                            height={1}
+
+                            height='calc(100% - 80px)' // se mudar o Cabecalho tem que ajustar aqui depois
+                            p={5}
+                            border={3}
+                            borderColor={"black"}
+                            style={{ backgroundColor: "blue" }}
+                        // borderRadius={10}
                         >
-                            <Box justifyContent="center">
-                                <Box display="block">
-                                    <Box>
-                                        <ViaSUS />
+                            <Box
+                                display="block"
+                                height={1}
+                            >
+                                <Box justifyContent="center">
+                                    <Box display="block">
+                                        <Box>
+                                            <ViaSUS />
+                                        </Box>
+                                        <Box>
+                                            <IdentificacaoSUS />
+                                        </Box>
                                     </Box>
                                     <Box>
-                                        <IdentificacaoSUS />
+                                        {prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
                                     </Box>
-                                </Box>
-                                <Box>
-                                    {prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
                                 </Box>
                             </Box>
-                            <Box
-                                alignSelf="flex-end"
-                                justifyContent="flex-start"
-                            >
-                                {/* <Box display="block" >
-                                <Box>
-
-                                    OS COMENTÁRIOS EXTRA FORAM RETIRARDOS POR MOMENTO
-                                    PARA FACILITAR A CONFIGURAÇÃO.
-                                    DEIXAR PARA UM SEGUNDO MOMENTO.
-
-                                    <ComentarioSUS />
-                                </Box> */}
-                                <Box>
-                                    <DataSUS />
-                                </Box>
-                                {/* </Box> */}
+                            <Box>
+                                <DataSUS />
                             </Box>
                         </Box>
-                    </Box>
-                    <Box>
-                        <RodapeSUS />
+                        <Box>
+                            <RodapeSUS />
+                        </Box>
                     </Box>
                 </Box>
             </div>
