@@ -1,5 +1,6 @@
 import { Box } from '@material-ui/core';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ImpressaoContext } from '../..';
 import Linha1LME from './component/linha1';
 import Linha2LME from './component/linha2';
 import Linha3LME from './component/linha3';
@@ -11,12 +12,14 @@ import Linha5LME from './component/linha5';
 
 export default function FactoryLME() {
 
-    //const { impressao } = useContext(ImpressaoContext)
+    const { impressao } = useContext(ImpressaoContext)
 
     const a4size = {
         width: 1240,
         height: 1750 //1754
     }
+
+    console.log('impressao.lmesSelecionadas', impressao.lmesSelecionadas)
 
     return (
         <>

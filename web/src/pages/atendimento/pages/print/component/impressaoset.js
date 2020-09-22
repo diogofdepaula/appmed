@@ -60,19 +60,17 @@ export default function ImpressaoSet(props) {
     }
 
     const handleLmesChange = param => (event) => {
-       
         if (event.target.checked) {
-            setLmes(prevState => ({
+            setImpressao(prevState => ({
                 ...prevState,
                 lmesSelecionadas: prevState.lmesSelecionadas.concat(param),
             }))
         } else {
-            setLmes(prevState => ({
+            setImpressao(prevState => ({
                 ...prevState,
-                lmesSelecionadas: prevState.lmesSelecionadas.filter(lme => lme.id !== lme.id)
+                lmesSelecionadas: prevState.lmesSelecionadas.filter(lme => lme.id !== param.id)
             }))
         }
-
     }
 
     return (
