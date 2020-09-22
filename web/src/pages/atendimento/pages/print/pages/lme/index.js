@@ -4,6 +4,7 @@ import Linha1LME from './component/linha1';
 import Linha2LME from './component/linha2';
 import Linha3LME from './component/linha3';
 import Linha4LME from './component/linha4';
+import Linha5LME from './component/linha5';
 // import LogoSUS from '../../component/imagens/logosuspng.png'
 // import LogoCISGAP from '../../component/imagens/cisgaplogo.png'
 // import LogoCISCO from '../../component/imagens/ciscologo.png'
@@ -35,10 +36,7 @@ export default function FactoryLME() {
                         <Linha2LME />
                         <Linha3LME />
                         <Linha4LME />
-
-
-
-
+                        <Linha5LME />
 
                     </Box>
                 </Box>

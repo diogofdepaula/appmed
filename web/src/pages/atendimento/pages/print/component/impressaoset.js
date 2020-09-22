@@ -12,7 +12,7 @@ export default function ImpressaoSet(props) {
     const cliente = useContext(ClienteContext)
     const { impressao, setImpressao } = useContext(ImpressaoContext)
     const [prescricoes, setPrescricoes] = useState([])
-
+    
     const fetchDataPrescricoes = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
         const json = await res.json();
@@ -20,9 +20,9 @@ export default function ImpressaoSet(props) {
     }, [cliente])
 
     // const fetchDataLmes = useCallback(async () => {
-    //     // const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
-    //     // const json = await res.json();
-    //     //setlmes(json);
+    //     const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
+    //     const json = await res.json();
+    //     setlmes(json);
     // }, [])
 
     useEffect(() => {
