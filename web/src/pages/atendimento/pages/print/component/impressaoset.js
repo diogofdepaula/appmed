@@ -12,23 +12,24 @@ export default function ImpressaoSet(props) {
     const cliente = useContext(ClienteContext)
     const { impressao, setImpressao } = useContext(ImpressaoContext)
     const [prescricoes, setPrescricoes] = useState([])
-    
+    const [lmes, setLmes] = useState([])
+
     const fetchDataPrescricoes = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
         const json = await res.json();
         setPrescricoes(json);
     }, [cliente])
 
-    // const fetchDataLmes = useCallback(async () => {
-    //     const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
-    //     const json = await res.json();
-    //     setlmes(json);
-    // }, [])
+    const fetchDataLmes = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
+        const json = await res.json();
+        setLmes(json);
+    }, [cliente])
 
     useEffect(() => {
         fetchDataPrescricoes();
-        //fetchDataLmes();
-    }, [fetchDataPrescricoes])
+        fetchDataLmes();
+    }, [fetchDataPrescricoes, fetchDataLmes])
 
 
     const handleCheck = param => (event) => {
@@ -57,6 +58,8 @@ export default function ImpressaoSet(props) {
     const handleDateChange = (event) => {
         setImpressao({ ...impressao, [event.target.name]: parseISO(event.target.value) })
     }
+
+    console.log('lmes', lmes)
 
     return (
         <>
@@ -135,13 +138,25 @@ export default function ImpressaoSet(props) {
                 </Grid>
                 <Grid container item xs={4} direction={'column'}>
                     <Grid item>
-                        <Typography variant={'h6'}>Adicionar orientação a receita</Typography>
+                        <Typography variant={'h6'}>Quais LMEs serão impressas</Typography>
                     </Grid>
                     <Grid item>
-                        <TextField
-                            name='comentario'
-                            onBlur={handleChange} //Não deixei onchange se não ele fica travando
-                        />
+                        <Grid item xs={10}>
+                            <List dense style={{ overflow: 'auto', maxHeight: 300 }}>
+                                {lmes && lmes.map(lme =>
+                                    <ListItem key={lme.id}>
+                                        <ListItemIcon>
+                                            <Checkbox
+                                                edge="start"
+                                                //onChange={handleCheck(prescricao)}
+                                            />
+                                        </ListItemIcon>
+                                        
+                                        <ListItemText primary={lme.cid10} secondary={lme.prescricoes[0].id} />
+                                    </ListItem>
+                                )}
+                            </List>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
