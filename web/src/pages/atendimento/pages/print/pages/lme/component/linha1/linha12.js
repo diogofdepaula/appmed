@@ -12,7 +12,7 @@ const Linha12LME = () => {
                 bgcolor="text.primary"
                 color="background.paper"
             >
-                <Typography variant={'body1'} align={'center'}>
+                <Typography component={'span'} variant={'body1'} align={'center'}>
                     <Box fontWeight="fontWeightBold">COMPONENTE ESPECIALIZADO DA ASSISTÊNCIA FARMACÊUTICA</Box>
                 </Typography>
             </Box>

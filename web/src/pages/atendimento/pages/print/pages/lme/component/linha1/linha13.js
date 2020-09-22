@@ -11,7 +11,7 @@ const Linha13LME = () => {
                 width={1}
                 bgcolor="text.disabled"
             >
-                <Typography variant={'body1'} align={'center'}>
+                <Typography component={'span'} variant={'body1'} align={'center'}>
                     <Box fontWeight="fontWeightBold" >LAUDO DE SOLICITAÇÃO, AVALIAÇÃO E AUTORIZAÇÃO DE MEDICAMENTO(S)</Box>
                 </Typography>
             </Box>

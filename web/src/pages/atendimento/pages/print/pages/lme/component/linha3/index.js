@@ -8,9 +8,7 @@ const Linha3LME = () => {
 
     return (
         <>
-            <Box
-                mt={2}
-            >
+            <Box mt={1}>
                 <Grid container spacing={1}>
                     <Grid item xs={11}>
                         <Box
@@ -20,12 +18,12 @@ const Linha3LME = () => {
                             display="block"
                         >
                             <Box mt={-1} ml={2} display="flex">
-                                <Typography variant="caption" noWrap={true} >
+                                <Typography component={'span'} variant="caption" noWrap={true} >
                                     <Box bgcolor="white" px={1}>3- Nome completo do paciente</Box>
                                 </Typography>
                             </Box>
                             <Box ml={1}>
-                                <Typography variant={'h6'} align={'left'}>
+                                <Typography component={'span'} variant={'h6'} align={'left'}>
                                     <Box fontWeight="fontWeightBold">{cliente.nome}</Box>
                                 </Typography>
                             </Box>
@@ -40,12 +38,12 @@ const Linha3LME = () => {
                             display="block"
                         >
                             <Box mt={-1} display="flex" justifyContent="center">
-                                <Typography variant="caption" noWrap={true} >
+                                <Typography component={'span'} variant="caption" noWrap={true} >
                                     <Box bgcolor="white" px={1}>5 - Peso</Box>
                                 </Typography>
                             </Box>
                             <Box>
-                                <Typography variant={'body1'} align={'center'}>
+                                <Typography component={'span'} variant={'body1'} align={'center'}>
                                     <Box>{cliente.peso}</Box>
                                 </Typography>
                             </Box>

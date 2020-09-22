@@ -12,7 +12,9 @@ export default function ClienteSet(props) {
     const [validacao, setValidacao] = useState(false)
 
     const fetchData = useCallback(async () => {
-        const res = await fetch('http://localhost:4001/api.appmed/clientes/allfit')
+        const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat') // deixei fat, mas o ideal é fazer um método que todos por allfit e carregue com uma nova query com SearchOne
+        // ele usa os dados do cliente na hora de imprimir e usecontext fica muito longe para fazer um set conveniente
+        // o melhor é fazer a busca do dado aqui mesmo
         const json = await res.json()
         setClientes(json)
         setClientesFiltrados(json)
