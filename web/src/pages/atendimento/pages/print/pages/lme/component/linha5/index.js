@@ -1,20 +1,15 @@
 import { Box } from '@material-ui/core'
-import React, { useCallback, useContext } from 'react'
-import { ImpressaoContext } from '../../../..'
+import React, { useCallback } from 'react'
 import Linha51LME from './linha51'
 import Linha5xLME from './linha5x'
 
 const Linha5LME = () => {
-
-    const { impressao } = useContext(ImpressaoContext)
 
     const LinhasMedicamentos = useCallback(() => {
        // let list = impressao.prescricoesSelecionadas.map(p => )
 
         return <Linha5xLME />
     }, [])
-
-    
 
     return (
         <>

@@ -59,7 +59,21 @@ export default function ImpressaoSet(props) {
         setImpressao({ ...impressao, [event.target.name]: parseISO(event.target.value) })
     }
 
-    console.log('lmes', lmes)
+    const handleLmesChange = param => (event) => {
+       
+        if (event.target.checked) {
+            setLmes(prevState => ({
+                ...prevState,
+                lmesSelecionadas: prevState.lmesSelecionadas.concat(param),
+            }))
+        } else {
+            setLmes(prevState => ({
+                ...prevState,
+                lmesSelecionadas: prevState.lmesSelecionadas.filter(lme => lme.id !== lme.id)
+            }))
+        }
+
+    }
 
     return (
         <>
@@ -148,11 +162,10 @@ export default function ImpressaoSet(props) {
                                         <ListItemIcon>
                                             <Checkbox
                                                 edge="start"
-                                                //onChange={handleCheck(prescricao)}
+                                                onChange={handleLmesChange(lme)}
                                             />
                                         </ListItemIcon>
-                                        
-                                        <ListItemText primary={lme.cid10} secondary={lme.prescricoes[0].id} />
+                                        <ListItemText primary={lme.cid10} secondary={lme.prescricoes.map(p => p.medicamento.farmaco.concat(" "))} />
                                     </ListItem>
                                 )}
                             </List>
