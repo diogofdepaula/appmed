@@ -24,7 +24,13 @@ export default function Factory() {
                 return (
                     <div>
                         <FactoryReceitasSUS />
-                        <FactoryLME />
+                        {/* depois faz o preparo para definir Fila de impressão */}
+                        {/* quando for fazer a fila de impressao. o lme passado para o componente abaixo já está completo com 
+                        com as prescrições e tudo. Então dá para mandar tudo (LME, Relatorio e Receita so por essa {lme})
+                        ao inves de pegar a impresso.Selecionadas, passar como props para o FactoryReceitaSUS para poder usar tando para 
+                        somente receita como para o lme
+                        */}
+                        <FactoryLME lme={impressao.lmesSelecionadas[0]} />
                     </div>
                 )
             }

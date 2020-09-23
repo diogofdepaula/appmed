@@ -1,6 +1,5 @@
 import { Box } from '@material-ui/core';
-import React, { useContext } from 'react';
-import { ImpressaoContext } from '../..';
+import React, { createContext } from 'react';
 import Linha1LME from './component/linha1';
 import Linha2LME from './component/linha2';
 import Linha3LME from './component/linha3';
@@ -10,16 +9,14 @@ import Linha5LME from './component/linha5';
 // import LogoCISGAP from '../../component/imagens/cisgaplogo.png'
 // import LogoCISCO from '../../component/imagens/ciscologo.png'
 
-export default function FactoryLME() {
+export const LMEPrintContext = createContext(null)
 
-    const { impressao } = useContext(ImpressaoContext)
+export default function FactoryLME(props) {
 
     const a4size = {
         width: 1240,
         height: 1750 //1754
     }
-
-    console.log('impressao.lmesSelecionadas', impressao.lmesSelecionadas)
 
     return (
         <>
@@ -35,12 +32,13 @@ export default function FactoryLME() {
                         border={5}
                         borderColor={"blue"}
                     >
-                        <Linha1LME />
-                        <Linha2LME />
-                        <Linha3LME />
-                        <Linha4LME />
-                        <Linha5LME />
-
+                        <LMEPrintContext.Provider value={props.lme}>
+                            <Linha1LME />
+                            <Linha2LME />
+                            <Linha3LME />
+                            <Linha4LME />
+                            <Linha5LME />
+                        </LMEPrintContext.Provider>
                     </Box>
                 </Box>
             </div>

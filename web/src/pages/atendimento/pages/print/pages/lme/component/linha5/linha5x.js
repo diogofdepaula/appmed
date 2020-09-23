@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React from 'react'
 
-const Linha5xLME = () => {
+const Linha5xLME = (props) => {
 
     return (
         <>
@@ -11,7 +11,7 @@ const Linha5xLME = () => {
                         <Grid item xs>
                             <Box borderTop={1}>
                                 <Typography component={'span'} variant="h6" noWrap={true} >
-                                    <Box ml={1}>Medicamento XXXXX</Box>
+                                    <Box ml={1}>{props.prescricao.medicamento.farmaco}</Box>
                                 </Typography>
                             </Box>
                         </Grid>
@@ -21,32 +21,32 @@ const Linha5xLME = () => {
                             <Grid container item direction="row" justify="center" alignItems="center">
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>888</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes1}</Box></Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>777</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes2}</Box></Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>555</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes3}</Box></Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>333</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes4}</Box></Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>222</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes5}</Box></Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>000</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes6}</Box></Typography>
                                     </Box>
                                 </Grid>
                             </Grid>

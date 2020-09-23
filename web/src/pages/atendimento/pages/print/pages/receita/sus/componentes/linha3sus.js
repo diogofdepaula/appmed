@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { PrescricaoSUSContext } from './prescricaosus'
+import { PrescricaoSUSPrintContext } from './prescricaosus'
 
 const Linha3SUS = () => {
 
-    const prescricao = useContext(PrescricaoSUSContext)
+    const prescricao = useContext(PrescricaoSUSPrintContext)
     //Farmaco + Apresentacao + Quantidade + Forma
 
     return (

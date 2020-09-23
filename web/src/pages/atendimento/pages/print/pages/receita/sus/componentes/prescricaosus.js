@@ -6,7 +6,7 @@ import Linha3SUS from './linha3sus'
 import Linha4SUS from './linha4sus'
 import Linha5SUS from './linha5sus'
 
-export const PrescricaoSUSContext = createContext(null)
+export const PrescricaoSUSPrintContext = createContext(null)
 
 const PrescricaoSUS = (props) => {
 
@@ -20,13 +20,13 @@ const PrescricaoSUS = (props) => {
     return (
         <>
             <Box mt={4}>
-                <PrescricaoSUSContext.Provider value={props.prescricao}>
+                <PrescricaoSUSPrintContext.Provider value={props.prescricao}>
                     <Linha1SUS />
                     <Linha2SUS />
                     <Linha3SUS />
                     <Linha4SUS />
                     {props.prescricao.imprimirorientacoes && <Linha5SUS />}
-                </PrescricaoSUSContext.Provider>
+                </PrescricaoSUSPrintContext.Provider>
             </Box>
         </>
     )

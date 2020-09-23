@@ -1,15 +1,12 @@
 import { Box } from '@material-ui/core'
-import React, { useCallback } from 'react'
+import React, { useContext } from 'react'
+import { LMEPrintContext } from '../..'
 import Linha51LME from './linha51'
 import Linha5xLME from './linha5x'
 
 const Linha5LME = () => {
 
-    const LinhasMedicamentos = useCallback(() => {
-       // let list = impressao.prescricoesSelecionadas.map(p => )
-
-        return <Linha5xLME />
-    }, [])
+    const lme = useContext(LMEPrintContext)
 
     return (
         <>
@@ -20,7 +17,11 @@ const Linha5LME = () => {
                 borderColor="black"
             >
                 <Linha51LME />
-                <LinhasMedicamentos />
+                {lme.prescricoes.map(p =>
+                    <div key={p.id}>
+                        <Linha5xLME prescricao={p} />
+                    </div>
+                )}
             </Box>
         </>
     )
