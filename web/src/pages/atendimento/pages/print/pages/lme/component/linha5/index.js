@@ -2,6 +2,7 @@ import { Box } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
 import Linha51LME from './linha51'
+import Linha5ExtraLME from './linha5extra'
 import Linha5xLME from './linha5x'
 
 const Linha5LME = () => {
@@ -22,6 +23,8 @@ const Linha5LME = () => {
                         <Linha5xLME prescricao={p} />
                     </div>
                 )}
+                <Linha5ExtraLME />
+                <Linha5ExtraLME />
             </Box>
         </>
     )
