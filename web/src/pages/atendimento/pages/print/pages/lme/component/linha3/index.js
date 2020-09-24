@@ -19,7 +19,7 @@ const Linha3LME = () => {
                         >
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>3- Nome completo do paciente</Box>
+                                    <Box bgcolor="white" px={1}>3 - Nome completo do paciente</Box>
                                 </Typography>
                             </Box>
                             <Box ml={1}>
@@ -44,7 +44,7 @@ const Linha3LME = () => {
                             </Box>
                             <Box>
                                 <Typography component={'span'} variant={'body1'} align={'center'}>
-                                    <Box>{cliente.peso}</Box>
+                                    <Box>{cliente.peso} Kg</Box>
                                 </Typography>
                             </Box>
                         </Box>
