@@ -1,11 +1,8 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
+import { Box, Grid, Typography } from '@material-ui/core';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import React from 'react';
 
 const Linha9LME = () => {
-
-    const lme = useContext(LMEPrintContext)
 
     return (
         <>
@@ -31,28 +28,28 @@ const Linha9LME = () => {
                             <Box>
                                 <Grid container xs direction="row" justify="space-around" alignItems="center">
                                     <Grid container item xs direction="row" justify="flex-start" alignItems="flex-start">
-                                        <Grid item xs={2}>
-                                            <Box ml={1}>
+                                        <Grid item xs={3}>
+                                            <Box ml={1} display="flex">
                                                 <CheckBoxOutlineBlankIcon />
                                                 <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                    <Box ml={1}>Não</Box>
+                                                    <Box>Não</Box>
                                                 </Typography>
                                                 <CheckBoxOutlineBlankIcon />
                                                 <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                    <Box ml={1}>Sim</Box>
+                                                    <Box>Sim</Box>
                                                 </Typography>
                                             </Box>
                                         </Grid>
-                                        <Grid item xs>
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
+                                        <Grid item xs={9}>
+                                            <Typography component={'span'} variant={'body1'} align={'justify'} >
                                                 <Box>Indicar o nome do responsável pelo paciente, o qual poderá realizar a solicitação do medicamento</Box>
                                             </Typography>
                                         </Grid>
                                     </Grid>
-                                    <Grid container item xs>
+                                    <Grid container item xs direction="column" justify="center" alignItems="center">
                                         <Grid item>
                                             <Typography component={'span'} variant={'body1'} align={'center'} >
-                                                <Box>_________________________________</Box>
+                                                <Box>__________________________________________</Box>
                                             </Typography>
                                         </Grid>
                                         <Grid item>
