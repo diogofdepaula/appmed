@@ -17,7 +17,7 @@ const Linha9LME = () => {
                         >
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>13 - Atestado de capacidade*</Box>
+                                    <Box bgcolor="white" px={1}>13 - Atestado de capacidade</Box>
                                 </Typography>
                             </Box>
                             <Box px={1}>

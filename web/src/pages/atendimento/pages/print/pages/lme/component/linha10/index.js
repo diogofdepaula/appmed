@@ -12,7 +12,7 @@ const Linha10LME = () => {
 
     return (
         <>
-            <Box mt={1}>
+            <Box mt={2}>
                 <Grid container spacing={1}>
                     <Grid container item xs={8}>
                         <Grid container item direction="column" justify="center" alignItems="stretch" spacing={1}>
