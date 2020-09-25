@@ -1,6 +1,7 @@
 import { Box } from '@material-ui/core';
 import React, { createContext } from 'react';
 import Linha1LME from './component/linha1';
+import Linha10LME from './component/linha10';
 import Linha2LME from './component/linha2';
 import Linha3LME from './component/linha3';
 import Linha4LME from './component/linha4';
@@ -40,8 +41,9 @@ export default function FactoryLME(props) {
                             <Linha5LME />
                             <Linha6LME />
                             <Linha7LME />
-                            {/* <Linha8LME /> */}
+                            {/* <Linha8LME /> deixei em branco caso precise desmembrar a linha7*/}
                             <Linha9LME />
+                            <Linha10LME />
                         </LMEPrintContext.Provider>
                     </Box>
                 </Box>

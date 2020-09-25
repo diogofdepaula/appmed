@@ -26,7 +26,7 @@ const Linha9LME = () => {
                                 </Typography>
                             </Box>
                             <Box>
-                                <Grid container xs direction="row" justify="space-around" alignItems="center">
+                                <Grid container direction="row" justify="space-around" alignItems="center">
                                     <Grid container item xs direction="row" justify="flex-start" alignItems="flex-start">
                                         <Grid item xs={3}>
                                             <Box ml={1} display="flex">
