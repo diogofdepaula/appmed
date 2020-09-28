@@ -8,9 +8,7 @@ const Linha6LME = () => {
 
     return (
         <>
-            <Box
-                mt={2}
-            >
+            <Box mt={2}>
                 <Grid container spacing={1}>
                     <Grid item xs={2}>
                         <Box

@@ -23,7 +23,7 @@ const Linha10LME = () => {
                                             <Box bgcolor="white" px={1}>14 - Nome do médico solicitante</Box>
                                         </Typography>
                                     </Box>
-                                    <Box ml={1}>
+                                    <Box ml={2}>
                                         <Typography component={'span'} variant={'h6'} align={'left'}>
                                             <Box>Dr. Diogo F. de Paula</Box>
                                         </Typography>
@@ -38,7 +38,7 @@ const Linha10LME = () => {
                                                 <Box bgcolor="white" px={1}>15 - Número do Cartão Nacional de Saúde (CNS) do médico solicitante</Box>
                                             </Typography>
                                         </Box>
-                                        <Box ml={1}>
+                                        <Box ml={2}>
                                             <Typography component={'span'} variant={'h6'} align={'left'}>
                                                 {/* // se tiver que deixar em branco então deixa "-" de cor branca */}
                                                 <Box>980.0162.8089.8038</Box>

@@ -9,12 +9,7 @@ const Linha9LME = () => {
             <Box mt={2} >
                 <Grid container spacing={1}>
                     <Grid item xs>
-                        <Box
-                            width={1}
-                            border={1}
-                            borderColor="black"
-                            display="block"
-                        >
+                        <Box width={1} border={1} borderColor="black" display="block" >
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
                                     <Box bgcolor="white" px={1}>13 - Atestado de capacidade</Box>
