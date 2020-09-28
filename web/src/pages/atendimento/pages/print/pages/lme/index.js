@@ -29,13 +29,7 @@ export default function FactoryLME(props) {
         <>
             <div style={{ width: a4size.width, height: a4size.height }} >
                 <Box height={1}>
-                    <Box
-                        height={1}
-                        m={10}
-                        p={5}
-                        border={5}
-                        borderColor={"blue"}
-                    >
+                    <Box height={1} m={10} p={1} border={5} borderColor={"blue"}>
                         <LMEPrintContext.Provider value={props.lme}>
                             <Linha1LME />
                             <Linha2LME />
