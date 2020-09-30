@@ -15,7 +15,7 @@ const Linha2LME = () => {
         <>
             <Box mt={2}>
                 <Grid container spacing={1}>
-                    <Grid container item xs={2}  >
+                    <Grid container item xs={2} >
                         <Box width={1} border={1} borderColor="black">
                             <Grid container direction="column" justify="flex-end" alignItems="stretch">
                                 <Grid item>
