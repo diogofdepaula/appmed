@@ -7,7 +7,7 @@ const Linha5xLME = (props) => {
         <>
             <Box>
                 <Grid container>
-                    <Grid container item direction="row" justify="center" alignItems="center" xs={7}>
+                    <Grid container item xs={7} direction="row" justify="center" alignItems="center">
                         <Grid item xs>
                             <Box borderTop={1}>
                                 <Typography component={'span'} variant="h6" noWrap={true} >
@@ -21,32 +21,44 @@ const Linha5xLME = (props) => {
                             <Grid container item direction="row" justify="center" alignItems="stretch">
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1} height={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes1}</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                            {props.prescricao.lmemes1 ? <Box>{props.prescricao.lmemes1}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1} height={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes2}</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                            {props.prescricao.lmemes2 ? <Box>{props.prescricao.lmemes2}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1} height={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes3}</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                            {props.prescricao.lmemes3 ? <Box>{props.prescricao.lmemes3}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1} height={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes4}</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                            {props.prescricao.lmemes4 ? <Box>{props.prescricao.lmemes4}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1} height={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes5}</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                            {props.prescricao.lmemes5 ? <Box>{props.prescricao.lmemes5}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} height={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes6}</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                            {props.prescricao.lmemes6 ? <Box>{props.prescricao.lmemes6}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        </Typography>
                                     </Box>
                                 </Grid>
                             </Grid>

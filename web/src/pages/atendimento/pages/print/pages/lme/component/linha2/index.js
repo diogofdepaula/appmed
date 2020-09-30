@@ -27,7 +27,7 @@ const Linha2LME = () => {
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'body1'} align={'left'}>
+                                        <Typography component={'span'} variant={'body1'} align={'center'}>
                                             {estabelecimento.cnes ? <Box>{estabelecimento.cnes}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
@@ -57,67 +57,6 @@ const Linha2LME = () => {
                     </Grid>
                 </Grid>
             </Box>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {/* <Box
-                mt={2}
-            >
-                <Grid container spacing={1}>
-                    <Grid item xs={3}>
-                        <Box
-                            width={1}
-                            border={1}
-                            borderColor="black"
-                            display="block"
-                        >
-                            <Box mt={-1} ml={2} display="flex">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>1 - Número do CNES</Box>
-                                </Typography>
-                            </Box>
-                            <Box>
-                                <Typography component={'span'} variant={'body1'} align={'center'}>
-                                    <Box>{estabelecimento.cnes}</Box>
-                                </Typography>
-                            </Box>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={9}>
-                        <Box
-                            width={1}
-                            border={1}
-                            borderColor="black"
-                            display="block"
-                        >
-                            <Box mt={-1} ml={2} display="flex">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>2 - Nome do estabelecimento de saúde solicitante</Box>
-                                </Typography>
-                            </Box>
-                            <Box ml={1}>
-                                <Typography component={'span'} variant={'body1'} align={'left'}>
-                                    <Box>{estabelecimento.nome}</Box>
-                                </Typography>
-                            </Box>
-                        </Box>
-                    </Grid>
-                </Grid> 
-            </Box>
-            */}
         </>
     )
 }
