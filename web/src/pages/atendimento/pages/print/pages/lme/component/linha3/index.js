@@ -11,12 +11,7 @@ const Linha3LME = () => {
             <Box mt={1}>
                 <Grid container spacing={1}>
                     <Grid item xs={11}>
-                        <Box
-                            width={1}
-                            border={1}
-                            borderColor="black"
-                            display="block"
-                        >
+                        <Box width={1} border={1} borderColor="black" display="block" >
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
                                     <Box bgcolor="white" px={1}>3 - Nome completo do paciente</Box>
@@ -30,13 +25,7 @@ const Linha3LME = () => {
                         </Box>
                     </Grid>
                     <Grid item xs={1}>
-                        <Box
-                         height={1}
-                            width={1}
-                            border={1}
-                            borderColor="black"
-                            display="block"
-                        >
+                        <Box height={1} width={1} border={1} borderColor="black" display="block">
                             <Box mt={-1} display="flex" justifyContent="center">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
                                     <Box bgcolor="white" px={1}>5 - Peso</Box>
@@ -50,9 +39,6 @@ const Linha3LME = () => {
                         </Box>
                     </Grid>
                 </Grid>
-
-
-
             </Box>
         </>
     )
