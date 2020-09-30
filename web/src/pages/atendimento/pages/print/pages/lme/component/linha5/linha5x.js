@@ -26,7 +26,7 @@ const Linha5xLME = (props) => {
                                 </Grid>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1} height={1}>
-                                        <Typography component={'span'} variant="h6" noWrap={true} align="center" bgcolor="blue"><Box>{props.prescricao.lmemes2}</Box></Typography>
+                                        <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box>{props.prescricao.lmemes2}</Box></Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item xs>
