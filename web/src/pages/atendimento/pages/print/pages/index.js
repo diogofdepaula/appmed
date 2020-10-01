@@ -23,6 +23,7 @@ export default function Factory() {
             } else {
                 return (
                     <div>
+                        <FactoryLME lme={impressao.lmesSelecionadas[0]} />
                         <FactoryReceitasSUS />
                         {/* depois faz o preparo para definir Fila de impressão */}
                         {/* quando for fazer a fila de impressao. o lme passado para o componente abaixo já está completo com 
@@ -30,7 +31,7 @@ export default function Factory() {
                         ao inves de pegar a impresso.Selecionadas, passar como props para o FactoryReceitaSUS para poder usar tando para 
                         somente receita como para o lme
                         */}
-                        <FactoryLME lme={impressao.lmesSelecionadas[0]} />
+                        
                     </div>
                 )
             }

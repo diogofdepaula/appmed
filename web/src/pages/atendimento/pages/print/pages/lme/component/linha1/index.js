@@ -10,7 +10,7 @@ const Linha1LME = () => {
 
     return (
         <>
-            <Box width={1} >
+            <Box width={1}>
                 <Linha11LME />
                 <Linha12LME />
                 <Linha13LME />

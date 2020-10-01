@@ -40,9 +40,9 @@ export default function Print() {
                 {/* {JSON.stringify(impressao)} */}
                 <Grid container spacing={2} >
                     <ImpressaoSet print={handlePrint} setValidacao={setValidacao} handlePrint={handlePrint} />
-                    <Grid item style={{ backgroundColor: "green" }}   >
+                    <Grid item>
                     {/*o  height: 0 indifentente para o resultado final */}
-                        <div style={{ backgroundColor: "red", height: 0  }} ref={componentRef} > 
+                        <div ref={componentRef} > 
                             {validacao && <Factory />}
                             {/* <Factory /> */}
                         </div>

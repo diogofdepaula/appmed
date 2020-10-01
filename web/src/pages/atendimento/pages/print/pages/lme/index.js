@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import React, { createContext } from 'react';
 import Linha1LME from './component/linha1';
 import Linha10LME from './component/linha10';
@@ -22,31 +22,32 @@ export default function FactoryLME(props) {
 
     const a4size = {
         width: 1240,
-        height: 1750 //1754
+        height: 1754 //1754
     }
 
     return (
         <>
-            <div style={{ width: a4size.width, height: a4size.height }} >
-                <Box height={1}>
-                    <Box height={1} m={10} p={1} border={5} borderColor={"blue"}>
-                        <LMEPrintContext.Provider value={props.lme}>
-                            <Linha1LME />
-                            <Linha2LME />
-                            <Linha3LME />
-                            <Linha4LME />
-                            <Linha5LME />
-                            <Linha6LME />
-                            <Linha7LME />
-                            {/* <Linha8LME /> deixei em branco caso precise desmembrar a linha7*/}
-                            <Linha9LME />
-                            <Linha10LME />
-                            <Linha11LME />
-                            <Linha12LME />
-                            <Linha13LME />
-                            
-                        </LMEPrintContext.Provider>
-                    </Box>
+            <div style={{ width: a4size.width, height: a4size.height, backgroundColor: "yellow" }}>
+                {/* a box ali de baixo que determina o uso de toda a folha  */}
+                <Box height={1} bgcolor={"red"}>
+                    <Grid container style={{ backgroundColor: "blue" }}>
+                            <Box height={1} border={5} borderColor={"black"} bgcolor={"green"}>
+                                {/* <LMEPrintContext.Provider value={props.lme}>
+                                    <Linha1LME />
+                                    <Linha2LME />
+                                    <Linha3LME />
+                                    <Linha4LME />
+                                    <Linha5LME />
+                                    <Linha6LME />
+                                    <Linha7LME />
+                                    <Linha9LME />
+                                    <Linha10LME />
+                                    <Linha11LME />
+                                    <Linha12LME />
+                                    <Linha13LME />
+                                </LMEPrintContext.Provider> */}
+                            </Box>
+                        </Grid>
                 </Box>
             </div>
         </>
