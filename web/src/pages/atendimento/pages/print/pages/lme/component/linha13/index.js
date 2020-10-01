@@ -6,19 +6,21 @@ const Linha13LME = () => {
 
     return (
         <>
-            <Box mt={2}>
+                    <Box mt={2}>
                 <Grid container spacing={1}>
                     <Grid container item xs={8}>
-                        <Grid container item direction="column" justify="center" alignItems="stretch" spacing={1}>
+                        <Grid container item direction="column" justify="space-between" alignItems="stretch" spacing={1}>
                             <Grid item>
                                 <Box width={1} border={1} borderColor="black" display="block">
-                                    <Box mt={-1} ml={2} display="flex">
-                                        <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>21 - Número do documento do paciente</Box>
-                                        </Typography>
-                                    </Box>
-                                    <Box>
-                                        <Grid container>
+                                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                        <Grid item>
+                                            <Box mt={-1} ml={2} display="flex">
+                                                <Typography component={'span'} variant="caption" noWrap={true} >
+                                                    <Box bgcolor="white" px={1}>21 - Número do documento do paciente</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                        <Grid container item>
                                             <Grid item>
                                                 <Box ml={1} display="flex">
                                                     <CheckBoxOutlineBlankIcon />
@@ -41,39 +43,47 @@ const Linha13LME = () => {
                                                 </Typography>
                                             </Grid>
                                         </Grid>
-                                    </Box>
+                                    </Grid>
                                 </Box>
                             </Grid>
-                            <Grid item>
-                                <Box width={1} border={1} borderColor="black" display="block">
-                                    <Box mt={-1} ml={2} display="flex">
-                                        <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>22 - Correio eletrônico do paciente</Box>
-                                        </Typography>
+                            <Grid container item direction="row" alignItems="stretch" spacing={1}>
+                                <Grid item xs>
+                                    <Box width={1} border={1} borderColor="black" display="block">
+                                        <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                            <Grid item>
+                                                <Box mt={-1} ml={2} display="flex">
+                                                    <Typography component={'span'} variant="caption" noWrap={true} >
+                                                        <Box bgcolor="white" px={1}>22 - Correio eletrônico do paciente</Box>
+                                                    </Typography>
+                                                </Box>
+                                            </Grid>
+                                            <Grid>
+                                                <Box ml={2}>
+                                                    <Typography component={'span'} variant={'body1'} align={'left'}>
+                                                        <Box style={{color: "white"}}>-</Box>
+                                                    </Typography>
+                                                </Box>
+                                            </Grid>
+                                        </Grid>
                                     </Box>
-                                    <Box ml={1}>
-                                        <Typography component={'span'} variant={'body1'} align={'left'} style={{color: "white"}}>
-                                            {/* // se tiver que deixar em branco então deixa "-" de cor branca */}
-                                            <Box>-</Box>
-                                        </Typography>
-                                    </Box>
-                                </Box>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={4}>
-                        <Box height={1} width={1} border={1} borderColor="black" display="block" >
-                            <Box mt={-1} display="flex" justifyContent="center">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>23 - Assinatura do responsável pelo preenchimento</Box>
-                                </Typography>
+                    <Grid container item xs={4} alignItems="stretch">
+                        <Grid item xs>
+                            <Box height={1} width={1} border={1} borderColor="black">
+                                <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                    <Grid item>
+                                        <Box mt={-1} display="flex" justifyContent="center">
+                                            <Typography component={'span'} variant="caption" noWrap={true} >
+                                                <Box bgcolor="white" px={1}>23 - Assinatura do responsável pelo preenchimento</Box>
+                                            </Typography>
+                                        </Box>
+                                    </Grid>
+                                </Grid>
                             </Box>
-                            {/* <Box ml={1}>
-                                <Typography component={'span'} variant={'h6'} align={'left'}>
-                                    <Box fontWeight="fontWeightBold">{cliente.nome}</Box>
-                                </Typography>
-                            </Box> */}
-                        </Box>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Box>
