@@ -11,15 +11,7 @@ const CabecalhoSUS = () => {
 
     return (
         <>
-            <Box
-                display="flex"
-                justifyContent="center"
-                //  mb={2}
-                border={3}
-                borderColor={"black"}
-                borderBottom={0}
-            //borderRadius={10}
-            >
+            <Box display="flex" justifyContent="center" border={3} borderColor={"black"} borderBottom={0}>
                 <Box my={2} display="flex" flexWrap="nowrap">
                     <CardMedia
                         style={{ width: "108px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
