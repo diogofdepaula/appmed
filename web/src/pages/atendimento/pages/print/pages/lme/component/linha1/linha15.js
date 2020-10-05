@@ -10,8 +10,8 @@ const Linha15LME = () => {
                 border={5}
                 borderColor="black"
             >
-                <Typography component={'span'} variant={'body1'} align={'center'}>
-                    <Box fontWeight="fontWeightBold" >CAMPOS DE PREENCHIMENTO EXCLUSIVO PELO MÉDICO SOLICITANTE</Box>
+                <Typography component={'span'} variant={'subtitle1'} align={'center'}>
+                    <Box fontWeight="fontWeightBold" letterSpacing={2}>CAMPOS DE PREENCHIMENTO EXCLUSIVO PELO MÉDICO SOLICITANTE</Box>
                 </Typography>
             </Box>
         </>

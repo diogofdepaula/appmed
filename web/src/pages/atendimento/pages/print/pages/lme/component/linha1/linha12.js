@@ -5,9 +5,16 @@ const Linha12LME = () => {
 
     return (
         <>
-            <Box mt={1} border={5} borderColor="grey" width={1} bgcolor="text.primary" color="background.paper">
-                <Typography component={'span'} variant={'body1'} align={'center'}>
-                    <Box fontWeight="fontWeightBold">COMPONENTE ESPECIALIZADO DA ASSISTÊNCIA FARMACÊUTICA</Box>
+            <Box
+                mt={1}
+                border={5}
+                borderColor="LightGrey"
+                width={1}
+                bgcolor="text.primary"
+                color="background.paper"
+            >
+                <Typography component={'span'} variant={'subtitle1'} align={'center'}>
+                    <Box fontWeight="fontWeightBold" letterSpacing={2}>COMPONENTE ESPECIALIZADO DA ASSISTÊNCIA FARMACÊUTICA</Box>
                 </Typography>
             </Box>
         </>
