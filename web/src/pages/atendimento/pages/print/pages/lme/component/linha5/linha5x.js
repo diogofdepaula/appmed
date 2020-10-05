@@ -11,7 +11,7 @@ const Linha5xLME = (props) => {
                         <Grid item xs>
                             <Box borderTop={1}>
                                 <Typography component={'span'} variant="h6" noWrap={true} >
-                                    <Box ml={1}>{props.prescricao.medicamento.farmaco} - {props.prescricao.apresentaco.descricao}</Box>
+                                    <Box ml={1} fontWeight="fontWeightBold" >{props.prescricao.medicamento.farmaco} - {props.prescricao.apresentaco.descricao}</Box>
                                 </Typography>
                             </Box>
                         </Grid>

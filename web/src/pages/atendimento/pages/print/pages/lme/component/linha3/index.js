@@ -22,7 +22,7 @@ const Linha3LME = () => {
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'h6'} align={'left'}>
+                                        <Typography component={'span'} variant={'h5'} align={'left'}>
                                             {cliente.nome ? <Box fontWeight="fontWeightBold">{cliente.nome}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
