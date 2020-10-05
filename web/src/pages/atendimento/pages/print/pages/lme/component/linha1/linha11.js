@@ -1,6 +1,6 @@
 import { Box, CardMedia, Grid, Typography } from '@material-ui/core'
 import React from 'react'
-import LogoSUS from '../../../../component/imagens/logosuspng.png'
+import LogoSUS from '../../../../component/imagens/logosus.png'
 import LogoMinisterio from '../../../../component/imagens/ministeriologo.png'
 import LogoSESA from '../../../../component/imagens/sesalogo.png'
 
