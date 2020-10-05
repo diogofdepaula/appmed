@@ -1,15 +1,10 @@
 import { Box, CardMedia, Grid, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { ImpressaoContext } from '../../../..'
+import React from 'react'
 import LogoSUS from '../../../../component/imagens/logosuspng.png'
 import LogoMinisterio from '../../../../component/imagens/ministeriologo.png'
 import LogoSESA from '../../../../component/imagens/sesalogo.png'
 
 const Linha11LME = () => {
-
-    const { impressao } = useContext(ImpressaoContext)
-
-    ////dsadasd
 
     return (
         <>
