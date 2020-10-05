@@ -23,7 +23,7 @@ export default function Print() {
         lmesSelecionadas: [],
         lme: '',
         relatorio: true,
-        comentario: '',
+        comentario: '-',
         database: new Date()
     })
 
