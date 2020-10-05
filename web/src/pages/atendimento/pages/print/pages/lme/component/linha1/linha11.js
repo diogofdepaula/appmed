@@ -13,12 +13,12 @@ const Linha11LME = () => {
 
     return (
         <>
-            <Box mt={2}>
+            <Box mt={1}>
                 <Grid container direction="row" justify="center" alignItems="stretch">
                     <Grid item xs>
                         <Box height={1} width={1} display="flex" justifyContent="center">
                             <CardMedia
-                                style={{ width: "108px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                style={{ width: "140px", height: "100%" }}  // ajustado para 72px do 'h2' arredondar para cima  //width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                                 image={LogoSUS}
                             />
                         </Box>
@@ -26,10 +26,10 @@ const Linha11LME = () => {
                     <Grid item xs>
                         <Box height={1} width={1} display="flex" justifyContent="center">
                             <CardMedia
-                                style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                style={{ width: "159px", height: "100%" }}  
                                 image={LogoMinisterio}
                             />
-                            <Typography variant={'h3'} >
+                            <Typography variant={'h2'} >
                                 <Box style={{ color: "white" }}>-</Box>
                             </Typography>
                         </Box>
@@ -37,7 +37,7 @@ const Linha11LME = () => {
                     <Grid item xs>
                         <Box height={1} width={1} display="flex" justifyContent="center">
                             <CardMedia
-                                style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                style={{ width: "140px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                                 image={LogoSESA}
                             />
                         </Box>
