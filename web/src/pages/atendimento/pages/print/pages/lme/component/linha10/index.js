@@ -28,7 +28,7 @@ const Linha10LME = () => {
                                         </Grid>
                                         <Grid>
                                             <Box ml={2}>
-                                                <Typography component={'span'} variant={'body1'} align={'left'}>
+                                                <Typography component={'span'} variant={'h6'} align={'left'}>
                                                     <Box>Dr. Diogo F. de Paula</Box>
                                                 </Typography>
                                             </Box>
@@ -49,7 +49,7 @@ const Linha10LME = () => {
                                             </Grid>
                                             <Grid>
                                                 <Box ml={2}>
-                                                    <Typography component={'span'} variant={'body1'} align={'left'}>
+                                                    <Typography component={'span'} variant={'h6'} align={'left'}>
                                                         {/* // se tiver que deixar em branco então deixa "-" de cor branca */}
                                                         <Box>980.0162.8089.8038</Box>
                                                     </Typography>
@@ -70,7 +70,7 @@ const Linha10LME = () => {
                                             </Grid>
                                             <Grid>
                                                 <Box>
-                                                    <Typography component={'span'} variant={'body1'} align={'center'}>
+                                                    <Typography component={'span'} variant={'h6'} align={'center'}>
                                                         {date ? <Box>{date}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                                     </Typography>
                                                 </Box>

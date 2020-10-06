@@ -7,14 +7,14 @@ const Linha51LME = () => {
         <>
             <Box>
                 <Grid container>
-                    <Grid container item direction="row" justify="center" alignItems="center" xs={7}>
+                    <Grid container item xs={8} direction="row" justify="center" alignItems="center" >
                         <Grid item>
                             <Typography component={'span'} variant="body1" noWrap={true} >
                                 <Box>7 - Medicamentos</Box>
                             </Typography>
                         </Grid>
                     </Grid>
-                    <Grid container item xs={5}>
+                    <Grid container item xs={4}>
                         <Box width={1} borderLeft={1}>
                             <Grid container item direction="column" justify="center" alignItems="center" >
                                 <Grid item xs>

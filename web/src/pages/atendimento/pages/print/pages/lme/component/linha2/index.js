@@ -27,7 +27,7 @@ const Linha2LME = () => {
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'body1'} align={'center'}>
+                                        <Typography component={'span'} variant={'h6'} align={'center'}>
                                             {estabelecimento.cnes ? <Box>{estabelecimento.cnes}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
@@ -47,7 +47,7 @@ const Linha2LME = () => {
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'body1'} align={'left'}>
+                                        <Typography component={'span'} variant={'h6'} align={'left'}>
                                             <Box>{estabelecimento.nome}</Box>
                                         </Typography>
                                     </Box>

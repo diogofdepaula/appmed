@@ -42,7 +42,7 @@ const Linha3LME = () => {
                                 </Grid>
                                 <Grid item>
                                     <Box>
-                                        <Typography component={'span'} variant={'body1'} align={'center'}>
+                                        <Typography component={'span'} variant={'h6'} align={'center'}>
                                             <Box>{cliente.peso} Kg</Box>
                                         </Typography>
                                     </Box>

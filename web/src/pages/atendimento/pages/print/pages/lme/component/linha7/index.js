@@ -8,7 +8,7 @@ const Linha7LME = () => {
 
     return (
         <>
-            <Box mt={2}>
+            <Box mt={2} height={"400px"}>
                 <Grid container spacing={1}>
                     <Grid container item>
                         <Box width={1} border={1} borderColor="black">

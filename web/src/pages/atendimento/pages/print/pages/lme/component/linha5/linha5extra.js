@@ -7,7 +7,7 @@ const Linha5ExtraLME = () => {
         <>
             <Box>
                 <Grid container>
-                    <Grid container item direction="row" justify="center" xs={7} >
+                    <Grid container item xs={8} direction="row" justify="center"  >
                         <Grid item xs>
                             <Box borderTop={1} height={1}>
                                 <Typography component={'span'} variant="h6" noWrap={true} style={{color: "white"}}>
@@ -16,7 +16,7 @@ const Linha5ExtraLME = () => {
                             </Box>
                         </Grid>
                     </Grid>
-                    <Grid container item xs={5}>
+                    <Grid container item xs={4}>
                         <Box width={1} borderLeft={1}>
                             <Grid container item direction="row" justify="center" alignItems="stretch" style={{height: "100%"}}>  
                                 <Grid item xs>

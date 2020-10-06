@@ -22,7 +22,7 @@ const Linha6LME = () => {
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'body1'} align={'center'}>
+                                        <Typography component={'span'} variant={'h6'} align={'center'}>
                                             {lme.cid10 ? <Box>{lme.cid10}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
@@ -42,7 +42,7 @@ const Linha6LME = () => {
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'body1'} align={'left'}>
+                                        <Typography component={'span'} variant={'h6'} align={'left'}>
                                             <Box>{lme.diagnostico}</Box>
                                         </Typography>
                                     </Box>
