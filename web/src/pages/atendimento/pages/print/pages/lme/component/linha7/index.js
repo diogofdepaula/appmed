@@ -8,8 +8,8 @@ const Linha7LME = () => {
 
     return (
         <>
-            <Box mt={2} height={"400px"}>
-                <Grid container spacing={1}>
+            <Box mt={2}>
+                <Grid container spacing={1} style={{ backgroundColor: "green"}}>
                     <Grid container item>
                         <Box width={1} border={1} borderColor="black">
                             <Grid container direction="column" justify="flex-end" alignItems="stretch">
