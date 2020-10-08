@@ -9,10 +9,17 @@ const Linha5xLME = (props) => {
                 <Grid container>
                     <Grid container item xs={8} direction="row" justify="center" alignItems="center">
                         <Grid item xs>
-                            <Box borderTop={1}>
-                                <Typography component={'span'} variant="h6" noWrap={true} >
-                                    <Box ml={1} fontWeight="fontWeightBold" >{props.prescricao.medicamento.farmaco} - {props.prescricao.apresentaco.descricao}</Box>
-                                </Typography>
+                            <Box display="flex">
+                                <Box borderTop={1} borderRight={1} height={1} width={"5%"}>
+                                    <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                        <Box>{props.numero + 1}</Box>
+                                    </Typography>
+                                </Box>
+                                <Box borderTop={1} flexGrow={1}>
+                                    <Typography component={'span'} variant="h6" noWrap={true} >
+                                        <Box ml={1} fontWeight="fontWeightBold" >{props.prescricao.medicamento.farmaco} - {props.prescricao.apresentaco.descricao}</Box>
+                                    </Typography>
+                                </Box>
                             </Box>
                         </Grid>
                     </Grid>

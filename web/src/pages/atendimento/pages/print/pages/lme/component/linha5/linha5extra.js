@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React from 'react'
 
-const Linha5ExtraLME = () => {
+const Linha5ExtraLME = (props) => {
 
     return (
         <>
@@ -9,16 +9,23 @@ const Linha5ExtraLME = () => {
                 <Grid container>
                     <Grid container item xs={8} direction="row" justify="center"  >
                         <Grid item xs>
-                            <Box borderTop={1} height={1}>
-                                <Typography component={'span'} variant="h6" noWrap={true} style={{color: "white"}}>
-                                    <Box ml={1}>-</Box>
-                                </Typography>
+                            <Box display="flex">
+                                <Box borderTop={1} borderRight={1} height={1} width={"5%"}>
+                                    <Typography component={'span'} variant="h6" noWrap={true} align="center">
+                                        <Box>{props.numero}</Box>
+                                    </Typography>
+                                </Box>
+                                <Box borderTop={1} flexGrow={1}>
+                                    <Typography component={'span'} variant="h6" noWrap={true} >
+                                        <Box style={{ color: "white" }}>-</Box>
+                                    </Typography>
+                                </Box>
                             </Box>
                         </Grid>
                     </Grid>
                     <Grid container item xs={4}>
                         <Box width={1} borderLeft={1}>
-                            <Grid container item direction="row" justify="center" alignItems="stretch" style={{height: "100%"}}>  
+                            <Grid container item direction="row" justify="center" alignItems="stretch" style={{ height: "100%" }}>
                                 <Grid item xs>
                                     <Box borderTop={1} borderRight={1} height={1}>
                                         {/* <Typography component={'span'} variant="h6" noWrap={true} align="center"><Box></Box></Typography> */}

@@ -18,13 +18,13 @@ const Linha5LME = () => {
                 borderColor="black"
             >
                 <Linha51LME />
-                {lme.prescricoes.map(p =>
+                {lme.prescricoes.map((p, i) =>
                     <div key={p.id}>
-                        <Linha5xLME prescricao={p} />
+                        <Linha5xLME prescricao={p} numero={i}/>
                     </div>
                 )}
-                <Linha5ExtraLME />
-                <Linha5ExtraLME />
+                <Linha5ExtraLME numero={lme.prescricoes.length + 1} />
+                <Linha5ExtraLME numero={lme.prescricoes.length + 2}/>
             </Box>
         </>
     )
