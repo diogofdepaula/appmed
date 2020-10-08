@@ -10,7 +10,7 @@ const Linha4LME = () => {
         <>
             <Box mt={1}>
                 <Grid container spacing={1}>
-                    <Grid container item xs={11}  >
+                    <Grid container item xs={10}  >
                         <Box width={1} border={1} borderColor="black">
                             <Grid container direction="column" justify="flex-end" alignItems="stretch">
                                 <Grid item>
@@ -30,7 +30,7 @@ const Linha4LME = () => {
                             </Grid>
                         </Box>
                     </Grid>
-                    <Grid container item xs={1}>
+                    <Grid container item xs={2}>
                         <Box width={1} border={1} borderColor="black">
                             <Grid container direction="column" justify="center" alignItems="center">
                                 <Grid item>

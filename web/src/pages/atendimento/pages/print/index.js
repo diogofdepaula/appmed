@@ -10,12 +10,15 @@ export default function Print() {
 
     // const setPage = useContext(PageContext)
 
+    //const cliente  = useContext(ClienteContext)
+
     //const [lmes, setlmes] = useState([])
     const [validacao, setValidacao] = useState(false)
 
     //variáveis para definir o que será impresso
 
     const [impressao, setImpressao] = useState({
+        cliente: "cliente teste",
         prescricoesSelecionadas: [],
         tipo: '', // simples, controlado
         meses: 1,

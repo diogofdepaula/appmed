@@ -38,7 +38,7 @@ export default function FactoryLME(props) {
                                     <Linha1LME />
                                     <Linha2LME />
                                     <Linha3LME />
-                                    {/* <Linha4LME /> */}
+                                    <Linha4LME />
                                 </Grid>
                                 <Grid item xs style={{ backgroundColor: "yellow" }}>
                                     <Linha5LME />
