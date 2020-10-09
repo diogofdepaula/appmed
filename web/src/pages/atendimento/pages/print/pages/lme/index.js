@@ -22,7 +22,7 @@ export default function FactoryLME(props) {
 
     const a4size = {
         width: 1240,
-        height: 1754 //1754
+        height: 1754
     }
 
     return (
@@ -39,10 +39,16 @@ export default function FactoryLME(props) {
                                     <Linha3LME />
                                     <Linha4LME />
                                 </Grid>
-                                <Grid item xs style={{ backgroundColor: "yellow" }}>
-                                    <Linha5LME />
-                                    <Linha6LME />
-                                    <Linha7LME />
+                                <Grid container item xs direction="column" alignItems="stretch" style={{ backgroundColor: "yellow" }}>
+                                    <Grid item style={{ backgroundColor: "red" }}>
+                                        <Linha5LME />
+                                    </Grid>
+                                    <Grid item>
+                                        <Linha6LME />
+                                    </Grid>
+                                    <Grid item style={{ backgroundColor: "violet" }}>
+                                        <Linha7LME />
+                                    </Grid>
                                 </Grid>
                                 <Grid item >
                                     <Linha9LME />
