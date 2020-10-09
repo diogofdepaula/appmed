@@ -42,7 +42,7 @@ export default function FactoryLME(props) {
                                 <Grid container item xs direction="column" alignItems="stretch" style={{ backgroundColor: "yellow" }}>
                                     <Linha5LME />
                                     <Linha6LME />
-                                    <Grid item xs style={{ backgroundColor: "violet" }}>
+                                    <Grid container direction="row" alignItems="stretch" item xs style={{ backgroundColor: "violet" }}>
                                         <Linha7LME />
                                     </Grid>
                                 </Grid>
