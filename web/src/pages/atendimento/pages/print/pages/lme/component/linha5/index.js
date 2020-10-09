@@ -11,12 +11,7 @@ const Linha5LME = () => {
 
     return (
         <>
-            <Box
-                mt={2}
-                width={1}
-                border={1}
-                borderColor="black"
-            >
+            <Box mt={2} width={1} border={1} borderColor="black" bgcolor="lightblue">
                 <Linha51LME />
                 {lme.prescricoes.map((p, i) =>
                     <div key={p.id}>

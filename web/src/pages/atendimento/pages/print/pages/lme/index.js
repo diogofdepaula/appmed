@@ -33,8 +33,7 @@ export default function FactoryLME(props) {
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
                         <LMEPrintContext.Provider value={props.lme}>
                             <Grid container direction="column" justify="space-between"  style={{ height: "100%"}}>
-                                <Grid item  style={{ backgroundColor: "green" }}>
-                                    
+                                <Grid item style={{ backgroundColor: "green" }}>
                                     <Linha1LME />
                                     <Linha2LME />
                                     <Linha3LME />
