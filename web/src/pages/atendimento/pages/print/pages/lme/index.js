@@ -29,20 +29,20 @@ export default function FactoryLME(props) {
         <>
             <div style={{ width: a4size.width, height: a4size.height }}>
                 {/* a box ali de baixo que determina o uso de toda a folha  */}
-                <Box height={1} p={10} > {/*  bgcolor={"red"} */}
+                <Box height={1} p={10}>
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
                         <LMEPrintContext.Provider value={props.lme}>
                             <Grid container direction="column" justify="space-between" style={{ height: "100%" }}>
-                                <Grid item style={{ backgroundColor: "green" }}>
+                                <Grid item>
                                     <Linha1LME />
                                     <Linha2LME />
                                     <Linha3LME />
                                     <Linha4LME />
                                 </Grid>
-                                <Grid container item xs direction="column" alignItems="stretch" style={{ backgroundColor: "yellow" }}>
+                                <Grid container item xs direction="column" alignItems="stretch">
                                     <Linha5LME />
                                     <Linha6LME />
-                                    <Grid container direction="row" alignItems="stretch" item xs style={{ backgroundColor: "violet" }}>
+                                    <Grid container direction="row" alignItems="stretch" item xs>
                                         <Linha7LME />
                                     </Grid>
                                 </Grid>
