@@ -20,7 +20,7 @@ const Linha7LME = () => {
                         </Grid>
                         <Grid item>
                             <Box ml={1}>
-                                <Typography component={'span'} variant={'body1'} align={'left'}>
+                                <Typography component={'span'} variant={'h6'} align={'left'}>
                                     {lme.anamnese ? <Box>{lme.anamnese}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                 </Typography>
                             </Box>

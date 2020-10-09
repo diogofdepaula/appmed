@@ -1,10 +1,6 @@
 import { Box, Grid } from '@material-ui/core';
 import React, { createContext } from 'react';
 import Linha1LME from './component/linha1';
-import Linha10LME from './component/linha10';
-import Linha11LME from './component/linha11';
-import Linha12LME from './component/linha12';
-import Linha13LME from './component/linha13';
 import Linha2LME from './component/linha2';
 import Linha3LME from './component/linha3';
 import Linha4LME from './component/linha4';
@@ -12,9 +8,11 @@ import Linha5LME from './component/linha5';
 import Linha6LME from './component/linha6';
 import Linha7LME from './component/linha7';
 import Linha9LME from './component/linha9';
-// import LogoSUS from '../../component/imagens/logosuspng.png'
-// import LogoCISGAP from '../../component/imagens/cisgaplogo.png'
-// import LogoCISCO from '../../component/imagens/ciscologo.png'
+import Linha10LME from './component/linha10';
+import Linha11LME from './component/linha11';
+import Linha12LME from './component/linha12';
+import Linha13LME from './component/linha13';
+import Linha14LME from './component/linha14';
 
 export const LMEPrintContext = createContext(null)
 
@@ -52,6 +50,7 @@ export default function FactoryLME(props) {
                                     <Linha11LME />
                                     <Linha12LME />
                                     <Linha13LME />
+                                    <Linha14LME />
                                 </Grid>
                             </Grid>
                         </LMEPrintContext.Provider>

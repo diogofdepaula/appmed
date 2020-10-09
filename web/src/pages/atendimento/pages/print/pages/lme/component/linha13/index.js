@@ -6,7 +6,7 @@ const Linha13LME = () => {
 
     return (
         <>
-                    <Box mt={2}>
+            <Box mt={2}>
                 <Grid container spacing={1}>
                     <Grid container item xs={8}>
                         <Grid container item direction="column" justify="space-between" alignItems="stretch" spacing={1}>
@@ -60,7 +60,7 @@ const Linha13LME = () => {
                                             <Grid>
                                                 <Box ml={2}>
                                                     <Typography component={'span'} variant={'body1'} align={'left'}>
-                                                        <Box style={{color: "white"}}>-</Box>
+                                                        <Box style={{ color: "white" }}>-</Box>
                                                     </Typography>
                                                 </Box>
                                             </Grid>
