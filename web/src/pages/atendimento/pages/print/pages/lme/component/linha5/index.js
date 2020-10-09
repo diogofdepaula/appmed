@@ -16,6 +16,7 @@ const Linha5LME = () => {
                 width={1}
                 border={1}
                 borderColor="black"
+                style={{ backgroundColor: "grey" }}
             >
                 <Linha51LME />
                 {lme.prescricoes.map((p, i) =>
