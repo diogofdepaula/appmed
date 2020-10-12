@@ -15,11 +15,21 @@ const Linha5LME = () => {
                 <Linha51LME />
                 {lme.prescricoes.map((p, i) =>
                     <div key={p.id}>
-                        <Linha5xLME prescricao={p} numero={i}/>
+                        <Linha5xLME prescricao={p} numero={i} />
                     </div>
                 )}
-                <Linha5ExtraLME numero={lme.prescricoes.length + 1} />
-                <Linha5ExtraLME numero={lme.prescricoes.length + 2}/>
+                {lme.prescricoes.length === 1 ?
+                    <div>
+                        <Linha5ExtraLME numero={lme.prescricoes.length + 1} />
+                        <Linha5ExtraLME numero={lme.prescricoes.length + 2} />
+                        <Linha5ExtraLME numero={lme.prescricoes.length + 3} />
+                    </div>
+                    :
+                    <div>
+                        <Linha5ExtraLME numero={lme.prescricoes.length + 1} />
+                        <Linha5ExtraLME numero={lme.prescricoes.length + 2} />
+                    </div>
+                }
             </Box>
         </>
     )
