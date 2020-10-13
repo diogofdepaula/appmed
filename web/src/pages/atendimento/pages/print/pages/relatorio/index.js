@@ -39,16 +39,17 @@ export default function FactoryRelatorio(props) {
                                 </Grid>
                                 <Grid container item xs direction="column" alignItems="stretch">
                                     <Linha5Relatorio />
-                                    <Linha6Relatorio />
+                                    {/* <Linha5Relatorio /> */}
+
                                     <Grid container direction="row" alignItems="stretch" item xs>
                                         <Linha7Relatorio />
                                     </Grid>
                                 </Grid>
                                 <Grid item >
-                                    <Linha9Relatorio />
+                                    {/* <Linha9Relatorio />
                                     <Linha10Relatorio />
                                     <Linha11Relatorio />
-                                    <Linha12Relatorio />
+                                    <Linha12Relatorio /> */}
                                     <Linha13Relatorio />
                                     <Linha14Relatorio />
                                 </Grid>

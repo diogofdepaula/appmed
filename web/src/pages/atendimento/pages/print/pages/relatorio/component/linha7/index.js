@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
+import { RelatorioPrintContext } from '../..'
 
-const Linha7LME = () => {
+const Linha7Relatorio = () => {
 
-    const lme = useContext(LMEPrintContext)
+    const lme = useContext(RelatorioPrintContext)
 
     return (
         <Grid container item style={{ height: "100%" }}>
@@ -21,7 +21,7 @@ const Linha7LME = () => {
                         <Grid item>
                             <Box>
                                 <Typography component={'span'} variant={'h6'} align={'justify'}>
-                                    {lme.anamnese ? <Box p={1}>{lme.anamnese}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                    <Box p={1}>Teste</Box>}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -32,4 +32,4 @@ const Linha7LME = () => {
     )
 }
 
-export default Linha7LME
+export default Linha7Relatorio

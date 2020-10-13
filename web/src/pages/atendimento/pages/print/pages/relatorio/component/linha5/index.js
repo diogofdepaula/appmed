@@ -1,38 +1,59 @@
-import { Box } from '@material-ui/core'
+import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
-import Linha51LME from './linha51'
-import Linha5ExtraLME from './linha5extra'
-import Linha5xLME from './linha5x'
+import { RelatorioPrintContext } from '../..'
 
-const Linha5LME = () => {
+const Linha5Relatorio = () => {
 
-    const lme = useContext(LMEPrintContext)
+    const lme = useContext(RelatorioPrintContext)
 
     return (
         <>
-            <Box mt={2} width={1} border={1} borderColor="black">
-                <Linha51LME />
-                {lme.prescricoes.map((p, i) =>
-                    <div key={p.id}>
-                        <Linha5xLME prescricao={p} numero={i} />
-                    </div>
-                )}
-                {lme.prescricoes.length === 1 ?
-                    <div>
-                        <Linha5ExtraLME numero={lme.prescricoes.length + 1} />
-                        <Linha5ExtraLME numero={lme.prescricoes.length + 2} />
-                        <Linha5ExtraLME numero={lme.prescricoes.length + 3} />
-                    </div>
-                    :
-                    <div>
-                        <Linha5ExtraLME numero={lme.prescricoes.length + 1} />
-                        <Linha5ExtraLME numero={lme.prescricoes.length + 2} />
-                    </div>
-                }
+            <Box mt={2}>
+                <Grid container spacing={1}>
+                    <Grid container item xs={6}  >
+                        <Box width={1} border={1} borderColor="black">
+                            <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                <Grid item>
+                                    <Box mt={-1} ml={2} display="flex" >
+                                        <Typography component={'span'} variant="caption" noWrap={true} >
+                                            <Box bgcolor="white" px={1}>Será a linha 5</Box>
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                                <Grid item>
+                                    <Box ml={1}>
+                                        <Typography component={'span'} variant={'h6'} align={'center'}>
+                                            <Box>Medicamento pleiteado</Box>
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                    </Grid>
+                    <Grid container item xs={6}>
+                        <Box width={1} border={1} borderColor="black">
+                            <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                <Grid item>
+                                    <Box mt={-1} ml={2} display="flex">
+                                        <Typography component={'span'} variant="caption" noWrap={true} >
+                                            <Box bgcolor="white" px={1}>10 - Remover</Box>
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                                <Grid item>
+                                    <Box ml={1}>
+                                        <Typography component={'span'} variant={'h6'} align={'left'}>
+                                            <Box>Teste</Box>
+                                        </Typography>
+                                    </Box>
+                                </Grid>
+                            </Grid>
+                        </Box>
+                    </Grid>
+                </Grid>
             </Box>
         </>
     )
 }
 
-export default Linha5LME
+export default Linha5Relatorio

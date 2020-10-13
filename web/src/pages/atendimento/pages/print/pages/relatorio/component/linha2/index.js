@@ -1,54 +1,49 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { ImpressaoContext } from '../../../../../print'
+import { ClienteContext } from '../../../../..'
 
-const Linha2LME = () => {
+const Linha2Relatorio = () => {
 
-    const { impressao } = useContext(ImpressaoContext)
-
-    const estabelecimento = {
-        cnes: impressao.local === "cisgap" ? "3634949" : impressao.local === "cisco" ? "2741687" : "7275714",
-        nome: impressao.local === "cisgap" ? "Consórcio Intermunicipal de Saúde - CISGAP" : impressao.local === "cisco" ? "Consórcio Intermunicipal de Saúde Centro Oeste - CISCO" : "CLINICA MEDICA DIEGUEZ DE PAULA",
-    }
+    const cliente = useContext(ClienteContext)
 
     return (
         <>
-            <Box mt={2}>
+            <Box mt={1}>
                 <Grid container spacing={1}>
-                    <Grid container item xs={2} >
+                    <Grid container item xs={10}  >
                         <Box width={1} border={1} borderColor="black">
                             <Grid container direction="column" justify="flex-end" alignItems="stretch">
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>1 - Número do CNES</Box>
+                                            <Box bgcolor="white" px={1}>1 - Nome completo do paciente</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            {estabelecimento.cnes ? <Box>{estabelecimento.cnes}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        <Typography component={'span'} variant={'h5'} align={'left'}>
+                                            {cliente.nome ? <Box fontWeight="fontWeightBold">{cliente.nome}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
                                 </Grid>
                             </Grid>
                         </Box>
                     </Grid>
-                    <Grid container item xs={10}>
+                    <Grid container item xs={2}>
                         <Box width={1} border={1} borderColor="black">
-                            <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                            <Grid container direction="column" justify="center" alignItems="center">
                                 <Grid item>
-                                    <Box mt={-1} ml={2} display="flex">
+                                    <Box mt={-1} display="flex">
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>2 - Nome do estabelecimento de saúde solicitante</Box>
+                                            <Box bgcolor="white" px={1}>2 - Sexo</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item>
-                                    <Box ml={1}>
-                                        <Typography component={'span'} variant={'h6'} align={'left'}>
-                                            <Box>{estabelecimento.nome}</Box>
+                                    <Box>
+                                        <Typography component={'span'} variant={'h6'} align={'center'}>
+                                            <Box>{cliente.peso} Kg</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -61,4 +56,4 @@ const Linha2LME = () => {
     )
 }
 
-export default Linha2LME
+export default Linha2Relatorio

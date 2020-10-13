@@ -1,49 +1,49 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { ClienteContext } from '../../../../..'
+import { RelatorioPrintContext } from '../..'
 
-const Linha4LME = () => {
+const Linha4Relatorio = () => {
 
-    const cliente = useContext(ClienteContext)
+    const lme = useContext(RelatorioPrintContext)
 
     return (
         <>
-            <Box mt={1}>
+            <Box mt={2}>
                 <Grid container spacing={1}>
-                    <Grid container item xs={10}  >
+                    <Grid container item xs={6}  >
                         <Box width={1} border={1} borderColor="black">
                             <Grid container direction="column" justify="flex-end" alignItems="stretch">
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>4 - Nome da Mãe do Paciente</Box>
+                                            <Box bgcolor="white" px={1}>X - Medicamento</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'h6'} align={'left'}>
-                                            {cliente.mae ? <Box>{cliente.mae}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        <Typography component={'span'} variant={'h6'} align={'center'}>
+                                            <Box>Medicamento pleiteado</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
                             </Grid>
                         </Box>
                     </Grid>
-                    <Grid container item xs={2}>
+                    <Grid container item xs={6}>
                         <Box width={1} border={1} borderColor="black">
-                            <Grid container direction="column" justify="center" alignItems="center">
+                            <Grid container direction="column" justify="flex-end" alignItems="stretch">
                                 <Grid item>
-                                    <Box mt={-1} display="flex">
+                                    <Box mt={-1} ml={2} display="flex">
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>6 - Altura</Box>
+                                            <Box bgcolor="white" px={1}>10 - Remover</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item>
-                                    <Box>
-                                        <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{cliente.altura} cm</Box>
+                                    <Box ml={1}>
+                                        <Typography component={'span'} variant={'h6'} align={'left'}>
+                                            <Box>Teste</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -56,4 +56,4 @@ const Linha4LME = () => {
     )
 }
 
-export default Linha4LME
+export default Linha4Relatorio

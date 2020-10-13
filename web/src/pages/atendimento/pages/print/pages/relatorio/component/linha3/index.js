@@ -2,9 +2,9 @@ import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { ClienteContext } from '../../../../..'
 
- const Linha3LME = () => {
+const Linha3Relatorio = () => {
 
-      const cliente = useContext(ClienteContext)
+    const cliente = useContext(ClienteContext)
 
     return (
         <>
@@ -16,14 +16,14 @@ import { ClienteContext } from '../../../../..'
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>3 - Nome completo do paciente</Box>
+                                            <Box bgcolor="white" px={1}>3 - Data de nascimento</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item>
                                     <Box ml={1}>
-                                        <Typography component={'span'} variant={'h5'} align={'left'}>
-                                            {cliente.nome ? <Box fontWeight="fontWeightBold">{cliente.nome}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        <Typography component={'span'} variant={'h6'} align={'left'}>
+                                            {cliente.mae ? <Box>{cliente.mae}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -36,14 +36,14 @@ import { ClienteContext } from '../../../../..'
                                 <Grid item>
                                     <Box mt={-1} display="flex">
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>5 - Peso</Box>
+                                            <Box bgcolor="white" px={1}>7 - Peso</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
                                 <Grid item>
                                     <Box>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{cliente.peso} Kg</Box>
+                                            <Box>{cliente.peso} cm</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -56,4 +56,4 @@ import { ClienteContext } from '../../../../..'
     )
 }
 
-export default Linha3LME
+export default Linha3Relatorio

@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
+import { RelatorioPrintContext } from '../..'
 
 const Linha6LME = () => {
 
-    const lme = useContext(LMEPrintContext)
+    const lme = useContext(RelatorioPrintContext)
 
     return (
         <>
@@ -23,7 +23,7 @@ const Linha6LME = () => {
                                 <Grid item>
                                     <Box ml={1}>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            {lme.cid10 ? <Box>{lme.cid10}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                            <Box>teste</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>

@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { ImpressaoContext } from '..';
 import FactoryLME from './lme';
 import FactoryReceitasSUS from './receita';
+import FactoryRelatorio from './relatorio';
 
 export default function Factory() {
 
@@ -24,6 +25,7 @@ export default function Factory() {
                 return (
                     <div>
                         <FactoryLME lme={impressao.lmesSelecionadas[0]} />
+                        <FactoryRelatorio />
                         <FactoryReceitasSUS />
                         {/* depois faz o preparo para definir Fila de impressão */}
                         {/* quando for fazer a fila de impressao. o lme passado para o componente abaixo já está completo com 
