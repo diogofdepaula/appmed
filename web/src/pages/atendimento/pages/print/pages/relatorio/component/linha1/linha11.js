@@ -1,10 +1,10 @@
 import { Box, CardMedia, Grid } from '@material-ui/core'
 import React from 'react'
-import LogoSUS from '../../../../component/imagens/logosus.png'
+import LogoCEMEPAR from '../../../../component/imagens/cemeparlogo.png'
 import LogoMinisterio from '../../../../component/imagens/ministeriologo.png'
 import LogoSESA from '../../../../component/imagens/sesalogo.png'
 
-const Linha11LME = () => {
+const Linha11Relatorio = () => {
 
     return (
         <>
@@ -15,8 +15,8 @@ const Linha11LME = () => {
                         height={"72px"} // se mudar aqui tem que mudar o width das outras figuras também.
                         width={1} display="flex" justifyContent="center">  
                             <CardMedia
-                                style={{ width: "141px", height: "100%" }}  // ajustado para 72px do 'h2' arredondar para cima  //width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                                image={LogoSUS}
+                                style={{ width: "48px", height: "100%" }}  // ajustado para 72px do 'h2' arredondar para cima  //width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                image={LogoCEMEPAR}
                             />
                         </Box>
                     </Grid>
@@ -42,4 +42,4 @@ const Linha11LME = () => {
     )
 }
 
-export default Linha11LME
+export default Linha11Relatorio

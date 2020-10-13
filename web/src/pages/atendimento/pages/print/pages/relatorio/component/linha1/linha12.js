@@ -1,7 +1,7 @@
 import { Box, Typography } from '@material-ui/core'
 import React from 'react'
 
-const Linha12LME = () => {
+const Linha12Relatorio = () => {
 
     return (
         <>
@@ -21,4 +21,4 @@ const Linha12LME = () => {
     )
 }
 
-export default Linha12LME
+export default Linha12Relatorio

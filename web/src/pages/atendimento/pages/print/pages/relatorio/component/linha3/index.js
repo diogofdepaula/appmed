@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { ClienteContext } from '../../../../..'
 
-const Linha3LME = () => {
+ const Linha3LME = () => {
 
       const cliente = useContext(ClienteContext)
 
