@@ -43,7 +43,7 @@ const Linha2Relatorio = () => {
                                 <Grid item>
                                     <Box>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{cliente.peso} Kg</Box>
+                                            <Box>{cliente.sexo}</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
