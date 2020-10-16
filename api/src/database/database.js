@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: 'C:/Projetos/appmed/api/src/database/appmeddb.sqlite'
+    storage: './src/database/appmeddb.sqlite'
 });
 
 sequelize

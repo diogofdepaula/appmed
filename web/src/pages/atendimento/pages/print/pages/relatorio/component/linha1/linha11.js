@@ -15,7 +15,7 @@ const Linha11Relatorio = () => {
                         height={"72px"} // se mudar aqui tem que mudar o width das outras figuras também.
                         width={1} display="flex" justifyContent="center">  
                             <CardMedia
-                                style={{ width: "48px", height: "100%" }}  // ajustado para 72px do 'h2' arredondar para cima  //width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                style={{ width: "107px", height: "100%" }}  // fazer regra de 3 com 72px de height
                                 image={LogoCEMEPAR}
                             />
                         </Box>
