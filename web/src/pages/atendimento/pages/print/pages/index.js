@@ -25,7 +25,9 @@ export default function Factory() {
                 return (
                     <div>
                         <FactoryLME lme={impressao.lmesSelecionadas[0]} />
-                        <FactoryRelatorio />
+                        <FactoryRelatorio lme={impressao.lmesSelecionadas[0]} />
+
+                        {/*   A lme já vem com as prescricoes (e relatorio) */}
                         <FactoryReceitasSUS />
                         {/* depois faz o preparo para definir Fila de impressão */}
                         {/* quando for fazer a fila de impressao. o lme passado para o componente abaixo já está completo com 

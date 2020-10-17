@@ -1,10 +1,10 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { RelatorioPrintContext } from '../..'
+//import { RelatorioPrintContext } from '../..'
 
 const Linha7Relatorio = () => {
 
-    const lme = useContext(RelatorioPrintContext)
+    //const lme = useContext(RelatorioPrintContext)
 
     return (
         <Grid container item style={{ height: "100%" }}>

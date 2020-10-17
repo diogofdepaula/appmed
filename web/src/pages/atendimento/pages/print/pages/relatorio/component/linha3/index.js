@@ -50,8 +50,6 @@ const Linha3Relatorio = () => {
                             </Grid>
                         </Box>
                     </Grid>
-
-                    
                     <Grid container item xs={8}>
                         <Box width={1} border={1} borderColor="black">
                             <Grid container direction="column" justify="flex-end" alignItems="stretch">

@@ -14,7 +14,7 @@ import Linha12Relatorio from './component/linha12';
 import Linha13Relatorio from './component/linha13';
 import Linha14Relatorio from './component/linha14';
 
-export const RelatorioPrintContext = createContext(null)
+export const LMEPrintContext = createContext(null)
 
 export default function FactoryRelatorio(props) {
 
@@ -29,7 +29,7 @@ export default function FactoryRelatorio(props) {
                 {/* a box ali de baixo que determina o uso de toda a folha  */}
                 <Box height={1} p={10}>
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
-                        <RelatorioPrintContext.Provider value={props.relatorio}>
+                        <LMEPrintContext.Provider value={props.lme}>
                             <Grid container direction="column" justify="space-between" style={{ height: "100%" }}>
                                 <Grid item>
                                     <Linha1Relatorio />
@@ -39,6 +39,7 @@ export default function FactoryRelatorio(props) {
                                 </Grid>
                                 <Grid container item xs direction="column" alignItems="stretch">
                                     <Linha5Relatorio />
+                                    <Linha6Relatorio />
                                     {/* <Linha5Relatorio /> */}
 
                                     <Grid container direction="row" alignItems="stretch" item xs>
@@ -54,7 +55,7 @@ export default function FactoryRelatorio(props) {
                                     <Linha14Relatorio />
                                 </Grid>
                             </Grid>
-                        </RelatorioPrintContext.Provider>
+                        </LMEPrintContext.Provider>
                     </Box>
                 </Box>
             </div>
