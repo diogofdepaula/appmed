@@ -1,66 +1,35 @@
-import { Box, Grid, Typography } from '@material-ui/core';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import React from 'react';
+import { Box, Grid, Typography } from '@material-ui/core'
+import React from 'react'
+//import { RelatorioPrintContext } from '../..'
 
-const Linha9LME = () => {
+const Linha9Relatorio = () => {
+
+    //const lme = useContext(RelatorioPrintContext)
 
     return (
-        <>
-            <Box mt={2} >
-                <Grid container spacing={1}>
-                    <Grid item xs>
-                        <Box width={1} border={1} borderColor="black" display="block" >
+        <Grid container item style={{ height: "100%" }}>
+            <Grid container item >
+                <Box mt={2} width={1} border={1} borderColor="black">
+                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                        <Grid item>
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>13 - Atestado de capacidade</Box>
+                                    <Box bgcolor="white" px={1}>11 e 12 - História clínica (Anamnese e tratamento prévio)</Box>
                                 </Typography>
                             </Box>
-                            <Box px={1}>
-                                <Typography component={'span'} variant={'body1'} align={'center'} >
-                                    <Box>A solicitação do medicamento deverá ser realizada pelo paciente. Entretanto, fica dispensada a obrigatoriedade da presença física do paciente considerado incapaz de acordo com os artigos 3º e 4º do Código Civil. O paciente é considerado incapaz?</Box>
-                                </Typography>
-                            </Box>
+                        </Grid>
+                        <Grid item>
                             <Box>
-                                <Grid container direction="row" justify="space-around" alignItems="center">
-                                    <Grid container item xs direction="row" justify="flex-start" alignItems="flex-start">
-                                        <Grid item xs={3}>
-                                            <Box ml={1} display="flex">
-                                                <CheckBoxOutlineBlankIcon />
-                                                <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                    <Box>Não</Box>
-                                                </Typography>
-                                                <CheckBoxOutlineBlankIcon />
-                                                <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                    <Box>Sim</Box>
-                                                </Typography>
-                                            </Box>
-                                        </Grid>
-                                        <Grid item xs={9}>
-                                            <Typography component={'span'} variant={'body1'} align={'justify'} >
-                                                <Box>Indicar o nome do responsável pelo paciente, o qual poderá realizar a solicitação do medicamento</Box>
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container item xs direction="column" justify="center" alignItems="center">
-                                        <Grid item>
-                                            <Typography component={'span'} variant={'body1'} align={'center'} >
-                                                <Box>__________________________________________</Box>
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Typography component={'span'} variant={'body1'} align={'center'} >
-                                                <Box>Nome do responsável</Box>
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
+                                <Typography component={'span'} variant={'h6'} align={'justify'}>
+                                    <Box p={1}>Teste</Box>}
+                                </Typography>
                             </Box>
-                        </Box>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Box>
-        </>
+                </Box>
+            </Grid>
+        </Grid>
     )
 }
 
-export default Linha9LME
+export default Linha9Relatorio

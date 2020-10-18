@@ -8,9 +8,9 @@ import Linha5Relatorio from './component/linha5';
 import Linha6Relatorio from './component/linha6';
 import Linha7Relatorio from './component/linha7';
 import Linha9Relatorio from './component/linha9';
-import Linha10Relatorio from './component/linha10';
-import Linha11Relatorio from './component/linha11';
-import Linha12Relatorio from './component/linha12';
+// import Linha10Relatorio from './component/linha10';
+// import Linha11Relatorio from './component/linha11';
+// import Linha12Relatorio from './component/linha12';
 import Linha13Relatorio from './component/linha13';
 import Linha14Relatorio from './component/linha14';
 
@@ -40,10 +40,10 @@ export default function FactoryRelatorio(props) {
                                 <Grid container item xs direction="column" alignItems="stretch">
                                     <Linha5Relatorio />
                                     <Linha6Relatorio />
-                                    {/* <Linha5Relatorio /> */}
+                                    <Linha7Relatorio />
 
                                     <Grid container direction="row" alignItems="stretch" item xs>
-                                        <Linha7Relatorio />
+                                        <Linha9Relatorio />
                                     </Grid>
                                 </Grid>
                                 <Grid item >
