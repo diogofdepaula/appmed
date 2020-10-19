@@ -6,8 +6,6 @@ const Linha4Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
 
-    console.log('lme', lme.prescricoes.filter(m => m.medicamento.classe === "MMCDB"))
-
     return (
         <>
             <Box mt={2}>

@@ -21,7 +21,7 @@ const Linha9Relatorio = () => {
                         <Grid item>
                             <Box>
                                 <Typography component={'span'} variant={'h6'} align={'justify'}>
-                                    <Box p={1}>Teste</Box>}
+                                    <Box p={1}>Teste</Box>
                                 </Typography>
                             </Box>
                         </Grid>
