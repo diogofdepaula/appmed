@@ -11,9 +11,10 @@ import Linha9Relatorio from './component/linha9';
 // import Linha10Relatorio from './component/linha10';
 // import Linha11Relatorio from './component/linha11';
 // import Linha12Relatorio from './component/linha12';
-import Linha13Relatorio from './component/linha13';
-import Linha14Relatorio from './component/linha14';
+// import Linha13Relatorio from './component/linha13';
+// import Linha14Relatorio from './component/linha14';
 import Linha8Relatorio from './component/linha8';
+import Linha10Relatorio from './component/linha10';
 
 export const LMEPrintContext = createContext(null)
 
@@ -48,12 +49,11 @@ export default function FactoryRelatorio(props) {
                                     </Grid>
                                 </Grid>
                                 <Grid item >
-                                    {/* <Linha9Relatorio />
                                     <Linha10Relatorio />
-                                    <Linha11Relatorio />
-                                    <Linha12Relatorio /> */}
+                                    {/* <Linha11Relatorio />
+                                    <Linha12Relatorio /> 
                                     <Linha13Relatorio />
-                                    <Linha14Relatorio />
+                                    <Linha14Relatorio /> */}
                                 </Grid>
                             </Grid>
                         </LMEPrintContext.Provider>

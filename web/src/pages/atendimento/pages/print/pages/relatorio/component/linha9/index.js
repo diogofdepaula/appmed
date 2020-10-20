@@ -1,35 +1,24 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React from 'react'
-//import { RelatorioPrintContext } from '../..'
 
 const Linha9Relatorio = () => {
 
-    //const lme = useContext(RelatorioPrintContext)
-
     return (
-        <Grid container item style={{ height: "100%" }}>
-            <Grid container item >
-                <Box mt={2} width={1} border={1} borderColor="black">
-                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                        <Grid item>
-                            <Box mt={-1} ml={2} display="flex">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>XX - Justificativa para solicitação, mudança e eventos adversos (História clínica)</Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item>
-                            <Box>
-                                <Typography component={'span'} variant={'h6'} align={'justify'}>
-                                    <Box p={1}>Teste</Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
+        <Grid container item >
+            <Box mt={2} width={1} border={1} borderColor="black">
+                <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                    <Grid item>
+                        <Box mt={-1} ml={2} display="flex">
+                            <Typography component={'span'} variant="caption" noWrap={true} >
+                                <Box bgcolor="white" px={1}>xx - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
+                            </Typography>
+                        </Box>
                     </Grid>
-                </Box>
-            </Grid>
+                </Grid>
+            </Box>
         </Grid>
     )
 }
 
 export default Linha9Relatorio
+

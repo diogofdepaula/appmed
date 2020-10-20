@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
-import Linha8xLME from './index8x'
-import Linha81LME from './linha81'
+import Linha8xRelatorio from './index8x'
+import Linha81Relatorio from './linha81'
 
 const Linha8Relatorio = () => {
 
@@ -81,11 +81,11 @@ const Linha8Relatorio = () => {
                     <Grid item>
                         <Box p={1}>
                             <Box width={1} border={1} borderColor="black">
-                                <Linha81LME />
+                                <Linha81Relatorio />
                                 {indices.map((p, i) =>
                                     p[0][1] !== "" ?
                                         <div key={i}>
-                                            <Linha8xLME prescricao={p} />
+                                            <Linha8xRelatorio prescricao={p} />
                                         </div>
                                         :
                                         <div></div>

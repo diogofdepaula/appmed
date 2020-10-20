@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React from 'react'
 
-const Linha81LME = () => {
+const Linha81Relatorio = () => {
 
     return (
         <>
@@ -60,4 +60,4 @@ const Linha81LME = () => {
     )
 }
 
-export default Linha81LME
+export default Linha81Relatorio

@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React from 'react'
 
-const Linha8xLME = (props) => {
+const Linha8xRelatorio = (props) => {
 
     return (
         <>
@@ -60,4 +60,4 @@ const Linha8xLME = (props) => {
     )
 }
 
-export default Linha8xLME
+export default Linha8xRelatorio
