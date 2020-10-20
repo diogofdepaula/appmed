@@ -75,7 +75,7 @@ const Linha7Relatorio = () => {
                         </Box>
                     </Grid>
                     <Grid item>
-                        <Box mt={2} mb={1}>
+                        <Box mt={1} mb={1}>
                             {list && list.map((w, i) =>
                                 <div key={i}>
                                     <Grid item>

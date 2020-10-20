@@ -14,7 +14,7 @@ const Linha9Relatorio = () => {
                         <Grid item>
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>11 e 12 - História clínica (Anamnese e tratamento prévio)</Box>
+                                    <Box bgcolor="white" px={1}>XX - Justificativa para solicitação, mudança e eventos adversos (História clínica)</Box>
                                 </Typography>
                             </Box>
                         </Grid>

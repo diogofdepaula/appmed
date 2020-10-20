@@ -7,38 +7,50 @@ const Linha8xLME = (props) => {
         <>
             <Box>
                 <Grid container item direction="row" justify="center" alignItems="stretch">
-                    <Grid item xs={3} style={{backgroundColor: "red"}}>
+                    <Grid item xs={3}>
                         <Box borderTop={1} borderRight={1} height={1}>
                             <Typography component={'span'} variant="body1" noWrap={true}>
-                                <Box ml={1} display="flex" alignItems="center">{props.prescricao[0][1]}</Box>
+                                <Box display="flex" alignItems="center" height={1}>
+                                    <Box ml={1}>{props.prescricao[0][1]}</Box>
+                                </Box>
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={2}>
-                        <Box borderTop={1} borderRight={1} height={1}>
-                            <Typography component={'span'} variant="body1" noWrap={true} align="center" >
-                                <Box ml={1}>{props.prescricao[1][1]}</Box>
-                            </Typography>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <Box borderTop={1} borderRight={1} height={1}>
-                            <Typography component={'span'} variant="body1" noWrap={true} align="center" >
-                                <Box ml={1}>{props.prescricao[2][1]}</Box>
-                            </Typography>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <Box borderTop={1} borderRight={1} height={1}>
-                            <Typography component={'span'} variant="body1" noWrap={true} align="center" >
-                                <Box ml={1}>{props.prescricao[3][1]}</Box>
-                            </Typography>
-                        </Box>
+                    <Grid container item xs={4}>
+                        <Grid item xs={4}>
+                            <Box borderTop={1} borderRight={1} height={1}>
+                                <Typography component={'span'} variant="body1" noWrap={true}>
+                                    <Box display="flex" alignItems="center" justifyContent="center" height={1}>
+                                        <Box>{props.prescricao[1][1]}</Box>
+                                    </Box>
+                                </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Box borderTop={1} borderRight={1} height={1}>
+                                <Typography component={'span'} variant="body1" noWrap={true}>
+                                    <Box display="flex" alignItems="center" justifyContent="center" height={1}>
+                                        <Box>{props.prescricao[2][1]}</Box>
+                                    </Box>
+                                </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Box borderTop={1} borderRight={1} height={1}>
+                                <Typography component={'span'} variant="body1" noWrap={true}>
+                                    <Box display="flex" alignItems="center" justifyContent="center" height={1}>
+                                        <Box>{props.prescricao[3][1]}</Box>
+                                    </Box>
+                                </Typography>
+                            </Box>
+                        </Grid>
                     </Grid>
                     <Grid item xs={5}>
                         <Box borderTop={1} height={1}>
                             <Typography component={'span'} variant="body1" Wrap={true} >
-                                <Box ml={1}>{props.prescricao[4][1]}</Box>
+                                <Box display="flex" alignItems="center" height={1}>
+                                    <Box ml={1}>{props.prescricao[4][1]}</Box>
+                                </Box>
                             </Typography>
                         </Box>
                     </Grid>

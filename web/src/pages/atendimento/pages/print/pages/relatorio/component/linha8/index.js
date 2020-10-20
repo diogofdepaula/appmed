@@ -80,7 +80,7 @@ const Linha8Relatorio = () => {
                     </Grid>
                     <Grid item>
                         <Box p={1}>
-                            <Box mt={1} width={1} border={1} borderColor="black">
+                            <Box width={1} border={1} borderColor="black">
                                 <Linha81LME />
                                 {indices.map((p, i) =>
                                     p[0][1] !== "" ?
