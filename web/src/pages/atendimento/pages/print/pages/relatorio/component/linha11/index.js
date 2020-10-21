@@ -1,75 +1,52 @@
 import { Box, Grid, Typography } from '@material-ui/core';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import React from 'react';
+import React, { useContext } from 'react';
+import { LMEPrintContext } from '../..';
 
 const Linha11Relatorio = () => {
 
+    const lme = useContext(LMEPrintContext)
+
+    const indices = [
+        ['das28', lme.relatorio.das28],
+        ['cdai', lme.relatorio.cdai],
+        ['sdai', lme.relatorio.sdai],
+        ['basdai', lme.relatorio.basdai],
+        ['asdas', lme.relatorio.asdas],
+        ['mda', lme.relatorio.mda],
+        ['eva', lme.relatorio.eva],
+    ]
+
     return (
         <>
-            <Box mt={2} >
-                <Box width={1} border={1} borderColor="black" display="block">
-                    <Grid container direction="column" justify="flex-end" >
+            <Grid container item >
+                <Box mt={2} width={1} border={1} borderColor="black">
+                    <Grid container direction="column" justify="flex-start" alignItems="stretch" >
                         <Grid item>
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>18 - Campos abaixo preenchidos por</Box>
+                                    <Box bgcolor="white" px={1}>18 - Índices combinados de atividade de doença</Box>
                                 </Typography>
                             </Box>
                         </Grid>
-                        <Grid container item >
-                            <Grid container item xs direction="row" justify="flex-start" alignItems="flex-start">
-                                <Grid item xs>
-                                    <Box ml={1} display="flex">
-                                        <CheckBoxOutlineBlankIcon />
-                                        <Typography component={'span'} variant={'body1'} align={'left'} >
-                                            <Box>Paciente</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                                <Grid item xs>
-                                    <Box ml={1} display="flex">
-                                        <CheckBoxOutlineBlankIcon />
-                                        <Typography component={'span'} variant={'body1'} align={'left'}  noWrap>
-                                            <Box>Mãe do paciente</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                                <Grid item xs>
-                                    <Box ml={1} display="flex">
-                                        <CheckBoxOutlineBlankIcon />
-                                        <Typography component={'span'} variant={'body1'} align={'left'} >
-                                            <Box>Responsável</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                                <Grid item xs>
-                                    <Box ml={1} display="flex">
-                                        <CheckBoxOutlineBlankIcon />
-                                        <Typography component={'span'} variant={'body1'} align={'left'} >
-                                            <Box>Médico</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Box ml={1} display="flex">
-                                    <CheckBoxOutlineBlankIcon />
-                                    <Typography component={'span'} variant={'body1'} align={'left'} >
-                                        <Box>Outro:</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                            <Grid item xs={3}>
-                                <Box ml={1} display="flex">
-                                    <Typography component={'span'} variant={'body1'} align={'left'} >
-                                        <Box>e CPF:</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
+                        <Grid container item xs direction="row" justify="center" alignItems="center">
+                            {indices.map((w, i) =>
+                                w[1] !== "" ?
+                                    <div key={i}>
+                                        <Grid item>
+                                            <Box px={2} display="flex">
+                                                <Typography component={'span'} variant={'body1'} align={'center'} >
+                                                    <Box>{w[0].toLocaleUpperCase()}: {w[1]}</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                    </div>
+                                    :
+                                    <div key={i} ></div>
+                            )}
                         </Grid>
                     </Grid>
                 </Box>
-            </Box>
+            </Grid>
         </>
     )
 }

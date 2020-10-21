@@ -1,102 +1,123 @@
 import { Box, Grid, Typography } from '@material-ui/core';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import React from 'react';
+import React, { useContext } from 'react';
+import { format } from 'date-fns';
+import { ptBR } from "date-fns/locale";
+import { ImpressaoContext } from '../../../..';
 
-const Linha12LME = () => {
+const Linha12Relatorio = () => {
+
+    const { impressao } = useContext(ImpressaoContext)
+
+    const date = format(impressao.database, "dd '/' MM '/' yyyy", { locale: ptBR })
 
     return (
         <>
-            <Box mt={2}>
-                <Grid container spacing={1}>
-                    <Grid item xs={7}>
-                        <Box width={1} border={1} borderColor="black" display="block">
-                            <Box mt={-1} ml={2} display="flex">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>19 - Raça/Cor/Etnia informado pelo paciente ou responsável</Box>
-                                </Typography>
-                            </Box>
-                            <Box>
-                                <Grid container item direction="row" justify="flex-start" alignItems="flex-start" spacing={0}>
+            <Grid container item >
+                <Grid container item xs={8}>
+                    <Grid container item direction="column" justify="space-between" alignItems="stretch" spacing={1}>
+                        <Grid item>
+                            <Box mt={2} width={1} border={1} borderColor="black" display="block">
+                                <Grid container direction="column" justify="flex-end" alignItems="stretch">
                                     <Grid item>
-                                        <Box ml={1} display="flex">
-                                            <CheckBoxOutlineBlankIcon />
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                <Box>Branca</Box>
+                                        <Box mt={-1} ml={2} display="flex">
+                                            <Typography component={'span'} variant="caption" noWrap={true} >
+                                                <Box bgcolor="white" px={1}>14 - Nome do médico solicitante</Box>
                                             </Typography>
                                         </Box>
                                     </Grid>
-                                    <Grid item>
-                                        <Box ml={1} display="flex">
-                                            <CheckBoxOutlineBlankIcon />
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                <Box>Preta</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                    <Grid item>
-                                        <Box ml={1} display="flex">
-                                            <CheckBoxOutlineBlankIcon />
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                <Box>Parda</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-
-                                    <Grid item>
-                                        <Box ml={1} display="flex">
-                                            <CheckBoxOutlineBlankIcon />
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                <Box>Amarela</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                    <Grid item>
-                                        <Box ml={1} display="flex">
-                                            <CheckBoxOutlineBlankIcon />
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                <Box>Indigena</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                    <Grid item>
-                                        <Box ml={1} display="flex">
-                                            <CheckBoxOutlineBlankIcon />
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                <Box></Box>
+                                    <Grid>
+                                        <Box ml={2}>
+                                            <Typography component={'span'} variant={'h6'} align={'left'}>
+                                                <Box>Dr. Diogo F. de Paula</Box>
                                             </Typography>
                                         </Box>
                                     </Grid>
                                 </Grid>
                             </Box>
-                        </Box>
+                        </Grid>
+                        <Grid container item direction="row" alignItems="stretch" spacing={1}>
+                            <Grid item xs={7}>
+                                <Box width={1} border={1} borderColor="black" display="block">
+                                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                        <Grid item>
+                                            <Box mt={-1} ml={2} display="flex">
+                                                <Typography component={'span'} variant="caption" noWrap={true} >
+                                                    <Box bgcolor="white" px={1}>xx - Conselho Regional de Medicina</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                        <Grid>
+                                            <Box ml={2}>
+                                                <Typography component={'span'} variant={'h6'} align={'left'}>
+                                                    {/* // se tiver que deixar em branco então deixa "-" de cor branca */}
+                                                    <Box>23.838</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <Box height={1} width={1} border={1} borderColor="black" display="block">
+                                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                        <Grid item>
+                                            <Box mt={-1} display="flex" justifyContent="center">
+                                                <Typography component={'span'} variant="caption" noWrap={true} >
+                                                    <Box bgcolor="white" px={1}>xx - UF</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                        <Grid>
+                                            <Box>
+                                                <Typography component={'span'} variant={'h6'} align={'center'}>
+                                                    <Box>PR</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                                </Box>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Box height={1} width={1} border={1} borderColor="black" display="block">
+                                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                        <Grid item>
+                                            <Box mt={-1} display="flex" justifyContent="center">
+                                                <Typography component={'span'} variant="caption" noWrap={true} >
+                                                    <Box bgcolor="white" px={1}>16 - Data da solicitação</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                        <Grid>
+                                            <Box>
+                                                <Typography component={'span'} variant={'h6'} align={'center'}>
+                                                    {date ? <Box>{date}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                    </Grid>
+                                </Box>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={5}>
-                        <Box height={1} width={1} border={1} borderColor="black" display="block" >
-                            <Box mt={-1} display="flex" justifyContent="center">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>20 - Telefone(s) para contato do paciente</Box>
-                                </Typography>
-                            </Box>
-                            <Box ml={1}>
-                                <Grid container>
-                                    <Grid item xs={6}>
-                                        <Typography component={'span'} variant={'body1'} align={'left'}>
-                                            <Box>Fone:</Box>
+                </Grid>
+                <Grid container item xs={4} alignItems="stretch">
+                    <Grid container item xs>
+                        <Box mt={2} ml={1} height={1} width={1} border={1} borderColor="black">
+                            <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                                <Grid item>
+                                    <Box mt={-1} display="flex" justifyContent="center">
+                                        <Typography component={'span'} variant="caption" noWrap={true} >
+                                            <Box bgcolor="white" px={1}>17 - Assinatura e carimbo do médico</Box>
                                         </Typography>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography component={'span'} variant={'body1'} align={'left'}>
-                                            <Box>Fone:</Box>
-                                        </Typography>
-                                    </Grid>
+                                    </Box>
                                 </Grid>
-                            </Box>
+                            </Grid>
                         </Box>
                     </Grid>
                 </Grid>
-            </Box>
+            </Grid>
         </>
     )
 }
 
-export default Linha12LME
+export default Linha12Relatorio
