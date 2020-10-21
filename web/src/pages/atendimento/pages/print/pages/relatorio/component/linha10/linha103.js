@@ -26,7 +26,7 @@ const Linha103Relatorio = () => {
                     </Grid>
                     <Grid item xs={8}>
                         <Box borderTop={1} >
-                            <Typography component={'span'} variant="body1" Wrap={true}>
+                            <Typography component={'span'} variant="body1" noWrap={false}>
                                 <Box display="flex" alignItems="center">
                                     <Typography component={'span'} variant="body1" noWrap={true}>
                                         <Box ml={1}>Justificativa: {lme.relatorio.bhcgjustificativa}</Box>

@@ -4,6 +4,7 @@ import Linha100Relatorio from './linha100'
 import Linha101Relatorio from './linha101'
 import Linha102Relatorio from './linha102'
 import Linha103Relatorio from './linha103'
+import Linha104Relatorio from './linha104'
 
 const Linha10Relatorio = () => {
 
@@ -25,6 +26,11 @@ const Linha10Relatorio = () => {
                                 <Linha101Relatorio />
                                 <Linha102Relatorio />
                                 <Linha103Relatorio />
+                            </Box>
+                        </Box>
+                        <Box p={1}>
+                            <Box width={1} border={1} borderColor="black">
+                                <Linha104Relatorio />
                             </Box>
                         </Box>
                     </Grid>

@@ -47,7 +47,7 @@ const Linha8xRelatorio = (props) => {
                     </Grid>
                     <Grid item xs={5}>
                         <Box borderTop={1} height={1}>
-                            <Typography component={'span'} variant="body1" Wrap={true} >
+                            <Typography component={'span'} variant="body1" noWrap={false} >
                                 <Box display="flex" alignItems="center" height={1}>
                                     <Box ml={1}>{props.prescricao[4][1]}</Box>
                                 </Box>

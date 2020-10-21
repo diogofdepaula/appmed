@@ -88,7 +88,7 @@ const Linha8Relatorio = () => {
                                             <Linha8xRelatorio prescricao={p} />
                                         </div>
                                         :
-                                        <div></div>
+                                        <div key={i}></div>
                                 )}
                             </Box>
                         </Box>

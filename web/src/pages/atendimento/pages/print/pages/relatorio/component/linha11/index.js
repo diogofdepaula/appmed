@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import React from 'react';
 
-const Linha11LME = () => {
+const Linha11Relatorio = () => {
 
     return (
         <>
@@ -74,4 +74,4 @@ const Linha11LME = () => {
     )
 }
 
-export default Linha11LME
+export default Linha11Relatorio

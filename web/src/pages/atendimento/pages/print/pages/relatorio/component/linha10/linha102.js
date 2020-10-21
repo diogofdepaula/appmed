@@ -28,7 +28,7 @@ const Linha102Relatorio = () => {
                     </Grid>
                     <Grid item xs={8}>
                         <Box borderTop={1}>
-                            <Typography component={'span'} variant="body1" Wrap={true}>
+                            <Typography component={'span'} variant="body1" noWrap={false}>
                                 <Box ml={1} display="flex" alignItems="center">
                                         {lme.relatorio.rxtoraxresultado === "a" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Normal
                                         {lme.relatorio.rxtoraxresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Alterado: 

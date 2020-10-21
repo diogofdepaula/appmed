@@ -28,7 +28,7 @@ const Linha101Relatorio = () => {
                     </Grid>
                     <Grid item xs={8}>
                         <Box borderTop={1} >
-                            <Typography component={'span'} variant="body1" Wrap={true}>
+                            <Typography component={'span'} variant="body1" noWrap={false}>
                                 <Box ml={1} display="flex" alignItems="center">
                                     {lme.relatorio.ppdresultado === "a" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Não Reator
                                         {lme.relatorio.ppdresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Até 5 mm

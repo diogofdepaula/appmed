@@ -9,23 +9,23 @@ const Linha100Relatorio = () => {
                 <Grid container item direction="row" justify="center" alignItems="stretch">
                     <Grid item xs={2}>
                         <Box borderRight={1}>
-                            <Typography component={'span'} variant="body1" noWrap={true} align="center">
+                            <Typography component={'span'} variant="body1" align="center">
                                 <Box>Exame</Box>
                             </Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={2}>
                         <Box borderRight={1}>
-                            <Typography component={'span'} variant="body1" noWrap={true} align="center">
+                            <Typography component={'span'} variant="body1" align="center">
                                 <Box>Data</Box>
                             </Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={8}>
                         <Box>
-                            <Typography component={'span'} variant="body1" Wrap={true} align="center">
+                            <Typography component={'span'} variant="body1" align="center">
                                 <Box>
-                                    <Typography component={'span'} variant="body1" noWrap={true}>
+                                    <Typography component={'span'} variant="body1">
                                         <Box>Resultado</Box>
                                     </Typography>
                                 </Box>

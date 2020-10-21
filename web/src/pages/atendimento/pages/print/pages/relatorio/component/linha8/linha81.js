@@ -47,7 +47,7 @@ const Linha81Relatorio = () => {
                     </Grid>
                     <Grid item xs={5}>
                         <Box height={1}>
-                            <Typography component={'span'} variant="body1" Wrap={true} >
+                            <Typography component={'span'} variant="body1" noWrap={false} >
                                 <Box display="flex" alignItems="center" justifyContent="center" height={1}>
                                     <Box>Motivo da suspensão</Box>
                                 </Box>
