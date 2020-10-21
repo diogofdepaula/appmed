@@ -101,17 +101,13 @@ const Linha12Relatorio = () => {
                     </Grid>
                 </Grid>
                 <Grid container item xs={4} alignItems="stretch">
-                    <Grid container item xs>
+                    <Grid container item xs style={{ backgroundColor: "red" }}>
                         <Box mt={2} ml={1} height={1} width={1} border={1} borderColor="black">
-                            <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                                <Grid item>
-                                    <Box mt={-1} display="flex" justifyContent="center">
-                                        <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>17 - Assinatura e carimbo do médico</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                            </Grid>
+                            <Box mt={-1} display="flex" justifyContent="center">
+                                <Typography component={'span'} variant="caption" noWrap={true} >
+                                    <Box bgcolor="white" px={1}>17 - Assinatura e carimbo do médico</Box>
+                                </Typography>
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>
