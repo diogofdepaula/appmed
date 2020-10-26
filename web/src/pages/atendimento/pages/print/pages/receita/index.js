@@ -1,17 +1,14 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { ImpressaoContext } from '../..';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReceitaSUS from './sus';
 import PrescricaoSUS from './sus/componentes/prescricaosus';
 
-export default function FactoryReceitasSUS() {
-
-    const { impressao } = useContext(ImpressaoContext)
+export default function FactoryReceitasSUS(props) {
 
     const itemsRef = useRef([]);
 
     useEffect(() => {
-        itemsRef.current = itemsRef.current.slice(0, impressao.prescricoesSelecionadas.length);
-    }, [impressao]);
+        itemsRef.current = itemsRef.current.slice(0, props.listPresc.length);
+    }, [props]);
 
     const [listReceitas, setReceitas] = useState([])
 
@@ -36,7 +33,7 @@ export default function FactoryReceitasSUS() {
         let listReceitas = []
 
         listOfListIndex.forEach(r => {
-            let grupoprescricoes = impressao.prescricoesSelecionadas.slice(r[0], r[r.length - 1] + 1)
+            let grupoprescricoes = props.listPresc.slice(r[0], r[r.length - 1] + 1)
             listReceitas.push(
                 <div key={r}>
                     <ReceitaSUS prescricoes={grupoprescricoes} />
@@ -44,7 +41,7 @@ export default function FactoryReceitasSUS() {
             )
         })
         setReceitas(listReceitas)
-    }, [impressao])
+    }, [props])
 
     useEffect(() => {
         if (itemsRef.current) {
@@ -55,7 +52,7 @@ export default function FactoryReceitasSUS() {
     return (
         <>
             {itemsRef.current.length === 0 &&
-                impressao.prescricoesSelecionadas.map((p, i) =>
+                props.listPresc.map((p, i) =>
                     <div key={i} ref={el => itemsRef.current[i] = el} >
                         <PrescricaoSUS prescricao={p} />
                     </div>

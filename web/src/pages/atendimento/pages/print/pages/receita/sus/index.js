@@ -17,32 +17,15 @@ const ReceitaSUS = ({ prescricoes }) => {
     return (
         <>
             <div style={{ width: a4size.width, height: a4size.height }} >
-                <Box
-                    height={1}
-                    p={10}
-                >
-                    <Box
-                        width={1}
-                        height={1}
-                        display="block"
-                        style={{ backgroundColor: "red" }}
-                    >
+                <Box height={1} p={10}>
+                    <Box width={1} height={1} display="block">
                         <Box>
                             <CabecalhoSUS />
                         </Box>
                         <Box
-
                             height='calc(100% - 80px)' // se mudar o Cabecalho tem que ajustar aqui depois
-                            p={5}
-                            border={3}
-                            borderColor={"black"}
-                            style={{ backgroundColor: "blue" }}
-                        // borderRadius={10}
-                        >
-                            <Box
-                                display="block"
-                                height={1}
-                            >
+                            p={5} border={3} borderColor={"black"} >
+                            <Box display="block" height={1}>
                                 <Box justifyContent="center">
                                     <Box display="block">
                                         <Box>

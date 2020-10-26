@@ -9,28 +9,37 @@ export default function Factory() {
 
     const { impressao } = useContext(ImpressaoContext)
 
-    const FilaImpressao = () => {
+    const PrintJob = () => {
 
-        let printjob = []
+        let jobs = []
 
-        let lmejob = <div></div>
-
-        lmejob = impressao.lmesSelecionadas?.map((l, i) =>
+        // print lmes
+        let lmejob = impressao.lmesSelecionadas?.map((l, i) =>
             <div key={i}>
                 <FactoryLME lme={l} />
-                {l.relatorio ? <FactoryRelatorio lme={l} /> : <div></div>}
+                {l.relatorio && <FactoryRelatorio lme={l} />}
+                <FactoryReceitasSUS listPresc={l.prescricoes} />
             </div>
         )
+        if (lmejob) {
+            jobs.push(lmejob)
+        }
 
-        printjob.push(lmejob)
 
-        return printjob
+        // print prescricoesSelecionadas
+        // let prescselecjob = lme.prescricoesSelecionadas.map((p, i) =>
+        // )
+
+
+        return jobs
 
     }
 
+
+
     return (
         <>
-            <FilaImpressao />
+            <PrintJob />
         </>
     )
 }
