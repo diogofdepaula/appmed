@@ -41,8 +41,8 @@ export default function LMEDoses(props) {
             <Typography variant={'h5'}>Doses referente a cada mês</Typography>
             <Box>
                 <Grid container spacing={5} nowrap >
-                {indices && indices.map((w) =>
-                    <Grid item xs> 
+                {indices && indices.map((w, i) =>
+                    <Grid item xs key={i}> 
                         <TextField
                             size='small'
                             key={w[0]}
