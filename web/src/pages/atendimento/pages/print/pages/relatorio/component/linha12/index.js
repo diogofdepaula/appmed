@@ -21,7 +21,7 @@ const Linha12Relatorio = () => {
                                     <Grid item>
                                         <Box mt={-1} ml={2} display="flex">
                                             <Typography component={'span'} variant="caption" noWrap={true} >
-                                                <Box bgcolor="white" px={1}>14 - Nome do médico solicitante</Box>
+                                                <Box bgcolor="white" px={1}>18 - Nome do médico solicitante</Box>
                                             </Typography>
                                         </Box>
                                     </Grid>
@@ -42,7 +42,7 @@ const Linha12Relatorio = () => {
                                         <Grid item>
                                             <Box mt={-1} ml={2} display="flex">
                                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                                    <Box bgcolor="white" px={1}>xx - Conselho Regional de Medicina</Box>
+                                                    <Box bgcolor="white" px={1}>20 - Conselho Regional de Medicina</Box>
                                                 </Typography>
                                             </Box>
                                         </Grid>
@@ -63,7 +63,7 @@ const Linha12Relatorio = () => {
                                         <Grid item>
                                             <Box mt={-1} display="flex" justifyContent="center">
                                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                                    <Box bgcolor="white" px={1}>xx - UF</Box>
+                                                    <Box bgcolor="white" px={1}>21 - UF</Box>
                                                 </Typography>
                                             </Box>
                                         </Grid>
@@ -83,7 +83,7 @@ const Linha12Relatorio = () => {
                                         <Grid item>
                                             <Box mt={-1} display="flex" justifyContent="center">
                                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                                    <Box bgcolor="white" px={1}>16 - Data da solicitação</Box>
+                                                    <Box bgcolor="white" px={1}>22 - Data da solicitação</Box>
                                                 </Typography>
                                             </Box>
                                         </Grid>
@@ -105,7 +105,7 @@ const Linha12Relatorio = () => {
                         <Box mt={2} ml={1} width={1} border={1} borderColor="black">
                             <Box mt={-1} display="flex" justifyContent="center">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>17 - Assinatura e carimbo do médico</Box>
+                                    <Box bgcolor="white" px={1}>19 - Assinatura e carimbo do médico</Box>
                                 </Typography>
                             </Box>
                         </Box>

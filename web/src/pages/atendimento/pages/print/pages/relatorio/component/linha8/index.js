@@ -74,7 +74,7 @@ const Linha8Relatorio = () => {
                     <Grid item>
                         <Box mt={-1} ml={2} display="flex">
                             <Typography component={'span'} variant="caption" noWrap={true} >
-                                <Box bgcolor="white" px={1}>xx - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
+                                <Box bgcolor="white" px={1}>14 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
                             </Typography>
                         </Box>
                     </Grid>

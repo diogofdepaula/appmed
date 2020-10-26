@@ -8,30 +8,28 @@ const Linha4Relatorio = () => {
 
     return (
         <>
-            <Box mt={2}>
-                <Grid container spacing={1}>
-                    <Grid container item xs>
-                        <Box width={1} border={1} borderColor="black">
-                            <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                                <Grid item>
-                                    <Box mt={-1} ml={2} display="flex" >
-                                        <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>X - Medicamento</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                                <Grid item>
-                                    <Box ml={1}>
-                                        <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{lme.prescricoes.filter(m => m.medicamento.classe === "MMCDB")[0].medicamento.farmaco}</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
+            <Grid container>
+                <Grid container item>
+                    <Box mt={2} width={1} border={1} borderColor="black">
+                        <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                            <Grid item>
+                                <Box mt={-1} ml={2} display="flex" >
+                                    <Typography component={'span'} variant="caption" noWrap={true} >
+                                        <Box bgcolor="white" px={1}>6 - Medicamento</Box>
+                                    </Typography>
+                                </Box>
                             </Grid>
-                        </Box>
-                    </Grid>
+                            <Grid item>
+                                <Box ml={1}>
+                                    <Typography component={'span'} variant={'h6'} align={'center'}>
+                                        <Box fontWeight="fontWeightBold">{lme.prescricoes.filter(m => m.medicamento.classe === "MMCDB")[0].medicamento.farmaco}</Box>
+                                    </Typography>
+                                </Box>
+                            </Grid>
+                        </Grid>
+                    </Box>
                 </Grid>
-            </Box>
+            </Grid>
         </>
     )
 }

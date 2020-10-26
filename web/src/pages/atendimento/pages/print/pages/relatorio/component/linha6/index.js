@@ -16,7 +16,7 @@ const Linha6LME = () => {
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>XX - Tempo de doença</Box>
+                                            <Box bgcolor="white" px={1}>9 - Tempo de doença</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -36,7 +36,7 @@ const Linha6LME = () => {
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>XX - VHS</Box>
+                                            <Box bgcolor="white" px={1}>10 - VHS</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -56,7 +56,7 @@ const Linha6LME = () => {
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>XX - PCR</Box>
+                                            <Box bgcolor="white" px={1}>11 - PCR</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -76,7 +76,7 @@ const Linha6LME = () => {
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>XX - VR</Box>
+                                            <Box bgcolor="white" px={1}>12 - VR</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>

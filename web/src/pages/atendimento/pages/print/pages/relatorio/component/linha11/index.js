@@ -24,7 +24,7 @@ const Linha11Relatorio = () => {
                         <Grid item>
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>18 - Índices combinados de atividade de doença</Box>
+                                    <Box bgcolor="white" px={1}>17 - Índices combinados de atividade de doença</Box>
                                 </Typography>
                             </Box>
                         </Grid>

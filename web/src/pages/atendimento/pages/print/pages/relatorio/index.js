@@ -31,7 +31,7 @@ export default function FactoryRelatorio(props) {
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
                         <LMEPrintContext.Provider value={props.lme}>
                             <Grid container direction="column" justify="space-between" style={{ height: "100%" }}>
-                                <Grid item>
+                                <Grid container item>
                                     <Linha1Relatorio />
                                     <Linha2Relatorio />
                                     <Linha3Relatorio />

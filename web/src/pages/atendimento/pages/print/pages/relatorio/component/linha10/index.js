@@ -15,7 +15,7 @@ const Linha10Relatorio = () => {
                     <Grid item xs>
                         <Box mt={-1} ml={2} display="flex">
                             <Typography component={'span'} variant="caption" noWrap={true} >
-                                <Box bgcolor="white" px={1}>XX - Índices protolocares</Box>
+                                <Box bgcolor="white" px={1}>16 - Índices protolocares</Box>
                             </Typography>
                         </Box>
                     </Grid>

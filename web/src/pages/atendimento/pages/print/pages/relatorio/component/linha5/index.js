@@ -16,7 +16,7 @@ const Linha5Relatorio = () => {
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex" >
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>9 - CID10</Box>
+                                            <Box bgcolor="white" px={1}>7 - CID10</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -36,7 +36,7 @@ const Linha5Relatorio = () => {
                                 <Grid item>
                                     <Box mt={-1} ml={2} display="flex">
                                         <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>10 - Diagnóstico</Box>
+                                            <Box bgcolor="white" px={1}>8 - Diagnóstico</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>

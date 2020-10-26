@@ -70,7 +70,7 @@ const Linha7Relatorio = () => {
                     <Grid item>
                         <Box mt={-1} ml={2} display="flex">
                             <Typography component={'span'} variant="caption" noWrap={true} >
-                                <Box bgcolor="white" px={1}>xx - Critério de inclusão </Box>
+                                <Box bgcolor="white" px={1}>13 - Critério de inclusão </Box>
                             </Typography>
                         </Box>
                     </Grid>
