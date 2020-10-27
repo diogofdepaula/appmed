@@ -24,7 +24,7 @@ const CabecalhoSUS = () => {
                     </Box>
                     <CardMedia
                         style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                        image={impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO}
+                        image={impressao.local === "" ? "" : impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO}
                     />
                 </Box>
             </Box>

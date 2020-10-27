@@ -6,7 +6,7 @@ const ViaSUS = (props) => {
     return (
         <>
             <Box display="flex" justifyContent="center">
-                <Typography variant={'h5'}>{props.via === "Estado" ? "via do Estado" : "via do paciente"}</Typography>
+                <Typography variant={'h5'}>{"via do " + props.via }</Typography>
             </Box>
         </>
     )

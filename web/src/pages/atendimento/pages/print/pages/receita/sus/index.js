@@ -29,7 +29,7 @@ const ReceitaSUS = (props) => {
                                 <Box justifyContent="center">
                                     <Box display="block">
                                         <Box>
-                                            <ViaSUS via={props.via} />
+                                            {props.via && <ViaSUS via={props.via} />}
                                         </Box>
                                         <Box>
                                             <IdentificacaoSUS />

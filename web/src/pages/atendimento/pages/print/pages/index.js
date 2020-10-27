@@ -20,7 +20,7 @@ export default function Factory() {
                 {l.relatorio && <FactoryRelatorio lme={l} />}
                 
                 <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"}/>
-                <FactoryReceitasSUS listPresc={l.prescricoes} via={"Paciente"}/>
+                <FactoryReceitasSUS listPresc={l.prescricoes} via={"paciente"}/>
             </div>
         )
         if (lmejob) {
@@ -29,7 +29,9 @@ export default function Factory() {
 
         // print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas) {
-            jobs.push(<FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} />)
+            // não passo parametro via para não aparecer a linha via
+            // ser depois se fica melhor manter a 
+            jobs.push(<FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} />) 
         }
 
         return jobs

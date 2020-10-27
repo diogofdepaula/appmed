@@ -22,7 +22,7 @@ export default function Print() {
         prescricoesSelecionadas: [],
         tipo: '', // simples, controlado
         meses: 1,
-        local: 'sus', // consultorio, SUS (cisgap, cisco)
+        local: '', // consultorio, SUS (cisgap, cisco)
         lmesSelecionadas: [],
         lme: '',
         relatorio: true,

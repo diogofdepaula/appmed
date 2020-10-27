@@ -6,7 +6,7 @@ const Linha13Relatorio = () => {
     return (
         <>
             <Typography component={'span'} variant={'body2'} align={'left'} >
-                <Box fontSize={6} display="block">
+                <Box mt={1} fontSize={6} display="block">
                     <Box width={1}>
                         Referência: arquivo disponibilizado no http://www.cmde.parana.pr.gov.br/ . Modificado somente o layout do documento, sendo preservado todas as informações pertinentes ao caso e medicação solicitada. versão 10/2020. Para maiores esclarecimentos: diogofdepaula@gmail.com
                     </Box>
