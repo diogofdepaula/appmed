@@ -28,7 +28,8 @@ export default function Factory() {
 
         // print prescricoesSelecionadas
         // let prescselecjob = lme.prescricoesSelecionadas.map((p, i) =>
-        // )
+        // )  tem que fazer dar cert
+        
 
 
         return jobs
