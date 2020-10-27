@@ -18,7 +18,9 @@ export default function Factory() {
             <div key={i}>
                 <FactoryLME lme={l} />
                 {l.relatorio && <FactoryRelatorio lme={l} />}
-                <FactoryReceitasSUS listPresc={l.prescricoes} />
+                
+                <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"}/>
+                <FactoryReceitasSUS listPresc={l.prescricoes} via={"Paciente"}/>
             </div>
         )
         if (lmejob) {

@@ -1,19 +1,12 @@
 import { Box, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
+import React from 'react'
 
-const ViaSUS = () => {
-
-    // depois passa um props, pois vai ter a primeira via do paciente e segunda via do sus
-    const [via] = useState('via do paciente')
-
+const ViaSUS = (props) => {
 
     return (
         <>
-            <Box
-                display="flex" 
-                justifyContent="center"
-            >
-                <Typography variant={'h5'}>{via}</Typography>
+            <Box display="flex" justifyContent="center">
+                <Typography variant={'h5'}>{props.via === "Estado" ? "via do Estado" : "via do paciente"}</Typography>
             </Box>
         </>
     )

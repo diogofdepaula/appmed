@@ -7,7 +7,7 @@ import ViaSUS from './componentes/viasus'
 import CabecalhoSUS from './componentes/cabecalhosus'
 import RodapeSUS from './componentes/rodapesus'
 
-const ReceitaSUS = ({ prescricoes }) => {
+const ReceitaSUS = (props) => {
 
     const a4size = {
         width: 1240,
@@ -29,14 +29,14 @@ const ReceitaSUS = ({ prescricoes }) => {
                                 <Box justifyContent="center">
                                     <Box display="block">
                                         <Box>
-                                            <ViaSUS />
+                                            <ViaSUS via={props.via} />
                                         </Box>
                                         <Box>
                                             <IdentificacaoSUS />
                                         </Box>
                                     </Box>
                                     <Box>
-                                        {prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
+                                        {props.prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
                                     </Box>
                                 </Box>
                             </Box>
