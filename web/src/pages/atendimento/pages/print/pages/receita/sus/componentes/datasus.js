@@ -1,15 +1,11 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { ImpressaoContext } from '../../../..'
+import { Box, Grid, Typography } from '@material-ui/core';
 import { format } from 'date-fns';
 import { ptBR } from "date-fns/locale";
+import React from 'react';
 
+const DataSUS = (props) => {
 
-const DataSUS = () => {
-
-    const { impressao } = useContext(ImpressaoContext)
-
-    const date = format(impressao.database, "dd ' de ' MMMM ' de ' yyyy", { locale: ptBR }) 
+    const date = format(props.data, "dd ' de ' MMMM ' de ' yyyy", { locale: ptBR })
 
     return (
         <>

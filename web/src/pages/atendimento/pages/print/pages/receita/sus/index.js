@@ -41,7 +41,7 @@ const ReceitaSUS = (props) => {
                                 </Box>
                             </Box>
                             <Box>
-                                <DataSUS />
+                                <DataSUS data={props.data} />
                             </Box>
                         </Box>
                         <Box>
