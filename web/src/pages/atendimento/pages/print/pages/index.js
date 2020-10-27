@@ -25,18 +25,14 @@ export default function Factory() {
             jobs.push(lmejob)
         }
 
-
         // print prescricoesSelecionadas
-        // let prescselecjob = lme.prescricoesSelecionadas.map((p, i) =>
-        // )  tem que fazer dar cert
-        
-
+        if (impressao.prescricoesSelecionadas) {
+            jobs.push(<FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} />)
+        }
 
         return jobs
 
     }
-
-
 
     return (
         <>

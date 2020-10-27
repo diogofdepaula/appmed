@@ -1331,12 +1331,12 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas pr 30 dias.",
+						posologia: "Tome 01 cápsula de 12 em 12 horas por 30 dias.",
 						quantidade: "60",
 						forma: "comp por mês"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas pr 60 dias.",
+						posologia: "Tome 01 cápsula de 12 em 12 horas por 60 dias.",
 						quantidade: "60",
 						forma: "comp por mês"
 					},
