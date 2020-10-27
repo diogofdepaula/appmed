@@ -5,6 +5,7 @@ import { PrescricaoSUSPrintContext } from './prescricaosus'
 const Linha3SUS = () => {
 
     const prescricao = useContext(PrescricaoSUSPrintContext)
+   
     //Farmaco + Apresentacao + Quantidade + Forma
 
     return (
