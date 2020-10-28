@@ -1,12 +1,12 @@
-// const { Model } = require('sequelize');
-// const database = require('../../database/database')
-// const sequelize = database.sequelize;
 const Medicamentos = require('../../models/cadastro/medicamentos')
 const Nomescomerciais = require('../../models/cadastro/nomescomerciais')
 const Apresentacoes = require('../../models/cadastro/apresentacoes')
 const Posologias = require('../../models/cadastro/posologias')
 
-//class MedicamentoData extends Model { }
+// MUDAR O PADRAO DE PREENCHIMENTO DAS POSOLOGIAS DA LME PARA SOMENTE FRASCOS OU COMPROMIDOS
+// TIRAR O "POR TRÊS MESES" DA FORMA.
+// PASSEI A RESPONSABILIDADE DA SOMA PARA A PAGE PRINT QUE IRÁ FAZER A SOMA DOS VALORES DAS DOSES MENSAIS DA LME NA HORA DE IMPRIMIR MESMO.
+
 
 Medicamentos.count().then(data =>
 

@@ -27,29 +27,6 @@ export default function Factory() {
                     [...Array(6).keys()].map(d =>
                         <div key={d}>
                             <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"} data={addMonths(impressao.database, d)} />
-                            {/* //FAZER UMA RECEITA DO PACIENTE COM A SOMATÓRIA DAS POSOLOGIAS DE CADA MÊS
-                        // VER SE TEM COMO IR ALTERANDO A POSOLOGIA CONFORME PASSA OS MESES
-                        //JÁ PENSANDO NUMA PROGRESSAO DE DOSE */}
-
-                        {/* ############################################################
-                        
-                        
-                            INTERROMPIDA A EDIÇÃO DO FATORY PRINT PARA MUDANÇAS NO BANCO DE DADOS
-                            IREI ADICIONAR PREENCHIMENTO AUTOMÁTICO DOS MESES PARA LME
-                            ADICIONAR NOVO MODEL COM DICA PARA PREENCHIMENTO (DOSELME)
-                            REVER O EDITAR PRESCRIÇÃO, POIS ESTÁ DANDO ERRO
-                            TALVEZ TENHA QUE REFAZER O CADASTRO DE MEDICAMENTO.
-
-                            MUDANÇA DO POSOLOGIA(QUANTIDADE E FORMA DE "8 FRASCOS PARA TRÊS MESES" PARA SOMENTE "24 FRASCOS" , OU SEJA, O QUE FOR USAR MESMO")
-                        
-
-                            POR AQUI ESTÁ TUDO FUNCIONANDO
-                            PAREI QUANDO IA FAZER UMA RECEITA PARA PACIENTE COM A SOMA DE TODOS OS MESES DA LME
-                        
-                        */}
-
-
-
                         </div>
                     )
                     :
