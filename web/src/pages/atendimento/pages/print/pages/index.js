@@ -26,6 +26,7 @@ export default function Factory() {
                 {l.prescricoes.filter(p => p.medicamento.controlado) ?
                     [...Array(6).keys()].map(d =>
                         <div key={d}>
+                            {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
                             <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"} data={addMonths(impressao.database, d)} />
                         </div>
                     )
