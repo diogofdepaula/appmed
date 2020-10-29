@@ -36,12 +36,12 @@ const ReceitaSUS = (props) => {
                                         </Box>
                                     </Box>
                                     <Box>
-                                        {props.prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} /></div>)}
+                                        {props.prescricoes?.map((p, i) => <div key={i}><PrescricaoSUS prescricao={p} mes={props.mes} /></div>)}
                                     </Box>
                                 </Box>
                             </Box>
                             <Box>
-                                <DataSUS data={props.data} />
+                                <DataSUS mes={props.mes} />
                             </Box>
                         </Box>
                         <Box>

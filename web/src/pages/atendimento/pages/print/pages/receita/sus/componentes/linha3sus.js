@@ -2,13 +2,29 @@ import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { PrescricaoSUSPrintContext } from './prescricaosus'
 
-const Linha3SUS = () => {
+const Linha3SUS = (props) => {
 
     const prescricao = useContext(PrescricaoSUSPrintContext)
 
-    const quant = [prescricao.lmemes1, prescricao.lmemes2, prescricao.lmemes3, prescricao.lmemes4, prescricao.lmemes5, prescricao.lmemes6]
+    const quant = () => {
+        
+        let final = ''
 
-    const soma = quant.map(p => isNaN(parseInt(p)) ? 0 : parseInt(p)).reduce((a, b) => a + b, 0)
+        let lmes = [prescricao.lmemes1, prescricao.lmemes2, prescricao.lmemes3, prescricao.lmemes4, prescricao.lmemes5, prescricao.lmemes6]
+
+        console.log('props.mes', props.mes)
+
+        if (props.mes >= 0) {
+            // vem pela via Estado e cada mês corresponde ao mês
+            final = lmes[props.mes]
+            console.log('teste 1')
+            } else {
+            // quando a receita é via paciente o mês vem como undefined
+            console.log('teste 2')
+            final = lmes.map(p => isNaN(parseInt(p)) ? 0 : parseInt(p)).reduce((a, b) => a + b, 0)
+        }
+        return final
+    }
 
     //Farmaco + Apresentacao + Quantidade + Forma
 
@@ -25,7 +41,7 @@ const Linha3SUS = () => {
                         <Grid container spacing={1} direction="row" justify="flex-end">
                             <Grid item>
                                 <Typography variant={'h5'}>
-                                    <Box fontWeight="fontWeightBold">{soma}</Box>
+                                    <Box fontWeight="fontWeightBold">{quant}</Box>
                                 </Typography>
                             </Grid>
                             <Grid item>

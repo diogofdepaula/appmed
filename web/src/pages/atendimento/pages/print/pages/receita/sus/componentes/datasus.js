@@ -1,11 +1,15 @@
 import { Box, Grid, Typography } from '@material-ui/core';
+import addMonths from 'date-fns/addMonths';
 import { format } from 'date-fns';
 import { ptBR } from "date-fns/locale";
-import React from 'react';
+import React, { useContext } from 'react';
+import { ImpressaoContext } from '../../../..';
 
 const DataSUS = (props) => {
 
-    const date = format(props.data, "dd ' de ' MMMM ' de ' yyyy", { locale: ptBR })
+    const { impressao } = useContext(ImpressaoContext)
+    
+    const date = format(addMonths(impressao.database, props.mes ? props.mes : 0), "dd ' de ' MMMM ' de ' yyyy", { locale: ptBR })
 
     return (
         <>

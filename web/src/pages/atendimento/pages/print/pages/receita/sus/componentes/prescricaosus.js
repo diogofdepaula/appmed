@@ -23,7 +23,7 @@ const PrescricaoSUS = (props) => {
                 <PrescricaoSUSPrintContext.Provider value={props.prescricao}>
                     <Linha1SUS />
                     <Linha2SUS />
-                    <Linha3SUS />
+                    <Linha3SUS mes={props.mes} />
                     <Linha4SUS />
                     {props.prescricao.imprimirorientacoes && <Linha5SUS />}
                 </PrescricaoSUSPrintContext.Provider>

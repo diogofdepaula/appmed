@@ -36,7 +36,7 @@ export default function FactoryReceitasSUS(props) {
             let grupoprescricoes = props.listPresc.slice(r[0], r[r.length - 1] + 1)
             listReceitas.push(
                 <div key={r}>
-                    <ReceitaSUS prescricoes={grupoprescricoes} via={props.via} data={props.data}/>
+                    <ReceitaSUS prescricoes={grupoprescricoes} via={props.via} mes={props.mes}/>
                 </div>
             )
         })

@@ -1,4 +1,4 @@
-import addMonths from 'date-fns/addMonths';
+
 import React, { useContext } from 'react';
 //import ReceitaConsultorio from '../pages/receita/consultorio/receitaconsultorio'
 import { ImpressaoContext } from '..';
@@ -14,29 +14,33 @@ export default function Factory() {
 
         let jobs = []
 
-        console.log('impressao.lmesSelecionadas', impressao.lmesSelecionadas)
-
         // print lmes
-        let lmejob = impressao.lmesSelecionadas?.map((l, i) =>
-            <div key={i}>
-                <FactoryLME lme={l} />
-                {l.relatorio && <FactoryRelatorio lme={l} />}
+        let lmejob = impressao.lmesSelecionadas?.map((l, i) => {
+            l.prescricoes.filter(p => p.medicamento.controlado)
 
-                {/* Receitas */}
-                {l.prescricoes.filter(p => p.medicamento.controlado) ?
-                    [...Array(6).keys()].map(d =>
-                        <div key={d}>
-                            {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                            <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"} data={addMonths(impressao.database, d)} />
-                        </div>
-                    )
-                    :
-                    <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"} data={impressao.database} />
-                }
-                {/* Medicamentos não controlados */}
-                <FactoryReceitasSUS listPresc={l.prescricoes} via={"paciente"} data={impressao.database} />
-            </div>
-        )
+
+            return (
+                <div key={i}>
+                    <FactoryLME lme={l} />
+                    {l.relatorio && <FactoryRelatorio lme={l} />}
+
+                    {/* Receitas */}
+                    {l.prescricoes.filter(p => p.medicamento.controlado).length > 0 ?
+                        [...Array(6).keys()].map(d =>
+                            <div key={d}>
+                                {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
+                                <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"} mes={d} />
+                            </div>
+                        )
+                        :
+                        <FactoryReceitasSUS listPresc={l.prescricoes} via={"Estado"} />
+                    }
+                    {/* Medicamentos não controlados */}
+                    {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
+                    <FactoryReceitasSUS listPresc={l.prescricoes} via={"paciente"} />
+                </div>
+            )
+        })
         if (lmejob) {
             jobs.push(lmejob)
         }
