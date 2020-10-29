@@ -12,15 +12,11 @@ const Linha3SUS = (props) => {
 
         let lmes = [prescricao.lmemes1, prescricao.lmemes2, prescricao.lmemes3, prescricao.lmemes4, prescricao.lmemes5, prescricao.lmemes6]
 
-        console.log('props.mes', props.mes)
-
         if (props.mes >= 0) {
             // vem pela via Estado e cada mês corresponde ao mês
             final = lmes[props.mes]
-            console.log('teste 1')
             } else {
             // quando a receita é via paciente o mês vem como undefined
-            console.log('teste 2')
             final = lmes.map(p => isNaN(parseInt(p)) ? 0 : parseInt(p)).reduce((a, b) => a + b, 0)
         }
         return final

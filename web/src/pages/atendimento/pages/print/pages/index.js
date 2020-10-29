@@ -16,8 +16,6 @@ export default function Factory() {
 
         // print lmes
         let lmejob = impressao.lmesSelecionadas?.map((l, i) => {
-            l.prescricoes.filter(p => p.medicamento.controlado)
-
 
             return (
                 <div key={i}>
