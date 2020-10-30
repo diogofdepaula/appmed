@@ -34,6 +34,10 @@ export default function FactoryReceitasSUS(props) {
 
         listOfListIndex.forEach(r => {
             let grupoprescricoes = props.listPresc.slice(r[0], r[r.length - 1] + 1)
+
+            // colocar em ordem de importância
+            
+
             listReceitas.push(
                 <div key={r}>
                     <ReceitaSUS prescricoes={grupoprescricoes} via={props.via} mes={props.mes}/>
