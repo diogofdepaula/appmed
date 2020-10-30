@@ -35,8 +35,39 @@ export default function FactoryReceitasSUS(props) {
         listOfListIndex.forEach(r => {
             let grupoprescricoes = props.listPresc.slice(r[0], r[r.length - 1] + 1)
 
+            console.log('grupoprescricoes', grupoprescricoes)
+
             // colocar em ordem de importância
-            
+
+            let classes = [
+                ['ANALGESICO', 'j'],
+                ['ANTICONVULSIVANTE', 'g'],
+                ['ANTIDEPRESSIVO', 'h'],
+                ['ANTIMICROBIANO', 'm'],
+                ['CONVENCIONAL', 'n'],
+                ['CORTICOIDE', 'd'],
+                ['MMCDB', 'a'],                     // TEM QUE VER O QUE EU PUS NO DATAINITIAL POIS NÃO BATE COM O CLASSE NO INSERT DO MEDICAMENTO
+                ['MMCDS', 'c'],
+                ['MMCDPM', 'b'],
+                ['OPIOIDE', 'k'],
+                ['OSTEOMETABOLICO', 'e'],
+                ['SUPLEMENTO', 'l'],
+                ['VASOATIVO', 'f'],
+                ['ANTIINFLAMATORIO', 'i']
+            ]
+
+            let sort = grupoprescricoes
+                .map(sa => {
+                    let c = classes.find(e => e === sa.medicamento.classe)  // TEM QUE MELHORAR AQUI
+                    return [sa, c
+                })
+                .sort((a, b) => a[1] - b[1])
+                .map(sb => sb[1])
+
+
+                console.log('sort', sort)
+        
+
 
             listReceitas.push(
                 <div key={r}>
