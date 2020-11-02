@@ -6,6 +6,7 @@ import TuneIcon from '@material-ui/icons/Tune';
 import { ImpressaoContext } from '..';
 import { ClienteContext } from '../..';
 import { parseISO } from 'date-fns';
+import Reorder from './reorder';
 
 export default function ImpressaoSet(props) {
 
@@ -17,7 +18,8 @@ export default function ImpressaoSet(props) {
     const fetchDataPrescricoes = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
         const json = await res.json();
-        setPrescricoes(json);
+        
+        setPrescricoes(Reorder(json));
     }, [cliente])
 
     const fetchDataLmes = useCallback(async () => {

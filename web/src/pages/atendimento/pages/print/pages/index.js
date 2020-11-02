@@ -42,7 +42,7 @@ export default function Factory() {
         }
 
         // print prescricoesSelecionadas
-        if (impressao.prescricoesSelecionadas) {
+        if (impressao.prescricoesSelecionadas.length > 0) {
             // não passo parametro via para não aparecer a linha via
             // ser depois se fica melhor manter a 
             jobs.push(<FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} />)
@@ -52,9 +52,6 @@ export default function Factory() {
 
     }
 
-    return (
-        <>
-            <PrintJob />
-        </>
-    )
+    return <PrintJob />
+    
 }

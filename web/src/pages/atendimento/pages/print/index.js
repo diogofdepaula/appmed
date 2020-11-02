@@ -52,7 +52,6 @@ export default function Print() {
                     </Grid>
                 </Grid>
             </ImpressaoContext.Provider>
-
         </>
     )
 }
