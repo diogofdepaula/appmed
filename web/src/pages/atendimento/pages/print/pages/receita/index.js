@@ -56,6 +56,8 @@ export default function FactoryReceitasSUS(props) {
                 ['ANTIINFLAMATORIO', 'i']
             ]
 
+            ;; so para subir
+
             let sort = grupoprescricoes
                 .map(sa => {
                     let c = classes.find(e => e === sa.medicamento.classe)  // TEM QUE MELHORAR AQUI
