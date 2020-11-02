@@ -40,40 +40,34 @@ export default function FactoryReceitasSUS(props) {
             // colocar em ordem de importância
 
             let classes = [
-                ['ANALGESICO', 'j'],
-                ['ANTICONVULSIVANTE', 'g'],
-                ['ANTIDEPRESSIVO', 'h'],
-                ['ANTIMICROBIANO', 'm'],
-                ['CONVENCIONAL', 'n'],
-                ['CORTICOIDE', 'd'],
-                ['MMCDB', 'a'],                     // TEM QUE VER O QUE EU PUS NO DATAINITIAL POIS NÃO BATE COM O CLASSE NO INSERT DO MEDICAMENTO
-                ['MMCDS', 'c'],
-                ['MMCDPM', 'b'],
-                ['OPIOIDE', 'k'],
-                ['OSTEOMETABOLICO', 'e'],
-                ['SUPLEMENTO', 'l'],
-                ['VASOATIVO', 'f'],
-                ['ANTIINFLAMATORIO', 'i']
+                ['ANALGESICO', 10],
+                ['ANTICONVULSIVANTE', 7],
+                ['ANTIDEPRESSIVO', 8],
+                ['ANTIMICROBIANO', 13],
+                ['CONVENCIONAL', 14],
+                ['CORTICOIDE', 4],
+                ['MMCDB', 1],                     // TEM QUE VER O QUE EU PUS NO DATAINITIAL POIS NÃO BATE COM O CLASSE NO INSERT DO MEDICAMENTO
+                ['MMCDS', 3],
+                ['MMCDPM', 2],
+                ['OPIOIDE', 11],
+                ['OSTEOMETABOLICO', 5],
+                ['SUPLEMENTO', 12],
+                ['VASOATIVO', 6],
+                ['ANTIINFLAMATORIO', 9]
             ]
 
-            ;; so para subir
 
-            let sort = grupoprescricoes
+            let grupoprescricoessort = grupoprescricoes
                 .map(sa => {
-                    let c = classes.find(e => e === sa.medicamento.classe)  // TEM QUE MELHORAR AQUI
-                    return [sa, c
+                    let c = classes.find(e => e[0] === sa.medicamento.classe)  // TEM QUE MELHORAR AQUI
+                    return [sa, c[1]]
                 })
                 .sort((a, b) => a[1] - b[1])
-                .map(sb => sb[1])
-
-
-                console.log('sort', sort)
-        
-
+                .map(sb => sb[0])
 
             listReceitas.push(
                 <div key={r}>
-                    <ReceitaSUS prescricoes={grupoprescricoes} via={props.via} mes={props.mes}/>
+                    <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes}/>
                 </div>
             )
         })
