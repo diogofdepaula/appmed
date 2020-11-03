@@ -45,7 +45,7 @@ export default function Factory() {
         if (impressao.prescricoesSelecionadas.length > 0) {
             // não passo parametro via para não aparecer a linha via
             // ser depois se fica melhor manter a 
-            jobs.push(<FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} />)
+            jobs.push(<div key={0}><FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} /></div>)
         }
 
         return jobs
