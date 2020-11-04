@@ -22,10 +22,16 @@ const CabecalhoSUS = () => {
                             <Box fontWeight="fontWeightBold" >Receita Médica</Box>
                         </Typography>
                     </Box>
-                    <CardMedia
-                        style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                        image={impressao.local === "" ? "" : impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO}
-                    />
+                    {impressao.local === "" ?
+                        <Box
+                            style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                        />
+                        :
+                        <CardMedia
+                            style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                            image={impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO}
+                        />
+                    }
                 </Box>
             </Box>
         </>

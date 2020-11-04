@@ -1,13 +1,12 @@
 import { Box, Typography } from '@material-ui/core'
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { ImpressaoContext } from '../../../..'
 
 const RodapeSUS = () => {
 
     const { impressao } = useContext(ImpressaoContext)
 
-    const [endereco] = useState(impressao.local === 'cisco' ? "R. Profa. Leonidia, 1203 - Centro, Guarapuava - PR, 85010-230" : "R. Pres. Getúlio Vargas, 1523 - Centro, Guarapuava - PR, 85010-280")
-
+    const endereco = impressao.local === 'cisco' ? "R. Profa. Leonidia, 1203 - Centro, Guarapuava - PR, 85010-230" : "R. Pres. Getúlio Vargas, 1523 - Centro, Guarapuava - PR, 85010-280"
 
     return (
         <>
