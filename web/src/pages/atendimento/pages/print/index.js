@@ -47,7 +47,6 @@ export default function Print() {
                     {/*o  height: 0 indifentente para o resultado final */}
                         <div ref={componentRef} > 
                             {validacao && <Factory />}
-                            {/* <Factory /> */}
                         </div>
                     </Grid>
                 </Grid>
