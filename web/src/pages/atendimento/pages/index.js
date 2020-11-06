@@ -1,4 +1,4 @@
-import { Box, Breadcrumbs, Link } from '@material-ui/core'
+import { Box, Button, Grid } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
 import ClienteHeader from '../component/clienteheader'
 import LMEDelete from './lmes/delete'
@@ -60,16 +60,22 @@ const AtendimentoMain = (props) => {
         <>
             <ClienteContext.Provider value={props.cliente}>
                 <ClienteHeader />
-                <Breadcrumbs>
-                    {links.map(x =>
-                        <Link key={x[0]}
-                            onClick={() => {
-                                setPrescricaoMain(null)
-                                setPage(x[0])
-                            }}>{x[1]}
-                        </Link>
-                    )}
-                </Breadcrumbs>
+                <Box mt={1}>
+                    <Grid container spacing={1}>
+                        {links.map(x =>
+                            <Grid item key={x[0]}>
+                                <Button
+                                    variant="contained"
+                                    onClick={() => {
+                                        setPrescricaoMain(null)
+                                        setPage(x[0])
+                                    }}
+                                >{x[1]}
+                                </Button>
+                            </Grid>
+                        )}
+                    </Grid>
+                </Box>
                 <Box>
                     <PageContext.Provider value={setPage}>
                         <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
