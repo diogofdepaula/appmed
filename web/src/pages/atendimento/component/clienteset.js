@@ -2,7 +2,7 @@ import { Box, List, ListItem, ListItemIcon, ListItemText, TextField } from '@mat
 import PersonIcon from '@material-ui/icons/Person';
 import React, { useCallback, useEffect, useState } from 'react';
 
-export default function ClienteSet(props) {
+const ClienteSet = (props) => {
 
     const [cliente, setCliente] = useState()
     const [clientes, setClientes] = useState([])
@@ -11,18 +11,45 @@ export default function ClienteSet(props) {
     const [clientesfiltrados, setClientesFiltrados] = useState([])
     const [validacao, setValidacao] = useState(false)
 
+    // const fetchData = useCallback(async () => {
+    //     // deixar o allfat, pois usa os outros dados na hora de imprimir
+    //     const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat') 
+    //     const json = await res.json()
+    //     setClientes(json)
+    //     setClientesFiltrados(json)
+    //     console.log('passa por aqui fetchData')
+    // }, [])
+
+    // useEffect(() => {
+    //     fetchData()
+    // }, [fetchData])
+
     const fetchData = useCallback(async () => {
-        const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat') // deixei fat, mas o ideal é fazer um método que todos por allfit e carregue com uma nova query com SearchOne
-        // ele usa os dados do cliente na hora de imprimir e usecontext fica muito longe para fazer um set conveniente
-        // o melhor é fazer a busca do dado aqui mesmo
+        // deixar o allfat, pois usa os outros dados na hora de imprimir
+        const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat')
         const json = await res.json()
         setClientes(json)
         setClientesFiltrados(json)
+        console.log('passa por aqui fetchData')
     }, [])
 
     useEffect(() => {
-        fetchData();
-    }, [fetchData])
+        let clear = true
+        if (clear) {
+            async () => {
+                // deixar o allfat, pois usa os outros dados na hora de imprimir
+                const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat')
+                const json = await res.json()
+                setClientes(json)
+                setClientesFiltrados(json)
+                console.log('passa por aqui fetchData')
+            }
+        }
+        return () => clear = false
+    }, [])
+
+
+
 
     const filterClientes = event => {
 
@@ -40,7 +67,8 @@ export default function ClienteSet(props) {
     }
 
     const sendNextStep = useCallback(
-        props.pass(cliente, 2),
+        props.param(cliente, 2),
+        //props.pass(cliente, 2),
         [cliente, props]
     )
 
@@ -50,12 +78,12 @@ export default function ClienteSet(props) {
         }
     }, [validacao, sendNextStep])
 
+    console.log('passa por aqui')
+
     return (
         <div>
             <Box m={2}>
-                <TextField
-                    fullWidth
-                    autoFocus
+                <TextField fullWidth autoFocus
                     label="Filtrar por nome do cliente, data de nascimento ou CPF"
                     onChange={filterClientes}
                 />
@@ -82,3 +110,4 @@ export default function ClienteSet(props) {
         </div>
     )
 }
+export default ClienteSet

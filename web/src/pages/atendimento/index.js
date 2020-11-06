@@ -2,20 +2,29 @@ import React, { useState } from 'react';
 import ClienteSet from './component/clienteset';
 import Main from './pages';
 
-export default function Atendimento() {
+const Atendimento = () => {
 
-    const [page, setPage] = useState(1)
-    const [cliente, setCliente] = useState()
+    const [param, setParam] = useState({
+        cliente: null,
+        page: 1
+    })
 
     const changePage = (paramCli, paramPg) => () => {
-        setCliente(paramCli)
-        setPage(paramPg)
+        setParam({ cliente: paramCli, page: paramPg })
     }
 
-    return (
-        <div>
-            {page === 1 && <ClienteSet pass={changePage} />}
-            {page === 2 && <Main cliente={cliente} />}
-        </div>
-    )
+    const GetContent = () => {
+        switch (param.page) {
+            // case 1:
+            //     return <ClienteSet param={changePage} />
+            case 2:
+                return <Main cliente={param.cliente} />
+            default:
+                return <ClienteSet param={changePage} />;
+        }
+    }
+
+    return <GetContent />
 }
+
+export default Atendimento
