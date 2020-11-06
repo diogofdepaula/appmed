@@ -1,26 +1,33 @@
-import { Box, IconButton, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
+import PersonIcon from '@material-ui/icons/Person';
+import { differenceInYears, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { ClienteContext } from '../pages';
 
-export default function ClienteHeader() {
+const ClienteHeader = () => {
 
     const cliente = useContext(ClienteContext)
 
+    const idade = differenceInYears(new Date(), parseISO(cliente.nascimento))
+
     return (
         <>
-            <Box m={3} display="flex" flexDirection="row">
-                <Box mr={6} ml={6}>
-                    <Typography variant="h5" gutterBottom>{cliente.nome}</Typography>
-                </Box>
-                <Box display="flex">
-                    <Typography variant="h6" gutterBottom>{cliente.nascimento}</Typography>
-                    <Typography variant="h6" gutterBottom>({cliente.id})</Typography>
-                </Box>
-                <IconButton>
-                    <EditIcon />
-                </IconButton>
+            <Box my={2} display="flex" justifyContent="center" alignItems="center">
+                <PersonIcon />
+                <Typography variant="h5">
+                    <Box fontWeight="fontWeightBold">{cliente.nome} </Box>
+                </Typography>
+                <Typography variant="h6">
+                    <Box ml={1}> - {idade} anos - </Box>
+                </Typography>
+                <Typography variant="h6">
+                    <Box ml={1}>ID {cliente.id}</Box>
+                </Typography>
+                <EditIcon />
             </Box>
         </>
     )
 }
+
+export default ClienteHeader

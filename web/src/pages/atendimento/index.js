@@ -15,12 +15,12 @@ const Atendimento = () => {
 
     const GetContent = () => {
         switch (param.page) {
-            // case 1:
-            //     return <ClienteSet param={changePage} />
+            case 1:
+                return <ClienteSet changePage={changePage} />
             case 2:
                 return <Main cliente={param.cliente} />
             default:
-                return <ClienteSet param={changePage} />;
+                return <div />
         }
     }
 

@@ -1,4 +1,4 @@
-import { Box, Button, Grid } from '@material-ui/core'
+import { Box, Breadcrumbs, Link } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
 import ClienteHeader from '../component/clienteheader'
 import LMEDelete from './lmes/delete'
@@ -17,13 +17,13 @@ export const PageContext = createContext('main')
 export const PrescricaoMainContext = createContext(null)
 export const LMEMainContext = createContext(null)
 
-export default function AtendimentoMain(props) {
+const AtendimentoMain = (props) => {
 
     const [page, setPage] = useState()
     const [prescricaoMain, setPrescricaoMain] = useState()
     const [lmeMain, setLmeMain] = useState()
 
-    const indices = [
+    const links = [
         ['prescricoes', 'Prescrições'],
         ['lmes', 'LMEs'],
         ['solicitacoes', 'Solicitações'],
@@ -31,40 +31,50 @@ export default function AtendimentoMain(props) {
         ['consentimento', 'Termos de consentimento'],
     ]
 
+    const GetContent = () => {
+        switch (page) {
+            case 'prescricoes':
+                return <PrescricaoMain />
+            case 'prescricaoinsert':
+                return <PrescricaoInsert />
+            case 'prescricaoupdate':
+                return <PrescricaoUpdate />
+            case 'prescricaodelete':
+                return <PrescricaoDelete />
+            case 'lmes':
+                return <LMEMain />
+            case 'lmeinsert':
+                return <LMEInsert />
+            case 'lmeupdate':
+                return <LMEUpdate />
+            case 'lmedelete':
+                return <LMEDelete />
+            case 'print':
+                return <Print />
+            default:
+                return <div />
+        }
+    }
+
     return (
         <>
             <ClienteContext.Provider value={props.cliente}>
                 <ClienteHeader />
-                <Box mt={1}>
-                    <Grid container spacing={1}>
-                        {indices.map(x =>
-                            <Grid item key={x[0]}>
-                                <Button
-                                    variant="contained"
-                                    onClick={() => {
-                                        setPrescricaoMain(null)
-                                        setPage(x[0])
-                                    }}
-                                >{x[1]}
-                                </Button>
-                            </Grid>
-                        )}
-                    </Grid>
-                </Box>
+                <Breadcrumbs>
+                    {links.map(x =>
+                        <Link key={x[0]}
+                            onClick={() => {
+                                setPrescricaoMain(null)
+                                setPage(x[0])
+                            }}>{x[1]}
+                        </Link>
+                    )}
+                </Breadcrumbs>
                 <Box>
                     <PageContext.Provider value={setPage}>
                         <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
                             <LMEMainContext.Provider value={{ lmeMain: lmeMain, setLmeMain: setLmeMain }} >
-                                {page === 'prescricoes' && <PrescricaoMain />}
-                                {page === 'prescricaoinsert' && <PrescricaoInsert />}
-                                {page === 'prescricaoupdate' && <PrescricaoUpdate />}
-                                {page === 'prescricaodelete' && <PrescricaoDelete />}
-
-                                {page === 'lmes' && <LMEMain />}
-                                {page === 'lmeinsert' && <LMEInsert />}
-                                {page === 'lmeupdate' && <LMEUpdate />}
-                                {page === 'lmedelete' && <LMEDelete />}
-                                {page === 'print' && <Print />}
+                                <GetContent />
                             </LMEMainContext.Provider>
                         </PrescricaoMainContext.Provider>
                     </PageContext.Provider>
@@ -73,3 +83,5 @@ export default function AtendimentoMain(props) {
         </>
     )
 }
+
+export default AtendimentoMain

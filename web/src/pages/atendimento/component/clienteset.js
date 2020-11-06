@@ -2,27 +2,12 @@ import { Box, List, ListItem, ListItemIcon, ListItemText, TextField } from '@mat
 import PersonIcon from '@material-ui/icons/Person';
 import React, { useCallback, useEffect, useState } from 'react';
 
-const ClienteSet = (props) => {
+const ClienteSet = ({ changePage }) => {
 
-    const [cliente, setCliente] = useState()
     const [clientes, setClientes] = useState([])
     // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
     // fica com um clientesinitial
     const [clientesfiltrados, setClientesFiltrados] = useState([])
-    const [validacao, setValidacao] = useState(false)
-
-    // const fetchData = useCallback(async () => {
-    //     // deixar o allfat, pois usa os outros dados na hora de imprimir
-    //     const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat') 
-    //     const json = await res.json()
-    //     setClientes(json)
-    //     setClientesFiltrados(json)
-    //     console.log('passa por aqui fetchData')
-    // }, [])
-
-    // useEffect(() => {
-    //     fetchData()
-    // }, [fetchData])
 
     const fetchData = useCallback(async () => {
         // deixar o allfat, pois usa os outros dados na hora de imprimir
@@ -30,28 +15,13 @@ const ClienteSet = (props) => {
         const json = await res.json()
         setClientes(json)
         setClientesFiltrados(json)
-        console.log('passa por aqui fetchData')
     }, [])
 
     useEffect(() => {
-        let clear = true
-        if (clear) {
-            async () => {
-                // deixar o allfat, pois usa os outros dados na hora de imprimir
-                const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat')
-                const json = await res.json()
-                setClientes(json)
-                setClientesFiltrados(json)
-                console.log('passa por aqui fetchData')
-            }
-        }
-        return () => clear = false
-    }, [])
+        fetchData()
+    }, [fetchData])
 
-
-
-
-    const filterClientes = event => {
+    const filterClientes = (event) => {
 
         let filtro = [...clientes].filter(w =>
             w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
@@ -66,26 +36,12 @@ const ClienteSet = (props) => {
         setClientesFiltrados(filtro)
     }
 
-    const sendNextStep = useCallback(
-        props.param(cliente, 2),
-        //props.pass(cliente, 2),
-        [cliente, props]
-    )
-
-    useEffect(() => {
-        if (validacao) {
-            sendNextStep()
-        }
-    }, [validacao, sendNextStep])
-
-    console.log('passa por aqui')
-
     return (
         <div>
             <Box m={2}>
                 <TextField fullWidth autoFocus
                     label="Filtrar por nome do cliente, data de nascimento ou CPF"
-                    onChange={filterClientes}
+                    onChange={(e) => filterClientes(e)}
                 />
             </Box>
             <Box m={2}>
@@ -94,10 +50,7 @@ const ClienteSet = (props) => {
                         <ListItem
                             key={cliente.id}
                             button
-                            onClick={() => {
-                                setCliente(cliente)
-                                setValidacao(true)
-                            }}
+                            onClick={changePage(cliente, 2)}
                         >
                             <ListItemIcon>
                                 <PersonIcon />
