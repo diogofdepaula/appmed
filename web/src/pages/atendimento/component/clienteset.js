@@ -38,13 +38,13 @@ const ClienteSet = ({ changePage }) => {
 
     return (
         <div>
-            <Box m={2}>
+            <Box mt={2}>
                 <TextField fullWidth autoFocus
                     label="Filtrar por nome do cliente, data de nascimento ou CPF"
                     onChange={(e) => filterClientes(e)}
                 />
             </Box>
-            <Box m={2}>
+            <Box mt={2}>
                 <List >
                     {clientesfiltrados.map(cliente =>
                         <ListItem
