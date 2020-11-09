@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { MainContentContext } from '../App';
 import Atendimento from '../pages/atendimento';
-import ClienteSet from '../pages/atendimento/component/clienteset';
 
 const MainContent = () => {
 
@@ -10,8 +9,6 @@ const MainContent = () => {
     const GetContent = () => {
 
         switch (maincontext.page) {
-            case 'clienteset':
-                return <ClienteSet />
             case 'atendimento':
                 return <Atendimento />
             default:

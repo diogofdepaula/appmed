@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ClienteSet from './component/clienteset';
+import ClienteSet from '../../components/clienteset';
 import Main from './pages';
 
 const Atendimento = () => {
@@ -9,14 +9,14 @@ const Atendimento = () => {
         page: 1
     })
 
-    const changePage = (paramCli, paramPg) => () => {
-        setParam({ cliente: paramCli, page: paramPg })
-    }
+    // const changePage = (paramCli, paramPg) => () => {
+    //     setParam({ cliente: paramCli, page: paramPg })
+    // }
 
     const GetContent = () => {
         switch (param.page) {
             case 1:
-                return <ClienteSet changePage={changePage} />
+                return <ClienteSet />
             case 2:
                 return <Main cliente={param.cliente} />
             default:
