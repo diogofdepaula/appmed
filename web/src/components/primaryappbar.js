@@ -14,6 +14,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import ClienteSet from './clienteset';
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -189,7 +191,10 @@ const PrimaryAppBar = () => {
                             APPMed
                     </Typography>
                     </div>
-                    <div className={classes.search}>
+                    <Box component="div" overflow="visible">
+                    <ClienteSet />
+                    </Box>
+                    {/* <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>
@@ -201,7 +206,7 @@ const PrimaryAppBar = () => {
                             }}
                             inputProps={{ 'aria-label': 'search' }}
                         />
-                    </div>
+                    </div> */}
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <IconButton aria-label="show 4 new mails" color="inherit">
