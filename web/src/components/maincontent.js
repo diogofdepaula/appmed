@@ -1,17 +1,20 @@
 import React, { useContext } from 'react';
-import { MainContentContext } from '../App';
+import { PageContentContext } from '../App';
 import Atendimento from '../pages/atendimento';
+import ClienteHome from '../pages/clientehome';
 
 const MainContent = () => {
 
-    const { maincontext } = useContext(MainContentContext)
+    const { pagecontentcontext } = useContext(PageContentContext)
 
     const GetContent = () => {
 
-        switch (maincontext.page) {
+        switch (pagecontentcontext) {
             case 'atendimento':
                 return <Atendimento />
-                case 'teste':
+            case 'clientehome':
+                return <ClienteHome />
+            case 'teste':
                 return <div>Deixa aqui para os testes</div>
             default:
                 // FAZER UMA PÁGINA INICIAL DEPOIS

@@ -5,7 +5,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import SearchIcon from '@material-ui/icons/Search';
 import { differenceInYears, parseISO } from 'date-fns';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { MainContentContext } from '../App';
+import { ClienteContext, PageContentContext } from '../App';
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -65,8 +65,8 @@ const useStyles = makeStyles((theme) => ({
 const ClienteSet = () => {
 
     const classes = useStyles();
-
-    const { setMainContext } = useContext(MainContentContext)
+    const { setClienteContext } = useContext(ClienteContext)
+    const { setPageContentContext } = useContext(PageContentContext)
 
     const [clientes, setClientes] = useState([])
     // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
@@ -105,9 +105,9 @@ const ClienteSet = () => {
     }
 
     const handleListItem = (param) => {
-        setMainContext({cliente: param, page: "teste"})
+        setClienteContext(param)
+        setPageContentContext('clientehome')
         setClientesFiltrados([])
-        // depois fazer um page: "pagina inicial do cliente" no lugar do teste
     }
 
 

@@ -7,7 +7,8 @@ import LeftDrawer from './components/leftdrawer';
 import MainContent from './components/maincontent';
 import PrimaryAppBar from './components/primaryappbar';
 
-export const MainContentContext = createContext(null)
+export const ClienteContext = createContext(null)
+export const PageContentContext = createContext(null)
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,25 +24,25 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
 
   const classes = useStyles();
-  const [maincontext, setMainContext] = useState({
-    cliente: null,
-    page: ""
-  })
+  const [clientecontext, setClienteContext] = useState()
+  const [pagecontentcontext, setPageContentContext] = useState()
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <MainContentContext.Provider value={{ maincontext: maincontext, setMainContext: setMainContext }} >
-        {/* não remover essas marcações div */}
-        <div>
-          <PrimaryAppBar />
-        </div>
+      <ClienteContext.Provider value={{ clientecontext: clientecontext, setClienteContext: setClienteContext }} >
+        <PageContentContext.Provider value={{ pagecontentcontext: pagecontentcontext, setPageContentContext: setPageContentContext }} >
+          {/* não remover essas marcações div */}
+          <div>
+            <PrimaryAppBar />
+          </div>
           <LeftDrawer />
-        <div className={classes.content}>
-          <div className={classes.offset} />
-          <MainContent />
-        </div>
-      </MainContentContext.Provider>
+          <div className={classes.content}>
+            <div className={classes.offset} />
+            <MainContent />
+          </div>
+        </PageContentContext.Provider>
+      </ClienteContext.Provider>
     </div>
   );
 }

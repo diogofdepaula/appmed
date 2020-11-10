@@ -13,7 +13,8 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import GroupIcon from '@material-ui/icons/Group';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { ClienteContext, PageContentContext } from '../App';
 
 const drawerWidth = 240;
 
@@ -36,7 +37,10 @@ const useStyles = makeStyles((theme) => ({
 
 const LeftDrawer = () => {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
+    const { setPageContentContext } = useContext(PageContentContext)
+    const { clientecontext } = useContext(ClienteContext)
+
+    const [open, setOpen] = useState(true);
 
     const handleClick = () => {
         setOpen(!open);
@@ -82,7 +86,11 @@ const LeftDrawer = () => {
                             </ListItem>
                         </List>
                     </Collapse>
-                    <ListItem button>
+                    <ListItem
+                        disabled={clientecontext ? false : true}
+                        button
+                        onClick={() => setPageContentContext('atendimento')}
+                    >
                         <ListItemIcon>
                             <AssistantIcon />
                         </ListItemIcon>
