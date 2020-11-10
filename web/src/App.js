@@ -13,10 +13,12 @@ export const PageContentContext = createContext(null)
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    backgroundColor: theme.palette.common.white
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(1),
+    
   },
   offset: theme.mixins.toolbar,
 }));

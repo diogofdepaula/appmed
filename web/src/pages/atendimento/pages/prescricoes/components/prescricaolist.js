@@ -2,21 +2,22 @@ import { IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typo
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import { ClienteContext } from '../../../../../App';
+import { PageAtendimentoContext, PrescricaoMainContext } from '../../..';
 
 export default function PrescricaoList() {
 
-    const cliente = useContext(ClienteContext)
-    const setPage = useContext(PageContext)
+    const { clientecontext }  = useContext(ClienteContext)
+    const setPage = useContext(PageAtendimentoContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [prescricoes, setPrescricoes] = useState([])
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${clientecontext.id}`)
         const json = await res.json();
         setPrescricoes(json);
-    }, [cliente])
+    }, [clientecontext])
 
     useEffect(() => {
         fetchData();

@@ -1,6 +1,6 @@
 import { Box, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { PrescricaoMainContext } from '../..';
+import { PrescricaoMainContext } from '../../..';
 
 export default function PrescricaoData() {
 

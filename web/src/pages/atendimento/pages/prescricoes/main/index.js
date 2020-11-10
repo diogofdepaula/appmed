@@ -1,14 +1,14 @@
 import { Button, Grid, Box } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { PageContext } from '../..';
-import PrescricaoData from '../components/prescricaodata';
-import PrescricaoList from '../components/prescricaolist';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import PrintIcon from '@material-ui/icons/Print';
+import { PageAtendimentoContext } from '../../..';
+import PrescricaoData from '../components/prescricaodata';
+import PrescricaoList from '../components/prescricaolist';
 
 export default function PrescricaoMain() {
 
-    const setPage = useContext(PageContext)
+    const setPage = useContext(PageAtendimentoContext)
 
     return (
         <>
