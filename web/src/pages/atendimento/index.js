@@ -13,7 +13,7 @@ import Content from './component/content'
 // import PrescricaoInsert from './prescricoes/insert'
 // import PrescricaoMain from './prescricoes/main'
 // import PrescricaoUpdate from './prescricoes/update'
-// import Print from './print'
+// import Print from './print' hjhhhhhhh
 
 export const ClienteContextAntigo = createContext(null)
 export const PageAtendimentoContext = createContext('main')
