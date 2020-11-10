@@ -1,9 +1,10 @@
-import { List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText, makeStyles, Typography } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles';
 import PersonIcon from '@material-ui/icons/Person';
 import SearchIcon from '@material-ui/icons/Search';
 import React, { useCallback, useEffect, useState } from 'react';
+import { differenceInYears, parseISO } from 'date-fns';
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -49,11 +50,14 @@ const useStyles = makeStyles((theme) => ({
         top: 36,
         width: '100%',
         flexGrow: 1,
-        backgroundColor: fade(theme.palette.common.white, 0.75),
-        borderRadius: theme.shape.borderRadius,
     },
     list: {
         width: '100%',
+        backgroundColor: theme.palette.background.paper,
+        borderRadius: theme.shape.borderRadius,
+    },
+    itemtext: {
+        color: 'black'
     }
 }))
 
@@ -66,12 +70,13 @@ const ClienteSet = () => {
     // fica com um clientesinitial
     const [clientesfiltrados, setClientesFiltrados] = useState([])
 
+
     const fetchData = useCallback(async () => {
         // deixar o allfat, pois usa os outros dados na hora de imprimir
         const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat')
         const json = await res.json()
         setClientes(json)
-        setClientesFiltrados(json)
+        //setClientesFiltrados(json)
     }, [])
 
     useEffect(() => {
@@ -89,6 +94,9 @@ const ClienteSet = () => {
                 id: 0,
                 nome: "nenhum cliente encontrado"
             })
+        }
+        if (event.target.value === "") {
+            filtro.length = 0
         }
         setClientesFiltrados(filtro)
     }
@@ -108,22 +116,26 @@ const ClienteSet = () => {
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={(e) => filterClientes(e)}
                 />
-                <div className={classes.overlay}>
-                    <List className={classes.list}>
-                        {clientesfiltrados.map(cliente =>
-                            <ListItem
-                                key={cliente.id}
-                                button
-                            // onClick={changePage(cliente, 2)}
-                            >
-                                <ListItemIcon>
-                                    <PersonIcon />
-                                </ListItemIcon>
-                                <ListItemText primary={cliente.nome} secondary={cliente.nascimento}></ListItemText>
-                            </ListItem>
-                        )}
-                    </List>
-                </div>
+                {clientesfiltrados.length > 0 &&
+                    <div className={classes.overlay}>
+                        <List component="nav" className={classes.list} >
+                            {clientesfiltrados.map(cliente =>
+                                <ListItem
+                                    key={cliente.id}
+                                    button
+                                // onClick={changePage(cliente, 2)}
+                                >
+                                    <ListItemIcon>
+                                        <PersonIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={<Typography variant="body1" className={classes.itemtext}>{cliente.nome}</Typography>}
+                                        secondary={cliente.nascimento ? differenceInYears(new Date(), parseISO(cliente.nascimento)).toString().concat(" anos") : ''} />
+                                </ListItem>
+                            )}
+                        </List>
+                    </div>
+                }
             </div>
 
 

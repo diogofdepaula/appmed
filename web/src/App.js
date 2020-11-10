@@ -28,7 +28,6 @@ const App = () => {
     page: "atendimento"
   })
 
-  /////
   return (
     <div className={classes.root}>
       <CssBaseline />
