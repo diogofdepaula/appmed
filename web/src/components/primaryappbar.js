@@ -1,21 +1,18 @@
-import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
+import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
+import MenuItem from '@material-ui/core/MenuItem';
+import { fade, makeStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import MenuIcon from '@material-ui/icons/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import React from 'react';
 import ClienteSet from './clienteset';
-import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -175,7 +172,7 @@ const PrimaryAppBar = () => {
     );
 
     return (
-        <div className={classes.grow}>
+        <div className={classes.grow} >
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <div className={classes.menutop}>
@@ -191,23 +188,9 @@ const PrimaryAppBar = () => {
                             APPMed
                     </Typography>
                     </div>
-                    <Box component="div" overflow="visible">
-                    <ClienteSet />
-                    </Box>
-                    {/* <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Procurar cliente"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div> */}
-                    <div className={classes.grow} />
+                    <div className={classes.grow} >
+                        <ClienteSet />
+                    </div>
                     <div className={classes.sectionDesktop}>
                         <IconButton aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="secondary">

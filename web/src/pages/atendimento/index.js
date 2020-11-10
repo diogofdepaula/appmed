@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import ClienteSet from '../../components/clienteset';
 import Main from './pages';
 
 const Atendimento = () => {
 
-    const [param, setParam] = useState({
+    const [param] = useState({
         cliente: null,
         page: 1
     })
@@ -16,7 +15,7 @@ const Atendimento = () => {
     const GetContent = () => {
         switch (param.page) {
             case 1:
-                return <ClienteSet />
+                return <div>Aqui ficaria o ClienteSet Antigo</div>
             case 2:
                 return <Main cliente={param.cliente} />
             default:

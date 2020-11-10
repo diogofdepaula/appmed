@@ -1,9 +1,9 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText, makeStyles } from '@material-ui/core';
+import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles';
 import PersonIcon from '@material-ui/icons/Person';
 import SearchIcon from '@material-ui/icons/Search';
 import React, { useCallback, useEffect, useState } from 'react';
-import InputBase from '@material-ui/core/InputBase';
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -44,6 +44,19 @@ const useStyles = makeStyles((theme) => ({
             width: '20ch',
         },
     },
+    overlay: {
+        position: 'absolute',
+        top: 50,
+        width: '100%',
+        marginLeft: 24,
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.paper,
+        borderRadius: theme.shape.borderRadius,
+    },
+    list: {
+        width: '100%',
+    // maxWidth: 360,
+    }
 }))
 
 const ClienteSet = () => {
@@ -84,24 +97,22 @@ const ClienteSet = () => {
 
     return (
         <div>
-            <Box>
-                <div className={classes.search}>
-                    <div className={classes.searchIcon}>
-                        <SearchIcon />
-                    </div>
-                    <InputBase
-                        placeholder="Procurar cliente"
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        inputProps={{ 'aria-label': 'search' }}
-                        onChange={(e) => filterClientes(e)}
-                    />
+            <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                    <SearchIcon />
                 </div>
-            </Box>
-            <Box>
-                <List >
+                <InputBase
+                    placeholder="Procurar cliente"
+                    classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                    }}
+                    inputProps={{ 'aria-label': 'search' }}
+                    onChange={(e) => filterClientes(e)}
+                />
+            </div>
+            <div className={classes.overlay}>
+                <List className={classes.list}>
                     {clientesfiltrados.map(cliente =>
                         <ListItem
                             key={cliente.id}
@@ -115,7 +126,8 @@ const ClienteSet = () => {
                         </ListItem>
                     )}
                 </List>
-            </Box>
+            </div>
+
         </div>
     )
 }

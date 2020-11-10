@@ -37,9 +37,7 @@ const App = () => {
         <div>
           <PrimaryAppBar />
         </div>
-        <div>
           <LeftDrawer />
-        </div>
         <div className={classes.content}>
           <div className={classes.offset} />
           <MainContent />
