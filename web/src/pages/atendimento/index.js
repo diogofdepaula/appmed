@@ -34,6 +34,7 @@ const Atendimento = () => {
 
     const GetContent = () => {
         switch (page) {
+            //PARA GARANTIR
             // case 'prescricoes':
             //     return <PrescricaoMain />
             // case 'prescricaoinsert':
