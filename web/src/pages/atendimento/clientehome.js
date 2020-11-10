@@ -2,7 +2,9 @@ import React, { useContext } from 'react'
 import { ClienteContext } from '../../App'
 
 const ClienteHome = () => {
+
     const { clientecontext } = useContext(ClienteContext)
+    
     return (
         <div display="flex">
             <div>

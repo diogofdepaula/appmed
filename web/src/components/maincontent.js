@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { PageContentContext } from '../App';
 import Atendimento from '../pages/atendimento';
-import ClienteHome from '../pages/clientehome';
+import ClienteHome from '../pages/atendimento/clientehome';
 
 const MainContent = () => {
 

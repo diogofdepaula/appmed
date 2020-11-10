@@ -1,5 +1,6 @@
 import { Box, Button, Grid } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
+import ClienteHeader from './component/clienteheader'
 // import ClienteHeader from '../component/clienteheader'
 // import LMEDelete from './lmes/delete'
 // import LMEInsert from './lmes/insert'
@@ -17,7 +18,7 @@ export const PageContext = createContext('main')
 export const PrescricaoMainContext = createContext(null)
 export const LMEMainContext = createContext(null)
 
-const Atendimento = (props) => {
+const Atendimento = () => {
 
     const [page, setPage] = useState()
     const [prescricaoMain, setPrescricaoMain] = useState()
@@ -58,34 +59,32 @@ const Atendimento = (props) => {
 
     return (
         <>
-            {/* <ClienteContext.Provider value={props.cliente}> */}
-                {/* <ClienteHeader /> */}
-                <Box mt={1}>
-                    <Grid container spacing={1}>
-                        {links.map(x =>
-                            <Grid item key={x[0]}>
-                                <Button
-                                    variant="contained"
-                                    onClick={() => {
-                                        setPrescricaoMain(null)
-                                        setPage(x[0])
-                                    }}
-                                >{x[1]}
-                                </Button>
-                            </Grid>
-                        )}
-                    </Grid>
-                </Box>
-                <Box>
-                    <PageContext.Provider value={setPage}>
-                        <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
-                            <LMEMainContext.Provider value={{ lmeMain: lmeMain, setLmeMain: setLmeMain }} >
-                                <GetContent />
-                            </LMEMainContext.Provider>
-                        </PrescricaoMainContext.Provider>
-                    </PageContext.Provider>
-                </Box>
-            {/* </ClienteContext.Provider> */}
+            <ClienteHeader />
+            <Box mt={1}>
+                <Grid container spacing={1}>
+                    {links.map(x =>
+                        <Grid item key={x[0]}>
+                            <Button
+                                variant="contained"
+                                onClick={() => {
+                                    setPrescricaoMain(null)
+                                    setPage(x[0])
+                                }}
+                            >{x[1]}
+                            </Button>
+                        </Grid>
+                    )}
+                </Grid>
+            </Box>
+            <Box>
+                <PageContext.Provider value={setPage}>
+                    <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
+                        <LMEMainContext.Provider value={{ lmeMain: lmeMain, setLmeMain: setLmeMain }} >
+                            <GetContent />
+                        </LMEMainContext.Provider>
+                    </PrescricaoMainContext.Provider>
+                </PageContext.Provider>
+            </Box>
         </>
     )
 }
