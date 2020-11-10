@@ -11,9 +11,11 @@ const MainContent = () => {
         switch (maincontext.page) {
             case 'atendimento':
                 return <Atendimento />
+                case 'teste':
+                return <div>Deixa aqui para os testes</div>
             default:
                 // FAZER UMA PÁGINA INICIAL DEPOIS
-                return <div />
+                return <div>Futuramente página inicial</div>
         }
     }
 

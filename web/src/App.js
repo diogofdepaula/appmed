@@ -25,7 +25,7 @@ const App = () => {
   const classes = useStyles();
   const [maincontext, setMainContext] = useState({
     cliente: null,
-    page: "atendimento"
+    page: ""
   })
 
   return (
