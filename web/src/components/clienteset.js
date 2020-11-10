@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
     },
     list: {
         width: '100%',
-        // maxWidth: 360,
     }
 }))
 
