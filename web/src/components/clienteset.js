@@ -46,16 +46,15 @@ const useStyles = makeStyles((theme) => ({
     },
     overlay: {
         position: 'absolute',
-        top: 50,
+        top: 36,
         width: '100%',
-        marginLeft: 24,
         flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: fade(theme.palette.common.white, 0.75),
         borderRadius: theme.shape.borderRadius,
     },
     list: {
         width: '100%',
-    // maxWidth: 360,
+        // maxWidth: 360,
     }
 }))
 
@@ -110,23 +109,24 @@ const ClienteSet = () => {
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={(e) => filterClientes(e)}
                 />
+                <div className={classes.overlay}>
+                    <List className={classes.list}>
+                        {clientesfiltrados.map(cliente =>
+                            <ListItem
+                                key={cliente.id}
+                                button
+                            // onClick={changePage(cliente, 2)}
+                            >
+                                <ListItemIcon>
+                                    <PersonIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={cliente.nome} secondary={cliente.nascimento}></ListItemText>
+                            </ListItem>
+                        )}
+                    </List>
+                </div>
             </div>
-            <div className={classes.overlay}>
-                <List className={classes.list}>
-                    {clientesfiltrados.map(cliente =>
-                        <ListItem
-                            key={cliente.id}
-                            button
-                        // onClick={changePage(cliente, 2)}
-                        >
-                            <ListItemIcon>
-                                <PersonIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={cliente.nome} secondary={cliente.nascimento}></ListItemText>
-                        </ListItem>
-                    )}
-                </List>
-            </div>
+
 
         </div>
     )
