@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import { Box, Divider } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
 import AtendimentoAppBar from './component/appbar'
 import ClienteHeader from './component/clienteheader'
@@ -26,23 +26,21 @@ const Atendimento = () => {
     const [prescricaoMain, setPrescricaoMain] = useState()
     const [lmeMain, setLmeMain] = useState()
 
-    const changePage = (param) => {
-        setPage(param)
-    }
-
     return (
         <>
             <ClienteHeader />
-            <AtendimentoAppBar changePage={changePage} />
-            <Box>
-                <PageAtendimentoContext.Provider value={setPage}>
+            <PageAtendimentoContext.Provider value={{ page: page, setPage: setPage }}>
+                <Divider />
+                <AtendimentoAppBar />
+                <Divider />
+                <Box>
                     <PrescricaoMainContext.Provider value={{ prescricaoMain: prescricaoMain, setPrescricaoMain: setPrescricaoMain }} >
                         <LMEMainContext.Provider value={{ lmeMain: lmeMain, setLmeMain: setLmeMain }} >
                             <Content page={page} />
                         </LMEMainContext.Provider>
                     </PrescricaoMainContext.Provider>
-                </PageAtendimentoContext.Provider>
-            </Box>
+                </Box>
+            </PageAtendimentoContext.Provider>
         </>
     )
 }

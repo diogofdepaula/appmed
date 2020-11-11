@@ -1,4 +1,4 @@
-import { IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from '@material-ui/core';
+import { Box, Divider, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Typography } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
@@ -8,7 +8,7 @@ import { PageAtendimentoContext, PrescricaoMainContext } from '../../..';
 
 export default function PrescricaoList() {
 
-    const { clientecontext }  = useContext(ClienteContext)
+    const { clientecontext } = useContext(ClienteContext)
     const setPage = useContext(PageAtendimentoContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [prescricoes, setPrescricoes] = useState([])
@@ -25,39 +25,41 @@ export default function PrescricaoList() {
 
     return (
         <>
-            <Typography variant={'h6'}>Em uso atual</Typography>
+            <Box ml={2}>
+                <Typography variant={'h6'}>Prescrições atuais</Typography>
+            </Box>
             <List>
                 {prescricoes && prescricoes.map(prescricao =>
                     prescricao.emuso && (
-                        <ListItem
-                            key={prescricao.id}
-                            onClick={() => setPrescricaoMain(prescricao)}
-                        >
-                            <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
-                            <ListItemSecondaryAction>
-                                <IconButton
-                                    aria-label="update"
-                                    onClick={() => {
-                                        setPrescricaoMain(prescricao.id)
-                                        setPage('prescricaoupdate')
-                                    }}
-                                >
-                                    <EditIcon />
-                                </IconButton>
-                                <IconButton
-                                    aria-label="delete"
-                                    onClick={() => {
-                                        setPrescricaoMain(prescricao)
-                                        setPage('prescricaodelete')
-                                    }}
-                                >
-                                    <HighlightOffIcon />
-                                </IconButton>
-                                <>
-                                    {prescricao.lmeId !== null && '(LME)'}
-                                </>
-                            </ListItemSecondaryAction>
-                        </ListItem>
+                        <div key={prescricao.id}>
+                            <ListItem
+                                onClick={() => setPrescricaoMain(prescricao)}
+                            >
+                                <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
+                                <ListItemSecondaryAction>
+                                    <IconButton
+                                        onClick={() => {
+                                            setPrescricaoMain(prescricao.id)
+                                            setPage('prescricaoupdate')
+                                        }}
+                                    >
+                                        <EditIcon />
+                                    </IconButton>
+                                    <IconButton
+                                        onClick={() => {
+                                            setPrescricaoMain(prescricao)
+                                            setPage('prescricaodelete')
+                                        }}
+                                    >
+                                        <HighlightOffIcon />
+                                    </IconButton>
+                                    <>
+                                        {prescricao.lmeId !== null && '(LME)'}
+                                    </>
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                            <Divider light />
+                        </div>
                     )
                 )}
                 <ListItem disabled>Porta ac consectetur ac</ListItem>
@@ -66,27 +68,28 @@ export default function PrescricaoList() {
             <List>
                 {prescricoes && prescricoes.map(prescricao =>
                     !prescricao.emuso && (
-                        <ListItem
-                            key={prescricao.id}
-                            onClick={() => setPrescricaoMain(prescricao)}
-                            dense
-                        >
-                            <ListItemText primary={prescricao.medicamento.farmaco} />
-                            <ListItemSecondaryAction>
-                                <IconButton
-                                    aria-label="delete"
-                                    onClick={() => {
-                                        setPrescricaoMain(prescricao)
-                                        setPage('prescricaodelete')
-                                    }}
-                                >
-                                    <DeleteIcon />
-                                </IconButton>
-                                <>
-                                    {prescricao.lmeId !== null && '(LME)'}
-                                </>
-                            </ListItemSecondaryAction>
-                        </ListItem>
+                        <div key={prescricao.id}>
+                            <ListItem
+                                onClick={() => setPrescricaoMain(prescricao)}
+                                dense
+                            >
+                                <ListItemText primary={prescricao.medicamento.farmaco} />
+                                <ListItemSecondaryAction>
+                                    <IconButton
+                                        onClick={() => {
+                                            setPrescricaoMain(prescricao)
+                                            setPage('prescricaodelete')
+                                        }}
+                                    >
+                                        <DeleteIcon />
+                                    </IconButton>
+                                    <>
+                                        {prescricao.lmeId !== null && '(LME)'}
+                                    </>
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                            <Divider light />
+                        </div>
                     )
                 )}
                 <ListItem disabled>Porta ac consectetur ac</ListItem>

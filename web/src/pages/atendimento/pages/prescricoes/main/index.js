@@ -1,47 +1,78 @@
-import { Button, Grid, Box } from '@material-ui/core';
-import React, { useContext } from 'react';
-import PostAddIcon from '@material-ui/icons/PostAdd';
-import PrintIcon from '@material-ui/icons/Print';
-import { PageAtendimentoContext } from '../../..';
+import { Box, Divider, Grid, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { PageAtendimentoContext, PrescricaoMainContext } from '../../..';
+import { ClienteContext } from '../../../../../App';
+import PrescricoesAppBar from '../components/appbar';
 import PrescricaoData from '../components/prescricaodata';
-import PrescricaoList from '../components/prescricaolist';
 
 export default function PrescricaoMain() {
 
-    const setPage = useContext(PageAtendimentoContext)
+    const { clientecontext } = useContext(ClienteContext)
+    //const setPage = useContext(PageAtendimentoContext)
+    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const [prescricoes, setPrescricoes] = useState([])
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${clientecontext.id}`)
+        const json = await res.json();
+        setPrescricoes(json);
+    }, [clientecontext])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
 
     return (
         <>
-            <Box mt={1}>
-                <Grid container spacing={1}>
-                    <Grid item>
-                        <Button
-                            variant="contained"
-                            startIcon={<PostAddIcon />}
-                            onClick={() => {
-                                setPage('prescricaoinsert')
-                            }}
-                        >Nova Prescrição</Button>
-                    </Grid>
-                    <Grid item>
-                        <Button
-                            variant="contained"
-                            startIcon={<PrintIcon />}
-                            onClick={() => {
-                                setPage('print')
-                            }}
-                        >Imprimir</Button>
-                    </Grid>
+            <Grid container spacing={1}>
+                <Grid item xs={4}>
+                    <Box mt={1} display="flex" justifyContent="center">
+                        <Typography variant={'h6'}>Prescrições atuais</Typography>
+                    </Box>
+                    <Box ml={1}>
+                        <List>
+                            {prescricoes && prescricoes.map(prescricao =>
+                                prescricao.emuso && (
+                                    <div key={prescricao.id}>
+                                        <ListItem
+                                            onClick={() => setPrescricaoMain(prescricao)}
+                                        >
+                                            <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
+                                        </ListItem>
+                                        <Divider light />
+                                    </div>
+                                )
+                            )}
+                            <ListItem disabled>Porta ac consectetur ac</ListItem>
+                        </List>
+                    </Box>
+                    {/* <Typography variant={'h6'}>Fez uso</Typography>
+                    <List>
+                        {prescricoes && prescricoes.map(prescricao =>
+                            !prescricao.emuso && (
+                                <div key={prescricao.id}>
+                                    <ListItem
+                                        onClick={() => setPrescricaoMain(prescricao)}
+                                        dense
+                                    >
+                                        <ListItemText primary={prescricao.medicamento.farmaco} />
+                                    </ListItem>
+                                    <Divider light />
+                                </div>
+                            )
+                        )}
+                        <ListItem disabled>Porta ac consectetur ac</ListItem>
+                    </List> */}
                 </Grid>
-                <Grid container spacing={2}>
-                    <Grid item xs={5}>
-                        <PrescricaoList />
-                    </Grid>
-                    <Grid item xs>
-                        <PrescricaoData />
-                    </Grid>
+                <Grid item>
+                    <Divider orientation="vertical" flexItem />
                 </Grid>
-            </Box>
+                <Grid item xs>
+                    <PrescricoesAppBar />
+                    <Divider />
+                    <PrescricaoData />
+                </Grid>
+            </Grid>
         </>
     )
 }
