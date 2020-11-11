@@ -21,6 +21,7 @@ export default function PrescricaoMain() {
     useEffect(() => {
         fetchData();
     }, [fetchData])
+    ;;$$
 
     return (
         <>
