@@ -65,6 +65,7 @@ const AtendimentoAppBar = () => {
                                     setPrescricaoMain(null),
                                     setPage('prescricoes'),
                                     setAppBarRight('prescricoes')
+                                    //
                                 )
                             }}
                         >
