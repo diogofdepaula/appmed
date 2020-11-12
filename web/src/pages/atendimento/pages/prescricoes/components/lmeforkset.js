@@ -1,19 +1,19 @@
 import { Box, Divider, ListItem, ListItemText, Typography, List } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext } from '../..';
+import { ClienteContext } from '../../../../../App';
 import { PrescricaoEditorContext } from '../editor';
 
 export default function LMEForkSet() {
 
-    const cliente = useContext(ClienteContext)
+    const { clientecontext } = useContext(ClienteContext)
     const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
     const [lmes, setlmes] = useState([])
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfit/${cliente.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfit/${clientecontext.id}`)
         const json = await res.json();
         setlmes(json);
-    }, [cliente])
+    }, [clientecontext])
 
     useEffect(() => {
         fetchData();

@@ -9,11 +9,12 @@ import PrintIcon from '@material-ui/icons/Print';
 import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import React, { useContext, useState } from 'react';
-import { PageAtendimentoContext } from '..';
+import { PageAtendimentoContext, PrescricaoMainContext } from '..';
 
 const AtendimentoAppBar = () => {
 
     const { page, setPage } = useContext(PageAtendimentoContext)
+    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 
     const [appbarright, setAppBarRight] = useState(page)
 
@@ -61,6 +62,7 @@ const AtendimentoAppBar = () => {
                         <IconButton
                             onClick={() => {
                                 return (
+                                    setPrescricaoMain(null),
                                     setPage('prescricoes'),
                                     setAppBarRight('prescricoes')
                                 )

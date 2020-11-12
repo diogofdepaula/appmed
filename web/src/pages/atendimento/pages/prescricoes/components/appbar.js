@@ -4,9 +4,12 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import React from 'react';
+import React, { useContext } from 'react';
+import { PageAtendimentoContext } from '../../..';
 
 const PrescricoesAppBar = () => {
+
+    const setPage = useContext(PageAtendimentoContext)
 
     return (
         <>
@@ -18,7 +21,7 @@ const PrescricoesAppBar = () => {
                 </Tooltip>
                 <Tooltip title="Editar">
                     <IconButton
-                        //onClick={() => setPage('prescricoes')}
+                        onClick={() => setPage('prescricaoupdate')}
                     >
                         <EditIcon />
                     </IconButton>
@@ -29,18 +32,20 @@ const PrescricoesAppBar = () => {
                     </IconButton>
                 </Tooltip>
                 <Tooltip title="Excluir">
-                    <IconButton>
+                    <IconButton
+                    
+                    >
                         <DeleteIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title="Outros">
                     <IconButton
-//                        onClick={() => setPage('teste')}
+                    //                        onClick={() => setPage('teste')}
                     >
                         <HealingIcon />
                     </IconButton>
                 </Tooltip>
-        </Box>
+            </Box>
         </>
     )
 }

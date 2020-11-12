@@ -1,52 +1,81 @@
 import { Box, Typography } from '@material-ui/core';
+import { format, parseISO } from 'date-fns';
+import { differenceInMonths } from 'date-fns/esm';
+import { ptBR } from 'date-fns/locale';
 import React, { useContext } from 'react';
 import { PrescricaoMainContext } from '../../..';
 
-export default function PrescricaoData() {
+const PrescricaoData = () => {
 
     const { prescricaoMain } = useContext(PrescricaoMainContext)
     const prescricao = prescricaoMain;
 
     return (
         <>
-            <Box mt={4}>
-                {prescricaoMain &&
-                    <>
-                        <Typography variant={'h6'}>{prescricao.medicamento.farmaco} ({prescricao.apresentaco.descricao})</Typography>
-                        {prescricao.continuo
-                            ? <Typography variant={'body1'}>Contínuo: sim</Typography>
-                            : <Typography variant={'body1'}>Contínuo: não</Typography>}
+            <Box>
+                <Box mt={1} display="flex" justifyContent="center" alignItems="flex-end">
+                    <Typography variant={'h6'}>{prescricao.medicamento.farmaco}</Typography>
+                </Box>
+                <Box ml={1}>
+                    <Typography variant={'body1'}>{prescricao.apresentaco.descricao}</Typography>
+                    <Box mt={1}>
                         {prescricao.usoposologiapadrao ?
                             <>
-                                Posologia:
                                 <Typography variant={'body1'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
-                                <Typography variant={'body1'}>{prescricao.posologia.quantidade} {prescricao.posologia.forma}</Typography>
                             </>
                             :
                             <>
-                                Posologia:
                                 <Typography variant={'body1'} align={'justify'}>{prescricao.posologianaopadrao}</Typography>
-                                <Typography variant={'body1'}>{prescricao.quantidadenaopadrao} {prescricao.formanaopadrao}</Typography>
                             </>}
+                    </Box>
+                    <Box mt={2}>
+                        <Typography variant={'body1'} >
+                            {prescricao.continuo ? "Contínuo" : "Não Contínuo"}
+                        </Typography>
                         {prescricao.imprimirorientacoes
-                            ? <Typography variant={'body1'}>Imprimir orientações: sim</Typography>
-                            : <Typography variant={'body1'}>Imprimir orientações: não</Typography>
+                            ?
+                            <Box>
+                                <Typography variant={'body1'}>Imprimirá orientações:</Typography>
+                                <Box ml={2}>
+                                    <Typography variant={'body1'} align={'justify'}>{prescricao.orientacoes}</Typography>
+                                </Box>
+                            </Box>
+                            :
+                            <Typography variant={'body1'}>"Não imprimirá orientações"</Typography>
                         }
-                        <Typography variant={'body1'}>Orientações: {prescricao.orientacoes}</Typography>
-
+                    </Box>
+                    <Box mt={1}>
                         {prescricao.lmeId &&
-                            <Typography variant={'body1'}>LME: {prescricao.lmemes1} | {prescricao.lmemes2} | {prescricao.lmemes3}</Typography>
-                        }
-                        <Typography variant={'body1'}>Início: {prescricao.inicio}</Typography>
-                        {prescricao.termino &&
                             <>
-                                <Typography variant={'body1'}>Termino: {prescricao.termino} </Typography>
-                                <Typography variant={'body1'}>Motivo do termimo: {prescricao.motivotermico}</Typography>
+                                <Typography variant={'body1'}>Doses na LME:</Typography>
+                                <Box ml={2}>
+                                    <Typography variant={'body1'}>1º mês: {prescricao.lmemes1}</Typography>
+                                    <Typography variant={'body1'}>2º mês: {prescricao.lmemes2}</Typography>
+                                    <Typography variant={'body1'}>3º mês: {prescricao.lmemes3}</Typography>
+                                    <Typography variant={'body1'}>4º mês: {prescricao.lmemes4}</Typography>
+                                    <Typography variant={'body1'}>5º mês: {prescricao.lmemes5}</Typography>
+                                    <Typography variant={'body1'}>6º mês: {prescricao.lmemes6}</Typography>
+                                </Box>
                             </>
                         }
-                    </>
-                }
+                    </Box>
+                    <Box mt={1}>
+                        <Typography variant={'body1'}>Início: {format(parseISO(prescricao.inicio), "dd '/' MM '/' yyyy", { locale: ptBR })}</Typography>
+                        <Typography variant={'body1'}>Tempo de uso: {differenceInMonths(prescricao.termino ? parseISO(prescricao.termino) : new Date(), parseISO(prescricao.inicio))} meses</Typography>
+                        {prescricao.termino &&
+                            <Box display="block">
+                                <Typography variant={'body1'}>Termino: {format(parseISO(prescricao.termino), "dd '/' MM '/' yyyy", { locale: ptBR })}</Typography>
+                                <Typography variant={'body1'}>Motivo do termimo:</Typography>
+                                <Box ml={2}>
+                                    <Typography variant={'body1'} align={'justify'}>{prescricao.motivotermico}</Typography>
+                                </Box>
+                            </Box>
+                        }
+                    </Box>
+                </Box>
             </Box>
         </>
     );
 }
+
+export default PrescricaoData

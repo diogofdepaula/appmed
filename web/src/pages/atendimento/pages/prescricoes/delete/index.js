@@ -1,10 +1,11 @@
-import React, { useContext, useState, useCallback, useEffect } from 'react';
-import { PrescricaoMainContext, PageContext } from '../..';
-import { Container, Button, Card, Row } from 'react-bootstrap';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Button, Card, Container, Row } from 'react-bootstrap';
+import { PrescricaoMainContext } from '../../..';
+import { PageContentContext } from '../../../../../App';
 
 export default function PrescricaoDelete() {
 
-    const setPage = useContext(PageContext)
+    const { setPageContentContext } = useContext(PageContentContext)
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [lme, setLme] = useState()
     const [change, setChange] = useState(0)
@@ -29,7 +30,7 @@ export default function PrescricaoDelete() {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoMain(null)
-                setPage('prescricoes')
+                setPageContentContext('prescricoes')
             }
         })
     }
@@ -42,7 +43,7 @@ export default function PrescricaoDelete() {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoMain(null)
-                setPage('prescricoes')
+                setPageContentContext('prescricoes')
             }
         })
     }
@@ -76,9 +77,9 @@ export default function PrescricaoDelete() {
             updateEmUso()
         } else if (change === 3) {
             setPrescricaoMain(null)
-            setPage('prescricoes')
+            setPageContentContext('prescricoes')
         }
-    }, [change, changeEmUso, updateEmUso, setPrescricaoMain, setPage])
+    }, [change, changeEmUso, updateEmUso, setPrescricaoMain, setPageContentContext])
 
     return (
         <div>

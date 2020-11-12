@@ -4,12 +4,12 @@ import { PrescricaoMainContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
 import PrescricoesAppBar from '../components/appbar';
 import PrescricaoData from '../components/prescricaodata';
+import Reorder from '../../../component/reorder'
 
-export default function PrescricaoMain() {
+const PrescricaoMain = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    //const setPage = useContext(PageAtendimentoContext)
-    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [prescricoes, setPrescricoes] = useState([])
 
     const fetchData = useCallback(async () => {
@@ -27,11 +27,11 @@ export default function PrescricaoMain() {
             <Grid container spacing={1}>
                 <Grid item xs={4}>
                     <Box mt={1} display="flex" justifyContent="center">
-                        <Typography variant={'h6'}>Prescrições atuais</Typography>
+                        <Typography variant={'h6'}>Prescrições</Typography>
                     </Box>
                     <Box ml={1}>
                         <List>
-                            {prescricoes?.map(prescricao =>
+                            {prescricoes && Reorder(prescricoes).map(prescricao =>
                                 <div key={prescricao.id}>
                                     <ListItem
                                         disabled={!prescricao.emuso}
@@ -50,11 +50,17 @@ export default function PrescricaoMain() {
                     <Divider orientation="vertical" flexItem />
                 </Grid>
                 <Grid item xs>
-                    <PrescricoesAppBar />
-                    <Divider />
-                    <PrescricaoData />
+                    {prescricaoMain &&
+                        <div>
+                            <PrescricoesAppBar />
+                            <Divider />
+                            <PrescricaoData />
+                        </div>
+                    }
                 </Grid>
             </Grid>
         </>
     )
 }
+
+export default PrescricaoMain

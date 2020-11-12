@@ -1,14 +1,15 @@
 import { Box, Button, Grid } from '@material-ui/core';
 import React, { createContext, useCallback, useContext, useState } from 'react';
-import { ClienteContext, PageContext, PrescricaoMainContext } from '../..';
+import { PrescricaoMainContext } from '../../..';
+import { ClienteContext, PageContentContext } from '../../../../../App';
 import PrescricaoEditor from '../editor';
 
 export const PrescricaoContext = createContext(null)
 
 export default function PrescricaoInsert() {
 
-    const cliente = useContext(ClienteContext)
-    const setPage = useContext(PageContext)
+    const { clientecontext}  = useContext(ClienteContext)
+    const { setPageContentContext } = useContext(PageContentContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 
     const initialPrescricao = {
@@ -29,7 +30,7 @@ export default function PrescricaoInsert() {
         inicio: new Date().toISOString().slice(0, 10), //"yyyy-MM-dd"
         termino: null,
         motivotermico: '',
-        clienteId: cliente.id,
+        clienteId: clientecontext.id,
         lmeId: null,
         medicamentoId: '',
         apresentacoId: '',
@@ -45,16 +46,16 @@ export default function PrescricaoInsert() {
             //Mandará para a LME
             setPrescricaoMain(paramPres)
             if (paramPres.lmeId === null) {
-                setPage('lmeinsert')
+                setPageContentContext('lmeinsert')
             } else {
                 //JÁ DEIXEI AQUI PARA ENCAMINHAR QUANDO FOR VINCULAR A UMA LME JÁ EXISTENTE
-                setPage('lmeupdate')
+                setPageContentContext('lmeupdate')
             }
         } else {
             setPrescricaoMain(null)
             setPrescricao(paramPres)
         }
-    }, [setPrescricaoMain, setPage])
+    }, [setPrescricaoMain, setPageContentContext])
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -64,7 +65,7 @@ export default function PrescricaoInsert() {
             body: JSON.stringify(prescricao)
         }).then(data => {
             if (data.ok) {
-                setPage('prescricoes')
+                setPageContentContext('prescricoes')
             }
         })
     }

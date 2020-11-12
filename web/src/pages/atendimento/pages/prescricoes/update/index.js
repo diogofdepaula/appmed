@@ -1,11 +1,12 @@
 import React, { useContext, useCallback, useState, useEffect } from 'react';
 import { Container, Button, Card } from 'react-bootstrap';
-import { PrescricaoMainContext, PageContext } from '../..';
+import { PrescricaoMainContext } from '../../..';
+import { PageContentContext } from '../../../../../App';
 import PrescricaoEditor from '../editor'
 
 export default function PrescricaoUpdate(props) {
 
-    const setPage = useContext(PageContext)
+    const { setPage: setPageContentContext } = useContext(PageContentContext)
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     //Não dá para usar o prescricaoMain porque dá um erro
     //Cannot update a component from inside the function body of a different component
@@ -16,12 +17,12 @@ export default function PrescricaoUpdate(props) {
     useEffect(() => {
         if (sendLME) {
             if (prescricaoMain.lmeId === null) {
-                setPage('lmeinsert')
+                setPageContentContext('lmeinsert')
             } else {
-                setPage('lmeupdate')
+                setPageContentContext('lmeupdate')
             }
         }
-    }, [sendLME, prescricaoMain, setPage])
+    }, [sendLME, prescricaoMain, setPageContentContext])
 
     const backPrescricao = useCallback((paramPres, paramLME) => {
         setPrescricaoMain(paramPres)
@@ -42,7 +43,7 @@ export default function PrescricaoUpdate(props) {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoMain(null)
-                setPage('prescricoes')
+                setPageContentContext('prescricoes')
             }
         })
     }
