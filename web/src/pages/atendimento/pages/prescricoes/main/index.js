@@ -1,6 +1,6 @@
 import { Box, Divider, Grid, List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { PageAtendimentoContext, PrescricaoMainContext } from '../../..';
+import { PrescricaoMainContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
 import PrescricoesAppBar from '../components/appbar';
 import PrescricaoData from '../components/prescricaodata';
@@ -21,7 +21,6 @@ export default function PrescricaoMain() {
     useEffect(() => {
         fetchData();
     }, [fetchData])
-    ;;$$
 
     return (
         <>
@@ -32,38 +31,20 @@ export default function PrescricaoMain() {
                     </Box>
                     <Box ml={1}>
                         <List>
-                            {prescricoes && prescricoes.map(prescricao =>
-                                prescricao.emuso && (
-                                    <div key={prescricao.id}>
-                                        <ListItem
-                                            onClick={() => setPrescricaoMain(prescricao)}
-                                        >
-                                            <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
-                                        </ListItem>
-                                        <Divider light />
-                                    </div>
-                                )
+                            {prescricoes?.map(prescricao =>
+                                <div key={prescricao.id}>
+                                    <ListItem
+                                        disabled={!prescricao.emuso}
+                                        onClick={() => setPrescricaoMain(prescricao)}
+                                    >
+                                        <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
+                                    </ListItem>
+                                    <Divider light />
+                                </div>
                             )}
                             <ListItem disabled>Porta ac consectetur ac</ListItem>
                         </List>
                     </Box>
-                    {/* <Typography variant={'h6'}>Fez uso</Typography>
-                    <List>
-                        {prescricoes && prescricoes.map(prescricao =>
-                            !prescricao.emuso && (
-                                <div key={prescricao.id}>
-                                    <ListItem
-                                        onClick={() => setPrescricaoMain(prescricao)}
-                                        dense
-                                    >
-                                        <ListItemText primary={prescricao.medicamento.farmaco} />
-                                    </ListItem>
-                                    <Divider light />
-                                </div>
-                            )
-                        )}
-                        <ListItem disabled>Porta ac consectetur ac</ListItem>
-                    </List> */}
                 </Grid>
                 <Grid item>
                     <Divider orientation="vertical" flexItem />
