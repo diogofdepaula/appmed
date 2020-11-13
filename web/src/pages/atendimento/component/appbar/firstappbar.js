@@ -11,7 +11,7 @@ import { PageAtendimentoContext, PrescricaoMainContext } from '../..';
 
 const AtendimentoAppBarAntigo = () => {
 
-    const { page, setPage } = useContext(PageAtendimentoContext)
+    const { setPage } = useContext(PageAtendimentoContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 
     return (

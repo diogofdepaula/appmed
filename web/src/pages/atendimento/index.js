@@ -1,6 +1,6 @@
 import { Divider } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
-import AtendimentoAppBar from './component/appbar'
+import AtendimentoAppBar from './component/appbar/'
 import ClienteHeader from './component/clienteheader'
 import Content from './component/content'
 

@@ -12,7 +12,6 @@ const AtendimentoAppBar = () => {
             <SecondAppBar />
             <Divider />
             <ThirdAppBar />
-            <Divider />
         </>
     )
 }
