@@ -3,17 +3,6 @@ import React, { createContext, useState } from 'react'
 import AtendimentoAppBar from './component/appbar'
 import ClienteHeader from './component/clienteheader'
 import Content from './component/content'
-// import ClienteHeader from '../component/clienteheader'
-// import LMEDelete from './lmes/delete'
-// import LMEInsert from './lmes/insert'
-// import LMEMain from './lmes/main'
-// import LMEUpdate from './lmes/update'
-// // import LMEDelete from './lmes/delete'
-// import PrescricaoDelete from './prescricoes/delete'
-// import PrescricaoInsert from './prescricoes/insert'
-// import PrescricaoMain from './prescricoes/main'
-// import PrescricaoUpdate from './prescricoes/update'
-// import Print from './print' hjhhhhhhh
 
 export const ClienteContextAntigo = createContext(null)
 export const PageAtendimentoContext = createContext('main')

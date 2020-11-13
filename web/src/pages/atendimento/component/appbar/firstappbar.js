@@ -4,50 +4,15 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import HealingIcon from '@material-ui/icons/Healing';
 import InputIcon from '@material-ui/icons/Input';
 import ListAltIcon from '@material-ui/icons/ListAlt';
-import PostAddIcon from '@material-ui/icons/PostAdd';
-import PrintIcon from '@material-ui/icons/Print';
 import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
-import React, { useContext, useState } from 'react';
-import { PageAtendimentoContext, PrescricaoMainContext } from '..';
+import React, { useContext } from 'react';
+import { PageAtendimentoContext, PrescricaoMainContext } from '../..';
 
-const AtendimentoAppBar = () => {
+const AtendimentoAppBarAntigo = () => {
 
     const { page, setPage } = useContext(PageAtendimentoContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
-
-    const [appbarright, setAppBarRight] = useState(page)
-
-    const PrescricoesAppBar = () => {
-        return (
-            <div>
-                <Tooltip title="Prescrições">
-                    <IconButton
-                        onClick={() => setPage('prescricaoinsert')}
-                    >
-                        <PostAddIcon />
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Imprimir">
-                    <IconButton
-                        onClick={() => setPage('print')}
-                    >
-                        <PrintIcon />
-                    </IconButton>
-                </Tooltip>
-            </div>
-        )
-    }
-
-    const GetAppBarRight = () => {
-
-        switch (appbarright) {
-            case 'prescricoes':
-                return <PrescricoesAppBar />
-            default:
-                return <div />
-        }
-    }
 
     return (
         <>
@@ -63,9 +28,7 @@ const AtendimentoAppBar = () => {
                             onClick={() => {
                                 return (
                                     setPrescricaoMain(null),
-                                    setPage('prescricoes'),
-                                    setAppBarRight('prescricoes')
-                                    //
+                                    setPage('prescricoes')
                                 )
                             }}
                         >
@@ -100,12 +63,9 @@ const AtendimentoAppBar = () => {
                         </IconButton>
                     </Tooltip>
                 </Grid>
-                <Grid item >
-                    <GetAppBarRight />
-                </Grid>
             </Grid>
         </>
     )
 }
 
-export default AtendimentoAppBar
+export default AtendimentoAppBarAntigo
