@@ -9,6 +9,10 @@ const Content = () => {
 
     const { page, update } = useContext(PageAtendimentoContext)
 
+    console.log('page', page)
+    console.log('update', update)
+
+
     switch (page) {
         case 'prescricoesmain':
             return <div key={update.count}><PrescricaoMain /></div>
