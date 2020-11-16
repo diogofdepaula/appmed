@@ -6,9 +6,9 @@ import PrescricaoEditor from '../editor';
 
 export const PrescricaoContext = createContext(null)
 
-export default function PrescricaoInsert() {
+const PrescricaoInsert = () => {
 
-    const { clientecontext}  = useContext(ClienteContext)
+    const { clientecontext } = useContext(ClienteContext)
     const { setPageContentContext } = useContext(PageContentContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 
@@ -101,3 +101,5 @@ export default function PrescricaoInsert() {
         </>
     )
 }
+
+export default PrescricaoInsert

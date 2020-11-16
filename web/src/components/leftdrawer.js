@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 const LeftDrawer = () => {
     const classes = useStyles();
-    const { setPageContentContext } = useContext(PageContentContext)
+    const { pagecontentcontext, setPageContentContext } = useContext(PageContentContext)
     const { clientecontext } = useContext(ClienteContext)
 
     const [open, setOpen] = useState(true);
@@ -89,6 +89,7 @@ const LeftDrawer = () => {
                     <ListItem
                         disabled={clientecontext ? false : true}
                         button
+                        selected={pagecontentcontext === 'atendimento'}
                         onClick={() => setPageContentContext('atendimento')}
                     >
                         <ListItemIcon>

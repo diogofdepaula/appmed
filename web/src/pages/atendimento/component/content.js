@@ -1,17 +1,20 @@
-import React from 'react'
-import PrescricaoMain from '../pages/prescricoes/main'
-import PrescricaoInsert from '../pages/prescricoes/insert'
-import PrescricaoUpdate from '../pages/prescricoes/update'
+import React, { useContext } from 'react'
+import { PageAtendimentoContext } from '..'
 import PrescricaoDelete from '../pages/prescricoes/delete'
+import PrescricaoInsert from '../pages/prescricoes/insert'
+import PrescricaoMain from '../pages/prescricoes/main'
+import PrescricaoUpdate from '../pages/prescricoes/update'
 
-const Content = ({ page }) => {
+const Content = () => {
+
+    const { page, update } = useContext(PageAtendimentoContext)
 
     switch (page) {
-        //PARA GARANTIR
-        case 'prescricoes':
-            return <PrescricaoMain />
+        case 'prescricoesmain':
+            return <div key={update.count}><PrescricaoMain /></div>
         case 'prescricaoinsert':
-            return <PrescricaoInsert />
+            return <div key={update.count}><PrescricaoInsert /></div>
+            //return <PrescricaoInsert />
         case 'prescricaoupdate':
             return <PrescricaoUpdate />
         case 'prescricaodelete':

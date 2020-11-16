@@ -1,4 +1,4 @@
-import { Grid, IconButton, Tooltip } from '@material-ui/core';
+import { Divider, Grid, IconButton, Tooltip } from '@material-ui/core';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import HealingIcon from '@material-ui/icons/Healing';
@@ -8,10 +8,11 @@ import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import React, { useContext } from 'react';
 import { PageAtendimentoContext, PrescricaoMainContext } from '../..';
+import SecondAppBar from './secondappbar';
 
 const AtendimentoAppBarAntigo = () => {
 
-    const { setPage } = useContext(PageAtendimentoContext)
+    const { setPage, updatePage } = useContext(PageAtendimentoContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 
     return (
@@ -26,10 +27,9 @@ const AtendimentoAppBarAntigo = () => {
                     <Tooltip title="Prescrições">
                         <IconButton
                             onClick={() => {
-                                return (
-                                    setPrescricaoMain(null),
-                                    setPage('prescricoes')
-                                )
+                                setPrescricaoMain(null)
+                                setPage('prescricoesmain')
+                                updatePage()
                             }}
                         >
                             <ListAltIcon />
@@ -63,7 +63,11 @@ const AtendimentoAppBarAntigo = () => {
                         </IconButton>
                     </Tooltip>
                 </Grid>
+                <Grid item>
+                    <SecondAppBar />
+                </Grid>
             </Grid>
+            <Divider />
         </>
     )
 }
