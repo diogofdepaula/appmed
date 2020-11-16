@@ -9,8 +9,6 @@ const SecondAppBar = () => {
 
     const { page, setPage, updatePage } = useContext(PageAtendimentoContext)
 
-    //khjlkjgljgh
-
     return (
         <>
             {page ?
