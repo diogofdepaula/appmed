@@ -10,7 +10,7 @@ import React, { useContext } from 'react';
 import { PageAtendimentoContext, PrescricaoMainContext } from '../..';
 import SecondAppBar from './secondappbar';
 
-const AtendimentoAppBarAntigo = () => {
+const FirstAppBar = () => {
 
     const { setPage, updatePage } = useContext(PageAtendimentoContext)
     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
@@ -72,4 +72,4 @@ const AtendimentoAppBarAntigo = () => {
     )
 }
 
-export default AtendimentoAppBarAntigo
+export default FirstAppBar

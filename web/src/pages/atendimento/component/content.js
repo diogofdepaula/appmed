@@ -9,11 +9,13 @@ const Content = () => {
 
     const { page, update } = useContext(PageAtendimentoContext)
 
+
+    /// se mudar aqui: não esquercer de atualizar a ThirdAppBar
     switch (page) {
         case 'prescricoesmain':
-            return <div key={update.count}><PrescricaoMain /></div>
+            return <PrescricaoMain key={update.count} />
         case 'prescricaoinsert':
-            return <div key={update.count}><PrescricaoInsert /></div>
+            return <PrescricaoInsert key={update.count} />
             //return <PrescricaoInsert />
         case 'prescricaoupdate':
             return <PrescricaoUpdate />
@@ -32,7 +34,7 @@ const Content = () => {
         case 'teste':
             return <div>Teste</div>
         default:
-            return <div>Atentdimento Main teste</div>
+            return <div>Atentdimento Content</div>
     }
 }
 export default Content

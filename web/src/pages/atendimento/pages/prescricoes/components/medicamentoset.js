@@ -44,6 +44,7 @@ export default function MedicamentoSet() {
                 <TextField
                     fullWidth
                     autoFocus
+                    variant='outlined'
                     label='Digite o nome do fármaco'
                     onChange={filterMedicamento}
                 />

@@ -1,10 +1,9 @@
-import { Box, Divider, Grid, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { Box, Divider, Grid, List, ListItem, ListItemText } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { PrescricaoMainContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
-import PrescricoesMainAppBar from '../components/appbar/mainappbar';
+import Reorder from '../../../component/reorder';
 import PrescricaoData from '../components/prescricaodata';
-import Reorder from '../../../component/reorder'
 
 const PrescricaoMain = () => {
 
@@ -22,13 +21,15 @@ const PrescricaoMain = () => {
         fetchData();
     }, [fetchData])
 
+    console.log('prescricaoMain no Main', prescricaoMain)
+
     return (
         <>
             <Grid container spacing={1}>
                 <Grid item xs={4}>
-                    <Box mt={1} display="flex" justifyContent="center">
+                    {/* <Box mt={1} display="flex" justifyContent="center">
                         <Typography variant={'h6'}>Prescrições</Typography>
-                    </Box>
+                    </Box> */}
                     <Box ml={1}>
                         <List>
                             {prescricoes && Reorder(prescricoes).map(prescricao =>
@@ -50,13 +51,7 @@ const PrescricaoMain = () => {
                     <Divider orientation="vertical" flexItem />
                 </Grid>
                 <Grid item xs>
-                    {prescricaoMain &&
-                        <div>
-                            <PrescricoesMainAppBar />
-                            <Divider />
-                            <PrescricaoData />
-                        </div>
-                    }
+                    {prescricaoMain && <PrescricaoData />}
                 </Grid>
             </Grid>
         </>
