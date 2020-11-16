@@ -2,7 +2,7 @@ import { Box, Divider, Grid, List, ListItem, ListItemText, Typography } from '@m
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { PrescricaoMainContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
-import PrescricoesAppBar from '../components/appbar';
+import PrescricoesMainAppBar from '../components/appbar/mainappbar';
 import PrescricaoData from '../components/prescricaodata';
 import Reorder from '../../../component/reorder'
 
@@ -52,7 +52,7 @@ const PrescricaoMain = () => {
                 <Grid item xs>
                     {prescricaoMain &&
                         <div>
-                            <PrescricoesAppBar />
+                            <PrescricoesMainAppBar />
                             <Divider />
                             <PrescricaoData />
                         </div>

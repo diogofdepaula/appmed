@@ -5,9 +5,9 @@ import EditIcon from '@material-ui/icons/Edit';
 import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import React, { useContext } from 'react';
-import { PageAtendimentoContext } from '../../..';
+import { PageAtendimentoContext } from '../../../..';
 
-const PrescricoesAppBar = () => {
+const PrescricoesMainAppBar = () => {
 
     const setPage = useContext(PageAtendimentoContext)
 
@@ -50,4 +50,4 @@ const PrescricoesAppBar = () => {
     )
 }
 
-export default PrescricoesAppBar
+export default PrescricoesMainAppBar
