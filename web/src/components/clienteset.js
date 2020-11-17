@@ -106,7 +106,9 @@ const ClienteSet = () => {
 
     const handleListItem = (param) => {
         setClienteContext(param)
-        setPageContentContext('clientehome')
+        setPageContentContext('atendimento')
+        // deixei atendimento para desenvolver, mas depois que estiver pronto, voltar para clientehome
+        //setPageContentContext('clientehome')
         setClientesFiltrados([])
     }
 
