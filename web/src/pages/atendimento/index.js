@@ -29,8 +29,6 @@ const Atendimento = () => {
         })
     }
 
-    console.log('prescricaoMain no Atendimento', prescricaoMain)
-
     return (
         <>
             <ClienteHeader />
