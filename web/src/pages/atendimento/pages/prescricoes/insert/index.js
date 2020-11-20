@@ -1,6 +1,6 @@
 import { Box, Button, Grid } from '@material-ui/core';
 import React, { createContext, useCallback, useContext, useState } from 'react';
-import { PrescricaoMainContext } from '../../..';
+import { AtendimentoContext } from '../../..';
 import { ClienteContext, PageContentContext } from '../../../../../App';
 import PrescricaoEditor from '../editor';
 
@@ -10,7 +10,7 @@ const PrescricaoInsert = () => {
 
     const { clientecontext } = useContext(ClienteContext)
     const { setPageContentContext } = useContext(PageContentContext)
-    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const { setPrescricaoOnDuty } = useContext(AtendimentoContext)
 
     const initialPrescricao = {
         continuo: true,
@@ -41,10 +41,10 @@ const PrescricaoInsert = () => {
     const step = 11
 
     const backPrescricao = useCallback((paramPres, paramLME) => {
-        setPrescricaoMain(paramPres)
+        setPrescricaoOnDuty(paramPres)
         if (paramLME) {
             //Mandará para a LME
-            setPrescricaoMain(paramPres)
+            setPrescricaoOnDuty(paramPres)
             if (paramPres.lmeId === null) {
                 setPageContentContext('lmeinsert')
             } else {
@@ -52,10 +52,10 @@ const PrescricaoInsert = () => {
                 setPageContentContext('lmeupdate')
             }
         } else {
-            setPrescricaoMain(null)
+            setPrescricaoOnDuty(null)
             setPrescricao(paramPres)
         }
-    }, [setPrescricaoMain, setPageContentContext])
+    }, [setPrescricaoOnDuty, setPageContentContext])
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -71,7 +71,6 @@ const PrescricaoInsert = () => {
     }
 
     /// khgkhjgkgkj
-
     return (
         <>
             <Box display='flex' mt={1}>

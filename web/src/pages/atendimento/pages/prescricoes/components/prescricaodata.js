@@ -3,12 +3,12 @@ import { format, parseISO } from 'date-fns';
 import { differenceInMonths } from 'date-fns/esm';
 import { ptBR } from 'date-fns/locale';
 import React, { useContext } from 'react';
-import { PrescricaoMainContext } from '../../..';
+import { AtendimentoContext } from '../../..';
 
 const PrescricaoData = () => {
 
-    const { prescricaoMain } = useContext(PrescricaoMainContext)
-    const prescricao = prescricaoMain;
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+    const prescricao = prescricaoOnDuty;
 
     return (
         <>

@@ -1,6 +1,6 @@
 import { Box, Divider, Grid, List, ListItem, ListItemText } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { PrescricaoMainContext } from '../../..';
+import { AtendimentoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
 import Reorder from '../../../component/reorder';
 import PrescricaoData from '../components/prescricaodata';
@@ -8,7 +8,8 @@ import PrescricaoData from '../components/prescricaodata';
 const PrescricaoMain = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const { prescricaoOnDuty, setprescricaoOnDuty } = useContext(AtendimentoContext)
+
     const [prescricoes, setPrescricoes] = useState([])
 
     const fetchData = useCallback(async () => {
@@ -20,8 +21,6 @@ const PrescricaoMain = () => {
     useEffect(() => {
         fetchData();
     }, [fetchData])
-
-    console.log('prescricaoMain no Main', prescricaoMain)
 
     return (
         <>
@@ -36,7 +35,7 @@ const PrescricaoMain = () => {
                                 <div key={prescricao.id}>
                                     <ListItem
                                         disabled={!prescricao.emuso}
-                                        onClick={() => setPrescricaoMain(prescricao)}
+                                        onClick={() => setprescricaoOnDuty(prescricao)}
                                     >
                                         <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
                                     </ListItem>
@@ -51,7 +50,7 @@ const PrescricaoMain = () => {
                     <Divider orientation="vertical" flexItem />
                 </Grid>
                 <Grid item xs>
-                    {prescricaoMain && <PrescricaoData />}
+                    {prescricaoOnDuty && <PrescricaoData />}
                 </Grid>
             </Grid>
         </>
