@@ -9,25 +9,25 @@ export default function PrescricaoDelete() {
     const [change, setChange] = useState(0)
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoOnDuty.lmeId}`)
         const json = await res.json();
         setLme(json[0]);
-    }, [prescricaoMain])
+    }, [prescricaoOnDuty])
 
     useEffect(() => {
-        if (prescricaoMain && prescricaoMain.lmeId) {
+        if (prescricaoOnDuty && prescricaoOnDuty.lmeId) {
             fetchData();
         }
-    }, [prescricaoMain, fetchData])
+    }, [prescricaoOnDuty, fetchData])
 
     const handleDeletePrescricao = () => event => {
 
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricaoMain.id}`, {
+        fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'delete',
         }).then(data => {
             if (data.ok) {
-                setPrescricaoMain(null)
+                setPrescricaoOnDuty(null)
                 setPageContentContext('prescricoes')
             }
         })
@@ -36,37 +36,37 @@ export default function PrescricaoDelete() {
     const handleDeletePrescricaoLME = () => event => {
 
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/lmes/${prescricaoMain.lmeId}`, {
+        fetch(`http://localhost:4001/api.appmed/lmes/${prescricaoOnDuty.lmeId}`, {
             method: 'delete',
         }).then(data => {
             if (data.ok) {
-                setPrescricaoMain(null)
+                setPrescricaoOnDuty(null)
                 setPageContentContext('prescricoes')
             }
         })
     }
 
     const changeEmUso = useCallback(() => {
-        setPrescricaoMain({
-            ...prescricaoMain,
+        setPrescricaoOnDuty({
+            ...prescricaoOnDuty,
             emuso: false,
             termino: new Date().toISOString().slice(0, 10)
         })
         setChange(2)
-    }, [setPrescricaoMain, prescricaoMain])
+    }, [setPrescricaoOnDuty, prescricaoOnDuty])
 
     const updateEmUso = useCallback(async () => {
 
-        fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricaoMain.id}`, {
+        fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(prescricaoMain)
+            body: JSON.stringify(prescricaoOnDuty)
         }).then(data => {
             if (data.ok) {
                 setChange(3)
             }
         })
-    }, [prescricaoMain])
+    }, [prescricaoOnDuty])
 
     useEffect(() => {
         if (change === 1) {
@@ -74,19 +74,19 @@ export default function PrescricaoDelete() {
         } else if (change === 2) {
             updateEmUso()
         } else if (change === 3) {
-            setPrescricaoMain(null)
+            setPrescricaoOnDuty(null)
             setPageContentContext('prescricoes')
         }
-    }, [change, changeEmUso, updateEmUso, setPrescricaoMain, setPageContentContext])
+    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setPageContentContext])
 
     return (
         <div>
-            {prescricaoMain &&
+            {prescricaoOnDuty &&
                 <>
                     <Container>
                         <Card body className="mt-2">
-                            <h5>{prescricaoMain.medicamento.farmaco} ({prescricaoMain.apresentaco.descricao})</h5>
-                            {prescricaoMain.lmeId ?
+                            <h5>{prescricaoOnDuty.medicamento.farmaco} ({prescricaoOnDuty.apresentaco.descricao})</h5>
+                            {prescricaoOnDuty.lmeId ?
                                 <div>
 
                                     <h4>Prescrição vinculada a LME</h4>
@@ -117,7 +117,7 @@ export default function PrescricaoDelete() {
                             >Remover a prescrição (apagará do bando de dados)
                             </Button>
                         </Row>
-                        {prescricaoMain.lmeId &&
+                        {prescricaoOnDuty.lmeId &&
                             <Row>
                                 <Button
                                     className="mt-2 ml-2"
