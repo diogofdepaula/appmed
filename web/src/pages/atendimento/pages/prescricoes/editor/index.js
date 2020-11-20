@@ -37,7 +37,7 @@ export default function PrescricaoEditor(props) {
         <div>
             <PrescricaoEditorContext.Provider value={{ prescricaoContext: prescricao, setPrescricaoContext: setPrescricao, setStepContext: setStep }} >
                 <MedicamentoEditorContext.Provider value={{ medicamentoContext: medicamentoContext, setMedicamentoContext: setMedicamentoContext }} >
-                    {step === 11 && <MedicamentoSet />}
+                    {step === 11 && <MedicamentoSet key={Math.random()}/>}
                     {step === 21 && <ApresentacaoSet />}
                     {step === 31 && <PosologiaSet />}
                     {step === 32 && <PosologiaNaoPadraoSet />}
