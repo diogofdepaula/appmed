@@ -8,7 +8,7 @@ import PrescricaoData from '../components/prescricaodata';
 const PrescricaoMain = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    const { prescricaoOnDuty, setprescricaoOnDuty } = useContext(AtendimentoContext)
+    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
 
     const [prescricoes, setPrescricoes] = useState([])
 
@@ -35,7 +35,7 @@ const PrescricaoMain = () => {
                                 <div key={prescricao.id}>
                                     <ListItem
                                         disabled={!prescricao.emuso}
-                                        onClick={() => setprescricaoOnDuty(prescricao)}
+                                        onClick={() => setPrescricaoOnDuty(prescricao)}
                                     >
                                         <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
                                     </ListItem>

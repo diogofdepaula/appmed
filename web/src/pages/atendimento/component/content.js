@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { PageAtendimentoContext } from '..'
+import { AtendimentoContext, PageAtendimentoContext } from '..'
 import PrescricaoDelete from '../pages/prescricoes/delete'
 import PrescricaoInsert from '../pages/prescricoes/insert'
 import PrescricaoMain from '../pages/prescricoes/main'
@@ -7,7 +7,7 @@ import PrescricaoUpdate from '../pages/prescricoes/update'
 
 const Content = () => {
 
-    const { page, update } = useContext(PageAtendimentoContext)
+    const { page, update } = useContext(AtendimentoContext)
 
 
     /// se mudar aqui: não esquercer de atualizar a ThirdAppBar

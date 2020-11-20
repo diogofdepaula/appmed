@@ -7,13 +7,12 @@ import ListAltIcon from '@material-ui/icons/ListAlt';
 import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
 import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import React, { useContext } from 'react';
-import { PageAtendimentoContext, PrescricaoMainContext } from '../..';
+import { AtendimentoContext } from '../..';
 import SecondAppBar from './secondappbar';
 
 const FirstAppBar = () => {
 
-    const { setPage, updatePage } = useContext(PageAtendimentoContext)
-    const { setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const { setPage, updatePage, setPrescricaoOnDuty } = useContext(AtendimentoContext)
 
     return (
         <>
@@ -27,7 +26,7 @@ const FirstAppBar = () => {
                     <Tooltip title="Prescrições">
                         <IconButton
                             onClick={() => {
-                                setPrescricaoMain(null)
+                                setPrescricaoOnDuty(null)
                                 setPage('prescricoesmain')
                                 updatePage()
                             }}

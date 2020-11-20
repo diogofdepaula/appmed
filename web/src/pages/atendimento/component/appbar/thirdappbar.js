@@ -1,12 +1,12 @@
 import { Divider } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { PageAtendimentoContext } from '../..';
+import { AtendimentoContext } from '../..';
 import EditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
 import PrescricoesMainAppBar from '../../pages/prescricoes/components/appbar/mainappbar';
 
 const ThirdAppBar = () => {
 
-   const { page } = useContext(PageAtendimentoContext)
+   const { page } = useContext(AtendimentoContext)
 
    const GetAppBar = () => {
 

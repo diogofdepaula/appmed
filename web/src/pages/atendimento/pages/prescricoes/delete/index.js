@@ -1,12 +1,10 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { Button, Card, Container, Row } from 'react-bootstrap';
-import { PrescricaoMainContext } from '../../..';
-import { PageContentContext } from '../../../../../App';
+import { AtendimentoContext } from '../../..';
 
 export default function PrescricaoDelete() {
 
-    const { setPageContentContext } = useContext(PageContentContext)
-    const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const { setPageContentContext, prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const [lme, setLme] = useState()
     const [change, setChange] = useState(0)
 

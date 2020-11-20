@@ -4,11 +4,11 @@ import AtendimentoAppBar from './component/appbar/'
 import ClienteHeader from './component/clienteheader'
 import Content from './component/content'
 
-export const ClienteContextAntigo = createContext(null)
-export const PageAtendimentoContext = createContext('main')
-export const PrescricaoMainContext = createContext(null)
-export const LMEMainContext = createContext(null)
-export const StepAtendimentoContext = createContext(null)
+// export const ClienteContextAntigo = createContext(null)
+// export const PageAtendimentoContext = createContext('main')
+// export const PrescricaoMainContext = createContext(null)
+// export const LMEMainContext = createContext(null)
+// export const StepAtendimentoContext = createContext(null)
 export const AtendimentoContext = createContext(null)
 
 const Atendimento = () => {

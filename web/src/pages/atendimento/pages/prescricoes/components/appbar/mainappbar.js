@@ -5,15 +5,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import React, { useContext } from 'react';
-import { PageAtendimentoContext, PrescricaoMainContext } from '../../../..';
+import { AtendimentoContext } from '../../../..';
 
 const PrescricoesMainAppBar = () => {
 
-    const { setPage } = useContext(PageAtendimentoContext)
-
-    const { prescricaoMain } = useContext(PrescricaoMainContext)
-
-    console.log('PrescricaoMain na barra', prescricaoMain)
+    const { setPage, prescricaoOnDuty } = useContext(AtendimentoContext)
 
     return (
         <>
@@ -21,7 +17,7 @@ const PrescricoesMainAppBar = () => {
                 <Tooltip title="Voltar">
                     <span>
                         <IconButton
-                            disabled={!prescricaoMain}
+                            disabled={!prescricaoOnDuty}
                         >
                             <ArrowUpwardIcon />
                         </IconButton>
@@ -30,7 +26,7 @@ const PrescricoesMainAppBar = () => {
                 <Tooltip title="Editar">
                     <span>
                         <IconButton
-                            disabled={!prescricaoMain}
+                            disabled={!prescricaoOnDuty}
                             onClick={() => setPage('prescricaoupdate')}
                         >
                             <EditIcon />
@@ -40,7 +36,7 @@ const PrescricoesMainAppBar = () => {
                 <Tooltip title="Interromper uso">
                     <span>
                         <IconButton
-                            disabled={!prescricaoMain}
+                            disabled={!prescricaoOnDuty}
                         >
                             <HighlightOffIcon />
                         </IconButton>
@@ -49,7 +45,7 @@ const PrescricoesMainAppBar = () => {
                 <Tooltip title="Excluir">
                     <span>
                         <IconButton
-                            disabled={!prescricaoMain}
+                            disabled={!prescricaoOnDuty}
                         >
                             <DeleteIcon />
                         </IconButton>
@@ -58,7 +54,7 @@ const PrescricoesMainAppBar = () => {
                 <Tooltip title="Outros">
                     <span>
                         <IconButton
-                            disabled={!prescricaoMain}
+                            disabled={!prescricaoOnDuty}
                         //                        onClick={() => setPage('teste')}
                         >
                             <HealingIcon />

@@ -3,11 +3,11 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import PrintIcon from '@material-ui/icons/Print';
 import SaveIcon from '@material-ui/icons/Save';
 import React, { useContext } from 'react';
-import { PageAtendimentoContext } from '../..';
+import { AtendimentoContext } from '../..';
 
 const SecondAppBar = () => {
 
-    const { page, setPage, updatePage } = useContext(PageAtendimentoContext)
+    const { page, setPage, updatePage } = useContext(AtendimentoContext)
 
     return (
         <>

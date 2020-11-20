@@ -1,13 +1,11 @@
-import React, { useContext, useCallback, useState, useEffect } from 'react';
-import { Container, Button, Card } from 'react-bootstrap';
-import { PrescricaoMainContext } from '../../..';
-import { PageContentContext } from '../../../../../App';
-import PrescricaoEditor from '../editor'
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Button, Card, Container } from 'react-bootstrap';
+import { AtendimentoContext } from '../../..';
+import PrescricaoEditor from '../editor';
 
 export default function PrescricaoUpdate(props) {
 
-    const { setPage: setPageContentContext } = useContext(PageContentContext)
-    const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
+    const { setPageContentContext, prescricaoMain, setPrescricaoMain } = useContext(AtendimentoContext)
     //Não dá para usar o prescricaoMain porque dá um erro
     //Cannot update a component from inside the function body of a different component
     const [prescricao, setPrescricao] = useState(prescricaoMain)

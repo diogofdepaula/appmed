@@ -1,15 +1,15 @@
 import { Divider, Grid, IconButton, LinearProgress, Tooltip } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import DeleteIcon from '@material-ui/icons/Delete';
-import SaveIcon from '@material-ui/icons/Save';
 import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import SaveIcon from '@material-ui/icons/Save';
 import React, { useContext } from 'react';
-import { StepAtendimentoContext } from '../../../..';
+import { AtendimentoContext } from '../../../..';
 
 const EditorAppBar = () => {
 
-  const { step } = useContext(StepAtendimentoContext)
+  const { step } = useContext(AtendimentoContext)
 
   return (
     <Grid container direction="row" justify="space-between" alignItems="center">
