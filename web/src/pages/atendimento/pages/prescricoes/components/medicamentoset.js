@@ -45,7 +45,6 @@ const MedicamentoSet = () => {
 
     return (
         <>
-            {/* <Typography variant={'h6'}>Escolha o fármaco</Typography> */}
             <Box mt={1} mb={1}>
                 <TextField
                     fullWidth
@@ -56,16 +55,6 @@ const MedicamentoSet = () => {
                 />
             </Box>
             <Box mt={1}>
-                {/* <List >
-                    {medicamentosfiltrados.map((medicamento, index) =>
-                        <ListItem
-                            key={index}
-                            onClick={handleListItem(medicamento)}
-                        >
-                            <ListItemText primary={medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco} />
-                        </ListItem>
-                    )}
-                </List> */}
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>

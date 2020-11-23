@@ -1,4 +1,4 @@
-import { Divider } from '@material-ui/core'
+import { Box, Divider } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
 import AtendimentoAppBar from './component/appbar/'
 import ClienteHeader from './component/clienteheader'
@@ -30,23 +30,24 @@ const Atendimento = () => {
     return (
         <>
             <ClienteHeader />
-            <AtendimentoContext.Provider value={{ 
-                page: page, 
-                setPage: setPage, 
-                updatePage: updatePage, 
-                update: update, 
-                step: step, 
-                setStep: setStep, 
-                prescricaoOnDuty: prescricaoOnDuty, 
+            <AtendimentoContext.Provider value={{
+                page: page,
+                setPage: setPage,
+                updatePage: updatePage,
+                update: update,
+                step: step,
+                setStep: setStep,
+                prescricaoOnDuty: prescricaoOnDuty,
                 setPrescricaoOnDuty: setPrescricaoOnDuty,
                 prescricaoEdit: prescricaoEdit,
                 setPrescricaoEdit: setPrescricaoEdit,
-                lmeOnDuty: lmeOnDuty, 
+                lmeOnDuty: lmeOnDuty,
                 setLmeOnDuty: setLmeOnDuty,
-                lmeEdit: lmeEdit, 
+                lmeEdit: lmeEdit,
                 setLmeEdit: setLmeEdit,
-                
-                }} >
+
+            }} >
+                <Box width='900px'>
                     <Divider />
                     <AtendimentoAppBar />
                     <Content />
@@ -57,6 +58,7 @@ const Atendimento = () => {
                     prescEdit: {JSON.stringify(prescricaoEdit)}
                     <Divider />
                     prescDuty:  {JSON.stringify(prescricaoOnDuty)}
+                </Box>
             </AtendimentoContext.Provider>
         </>
     )

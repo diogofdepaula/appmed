@@ -1,99 +1,108 @@
-import { Box, Button, Checkbox, FormControlLabel, TextField, Typography } from '@material-ui/core';
-import ChatIcon from '@material-ui/icons/Chat';
+import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@material-ui/core';
+import PostAddIcon from '@material-ui/icons/PostAdd';
 import React, { useContext } from 'react';
-import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor';
+import { AtendimentoContext } from '../../..';
 
-export default function PrescricaoVarSet(props) {
+const PrescricaoVarSet = () => {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
-    const { medicamentoContext } = useContext(MedicamentoEditorContext)
+    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
 
     const handleChange = event => {
         const target = event.target;
         const name = target.name;
         const value = target.name === 'continuo' ? target.checked : target.name === 'imprimirorientacoes' ? target.checked : target.value;
-        setPrescricaoContext({ ...prescricaoContext, [name]: value })
+        setPrescricaoEdit({ ...prescricaoEdit, [name]: value })
     }
 
     const handleOrientacoes = async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoContext.medicamentoId}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoEdit.medicamentoId}`)
         const json = await res.json();
-        setPrescricaoContext({ ...prescricaoContext, 
+        setPrescricaoEdit({
+            ...prescricaoEdit,
             orientacoes: json.orientacoes,
             imprimirorientacoes: true
         })
-
     }
 
     return (
         <>
-        
-            <Typography variant={'h5'}>Defina as outras variáveis</Typography>
-            <Box>
-                <Box display="flex">
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                name="continuo"
-                                checked={prescricaoContext.continuo}
+            <Box display='flex'>
+                <Grid container spacing={1}>
+                    <Grid item xs={4}>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    name="continuo"
+                                    checked={prescricaoEdit.continuo}
+                                    onChange={handleChange}
+                                />}
+                            label='Contínuo'
+                        />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        name="imprimirorientacoes"
+                                        checked={prescricaoEdit.imprimirorientacoes}
+                                        onChange={handleChange}
+                                    />}
+                                label='Imprimir orientações'
+                            />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <TextField
+                                type="date"
+                                name="inicio"
+                                value={prescricaoEdit.inicio}
                                 onChange={handleChange}
-                            />}
-                        label='Contínuo'
-                    />
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                name="imprimirorientacoes"
-                                checked={prescricaoContext.imprimirorientacoes}
-                                onChange={handleChange}
-                            />}
-                        label='Imprimir orientações'
-                    />
+                            />
+                        </Grid>
+                    </Grid>
+            </Box >
+                <Box>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        startIcon={<PostAddIcon />}
+                        onClick={handleOrientacoes}
+                    >
+                        Adicionar orientação padrão
+                </Button>
                     <TextField
-                        type="date"
-                        name="inicio"
-                        value={prescricaoContext.inicio}
+                        fullWidth
+                        multiline
+                        variant='outlined'
+                        rows={4}
+                        name="orientacoes"
+                        label="Orientações adicionais"
+                        value={prescricaoEdit.orientacoes}
                         onChange={handleChange}
                     />
                 </Box>
-            </Box >
-            <Box>
-                <Button
-                    startIcon={<ChatIcon />}
-                    onClick={handleOrientacoes}
-                > Adicionar orientação padrão
-                </Button>
-                <TextField
-                    fullWidth
-                    multiline
-                    rows={4}
-                    name="orientacoes"
-                    label="Orientações adicionais"
-                    value={prescricaoContext.orientacoes}
-                    onChange={handleChange}
-                />
-            </Box>
 
-            <Box mt={1}>
-                <Button
-                    variant="outline-primary"
-                    onClick={() => {
-                        setPrescricaoContext(prescricaoContext)
-                        setStepContext(0)
-                    }}
-                >{!prescricaoContext.id ? 'Encerrar' : 'Atualizar'}
-                </Button>
-                <Button
-                    className="ml-2"
-                    disabled={!medicamentoContext.lme}
-                    variant="outline-primary"
-                    onClick={() => {
-                        setPrescricaoContext(prescricaoContext)
-                        setStepContext(51)
-                    }}
-                >{!prescricaoContext.id ? 'Vincular a uma LME' : 'Editar LME'}
-                </Button>
-            </Box>
+                <Box mt={1}>
+                    <Button
+                        variant="contained"
+                        onClick={() => {
+                            setPrescricaoEdit(prescricaoEdit)
+                            setStep(0)
+                        }}
+                    >{!prescricaoEdit.id ? 'Encerrar' : 'Atualizar'}
+                    </Button>
+                    <Button
+                        className="ml-2"
+                        disabled={!prescricaoEdit.lme}
+                        variant="contained"
+                        onClick={() => {
+                            setPrescricaoEdit(prescricaoEdit)
+                            setStep(51)
+                        }}
+                    >{!prescricaoEdit.id ? 'Vincular a uma LME' : 'Editar LME'}
+                    </Button>
+                </Box>
         </>
     )
 }
+
+export default PrescricaoVarSet

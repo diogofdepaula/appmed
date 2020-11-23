@@ -15,13 +15,19 @@ const ApresentacaoSet = () => {
     }, [prescricaoEdit, setMedicamentoContext])
 
     useEffect(() => {
-        fetchData();
+        let clear = true
+        if (clear){
+            fetchData();
+        }
+        return () => clear = false
     }, [fetchData])
 
     const handleTableRow = param => () => {
         setPrescricaoEdit({ ...prescricaoEdit, apresentacoId: param.id })
         setStep(31)
     }
+
+    console.log('apresentaçãoser')
 
     return (
         <>
@@ -43,19 +49,19 @@ const ApresentacaoSet = () => {
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
-                        {medicamentoContext && medicamentoContext.apresentacoes && medicamentoContext.apresentacoes.map(apresentacao =>
-                            <TableRow 
-                                key={apresentacao.id}
-                                onClick={handleTableRow(apresentacao)}
-                            >
-                                <TableCell component="th" scope="row">
-                                    <>
-                                    {prescricaoEdit.apresentacoId === apresentacao.id && <Typography>(opção atual)</Typography>}
-                                    </>
-                                    {apresentacao.descricao}
-                                </TableCell> 
-                            </TableRow>
-                        )}
+                            {medicamentoContext && medicamentoContext.apresentacoes && medicamentoContext.apresentacoes.map(apresentacao =>
+                                <TableRow
+                                    key={apresentacao.id}
+                                    onClick={handleTableRow(apresentacao)}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        <>
+                                            {prescricaoEdit.apresentacoId === apresentacao.id && <Typography>(opção atual)</Typography>}
+                                        </>
+                                        {apresentacao.descricao}
+                                    </TableCell>
+                                </TableRow>
+                            )}
                         </TableBody>
                     </Table>
                 </TableContainer>

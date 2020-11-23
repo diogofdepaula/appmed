@@ -1,8 +1,10 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import ApresentacaoSet from '../components/apresentacaoset';
 import MedicamentoSet from '../components/medicamentoset';
+import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
+import PrescricaoVarSet from '../components/prescricaovarset';
 
 // medicamento com includes para não ter que ficar voltando no banco de dados toda hora
 // economiza 3 busca ao banco de dados
@@ -12,7 +14,7 @@ export const MedicamentoEditorContext = createContext(null)
 
 const PrescricaoEditor = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, step, setStep } = useContext(AtendimentoContext)
+    const { step } = useContext(AtendimentoContext)
     const [medicamentoContext, setMedicamentoContext] = useState()
 
     // const backToPrescricao = useCallback((param) => {
@@ -29,8 +31,7 @@ const PrescricaoEditor = () => {
     //     }
     // }, [step, backToPrescricao, prescricao])
 
-    const GetStep = () => {
-
+    const GetStep = useCallback(() => {
         switch (step) {
             case 11:
                 return <MedicamentoSet />
@@ -39,36 +40,29 @@ const PrescricaoEditor = () => {
             case 31:
                 return <PosologiaSet />
             case 32:
-                return <div />
-                //return <PosologiaNaoPadraoSet />
+                return <PosologiaNaoPadraoSet />
             case 41:
-                return <div />
-                //return <OutrasVariaveisSet />
+                return <PrescricaoVarSet />
+            //return 
             case 51:
                 return <div />
-                //return <LmeDoses />
+            //return <LmeDoses />
             case 61:
                 return <div />
-                //return <LMEForkSet />
+            //return <LMEForkSet />
             default:
                 return <div />
         }
-    }
 
+    }, [step]
+    )
 
     return (
         <>
-        <PrescricaoEditorContext.Provider>
-            <MedicamentoEditorContext.Provider value={{ medicamentoContext: medicamentoContext, setMedicamentoContext: setMedicamentoContext }} >
-                <GetStep />
-                {/* {step === 11 && <MedicamentoSet key={Math.random()}/>}
-                {step === 21 && <ApresentacaoSet />}
-                {step === 31 && <PosologiaSet />}
-                {step === 32 && <PosologiaNaoPadraoSet />}
-                {step === 41 && <OutrasVariaveisSet />}
-                {step === 51 && <LmeDoses />}
-                {step === 61 && <LMEForkSet />} */}
-            </ MedicamentoEditorContext.Provider>
+            <PrescricaoEditorContext.Provider value={'teste'}>
+                <MedicamentoEditorContext.Provider value={{ medicamentoContext: medicamentoContext, setMedicamentoContext: setMedicamentoContext }} >
+                    {step !== 0 ? <GetStep /> : <div />}
+                </ MedicamentoEditorContext.Provider>
             </PrescricaoEditorContext.Provider>
         </>
     )

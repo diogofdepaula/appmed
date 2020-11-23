@@ -1,62 +1,76 @@
-import { Box, Button, TextField, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { PrescricaoEditorContext } from '../editor'
+import { Box, Button, Grid, TextField } from '@material-ui/core';
+import TextRotationNoneIcon from '@material-ui/icons/TextRotationNone';
+import React, { useContext } from 'react';
+import { AtendimentoContext } from '../../..';
 
-export default function PosologiaNaoPadraoSet(props) {
+const PosologiaNaoPadraoSet = () => {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
+    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setPrescricaoContext({
-            ...prescricaoContext,
+        setPrescricaoEdit({
+            ...prescricaoEdit,
             usoposologiapadrao: false,
             posologiaId: null,
             [event.target.name]: event.target.value
         })
     }
 
-    const theme = {
-        spacing: 2,
+    const handleButton = () => {
+        setPrescricaoEdit(prescricaoEdit)
+        setStep(41)
     }
 
     return (
         <>
-            <Typography variant={'h6'}>Defina uma Posologia Não Padronizada</Typography>
             <Box>
                 <TextField
                     fullWidth
                     multiline
+                    variant='outlined'
                     rows={4}
                     name="posologianaopadrao"
                     label='Posologia não padronizada'
-                    value={prescricaoContext.posologianaopadrao}
-                    onChange={handleChange}
-                />
-            </Box>
-            <Box display='flex' mt={1} theme={theme}>
-                <TextField
-                    name="quantidadenaopadrao"
-                    label="Quantidade"
-                    value={prescricaoContext.quantidadenaopadrao}
-                    onChange={handleChange}
-                />
-                <TextField
-                    name="formanaopadrao"
-                    label="Forma"
-                    value={prescricaoContext.formanaopadrao}
+                    value={prescricaoEdit.posologianaopadrao}
                     onChange={handleChange}
                 />
             </Box>
             <Box mt={1}>
+                <Grid container spacing={1}>
+                    <Grid item xs={6}>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
+                            name="quantidadenaopadrao"
+                            label="Quantidade"
+                            value={prescricaoEdit.quantidadenaopadrao}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
+                            name="formanaopadrao"
+                            label="Forma"
+                            value={prescricaoEdit.formanaopadrao}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                </Grid>
+            </Box>
+            <Box mt={1}>
                 <Button
-                    variant='outlined'
-                    onClick={() => {
-                        setPrescricaoContext(prescricaoContext)
-                        setStepContext(41)
-                    }}
-                >Usar posologia não padronizada
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<TextRotationNoneIcon />}
+                    onClick={handleButton}
+                >
+                    Usar posologia não padronizada
                 </Button>
             </Box>
         </>
     )
 }
+
+export default PosologiaNaoPadraoSet
