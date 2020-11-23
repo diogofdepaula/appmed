@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AtendimentoContext, PageAtendimentoContext } from '..'
+import { AtendimentoContext } from '..'
 import PrescricaoDelete from '../pages/prescricoes/delete'
 import PrescricaoInsert from '../pages/prescricoes/insert'
 import PrescricaoMain from '../pages/prescricoes/main'

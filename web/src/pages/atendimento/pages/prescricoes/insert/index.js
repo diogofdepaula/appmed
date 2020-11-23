@@ -1,8 +1,7 @@
 import { Box } from '@material-ui/core';
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect } from 'react';
 import { AtendimentoContext } from '../../..';
-import { ClienteContext, PageContentContext } from '../../../../../App';
-import InitialPrescricao from '../../../component/initialprescricao';
+import { ClienteContext } from '../../../../../App';
 import PrescricaoEditor from '../editor';
 
 export const PrescricaoContext = createContext(null)
@@ -10,53 +9,60 @@ export const PrescricaoContext = createContext(null)
 const PrescricaoInsert = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    const { setPageContentContext } = useContext(PageContentContext)
-    const { setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
 
-    // const initialPrescricao = {
-    //     continuo: true,
-    //     imprimirorientacoes: false,
-    //     emuso: true,
-    //     orientacoes: '',
-    //     usoposologiapadrao: true,
-    //     posologianaopadrao: '',
-    //     quantidadenaopadrao: '',
-    //     formanaopadrao: '',
-    //     lmemes1: '',
-    //     lmemes2: '',
-    //     lmemes3: '',
-    //     lmemes4: '',
-    //     lmemes5: '',
-    //     lmemes6: '',
-    //     inicio: new Date(),
-    //     termino: null,
-    //     motivotermico: '',
-    //     clienteId: clientecontext.id,
-    //     lmeId: null,
-    //     medicamentoId: '',
-    //     apresentacoId: '',
-    //     posologiaId: ''
-    // }
+    
+    const chargeInitial = useCallback(() => {
 
-    const [prescricao, setPrescricao] = useState(InitialPrescricao(clientecontext.id))
-    const step = 11
-
-    const backPrescricao = useCallback((paramPres, paramLME) => {
-        setPrescricaoOnDuty(paramPres)
-        if (paramLME) {
-            //Mandará para a LME
-            setPrescricaoOnDuty(paramPres)
-            if (paramPres.lmeId === null) {
-                setPageContentContext('lmeinsert')
-            } else {
-                //JÁ DEIXEI AQUI PARA ENCAMINHAR QUANDO FOR VINCULAR A UMA LME JÁ EXISTENTE
-                setPageContentContext('lmeupdate')
-            }
-        } else {
-            setPrescricaoOnDuty(null)
-            setPrescricao(paramPres)
+        const initial = {
+            continuo: true,
+            imprimirorientacoes: false,
+            emuso: true,
+            orientacoes: '',
+            usoposologiapadrao: true,
+            posologianaopadrao: '',
+            quantidadenaopadrao: '',
+            formanaopadrao: '',
+            lmemes1: '',
+            lmemes2: '',
+            lmemes3: '',
+            lmemes4: '',
+            lmemes5: '',
+            lmemes6: '',
+            inicio: new Date(),
+            termino: null,
+            motivotermico: '',
+            clienteId: clientecontext.id, 
+            lmeId: null,
+            medicamentoId: '',
+            apresentacoId: '',
+            posologiaId: '',
         }
-    }, [setPrescricaoOnDuty, setPageContentContext])
+        setPrescricaoEdit(initial)
+        setStep(11)
+    }, [setStep, setPrescricaoEdit, clientecontext ])
+
+    useEffect(() => {
+            chargeInitial()
+    },[chargeInitial])
+
+
+    // const backPrescricao = useCallback((paramPres, paramLME) => {
+    //     setPrescricaoOnDuty(paramPres)
+    //     if (paramLME) {
+    //         //Mandará para a LME
+    //         setPrescricaoOnDuty(paramPres)
+    //         if (paramPres.lmeId === null) {
+    //             setPageContentContext('lmeinsert')
+    //         } else {
+    //             //JÁ DEIXEI AQUI PARA ENCAMINHAR QUANDO FOR VINCULAR A UMA LME JÁ EXISTENTE
+    //             setPageContentContext('lmeupdate')
+    //         }
+    //     } else {
+    //         setPrescricaoOnDuty(null)
+    //         setPrescricao(paramPres)
+    //     }
+    // }, [setPrescricaoOnDuty, setPageContentContext])
 
     // const handleSubmit = event => {
     //     event.preventDefault();
@@ -74,7 +80,7 @@ const PrescricaoInsert = () => {
     return (
         <>
             <Box m={2}>
-                <PrescricaoEditor prescricao={prescricao} sendPrescricao={backPrescricao} step={step} />
+                <PrescricaoEditor />
             </Box>
         </>
     )

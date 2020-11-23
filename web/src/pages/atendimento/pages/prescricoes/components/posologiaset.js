@@ -1,50 +1,82 @@
-import { Button, List, ListItem, Typography, Box } from '@material-ui/core'
+import { Button, List, ListItem, Typography, Box, TableContainer, Table, TableBody, TableRow, TableCell, Paper } from '@material-ui/core'
 import React, { useContext } from 'react'
+import { AtendimentoContext } from '../../..'
 import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 
-export default function PosologiaSet(props) {
+const PosologiaSet = (props) => {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
+   // const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
+    //const { medicamentoContext } = useContext(MedicamentoEditorContext)
+
+    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
     const { medicamentoContext } = useContext(MedicamentoEditorContext)
+
 
     return (
         <>
             <Typography variant={'h6'}>Escolha uma Posologia</Typography>
             <Box mt={1}>
-                <List>
+                {/* <List>
                     {medicamentoContext && medicamentoContext.posologias && medicamentoContext.posologias.map(posologia =>
                         <ListItem
                             key={posologia.id}
                             onClick={() => {
-                                setPrescricaoContext({
-                                    ...prescricaoContext,
+                                setPrescricaoEdit({
+                                    ...prescricaoEdit,
                                     usoposologiapadrao: true,
                                     posologiaId: posologia.id
                                 })
-                                setStepContext(41)
+                                setStep(41)
                             }}
                         >
                             <>
-                                {prescricaoContext.posologiaId === posologia.id && <Typography>(opção atual)</Typography>}
+                                {prescricaoEdit.posologiaId === posologia.id && <Typography>(opção atual)</Typography>}
                             </>
                             {posologia.posologia}
                         </ListItem>
                     )}
-                </List>
+                </List> */}
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableBody>
+                        {medicamentoContext && medicamentoContext.posologias && medicamentoContext.posologias.map(posologia =>
+                            <TableRow 
+                                key={posologia.id}
+                                onClick={() => {
+                                    setPrescricaoEdit({
+                                        ...prescricaoEdit,
+                                        usoposologiapadrao: true,
+                                        posologiaId: posologia.id
+                                    })
+                                    setStep(41)
+                                }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    <>
+                                    {prescricaoEdit.posologiaId === posologia.id && <Typography>(opção atual)</Typography>}
+                                </>
+                                {posologia.posologia}
+                                </TableCell> 
+                            </TableRow>
+                        )}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </Box>
             <Box mt={1}>
                 <Button
                     color='secondary'
                     onClick={() => {
-                        setPrescricaoContext(prescricaoContext)
-                        setStepContext(32)
+                        setPrescricaoEdit(prescricaoEdit)
+                        setStep(32)
                     }}
                 >Usar posologia não padronizada
                     <>
-                        {prescricaoContext.posologiaId === null && <Typography>  (opção atual)</Typography>}
+                        {prescricaoEdit.posologiaId === null && <Typography>  (opção atual)</Typography>}
                     </>
                 </Button>
             </Box>
         </>
     )
 }
+export default PosologiaSet

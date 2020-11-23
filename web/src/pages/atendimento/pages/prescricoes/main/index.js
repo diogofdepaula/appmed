@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, List, ListItem, ListItemText } from '@material-ui/core';
+import { Box, Divider, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
@@ -30,7 +30,7 @@ const PrescricaoMain = () => {
                         <Typography variant={'h6'}>Prescrições</Typography>
                     </Box> */}
                     <Box ml={1}>
-                        <List>
+                        {/* <List>
                             {prescricoes && Reorder(prescricoes).map(prescricao =>
                                 <div key={prescricao.id}>
                                     <ListItem
@@ -43,7 +43,24 @@ const PrescricaoMain = () => {
                                 </div>
                             )}
                             <ListItem disabled>Porta ac consectetur ac</ListItem>
-                        </List>
+                        </List> */}
+                        <TableContainer component={Paper} >
+                            <Table>
+                                <TableBody>
+                                {prescricoes && Reorder(prescricoes).map(prescricao =>
+                                    <TableRow 
+                                    key={prescricao.id}
+                                    disabled={!prescricao.emuso}
+                                    onClick={() => setPrescricaoOnDuty(prescricao)}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                        {prescricao.medicamento.farmaco} - {prescricao.apresentaco.descricao}
+                                        </TableCell> 
+                                    </TableRow>
+                                )}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
                     </Box>
                 </Grid>
                 <Grid item>

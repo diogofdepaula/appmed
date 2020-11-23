@@ -24,6 +24,8 @@ const EditorAppBar = () => {
     // setMedicamento(initialMedicamento)
   }
 
+  
+
   return (
     <Grid container direction="row" justify="space-between" alignItems="center">
       <Grid item xs>
