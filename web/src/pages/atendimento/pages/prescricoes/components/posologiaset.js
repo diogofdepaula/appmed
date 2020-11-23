@@ -5,9 +5,6 @@ import { MedicamentoEditorContext, PrescricaoEditorContext } from '../editor'
 
 const PosologiaSet = (props) => {
 
-   // const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
-    //const { medicamentoContext } = useContext(MedicamentoEditorContext)
-
     const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
     const { medicamentoContext } = useContext(MedicamentoEditorContext)
 
