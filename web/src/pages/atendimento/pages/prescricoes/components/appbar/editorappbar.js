@@ -3,9 +3,6 @@ import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import DeleteIcon from '@material-ui/icons/Delete';
-import HealingIcon from '@material-ui/icons/Healing';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ReplayIcon from '@material-ui/icons/Replay';
 import SaveIcon from '@material-ui/icons/Save';
 import React, { useContext } from 'react';
@@ -59,18 +56,24 @@ const EditorAppBar = () => {
         </IconButton>
       </Tooltip>
       <Tooltip title="Anterior">
-        <IconButton
-          onClick={anterior}
-        >
-          <ArrowBackIosIcon />
-        </IconButton>
+        <span>
+          <IconButton
+            disabled={step === 11 || step === 32}
+            onClick={anterior}
+          >
+            <ArrowBackIosIcon />
+          </IconButton>
+        </span>
       </Tooltip>
       <Tooltip title="Próximo">
-        <IconButton
-          onClick={proximo}
-        >
-          <ArrowForwardIosIcon />
-        </IconButton>
+        <span>
+          <IconButton
+            disabled={step === 11 || step === 41}
+            onClick={proximo}
+          >
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </span>
       </Tooltip>
       <Tooltip title="Salvar">
         <span>
@@ -83,27 +86,6 @@ const EditorAppBar = () => {
           </IconButton>
         </span>
       </Tooltip>
-      <Tooltip title="Interromper uso">
-        <IconButton>
-          <HighlightOffIcon />
-        </IconButton>
-      </Tooltip>
-      <Tooltip title="Excluir">
-        <IconButton>
-          <DeleteIcon />
-        </IconButton>
-      </Tooltip>
-      <Tooltip title="Outros">
-        <IconButton>
-          <HealingIcon />
-        </IconButton>
-      </Tooltip>
-      <Tooltip title="Outros">
-        <IconButton>
-          <HealingIcon />
-        </IconButton>
-      </Tooltip>
-      <Divider orientation="vertical" flexItem />
       <Tooltip
         title={!prescricaoEdit.id ? 'Vincular a uma LME' : 'Editar LME'}
       >
@@ -120,6 +102,8 @@ const EditorAppBar = () => {
     </Grid>
   )
 }
+
+//FALTA FAZER O SALVAR (VER SE DEU CERTO PRINCIPALMENTE O DATA DO INÍCIO) E ENVIAR PARA LME
 
 
 export default EditorAppBar
