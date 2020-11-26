@@ -1,11 +1,13 @@
 import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
+import { format } from 'date-fns';
+import { parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 
 const PrescricaoVarSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
         const target = event.target;
@@ -14,12 +16,14 @@ const PrescricaoVarSet = () => {
         setPrescricaoEdit({ ...prescricaoEdit, [name]: value })
     }
 
-    const handleOrientacoes = async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoEdit.medicamentoId}`)
-        const json = await res.json();
+    const handleDataInicio = event => {
+        setPrescricaoEdit({ ...prescricaoEdit, inicio: parseISO(event.target.value) })
+    }
+
+    const handleOrientacoes = () => {
         setPrescricaoEdit({
             ...prescricaoEdit,
-            orientacoes: json.orientacoes,
+            orientacoes: medicamentoEdit.orientacoes,
             imprimirorientacoes: true
         })
     }
@@ -56,8 +60,8 @@ const PrescricaoVarSet = () => {
                         <TextField
                             type="date"
                             name="inicio"
-                            value={prescricaoEdit.inicio}
-                            onChange={handleChange}
+                            value={format(prescricaoEdit.inicio, "yyyy-MM-dd")}
+                            onChange={(e) => handleDataInicio(e)}
                         />
                     </Grid>
                     <Grid item xs={3}>

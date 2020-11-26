@@ -15,6 +15,7 @@ const Atendimento = () => {
     const [lmeOnDuty, setLmeOnDuty] = useState()
     const [lmeEdit, setLmeEdit] = useState()
     const [step, setStep] = useState(0)
+    const [medicamentoEdit, setMedicamentoEdit] = useState([])
     const [update, setUpdate] = useState({
         count: 0,
         page: ''
@@ -45,7 +46,8 @@ const Atendimento = () => {
                 setLmeOnDuty: setLmeOnDuty,
                 lmeEdit: lmeEdit,
                 setLmeEdit: setLmeEdit,
-
+                medicamentoEdit: medicamentoEdit, 
+                setMedicamentoEdit: setMedicamentoEdit,
             }} >
                 <Box width='900px'>
                     <Divider />
@@ -58,6 +60,8 @@ const Atendimento = () => {
                     prescEdit: {JSON.stringify(prescricaoEdit)}
                     <Divider />
                     prescDuty:  {JSON.stringify(prescricaoOnDuty)}
+                    <Divider />
+                    medicamentoEdit:  {JSON.stringify(medicamentoEdit)}
                 </Box>
             </AtendimentoContext.Provider>
         </>

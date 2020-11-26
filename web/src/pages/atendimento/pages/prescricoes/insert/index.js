@@ -1,4 +1,5 @@
 import { Box } from '@material-ui/core';
+import { parseISO } from 'date-fns';
 import React, { createContext, useCallback, useContext, useEffect } from 'react';
 import { AtendimentoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
@@ -30,6 +31,7 @@ const PrescricaoInsert = () => {
             lmemes5: '',
             lmemes6: '',
             inicio: new Date(),
+            //inicio: parseISO(new Date()),
             termino: null,
             motivotermico: '',
             clienteId: clientecontext.id, 

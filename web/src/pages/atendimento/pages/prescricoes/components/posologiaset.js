@@ -1,13 +1,11 @@
-import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { AtendimentoContext } from '../../..'
-import { MedicamentoEditorContext } from '../editor'
+import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core';
 import TextRotationNoneIcon from '@material-ui/icons/TextRotationNone';
+import React, { useContext } from 'react';
+import { AtendimentoContext } from '../../..';
 
 const PosologiaSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
-    const { medicamentoContext } = useContext(MedicamentoEditorContext)
+    const { prescricaoEdit, setPrescricaoEdit, setStep,  medicamentoEdit, } = useContext(AtendimentoContext)
 
     const handleButton = () => {
         setPrescricaoEdit(prescricaoEdit)
@@ -21,7 +19,8 @@ const PosologiaSet = () => {
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
-                            {medicamentoContext && medicamentoContext.posologias && medicamentoContext.posologias.map(posologia =>
+                        {medicamentoEdit?.posologias?.map(posologia =>
+                            //{medicamentoEdit && medicamentoEdit.posologias && medicamentoEdit.posologias.map(posologia =>
                                 <TableRow
                                     key={posologia.id}
                                     onClick={() => {

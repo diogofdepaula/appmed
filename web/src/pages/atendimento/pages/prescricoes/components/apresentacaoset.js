@@ -1,18 +1,16 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core'
 import React, { useCallback, useContext, useEffect } from 'react'
 import { AtendimentoContext } from '../../..'
-import { MedicamentoEditorContext } from '../editor'
 
 const ApresentacaoSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
-    const { medicamentoContext, setMedicamentoContext } = useContext(MedicamentoEditorContext)
+    const { prescricaoEdit, setPrescricaoEdit, setStep, medicamentoEdit, setMedicamentoEdit, } = useContext(AtendimentoContext)
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoEdit.medicamentoId}`)
         const json = await res.json();
-        setMedicamentoContext(json)
-    }, [prescricaoEdit, setMedicamentoContext])
+        setMedicamentoEdit(json)
+    }, [prescricaoEdit, setMedicamentoEdit])
 
     useEffect(() => {
         let clear = true
@@ -26,8 +24,6 @@ const ApresentacaoSet = () => {
         setPrescricaoEdit({ ...prescricaoEdit, apresentacoId: param.id })
         setStep(31)
     }
-
-    console.log('apresentaçãoser')
 
     return (
         <>
@@ -49,7 +45,8 @@ const ApresentacaoSet = () => {
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
-                            {medicamentoContext && medicamentoContext.apresentacoes && medicamentoContext.apresentacoes.map(apresentacao =>
+                        {medicamentoEdit?.apresentacoes?.map(apresentacao =>
+                            //{medicamentoEdit && medicamentoEdit.apresentacoes && medicamentoEdit.apresentacoes.map(apresentacao =>
                                 <TableRow
                                     key={apresentacao.id}
                                     onClick={handleTableRow(apresentacao)}

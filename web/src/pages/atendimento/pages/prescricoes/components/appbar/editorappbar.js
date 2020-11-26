@@ -16,11 +16,12 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 const EditorAppBar = () => {
 
   const { clientecontext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page } = useContext(AtendimentoContext)
+  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, medicamentoEdit, setMedicamentoEdit } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clientecontext.id)
     setPrescricaoEdit(newpresc)
+    setMedicamentoEdit(null)
     setStep(11)
     // setMedicamento(initialMedicamento)
   }
@@ -59,26 +60,28 @@ const EditorAppBar = () => {
       </Tooltip>
       <Tooltip title="Anterior">
         <IconButton
-        onClick={anterior}
+          onClick={anterior}
         >
           <ArrowBackIosIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Próximo">
         <IconButton
-        onClick={proximo}
+          onClick={proximo}
         >
           <ArrowForwardIosIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Salvar">
-        <IconButton
-          color='secondary'
-          disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
-          onClick={save}
-        >
-          <SaveIcon />
-        </IconButton>
+        <span>
+          <IconButton
+            color='secondary'
+            disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
+            onClick={save}
+          >
+            <SaveIcon />
+          </IconButton>
+        </span>
       </Tooltip>
       <Tooltip title="Interromper uso">
         <IconButton>
@@ -104,12 +107,14 @@ const EditorAppBar = () => {
       <Tooltip
         title={!prescricaoEdit.id ? 'Vincular a uma LME' : 'Editar LME'}
       >
-        <IconButton
-          disabled={!prescricaoEdit.lme}
-          onClick={sendLME}
-        >
-          <AccountBalanceIcon />
-        </IconButton>
+        <span>
+          <IconButton
+            disabled={!medicamentoEdit?.lme}
+            onClick={sendLME}
+          >
+            <AccountBalanceIcon />
+          </IconButton>
+        </span>
       </Tooltip>
       <Divider />
     </Grid>

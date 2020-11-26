@@ -9,13 +9,12 @@ const Content = () => {
 
     const { page, update } = useContext(AtendimentoContext)
 
-
     /// se mudar aqui: não esquercer de atualizar a ThirdAppBar
     switch (page) {
         case 'prescricoesmain':
-            return <PrescricaoMain key={update.count} />
+            return <PrescricaoMain key={update} />  // dá para fazer o prescricaoEdit usando um variável (com um nome fora do BD) com new Date()
         case 'prescricaoinsert':
-            return <PrescricaoInsert key={update.count} />
+            return <PrescricaoInsert key={update} />
             //return <PrescricaoInsert />
         case 'prescricaoupdate':
             return <PrescricaoUpdate />
@@ -32,7 +31,7 @@ const Content = () => {
         // case 'print':
         //     return <Print />
         case 'teste':
-            return <div>Teste</div>
+            return <div>{update}</div>
         default:
             return <div>Atentdimento Content</div>
     }

@@ -4,10 +4,21 @@ import PrintIcon from '@material-ui/icons/Print';
 import SaveIcon from '@material-ui/icons/Save';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
+import { ClienteContext } from '../../../../App';
+import InitialPrescricao from '../initialprescricao';
 
 const SecondAppBar = () => {
 
-    const { page, setPage, updatePage } = useContext(AtendimentoContext)
+    const { clientecontext } = useContext(ClienteContext)
+    const { page, setPage, setPrescricaoEdit, setMedicamentoEdit, setStep } = useContext(AtendimentoContext)
+
+    const iniciar = () => {
+        let newpresc = InitialPrescricao(clientecontext.id)
+        setPrescricaoEdit(newpresc)
+        setMedicamentoEdit(null)
+        setStep(11)
+        setPage('prescricaoinsert')
+      }
 
     return (
         <>
@@ -15,10 +26,7 @@ const SecondAppBar = () => {
                 <>
                     <Tooltip title="Nova Prescrição">
                         <IconButton
-                            onClick={() => {
-                                setPage('prescricaoinsert')
-                                updatePage()
-                            }}
+                            onClick={iniciar}
                         >
                             <PostAddIcon />
                         </IconButton>
