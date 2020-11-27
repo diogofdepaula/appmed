@@ -26,7 +26,7 @@ exports.SearchAll = (req, res, next) => {
 
 exports.SearchAllShort = (req, res, next) => {
     Medicamentos.findAll({
-        attributes: ['id', 'farmaco', 'abreviatura']
+        attributes: ['id', 'farmaco', 'abreviatura', 'favorito']
     }).then((medicamentos) => {
         return res.json(medicamentos)
     }).catch(error => next(error))

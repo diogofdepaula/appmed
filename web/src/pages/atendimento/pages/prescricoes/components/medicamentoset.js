@@ -1,11 +1,11 @@
-import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core'
+import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AtendimentoContext } from '../../..'
 
 const MedicamentoSet = () => {
 
     const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
-    
+
     const [medicamentos, setMedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
 
@@ -39,16 +39,31 @@ const MedicamentoSet = () => {
     }
 
     const handleTableRow = param => () => {
-         setPrescricaoEdit({ ...prescricaoEdit, medicamentoId: param.id })
-         setStep(21)
+        setPrescricaoEdit({ ...prescricaoEdit, medicamentoId: param.id })
+        setStep(21)
     }
 
     return (
         <>
-            <Box mt={1} mb={1}>
+            <Box>
+                <Grid container justify="flex-start" spacing={1}>
+                    {medicamentos.filter(m => m.favorito).map(x =>
+                        <Grid item key={x.id}>
+                            <Chip
+                                label={x.abreviatura ?? x.farmaco}
+                                clickable
+                                color="primary"
+                                variant="outlined"
+                                onClick={handleTableRow(x)}
+                            />
+                        </Grid>
+                    )}
+                </Grid>
+            </Box>
+            <Box mt={2} mb={1}>
                 <TextField
                     fullWidth
-                    //autoFocus
+                    autoFocus
                     variant='outlined'
                     label='Digite o nome do fármaco'
                     onChange={filterMedicamento}
@@ -58,16 +73,16 @@ const MedicamentoSet = () => {
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
-                        {medicamentosfiltrados.map((medicamento, index) =>
-                            <TableRow 
-                                key={index}
-                                onClick={handleTableRow(medicamento)}
-                            >
-                                <TableCell component="th" scope="row">
-                                {medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco}
-                                </TableCell> 
-                            </TableRow>
-                        )}
+                            {medicamentosfiltrados.map(medicamento =>
+                                <TableRow
+                                    key={medicamento.id}
+                                    onClick={handleTableRow(medicamento)}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco}
+                                    </TableCell>
+                                </TableRow>
+                            )}
                         </TableBody>
                     </Table>
                 </TableContainer>

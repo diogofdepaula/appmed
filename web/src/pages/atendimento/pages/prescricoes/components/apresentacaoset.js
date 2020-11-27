@@ -27,7 +27,6 @@ const ApresentacaoSet = () => {
 
     return (
         <>
-            <Typography variant={'h6'}>Escolha uma Apresentação</Typography>
             <Box mt={1}>
                 {/* <List>
                     {medicamentoContext && medicamentoContext.apresentacoes && medicamentoContext.apresentacoes.map(apresentacao =>

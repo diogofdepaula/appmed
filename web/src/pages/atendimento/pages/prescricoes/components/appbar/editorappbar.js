@@ -1,11 +1,11 @@
 import { Divider, Grid, IconButton, Tooltip } from '@material-ui/core';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ReplayIcon from '@material-ui/icons/Replay';
 import SaveIcon from '@material-ui/icons/Save';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -22,6 +22,19 @@ const EditorAppBar = () => {
     setMedicamentoEdit(null)
     setStep(11)
     // setMedicamento(initialMedicamento)
+  }
+
+  const linkLME = () => {
+    setPrescricaoEdit(prescricaoEdit)
+    setStep(51)
+  }
+
+  const previousStep = () => {
+    setStep(prevState => prevState - 10)
+  }
+
+  const nextStep = () => {
+    setStep(prevState => prevState + 10)
   }
 
   const handleSubmit = event => {
@@ -41,17 +54,13 @@ const EditorAppBar = () => {
     })
   }
 
-  const sendLME = () => {
+  const sendFork = () => {
     setPrescricaoEdit(prescricaoEdit)
-    setStep(51)
-  }
-
-  const previous = () => {
-    setStep(prevState => prevState - 10)
-  }
-
-  const next = () => {
-    setStep(prevState => prevState + 10)
+    if (prescricaoEdit.lmeId) {
+      setStep(1) // manda para o lmeupdate
+    } else {
+      setStep(61) // continua a edição
+    }
   }
 
   return (
@@ -72,7 +81,7 @@ const EditorAppBar = () => {
         <span>
           <IconButton
             disabled={step === 11 || step === 32}
-            onClick={previous}
+            onClick={previousStep}
           >
             <ArrowBackIosIcon />
           </IconButton>
@@ -81,8 +90,8 @@ const EditorAppBar = () => {
       <Tooltip title="Próximo">
         <span>
           <IconButton
-            disabled={step === 11 || step === 41}
-            onClick={next}
+            disabled={step === 11 || step === 41 || step === 61}
+            onClick={nextStep}
           >
             <ArrowForwardIosIcon />
           </IconButton>
@@ -105,13 +114,27 @@ const EditorAppBar = () => {
         <span>
           <IconButton
             disabled={!medicamentoEdit?.lme}
-            onClick={sendLME}
+            onClick={linkLME}
           >
             <ArrowForwardIcon />
             <AccountBalanceIcon />
           </IconButton>
         </span>
       </Tooltip>
+      {step === 51 &&
+        <div>
+          <Tooltip title="Próximo">
+            <span>
+              <IconButton
+                color='primary'
+                onClick={sendFork}
+              >
+                <ArrowForwardIosIcon />
+              </IconButton>
+            </span>
+          </Tooltip>
+        </div>
+        }
       <Divider />
     </Grid>
   )

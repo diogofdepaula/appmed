@@ -14,7 +14,6 @@ const PosologiaSet = () => {
 
     return (
         <>
-            <Typography variant={'h6'}>Escolha uma Posologia</Typography>
             <Box mt={1}>
                 <TableContainer component={Paper}>
                     <Table>
