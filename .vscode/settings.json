@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "SQLite",
+            "database": "${workspaceFolder:appmed}/api/src/database/appmeddb.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

@@ -33,11 +33,11 @@ const EditorAppBar = () => {
     setStep(51)
   }
 
-  const anterior = () => {
+  const previous = () => {
     setStep(prevState => prevState - 10)
   }
 
-  const proximo = () => {
+  const next = () => {
     setStep(prevState => prevState + 10)
   }
 
@@ -59,7 +59,7 @@ const EditorAppBar = () => {
         <span>
           <IconButton
             disabled={step === 11 || step === 32}
-            onClick={anterior}
+            onClick={previous}
           >
             <ArrowBackIosIcon />
           </IconButton>
@@ -69,7 +69,7 @@ const EditorAppBar = () => {
         <span>
           <IconButton
             disabled={step === 11 || step === 41}
-            onClick={proximo}
+            onClick={next}
           >
             <ArrowForwardIosIcon />
           </IconButton>
@@ -102,8 +102,5 @@ const EditorAppBar = () => {
     </Grid>
   )
 }
-//PARA GARANTIR
-//FALTA FAZER O SALVAR (VER SE DEU CERTO PRINCIPALMENTE O DATA DO INÍCIO) E ENVIAR PARA LME
-
 
 export default EditorAppBar
