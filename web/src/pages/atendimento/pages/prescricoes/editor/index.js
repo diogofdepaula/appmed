@@ -1,6 +1,8 @@
 import React, { useCallback, useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 import ApresentacaoSet from '../components/apresentacaoset';
+import LMEDoses from '../components/lmedoses';
+import LMEForkSet from '../components/lmeforkset';
 import MedicamentoSet from '../components/medicamentoset';
 import PosologiaNaoPadraoSet from '../components/posologianaopadraoset';
 import PosologiaSet from '../components/posologiaset';
@@ -36,13 +38,10 @@ const PrescricaoEditor = () => {
                 return <PosologiaNaoPadraoSet />
             case 41:
                 return <PrescricaoVarSet />
-            //return 
             case 51:
-                return <div />
-            //return <LmeDoses />
+                return <LMEDoses />
             case 61:
-                return <div />
-            //return <LMEForkSet />
+                return <LMEForkSet />
             default:
                 return <div />
         }

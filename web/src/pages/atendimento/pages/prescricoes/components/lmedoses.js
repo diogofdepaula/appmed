@@ -1,58 +1,70 @@
-import { Box, Button, Grid, TextField, Typography } from '@material-ui/core'
-import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { PrescricaoEditorContext } from '../editor'
+import { Box, Button, Grid, TextField } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import React, { useContext } from 'react';
+import { AtendimentoContext } from '../../..';
 
-export default function LMEDoses(props) {
+const LMEDoses = () => {
 
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
-    const [indices, setIndices] = useState([])
+    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
 
-    const funcaoTeste = useCallback(() => {
-        setIndices([
-            ['lmemes1', '1º mês', prescricaoContext.lmemes1],
-            ['lmemes2', '2º mês', prescricaoContext.lmemes2],
-            ['lmemes3', '3º mês', prescricaoContext.lmemes3],
-            ['lmemes4', '4º mês', prescricaoContext.lmemes4],
-            ['lmemes5', '5º mês', prescricaoContext.lmemes5],
-            ['lmemes6', '6º mês', prescricaoContext.lmemes6]
-        ])
-    }, [prescricaoContext])
+    // const [indices, setIndices] = useState([])
 
-    useEffect(() => {
-        funcaoTeste()
-    }, [funcaoTeste])
+    // const funcaoTeste = useCallback(() => {
+    //     setIndices([
+    //         ['lmemes1', '1º mês', prescricaoEdit.lmemes1],
+    //         ['lmemes2', '2º mês', prescricaoEdit.lmemes2],
+    //         ['lmemes3', '3º mês', prescricaoEdit.lmemes3],
+    //         ['lmemes4', '4º mês', prescricaoEdit.lmemes4],
+    //         ['lmemes5', '5º mês', prescricaoEdit.lmemes5],
+    //         ['lmemes6', '6º mês', prescricaoEdit.lmemes6]
+    //     ])
+    // }, [prescricaoEdit])
+
+    // useEffect(() => {
+    //     funcaoTeste()
+    // }, [funcaoTeste])
+
+    const indica = [
+        ['lmemes1', '1º mês', prescricaoEdit.lmemes1],
+        ['lmemes2', '2º mês', prescricaoEdit.lmemes2],
+        ['lmemes3', '3º mês', prescricaoEdit.lmemes3],
+        ['lmemes4', '4º mês', prescricaoEdit.lmemes4],
+        ['lmemes5', '5º mês', prescricaoEdit.lmemes5],
+        ['lmemes6', '6º mês', prescricaoEdit.lmemes6]
+    ]
+
 
     const handleChange = event => {
-        setPrescricaoContext({ ...prescricaoContext, [event.target.name]: event.target.value })
+        setPrescricaoEdit({ ...prescricaoEdit, [event.target.name]: event.target.value })
     }
 
     const nextStep = () => {
-        setPrescricaoContext(prescricaoContext)
-        if (prescricaoContext.lmeId) {
-            setStepContext(1) // manda para o lmeupdate
+        setPrescricaoEdit(prescricaoEdit)
+        if (prescricaoEdit.lmeId) {
+            setStep(1) // manda para o lmeupdate
         } else {
-            setStepContext(61) // continua a edição
+            setStep(61) // continua a edição
         }
     }
 
     return (
         <>
-            <Typography variant={'h5'}>Doses referente a cada mês</Typography>
+            {/* <Typography variant={'h5'}>Doses referente a cada mês</Typography> */}
             <Box>
-                <Grid container spacing={5} nowrap >
-                {indices && indices.map((w, i) =>
-                    <Grid item xs key={i}> 
-                        <TextField
-                            size='small'
-                            key={w[0]}
-                            name={w[0]}
-                            label={w[1]}
-                            value={w[2]}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                )}
+                <Grid container spacing={1} nowrap >
+                    {indica?.map((w, i) =>
+                        <Grid item xs key={i}>
+                            <TextField
+                                fullWidth
+                                variant='outlined'
+                                key={w[0]}
+                                name={w[0]}
+                                label={w[1]}
+                                value={w[2]}
+                                onChange={(e) => handleChange(e)}
+                            />
+                        </Grid>
+                    )}
                 </Grid>
             </Box>
             <Box mt={2}>
@@ -65,4 +77,6 @@ export default function LMEDoses(props) {
         </>
     )
 }
+
+export default LMEDoses
 

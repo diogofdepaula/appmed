@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ReplayIcon from '@material-ui/icons/Replay';
 import SaveIcon from '@material-ui/icons/Save';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -13,7 +14,7 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 const EditorAppBar = () => {
 
   const { clientecontext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, medicamentoEdit, setMedicamentoEdit } = useContext(AtendimentoContext)
+  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clientecontext.id)
@@ -23,9 +24,21 @@ const EditorAppBar = () => {
     // setMedicamento(initialMedicamento)
   }
 
-  const save = () => {
-    setPrescricaoEdit(prescricaoEdit)
-    setStep(0) // tem que tirar zero e colocar alguma outra coisa tipo lme mesmo ou sei la
+  const handleSubmit = event => {
+    event.preventDefault();
+    fetch(`http://localhost:4001/api.appmed/prescricoes`, {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(prescricaoEdit)
+    }).then(data => {
+      if (data.ok) {
+        setPage('prescricoesmain')
+        setStep(0)
+        let newpresc = InitialPrescricao(clientecontext.id)
+        setPrescricaoEdit(newpresc)
+        setMedicamentoEdit(null)
+      }
+    })
   }
 
   const sendLME = () => {
@@ -75,12 +88,12 @@ const EditorAppBar = () => {
           </IconButton>
         </span>
       </Tooltip>
-      <Tooltip title="Salvar">
+      <Tooltip title="Salvar Teste">
         <span>
           <IconButton
             color='secondary'
             disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
-            onClick={save}
+            onClick={handleSubmit}
           >
             <SaveIcon />
           </IconButton>
@@ -94,6 +107,7 @@ const EditorAppBar = () => {
             disabled={!medicamentoEdit?.lme}
             onClick={sendLME}
           >
+            <ArrowForwardIcon />
             <AccountBalanceIcon />
           </IconButton>
         </span>

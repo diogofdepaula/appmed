@@ -1,12 +1,15 @@
-import { Box, Divider, ListItem, ListItemText, Typography, List } from '@material-ui/core';
+import { Box, Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { AtendimentoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
-import { PrescricaoEditorContext } from '../editor';
 
-export default function LMEForkSet() {
+const LMEForkSet = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(PrescricaoEditorContext)
+    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(AtendimentoContext)
+
+    /////const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
+
     const [lmes, setlmes] = useState([])
 
     const fetchData = useCallback(async () => {
@@ -47,3 +50,5 @@ export default function LMEForkSet() {
         </div>
     )
 }
+
+export default LMEForkSet

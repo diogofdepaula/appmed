@@ -1,5 +1,4 @@
 import { Box } from '@material-ui/core';
-import { parseISO } from 'date-fns';
 import React, { createContext, useCallback, useContext, useEffect } from 'react';
 import { AtendimentoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
@@ -11,7 +10,6 @@ const PrescricaoInsert = () => {
 
     const { clientecontext } = useContext(ClienteContext)
     const { setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
-
     
     const chargeInitial = useCallback(() => {
 
