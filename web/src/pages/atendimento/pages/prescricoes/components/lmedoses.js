@@ -38,6 +38,8 @@ const LMEDoses = () => {
         setPrescricaoEdit({ ...prescricaoEdit, [event.target.name]: event.target.value })
     }
 
+
+    //tem que refazer esse método
     const nextStep = () => {
         setPrescricaoEdit(prescricaoEdit)
         if (prescricaoEdit.lmeId) {
