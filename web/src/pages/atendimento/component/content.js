@@ -19,10 +19,10 @@ const Content = () => {
             return <PrescricaoUpdate />
         case 'prescricaodelete':
             return <PrescricaoDelete />
-        // case 'lmes':
-        //     return <LMEMain />
-        // case 'lmeinsert':
-        //     return <LMEInsert />
+        case 'lmes':
+            return <LMEMain />
+        case 'lmeinsert':
+            return <LMEInsert />
         // case 'lmeupdate':
         //     return <LMEUpdate />
         // case 'lmedelete':

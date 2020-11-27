@@ -12,20 +12,6 @@ const PrescricaoEditor = () => {
 
     const { step } = useContext(AtendimentoContext)
 
-    // const backToPrescricao = useCallback((param) => {
-    //     props.sendPrescricao(prescricao, param)
-    // }, [props, prescricao])
-
-    // useEffect(() => {
-    //     if (step === 0) {
-    //         // sem mandar para lme
-    //         backToPrescricao(false)
-    //     } else if (step === 1) {
-    //         // manda para lme
-    //         backToPrescricao(true)
-    //     }
-    // }, [step, backToPrescricao, prescricao])
-
     const GetStep = useCallback(() => {
         switch (step) {
             case 11:
@@ -45,7 +31,6 @@ const PrescricaoEditor = () => {
             default:
                 return <div />
         }
-
     }, [step]
     )
 

@@ -1,4 +1,4 @@
-import { Box, Divider, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
@@ -6,10 +6,7 @@ import { ClienteContext } from '../../../../../App';
 const LMEForkSet = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    const { prescricaoContext, setPrescricaoContext, setStepContext } = useContext(AtendimentoContext)
-
-    /////const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
-
+    const { prescricaoEdit, setPrescricaoEdit, setStep, setPage, setLmeEdit } = useContext(AtendimentoContext)
     const [lmes, setlmes] = useState([])
 
     const fetchData = useCallback(async () => {
@@ -22,32 +19,48 @@ const LMEForkSet = () => {
         fetchData();
     }, [fetchData])
 
+    const handleTableRow = param => () => {
+        setPrescricaoEdit({
+            ...prescricaoEdit,
+            lmeId: param.id
+        })
+        setLmeEdit(param)
+        setPage('lmeinsert')
+        setStep(21)
+    }
+
     return (
-        <div>
-            <Typography variant={'h5'}>Escolha a qual LME</Typography>
+        <>
             <Box mt={1}>
-                <ListItem onClick={() => setStepContext(1)} >
-                    <ListItemText primary="Criar uma nova LME" />
-                </ListItem>
+                <Paper
+                    onClick={() => setPage('lmeinsert')}
+                >
+                    <Typography variant="body1" color="initial">
+                        <Box p={2}>Criar uma nova LME</Box>
+                    </Typography>
+                </Paper>
                 <Divider />
-                <List>
-                    {lmes && lmes.map(lme =>
-                        <ListItem
-                            key={lme.id}
-                            onClick={() => {
-                                setPrescricaoContext({
-                                    ...prescricaoContext,
-                                    lmeId: lme.id
-                                })
-                                setStepContext(1)
-                            }}
-                        >
-                            <ListItemText primary={lme.cid10 + ' - ' + lme.diagnostico} />
-                        </ListItem>
-                    )}
-                </List>
+
+                <Box mt={2}>
+                    <TableContainer component={Paper}>
+                        <Table>
+                            <TableBody>
+                                {lmes?.map(lme =>
+                                    <TableRow
+                                        key={lme.id}
+                                        onClick={handleTableRow(lme)}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {lme.cid10 + ' - ' + lme.diagnostico}
+                                        </TableCell>
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Box>
             </Box>
-        </div>
+        </>
     )
 }
 
