@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 import ApresentacaoSet from '../components/apresentacaoset';
 import MedicamentoSet from '../components/medicamentoset';
