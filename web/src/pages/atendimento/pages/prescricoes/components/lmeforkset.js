@@ -25,15 +25,20 @@ const LMEForkSet = () => {
             lmeId: param.id
         })
         setLmeEdit(param)
+        setPage('lmeupdate')
+    }
+
+    const handleNewLME = () => {
+        console.log('teste')
         setPage('lmeinsert')
-        setStep(21)
+        
     }
 
     return (
         <>
             <Box mt={1}>
                 <Paper
-                    onClick={() => setPage('lmeinsert')}
+                    onClick={handleNewLME}
                 >
                     <Typography variant="body1" color="initial">
                         <Box p={2}>Criar uma nova LME</Box>

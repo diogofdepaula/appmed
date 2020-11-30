@@ -4,6 +4,9 @@ import PrescricaoDelete from '../pages/prescricoes/delete'
 import PrescricaoInsert from '../pages/prescricoes/insert'
 import PrescricaoMain from '../pages/prescricoes/main'
 import PrescricaoUpdate from '../pages/prescricoes/update'
+import LMEInsert from '../pages/lmes/insert'
+
+export 
 
 const Content = () => {
 
@@ -19,8 +22,8 @@ const Content = () => {
             return <PrescricaoUpdate />
         case 'prescricaodelete':
             return <PrescricaoDelete />
-        case 'lmes':
-            return <LMEMain />
+        // case 'lmes':
+        //     return <LMEMain />
         case 'lmeinsert':
             return <LMEInsert />
         // case 'lmeupdate':

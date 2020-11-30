@@ -11,7 +11,7 @@ export default function UpdateLME() {
     const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
     const [lme, setLme] = useState()
     const [validation, setValidation] = useState(false)
-    const step = 31
+    const step = 21
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)

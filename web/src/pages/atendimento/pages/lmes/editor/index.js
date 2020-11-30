@@ -1,32 +1,43 @@
-import React, { createContext, useCallback, useEffect, useState } from 'react';
-import CID10List from '../../../../cadastro/cid10/components/cid10list'
-import LMEVarSet from '../components/lmevarset'
-import RelatorioVarSet from '../relatorio/relatoriovarset'
+import React, { createContext, useCallback, useContext } from 'react';
+import { AtendimentoContext } from '../../..';
+import LMECIDSet from '../components/lmecidset';
+import LMEVarSet from '../components/lmevarset';
 
-export const LMEEditorContext = createContext()
+export const LMEEditorContext = createContext(null)
 
-export default function PrescricaoEditor(props) {
+const LMEEditor = () => {
 
-    const [lme, setLme] = useState(props.lme)
-    const [step, setStep] = useState(props.step);
+    const { step } = useContext(AtendimentoContext)
 
-    const backToLme = useCallback(() => {
-        props.sendLme(lme)
-    }, [props, lme])
-
-    useEffect(() => {
-        if (step === 0) {
-            backToLme()
+    const GetStep = useCallback(() => {
+        switch (step) {
+            case 11:
+                return <LMECIDSet />
+            case 21:
+                return <LMEVarSet />
+            //return 
+            case 32:
+                return <div>31</div>
+            //return <RelatorioVarSet />
+            // case 41:
+            //     return <PrescricaoVarSet />
+            // case 51:
+            //     return <LMEDoses />
+            // case 61:
+            //     return <LMEForkSet />
+            default:
+                return <div />
         }
-    }, [step, backToLme])
+    }, [step]
+    )
 
     return (
-        <div>
-            <LMEEditorContext.Provider  value={{ lmeContext: lme, setLmeContext: setLme, setStepContext: setStep }} >
-                {step === 21 && <CID10List />}
-                {step === 31 && <LMEVarSet />}
-                {step === 41 && <RelatorioVarSet />}
+        <>
+            <LMEEditorContext.Provider value={'fake'}>
+                {step !== 0 ? <GetStep /> : <div />}
             </LMEEditorContext.Provider>
-        </div>
+        </>
     )
 }
+
+export default LMEEditor
