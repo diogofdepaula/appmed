@@ -14,6 +14,7 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 // PRESCRICAO EDITOR
 const EditorAppBar = () => {
 
+  para garantir
 
   const { clientecontext } = useContext(ClienteContext)
   const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit } = useContext(AtendimentoContext)
