@@ -16,17 +16,19 @@ const LMEVarSet = () => {
     return (
         <>
             <Box m={2}>
-                <TextField
-                    fullWidth
-                    multiline
-                    variant='outlined'
-                    rows={4}
-                    id="anamnese"
-                    name="anamnese"
-                    label="História clínica (Anamnese e tratamento prévio)"
-                    value={lmeEdit.anamnese}
-                    onChange={handleChange}
-                />
+                <Box mb={2}>
+                    <TextField
+                        fullWidth
+                        multiline
+                        variant='outlined'
+                        rows={4}
+                        id="anamnese"
+                        name="anamnese"
+                        label="História clínica (Anamnese e tratamento prévio)"
+                        value={lmeEdit.anamnese}
+                        onChange={handleChange}
+                    />
+                </Box>
                 <Accordion square>
                     <AccordionSummary>
                         <Typography>Editar outras variáveis</Typography>

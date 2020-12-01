@@ -6,7 +6,7 @@ import LMEEditor from '../editor';
 const LMEInsert = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    const { prescricaoEdit, setStep, setLmeEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setStep, setLmeEdit,medicamentoEdit } = useContext(AtendimentoContext)
 
     const chargeInitial = useCallback(() => {
 
@@ -22,11 +22,94 @@ const LMEInsert = () => {
             raca: '',
             clienteId: clientecontext.id,
             prescricoes: prescricaoEdit,
-            relatorio: null,
+            relatorio: medicamentoEdit?.classe === 'MMCDB' ? 
+            {
+                tempodoencaanos: '',
+                tempodoencameses: '',
+                vhs: '',
+                pcr: '',
+                pcrvn: '',
+                ara: '',
+                arb: '',
+                arc: '',
+                ard: '',
+                are: '',
+                arf: '',
+                arg: '',
+                eapa: '',
+                eapb: '',
+                eapc: '',
+                eapd: '',
+                eape: '',
+                eapf: '',
+                eapg: '',
+                eaaa: '',
+                eaab: '',
+                eaac: '',
+                eaad: '',
+                eaae: '',
+                medicamento1: '',
+                dose1: '',
+                inicio1: '',
+                fim1: '',
+                motivo1: '',
+                medicamento2: '',
+                dose2: '',
+                inicio2: '',
+                fim2: '',
+                motivo2: '',
+                medicamento3: '',
+                dose3: '',
+                inicio3: '',
+                fim3: '',
+                motivo3: '',
+                medicamento4: '',
+                dose4: '',
+                inicio4: '',
+                fim4: '',
+                motivo4: '',
+                medicamento5: '',
+                dose5: '',
+                inicio5: '',
+                fim5: '',
+                motivo5: '',
+                medicamento6: '',
+                dose6: '',
+                inicio6: '',
+                fim6: '',
+                motivo6: '',
+                medicamento7: '',
+                dose7: '',
+                inicio7: '',
+                fim7: '',
+                motivo7: '',
+                ppddata: undefined,
+                ppdresultado: '',
+                rxtoraxdata: undefined,
+                rxtoraxresultado: '',
+                rxtoraxalteracao: '',
+                bhcgdata: undefined,
+                bhcgjustificativa: '',
+                infeccaoviral: '',
+                hepatite: '',
+                infeccaobacteriana: '',
+                neoplasia: '',
+                anemia: '',
+                alteracaohepatica: '',
+                das28: '',
+                cdai: '',
+                sdai: '',
+                basdai: '',
+                asdas: '',
+                mda: '',
+                eva: '',
+            }
+            : 
+            null,
         }
         setLmeEdit(initial)
         setStep(11)
-    }, [setStep, setLmeEdit, clientecontext, prescricaoEdit])
+    }, [setStep, setLmeEdit, clientecontext, prescricaoEdit, medicamentoEdit])
 
     useEffect(() => {
         chargeInitial()

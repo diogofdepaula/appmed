@@ -1,7 +1,8 @@
 import { Divider } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
-import EditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
+import LmeEditorAppBar from '../../pages/lmes/components/appbar/editorappbar';
+import PrecricoesEditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
 import PrescricoesMainAppBar from '../../pages/prescricoes/components/appbar/mainappbar';
 
 const ThirdAppBar = () => {
@@ -14,7 +15,7 @@ const ThirdAppBar = () => {
          case 'prescricoesmain':
             return <PrescricoesMainAppBar />
          case 'prescricaoinsert':
-            return <EditorAppBar />
+            return <PrecricoesEditorAppBar />
          //return <PrescricaoInsert />
          //   case 'prescricaoupdate':
          //       return <PrescricaoUpdate />
@@ -22,8 +23,8 @@ const ThirdAppBar = () => {
          //       return <PrescricaoDelete />
          // case 'lmes':
          //     return <LMEMain />
-         // case 'lmeinsert':
-         //     return <LMEInsert />
+         case 'lmeinsert':
+             return <LmeEditorAppBar />
          // case 'lmeupdate':
          //     return <LMEUpdate />
          // case 'lmedelete':

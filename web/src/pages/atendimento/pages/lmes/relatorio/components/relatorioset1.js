@@ -1,69 +1,72 @@
+import { Box, Grid, TextField } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { RelatorioContent } from '../relatoriovarset'
+import { AtendimentoContext } from '../../../..'
 
-export default function RelatorioSet1() {
+const RelatorioSet1 = () => {
 
-    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
+    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
+        setLmeEdit({ ...lmeEdit, relatorio: {...lmeEdit.relatorio , [event.target.name]: event.target.value }})
     }
 
     return (
-        <div>
-            <Container>
-                <Row>
-                    <Col>
-                        <Form.Control
-                            type="text"
+        <>
+            <Box m={2}>
+                <Grid container spacing={1}>
+                    <Grid item xs>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
                             name="tempodoencaanos"
-                            placeholder="Anos"
-                            value={relatorioContext.tempodoencaanos}
+                            label="Anos"
+                            value={lmeEdit.relatorio?.tempodoencaanos}
                             onChange={handleChange}
                         />
-                    </Col>
-                    <Col>
-                        <Form.Control
-                            type="text"
+                    </Grid>
+                    <Grid item xs>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
                             name="tempodoencameses"
-                            placeholder="Meses"
-                            value={relatorioContext.tempodoencameses}
+                            label="Meses"
+                            value={lmeEdit.relatorio?.tempodoencameses}
                             onChange={handleChange}
                         />
-                    </Col>
-                    <Col>
-                        <Form.Control
-                            type="text"
+                    </Grid>
+                    <Grid item xs>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
                             name="vhs"
-                            placeholder="VHS"
-                            value={relatorioContext.vhs}
+                            label="VHS"
+                            value={lmeEdit.relatorio?.vhs}
                             onChange={handleChange}
                         />
-                    </Col>
-                    <Col>
-                        <Form.Control
-                            type="text"
+                    </Grid>
+                    <Grid item xs>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
                             name="pcr"
-                            placeholder="PCR"
-                            value={relatorioContext.pcr}
+                            label="PCR"
+                            value={lmeEdit.relatorio?.pcr}
                             onChange={handleChange}
                         />
-                    </Col>
-                    <Col>
-                        <Form.Control
-                            type="text"
+                    </Grid>
+                    <Grid item xs>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
                             name="pcrvn"
-                            placeholder="PCR NL"
-                            value={relatorioContext.pcrvn}
+                            label="PCR NL"
+                            value={lmeEdit.relatorio?.pcrvn}
                             onChange={handleChange}
                         />
-                    </Col>
-
-                </Row>
-            </Container>
-            <Container className="mt-2">
-                <Button
+                    </Grid>
+                </Grid>
+            <Box>
+                {/* <Button
                     disabled
                     variant="outline-success"
                 // onClick={props.passPrevious}
@@ -73,12 +76,15 @@ export default function RelatorioSet1() {
                     className="ml-1"
                     variant="outline-success"
                     onClick={() => {
-                        setRelatorioContext(relatorioContext)
-                        setStepContext(2)
+                        setLmeEdit(lmeEdit.relatorio)
+                        setStep(2)
                     }}
                 > Próximo
-                </Button>
-            </Container>
-        </div>
+                </Button> */}
+            </Box>
+        </Box>
+        </>
     )
 }
+
+export default RelatorioSet1

@@ -10,10 +10,10 @@ const Atendimento = () => {
 
     // deixei tudo aqui para que a appbar também tivesse acesso
     const [page, setPage] = useState('')
-    const [prescricaoOnDuty, setPrescricaoOnDuty] = useState()
+    const [prescricaoOnDuty, setPrescricaoOnDuty] = useState([])
     const [prescricaoEdit, setPrescricaoEdit] = useState([])
-    const [lmeOnDuty, setLmeOnDuty] = useState()
-    const [lmeEdit, setLmeEdit] = useState()
+    const [lmeOnDuty, setLmeOnDuty] = useState([])
+    const [lmeEdit, setLmeEdit] = useState([])
     const [step, setStep] = useState(0)
     const [medicamentoEdit, setMedicamentoEdit] = useState([])
     const [update, setUpdate] = useState({
@@ -59,7 +59,7 @@ const Atendimento = () => {
                     <Divider />
                     prescEdit: {JSON.stringify(prescricaoEdit)}
                     <Divider />
-                    prescDuty:  {JSON.stringify(prescricaoOnDuty)}
+                    lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />
                     medicamentoEdit:  {JSON.stringify(medicamentoEdit)}
                 </Box>

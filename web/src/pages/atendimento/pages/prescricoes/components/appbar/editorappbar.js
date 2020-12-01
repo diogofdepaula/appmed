@@ -14,8 +14,6 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 // PRESCRICAO EDITOR
 const EditorAppBar = () => {
 
-  para garantir
-
   const { clientecontext } = useContext(ClienteContext)
   const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit } = useContext(AtendimentoContext)
 
@@ -24,7 +22,6 @@ const EditorAppBar = () => {
     setPrescricaoEdit(newpresc)
     setMedicamentoEdit(null)
     setStep(11)
-    // setMedicamento(initialMedicamento)
   }
 
   const linkLME = () => {
@@ -100,7 +97,7 @@ const EditorAppBar = () => {
           </IconButton>
         </span>
       </Tooltip>
-      <Tooltip title="Salvar Teste">
+      <Tooltip title="Salvar">
         <span>
           <IconButton
             color='secondary'
