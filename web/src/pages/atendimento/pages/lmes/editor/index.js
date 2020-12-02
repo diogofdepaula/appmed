@@ -5,6 +5,7 @@ import LMEVarSet from '../components/lmevarset';
 import RelatorioSet1 from '../relatorio/components/relatorioset1';
 import RelatorioSet2 from '../relatorio/components/relatorioset2';
 import RelatorioSet3 from '../relatorio/components/relatorioset3';
+import RelatorioSet4 from '../relatorio/components/relatorioset4';
 // import RelatorioSet2 from '../relatorio/components/relatorioset2';
 // import RelatorioSet3 from '../relatorio/components/relatorioset3';
 // import RelatorioSet4 from '../relatorio/components/relatorioset4';

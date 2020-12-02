@@ -1,7 +1,9 @@
-import { Box, TextField } from '@material-ui/core'
-import React, { useContext, useState, useCallback, useEffect } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { RelatorioContent } from '../relatoriovarset'
+import { Box, FormControl, FormControlLabel, TextField } from '@material-ui/core';
+import Radio from '@material-ui/core/Radio';
+import { format } from 'date-fns';
+import React, { useContext } from 'react';
+import { Form } from 'react-bootstrap';
+import { AtendimentoContext } from '../../../..';
 
 const RelatorioSet4 = () => {
 
@@ -10,6 +12,7 @@ const RelatorioSet4 = () => {
     const handleChange = event => {
         setLmeEdit({ ...lmeEdit, relatorio: {...lmeEdit.relatorio , [event.target.name]: event.target.value }})
     }
+    
 
     // const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
     // const [validation, setValidation] = useState(false)
@@ -45,45 +48,42 @@ const RelatorioSet4 = () => {
                                 type="date"
                                 name="ppddata"
                                 label="PPD"
-                                value={format(lmeEdit.relatorio.ppddata, "yyyy-MM-dd") || ''}
+                               // value={format(lmeEdit.relatorio?.ppddata, "yyyy-MM-dd") || ''}
                                 onChange={handleChange}
                             />
-                                <Form.Check
-                                    inline
-                                    label="Até 5 mm"
-                                    type='radio'
-                                    name='ppdresultado' 
-                                    id="ppdresultadoa"
+                            <FormControl>
+                                <FormControlLabel 
+                                    name='ppdresultado'
                                     value="a"
-                                   checked={lmeEdit.relatorio.ppdresultado === "a"}
-                                    onChange={handleChangeRadio}
+                                    control={<Radio />} 
+                                    label="Até 5 mm"
+                                    checked={lmeEdit.relatorio?.ppdresultado === "a"}
+                                    onChange={handleChange}
                                 />
-                                <Form.Check
-                                    inline
-                                    label="Acima de 5 mm"
-                                    type='radio'
+                                 <FormControlLabel 
                                     name='ppdresultado'
-                                    id="ppdresultadob"
                                     value="b"
-                                   checked={lmeEdit.relatorio.ppdresultado === "b"}
-                                    onChange={handleChangeRadio}
+                                    control={<Radio />} 
+                                    label="Acima de 5 mm"
+                                    checked={lmeEdit.relatorio?.ppdresultado === "b"}
+                                    onChange={handleChange}
                                 />
-                                <Form.Check
-                                    inline
-                                    label="Não reator"
-                                    type='radio'
+                               <FormControlLabel 
                                     name='ppdresultado'
-                                    id="ppdresultadoc"
                                     value="c"
-                                    checked={lmeEdit.relatorio.ppdresultado === "c"}
-                                    onChange={handleChangeRadio}
+                                    control={<Radio />} 
+                                    label="Não reator"
+                                    checked={lmeEdit.relatorio?.ppdresultado === "c"}
+                                    onChange={handleChange}
                                 />
+                    </FormControl>
+{/* parei aqui */}
                             <Form.Control
                                 type="date"
                                 id="rxtoraxdata"
                                 name="rxtoraxdata"
                                 placeholder="RxTórax"
-                                value={lmeEdit.relatorio.rxtoraxdata || ''}
+                                value={lmeEdit.relatorio?.rxtoraxdata || ''}
                                 onChange={handleChange}
                             />
                             <Form.Check
@@ -94,7 +94,7 @@ const RelatorioSet4 = () => {
                                 id="rxtoraxresultadoa"
                                 value="a"
                                 checked={lmeEdit.relatorio.rxtoraxresultado === "a"}
-                                onChange={handleChangeRadio}
+                                onChange={handleChange}
 
                             />
 
@@ -107,9 +107,9 @@ const RelatorioSet4 = () => {
                                 id="rxtoraxresultadob"
                                 value="b"
                                 checked={lmeEdit.relatorio.rxtoraxresultado === "b"}
-                                onChange={handleChangeRadio}
+                                onChange={handleChange}
                             />
-                    {lmeEdit.relatorio.rxtoraxresultado === "b" &&
+                            {lmeEdit.relatorio.rxtoraxresultado === "b" &&
                                 <Form.Control
                                     type="text"
                                     name="rxtoraxalteracao"
@@ -134,7 +134,6 @@ const RelatorioSet4 = () => {
                                 value={lmeEdit.relatorio.bhcgjustificativa}
                                 onChange={handleChange}
                             />
-                </Form.Group>
             </Box>
         </>
     )
