@@ -6,7 +6,7 @@ import { ClienteContext } from '../../../../../App';
 const LMEForkSet = () => {
 
     const { clientecontext } = useContext(ClienteContext)
-    const { prescricaoEdit, setPrescricaoEdit, setStep, setPage, setLmeEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit, setPage, setLmeEdit } = useContext(AtendimentoContext)
     const [lmes, setlmes] = useState([])
 
     const fetchData = useCallback(async () => {

@@ -1,153 +1,137 @@
+import { Box, Grid, TextField } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
-import { RelatorioContent } from '../relatoriovarset'
+import { AtendimentoContext } from '../../../..'
 
-export default function RelatorioSet3(props) {
+const RelatorioSet3 = () => {
 
-    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
+    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
+        setLmeEdit({ ...lmeEdit, relatorio: {...lmeEdit.relatorio , [event.target.name]: event.target.value }})
     }
 
     const indices = [
         [
 
-            ['medicamento1', relatorioContext.medicamento1],
-            ['dose1', relatorioContext.dose1],
-            ['inicio1', relatorioContext.inicio1],
-            ['fim1', relatorioContext.fim1],
-            ['motivo1', relatorioContext.motivo1],
+            ['medicamento1', lmeEdit.relatorio.medicamento1],
+            ['dose1', lmeEdit.relatorio.dose1],
+            ['inicio1', lmeEdit.relatorio.inicio1],
+            ['fim1', lmeEdit.relatorio.fim1],
+            ['motivo1', lmeEdit.relatorio.motivo1],
         ],
         [
 
-            ['medicamento2', relatorioContext.medicamento2],
-            ['dose2', relatorioContext.dose2],
-            ['inicio2', relatorioContext.inicio2],
-            ['fim2', relatorioContext.fim2],
-            ['motivo2', relatorioContext.motivo2],
+            ['medicamento2', lmeEdit.relatorio.medicamento2],
+            ['dose2', lmeEdit.relatorio.dose2],
+            ['inicio2', lmeEdit.relatorio.inicio2],
+            ['fim2', lmeEdit.relatorio.fim2],
+            ['motivo2', lmeEdit.relatorio.motivo2],
         ],
         [
 
-            ['medicamento3', relatorioContext.medicamento3],
-            ['dose3', relatorioContext.dose3],
-            ['inicio3', relatorioContext.inicio3],
-            ['fim3', relatorioContext.fim3],
-            ['motivo3', relatorioContext.motivo3],
+            ['medicamento3', lmeEdit.relatorio.medicamento3],
+            ['dose3', lmeEdit.relatorio.dose3],
+            ['inicio3', lmeEdit.relatorio.inicio3],
+            ['fim3', lmeEdit.relatorio.fim3],
+            ['motivo3', lmeEdit.relatorio.motivo3],
         ],
         [
 
-            ['medicamento4', relatorioContext.medicamento4],
-            ['dose4', relatorioContext.dose4],
-            ['inicio4', relatorioContext.inicio4],
-            ['fim4', relatorioContext.fim4],
-            ['motivo4', relatorioContext.motivo4],
+            ['medicamento4', lmeEdit.relatorio.medicamento4],
+            ['dose4', lmeEdit.relatorio.dose4],
+            ['inicio4', lmeEdit.relatorio.inicio4],
+            ['fim4', lmeEdit.relatorio.fim4],
+            ['motivo4', lmeEdit.relatorio.motivo4],
         ],
         [
 
-            ['medicamento5', relatorioContext.medicamento5],
-            ['dose5', relatorioContext.dose5],
-            ['inicio5', relatorioContext.inicio5],
-            ['fim5', relatorioContext.fim5],
-            ['motivo5', relatorioContext.motivo5],
+            ['medicamento5', lmeEdit.relatorio.medicamento5],
+            ['dose5', lmeEdit.relatorio.dose5],
+            ['inicio5', lmeEdit.relatorio.inicio5],
+            ['fim5', lmeEdit.relatorio.fim5],
+            ['motivo5', lmeEdit.relatorio.motivo5],
         ],
         [
 
-            ['medicamento6', relatorioContext.medicamento6],
-            ['dose6', relatorioContext.dose6],
-            ['inicio6', relatorioContext.inicio6],
-            ['fim6', relatorioContext.fim6],
-            ['motivo6', relatorioContext.motivo6],
+            ['medicamento6', lmeEdit.relatorio.medicamento6],
+            ['dose6', lmeEdit.relatorio.dose6],
+            ['inicio6', lmeEdit.relatorio.inicio6],
+            ['fim6', lmeEdit.relatorio.fim6],
+            ['motivo6', lmeEdit.relatorio.motivo6],
         ],
         [
 
-            ['medicamento7', relatorioContext.medicamento7],
-            ['dose7', relatorioContext.dose7],
-            ['inicio7', relatorioContext.inicio7],
-            ['fim7', relatorioContext.fim7],
-            ['motivo7', relatorioContext.motivo7],
+            ['medicamento7', lmeEdit.relatorio.medicamento7],
+            ['dose7', lmeEdit.relatorio.dose7],
+            ['inicio7', lmeEdit.relatorio.inicio7],
+            ['fim7', lmeEdit.relatorio.fim7],
+            ['motivo7', lmeEdit.relatorio.motivo7],
         ],
     ]
 
     return (
-        <div>
-            <Container>
-                <Card body>
-                    {indices.map((z, index) =>
-                        <div key={index}>
-                            <Form.Group>
-                                <Row>
-                                    <Col xs={6}>
-                                        <Form.Control
-                                            type="text"
-                                            name={z[0][0]}
-                                            placeholder='Medicamento'
-                                            value={z[0][1]}
-                                            onChange={handleChange}
-                                        />
-                                    </Col>
-                                    <Col>
-                                        <Form.Control
-                                            type="text"
-                                            name={z[1][0]}
-                                            placeholder="Dose"
-                                            value={z[1][1]}
-                                            onChange={handleChange}
-                                        />
-                                    </Col>
-                                    <Col>
-                                        <Form.Control
-                                            type="text"
-                                            name={z[2][0]}
-                                            placeholder="Início"
-                                            value={z[2][1]}
-                                            onChange={handleChange}
-                                        />
-                                    </Col>
-                                    <Col>
-                                        <Form.Control
-                                            type="text"
-                                            name={z[3][0]}
-                                            placeholder="Fim"
-                                            value={z[3][1]}
-                                            onChange={handleChange}
-                                        />
-                                    </Col>
-                                </Row>
-                                <Form.Control
-                                    className='mt-2'
-                                    type="text"
+        <>
+            <Box m={2}>
+                {indices.map((z, index) => 
+                    <Grid container key={index} spacing={2}>
+                        <Grid container item spacing={1}>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    name={z[0][0]}
+                                    label='Medicamento'
+                                    value={z[0][1]}
+                                    onChange={handleChange}
+                                />
+                            </Grid>
+                            <Grid item xs={2}>
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    name={z[1][0]}
+                                    label='Dose'
+                                    value={z[1][1]}
+                                    onChange={handleChange}
+                                />
+                            </Grid>
+                            <Grid item xs={2}>
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    name={z[2][0]}
+                                    label='Início'
+                                    value={z[2][1]}
+                                    onChange={handleChange}
+                                />
+                            </Grid>
+                            <Grid item xs={2}>
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    name={z[3][0]}
+                                    label='Fim'
+                                    value={z[3][1]}
+                                    onChange={handleChange}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
                                     name={z[4][0]}
-                                    placeholder="Motivo"
+                                    label='Motivo'
                                     value={z[4][1]}
                                     onChange={handleChange}
                                 />
-                            </Form.Group>
-                        </div>
-                    )}
-                </Card>
-            </Container>
-
-            <Container className="mt-2">
-                <Button
-                    variant="outline-success"
-                    onClick={() => {
-                        setRelatorioContext(relatorioContext)
-                        setStepContext(2)
-                    }}
-                > Anterior
-                </Button>
-                <Button
-                    className="ml-1"
-                    variant="outline-success"
-                    onClick={() => {
-                        setRelatorioContext(relatorioContext)
-                        setStepContext(4)
-                    }}
-                > Próximo
-                </Button>
-            </Container>
-        </div>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                )}
+            </Box>
+        </>
     )
 }
+
+export default RelatorioSet3
 

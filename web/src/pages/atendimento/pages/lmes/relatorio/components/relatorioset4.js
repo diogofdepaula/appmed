@@ -1,53 +1,53 @@
+import { Box, TextField } from '@material-ui/core'
 import React, { useContext, useState, useCallback, useEffect } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import { RelatorioContent } from '../relatoriovarset'
 
-export default function RelatorioSet4() {
+const RelatorioSet4 = () => {
 
-    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
-    const [validation, setValidation] = useState(false)
+    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
+        setLmeEdit({ ...lmeEdit, relatorio: {...lmeEdit.relatorio , [event.target.name]: event.target.value }})
     }
 
-    const handleChangeRadio = event => {
-        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
-    }
+    // const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
+    // const [validation, setValidation] = useState(false)
 
-    const send = useCallback(() => {
-        setRelatorioContext(prevState => ({
-            ...prevState,
-            ppddata: (relatorioContext.ppddata === '' ? null : relatorioContext.ppddata),
-            rxtoraxdata: (relatorioContext.rxtoraxdata === '' ? null : relatorioContext.rxtoraxdata),
-            bhcgdata: (relatorioContext.bhcgdata === '' ? null : relatorioContext.bhcgdata),
-        }))
-        setStepContext(5)
-    }, [relatorioContext, setRelatorioContext, setStepContext])
+    // const handleChange = event => {
+    //     setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
+    // }
+
+    // const handleChangeRadio = event => {
+    //     setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.value })
+    // }
+
+    // const send = useCallback(() => {
+    //     setRelatorioContext(prevState => ({
+    //         ...prevState,
+    //         ppddata: (relatorioContext.ppddata === '' ? null : relatorioContext.ppddata),
+    //         rxtoraxdata: (relatorioContext.rxtoraxdata === '' ? null : relatorioContext.rxtoraxdata),
+    //         bhcgdata: (relatorioContext.bhcgdata === '' ? null : relatorioContext.bhcgdata),
+    //     }))
+    //     setStepContext(5)
+    // }, [relatorioContext, setRelatorioContext, setStepContext])
  
-    useEffect(() => {
-        if (validation) {
-            send()
-        }
-    }, [validation, send])
+    // useEffect(() => {
+    //     if (validation) {
+    //         send()
+    //     }
+    // }, [validation, send])
 
     return (
-        <div>
-            <Container>
-                <Form.Group>
-                    <Row>
-                        <Col xs={3}>
-                            <Form.Control
+        <>
+            <Box m={2}>
+                            <TextField
                                 type="date"
-                                id="ppddata"
                                 name="ppddata"
-                                placeholder="PPD"
-                                value={relatorioContext.ppddata || ''}
+                                label="PPD"
+                                value={format(lmeEdit.relatorio.ppddata, "yyyy-MM-dd") || ''}
                                 onChange={handleChange}
                             />
-                        </Col>
-                        <Col xs={9}>
-                            <Form.Group controlId="ppdcheckbox">
                                 <Form.Check
                                     inline
                                     label="Até 5 mm"
@@ -55,7 +55,7 @@ export default function RelatorioSet4() {
                                     name='ppdresultado' 
                                     id="ppdresultadoa"
                                     value="a"
-                                   checked={relatorioContext.ppdresultado === "a"}
+                                   checked={lmeEdit.relatorio.ppdresultado === "a"}
                                     onChange={handleChangeRadio}
                                 />
                                 <Form.Check
@@ -65,7 +65,7 @@ export default function RelatorioSet4() {
                                     name='ppdresultado'
                                     id="ppdresultadob"
                                     value="b"
-                                   checked={relatorioContext.ppdresultado === "b"}
+                                   checked={lmeEdit.relatorio.ppdresultado === "b"}
                                     onChange={handleChangeRadio}
                                 />
                                 <Form.Check
@@ -75,25 +75,17 @@ export default function RelatorioSet4() {
                                     name='ppdresultado'
                                     id="ppdresultadoc"
                                     value="c"
-                                    checked={relatorioContext.ppdresultado === "c"}
+                                    checked={lmeEdit.relatorio.ppdresultado === "c"}
                                     onChange={handleChangeRadio}
                                 />
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                    <Row className="mt-2">
-                        <Col xs={3}>
                             <Form.Control
                                 type="date"
                                 id="rxtoraxdata"
                                 name="rxtoraxdata"
                                 placeholder="RxTórax"
-                                value={relatorioContext.rxtoraxdata || ''}
+                                value={lmeEdit.relatorio.rxtoraxdata || ''}
                                 onChange={handleChange}
                             />
-                        </Col>
-                        <Col xs={9}>
-                        <Form.Group controlId="rxtcheckbox">
                             <Form.Check
                                 inline
                                 type="radio"
@@ -101,7 +93,7 @@ export default function RelatorioSet4() {
                                 name="rxtoraxresultado"
                                 id="rxtoraxresultadoa"
                                 value="a"
-                                checked={relatorioContext.rxtoraxresultado === "a"}
+                                checked={lmeEdit.relatorio.rxtoraxresultado === "a"}
                                 onChange={handleChangeRadio}
 
                             />
@@ -112,65 +104,38 @@ export default function RelatorioSet4() {
                                 name="rxtoraxresultado"
                                 id="rxtoraxresultadob"
                                 value="b"
-                                checked={relatorioContext.rxtoraxresultado === "b"}
+                                checked={lmeEdit.relatorio.rxtoraxresultado === "b"}
                                 onChange={handleChangeRadio}
                             />
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                    {relatorioContext.rxtoraxresultado === "b" &&
-                        <Row className="mt-1">
-                            <Col>
+                    {lmeEdit.relatorio.rxtoraxresultado === "b" &&
                                 <Form.Control
                                     type="text"
                                     name="rxtoraxalteracao"
                                     placeholder="Resultado do Rx"
-                                    value={relatorioContext.rxtoraxalteracao}
+                                    value={lmeEdit.relatorio.rxtoraxalteracao}
                                     onChange={handleChange}
                                 />
-                            </Col>
-                        </Row>
                     }
-                    <Row className="mt-2">
-                        <Col xs={3}>
                             <Form.Control
                                 type="date"
                                 id="bhcgdata"
                                 name="bhcgdata"
                                 placeholder="Beta-HCG"
-                                value={relatorioContext.bhcgdata || ''}
+                                value={lmeEdit.relatorio.bhcgdata || ''}
                                 onChange={handleChange}
                             />
-                        </Col>
-                        <Col>
                             <Form.Control
                                 type="text"
                                 id="bhcgjustificativa"
                                 name="bhcgjustificativa"
                                 placeholder="Justificativa do Beta-HCG"
-                                value={relatorioContext.bhcgjustificativa}
+                                value={lmeEdit.relatorio.bhcgjustificativa}
                                 onChange={handleChange}
                             />
-                        </Col>
-                    </Row>
                 </Form.Group>
-            </Container>
-            <Container className="mt-2">
-                <Button
-                    variant="outline-success"
-                    onClick={() => {
-                        setRelatorioContext(relatorioContext)
-                        setStepContext(3)
-                    }}
-                > Anterior
-                  </Button>
-                <Button
-                    className="ml-1"
-                    variant="outline-success"
-                    onClick={() => setValidation(true)}
-                > Próximo
-                    </Button>
-            </Container>
-        </div>
+            </Box>
+        </>
     )
 }
+
+export default RelatorioSet4
