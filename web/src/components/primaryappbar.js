@@ -184,7 +184,7 @@ const PrimaryAppBar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography className={classes.title} variant="h6" noWrap>
+                        <Typography className={classes.title} variant="h6" noWrap={true}>
                             APPMed
                     </Typography>
                     </div>

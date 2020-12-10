@@ -2,7 +2,6 @@ import { Box, FormControl, FormControlLabel, TextField } from '@material-ui/core
 import Radio from '@material-ui/core/Radio';
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
-import { Form } from 'react-bootstrap';
 import { AtendimentoContext } from '../../../..';
 
 const RelatorioSet4 = () => {
@@ -44,20 +43,25 @@ const RelatorioSet4 = () => {
     return (
         <>
             <Box m={2}>
+                <Box>
                             <TextField
                                 type="date"
                                 name="ppddata"
+                                variant='outlined'
                                 label="PPD"
-                               // value={format(lmeEdit.relatorio?.ppddata, "yyyy-MM-dd") || ''}
+                                // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
+                                value={lmeEdit.relatorio?.ppddata}
                                 onChange={handleChange}
                             />
+                            </Box>
+                            <Box>
                             <FormControl>
                                 <FormControlLabel 
                                     name='ppdresultado'
                                     value="a"
                                     control={<Radio />} 
                                     label="Até 5 mm"
-                                    checked={lmeEdit.relatorio?.ppdresultado === "a"}
+                                   // checked={lmeEdit.relatorio?.ppdresultado === "a"}
                                     onChange={handleChange}
                                 />
                                  <FormControlLabel 
@@ -65,7 +69,7 @@ const RelatorioSet4 = () => {
                                     value="b"
                                     control={<Radio />} 
                                     label="Acima de 5 mm"
-                                    checked={lmeEdit.relatorio?.ppdresultado === "b"}
+                                   // checked={lmeEdit.relatorio?.ppdresultado === "b"}
                                     onChange={handleChange}
                                 />
                                <FormControlLabel 
@@ -73,12 +77,13 @@ const RelatorioSet4 = () => {
                                     value="c"
                                     control={<Radio />} 
                                     label="Não reator"
-                                    checked={lmeEdit.relatorio?.ppdresultado === "c"}
+                                   // checked={lmeEdit.relatorio?.ppdresultado === "c"}
                                     onChange={handleChange}
                                 />
                     </FormControl>
+                    </Box>
 {/* parei aqui */}
-                            <Form.Control
+                            {/* <Form.Control
                                 type="date"
                                 id="rxtoraxdata"
                                 name="rxtoraxdata"
@@ -133,7 +138,7 @@ const RelatorioSet4 = () => {
                                 placeholder="Justificativa do Beta-HCG"
                                 value={lmeEdit.relatorio.bhcgjustificativa}
                                 onChange={handleChange}
-                            />
+                            /> */}
             </Box>
         </>
     )

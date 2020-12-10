@@ -1,11 +1,10 @@
-import { Box, Button, Grid, TextField } from '@material-ui/core';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import { Box, Grid, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 
 const LMEDoses = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit } = useContext(AtendimentoContext)
 
     const indica = [
         ['lmemes1', '1º mês', prescricaoEdit.lmemes1],
@@ -23,7 +22,7 @@ const LMEDoses = () => {
     return (
         <>
             <Box>
-                <Grid container spacing={1} nowrap >
+                <Grid container spacing={1} noWrap={true} >
                     {indica?.map((w, i) =>
                         <Grid item xs key={i}>
                             <TextField

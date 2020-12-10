@@ -29,7 +29,7 @@ const Linha11LME = () => {
                                 <Grid item xs>
                                     <Box ml={1} display="flex">
                                         <CheckBoxOutlineBlankIcon />
-                                        <Typography component={'span'} variant={'body1'} align={'left'}  noWrap>
+                                        <Typography component={'span'} variant={'body1'} align={'left'}  noWrap={true}>
                                             <Box>Mãe do paciente</Box>
                                         </Typography>
                                     </Box>

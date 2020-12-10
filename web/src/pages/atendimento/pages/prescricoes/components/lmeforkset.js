@@ -40,7 +40,7 @@ const LMEForkSet = () => {
                 <Paper
                     onClick={handleNewLME}
                 >
-                    <Typography variant="body1" color="initial">
+                    <Typography component={'span'} variant="body1" color="initial">
                         <Box p={2}>Criar uma nova LME</Box>
                     </Typography>
                 </Paper>
