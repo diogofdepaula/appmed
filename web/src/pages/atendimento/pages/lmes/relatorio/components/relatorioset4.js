@@ -1,6 +1,6 @@
 import { Box, FormControl, FormControlLabel, TextField } from '@material-ui/core';
 import Radio from '@material-ui/core/Radio';
-import { format } from 'date-fns';
+//import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 
@@ -48,6 +48,7 @@ const RelatorioSet4 = () => {
                                 type="date"
                                 name="ppddata"
                                 variant='outlined'
+                                autoFocus
                                 label="PPD"
                                 // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
                                 value={lmeEdit.relatorio?.ppddata || ''}

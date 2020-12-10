@@ -1,13 +1,15 @@
-import { Box, Grid, TextField } from '@material-ui/core'
-import React, { useContext } from 'react'
+import { Box, Chip, Grid, TextField } from '@material-ui/core'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AtendimentoContext } from '../../../..'
+import { ClienteContext } from '../../../../../../App'
 
 const RelatorioSet3 = () => {
 
+    const { clientecontext } = useContext(ClienteContext)
     const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setLmeEdit({ ...lmeEdit, relatorio: {...lmeEdit.relatorio , [event.target.name]: event.target.value }})
+        setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.value } })
     }
 
     const indices = [
@@ -69,65 +71,199 @@ const RelatorioSet3 = () => {
         ],
     ]
 
+    const [prescricoes, setPrescricoes] = useState([])
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${clientecontext.id}`)
+        const json = await res.json();
+        setPrescricoes(json);
+    }, [clientecontext])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
+
+    const handleChip = param => () => {
+
+        let num = [
+            lmeEdit.relatorio.medicamento1,
+            lmeEdit.relatorio.medicamento2,
+            lmeEdit.relatorio.medicamento3,
+            lmeEdit.relatorio.medicamento4,
+            lmeEdit.relatorio.medicamento5,
+            lmeEdit.relatorio.medicamento6,
+            lmeEdit.relatorio.medicamento7
+        ].findIndex(x => x === '') + 1;
+
+        console.log(num)
+
+        switch (num) {
+            case 1:
+                setLmeEdit({
+                    ...lmeEdit, relatorio: {
+                        ...lmeEdit.relatorio,
+                        medicamento1: param.medicamento.farmaco,
+                        dose1: 'padrão',
+                        inicio1: param.inicio,
+                        fim1: param.termino,
+                        motivo1: param.motivotermico,
+                    }
+                })
+                break;
+            case 2:
+                setLmeEdit({
+                    ...lmeEdit, relatorio: {
+                        ...lmeEdit.relatorio,
+                        medicamento2: param.medicamento.farmaco,
+                        dose2: 'padrão',
+                        inicio2: param.inicio,
+                        fim2: param.termino,
+                        motivo2: param.motivotermico,
+                    }
+                })
+                break;
+            case 3:
+                setLmeEdit({
+                    ...lmeEdit, relatorio: {
+                        ...lmeEdit.relatorio,
+                        medicamento3: param.medicamento.farmaco,
+                        dose3: 'padrão',
+                        inicio3: param.inicio,
+                        fim3: param.termino,
+                        motivo3: param.motivotermico,
+                    }
+                })
+                break;
+            case 4:
+                setLmeEdit({
+                    ...lmeEdit, relatorio: {
+                        ...lmeEdit.relatorio,
+                        medicamento4: param.medicamento.farmaco,
+                        dose4: 'padrão',
+                        inicio4: param.inicio,
+                        fim4: param.termino,
+                        motivo4: param.motivotermico,
+                    }
+                })
+                break;
+            case 5:
+                setLmeEdit({
+                    ...lmeEdit, relatorio: {
+                        ...lmeEdit.relatorio,
+                        medicamento5: param.medicamento.farmaco,
+                        dose5: 'padrão',
+                        inicio5: param.inicio,
+                        fim5: param.termino,
+                        motivo5: param.motivotermico,
+                    }
+                })
+                break;
+            case 6:
+                setLmeEdit({
+                    ...lmeEdit, relatorio: {
+                        ...lmeEdit.relatorio,
+                        medicamento6: param.medicamento.farmaco,
+                        dose6: 'padrão',
+                        inicio6: param.inicio,
+                        fim6: param.termino,
+                        motivo6: param.motivotermico,
+                    }
+                })
+                break;
+            case 7:
+                setLmeEdit({
+                    ...lmeEdit, relatorio: {
+                        ...lmeEdit.relatorio,
+                        medicamento7: param.medicamento.farmaco,
+                        dose7: 'padrão',
+                        inicio7: param.inicio,
+                        fim7: param.termino,
+                        motivo7: param.motivotermico,
+                    }
+                })
+                break;
+
+            default:
+                break;
+        }
+    }
+
     return (
         <>
             <Box m={2}>
-                {indices.map((z, index) => 
-                    <Grid container key={index} spacing={2}>
-                        <Grid container item spacing={1}>
-                            <Grid item xs={6}>
-                                <TextField
-                                    fullWidth
-                                    variant='outlined'
-                                    name={z[0][0]}
-                                    label='Medicamento'
-                                    value={z[0][1]}
-                                    onChange={handleChange}
+                <Box mt={2}>
+                    <Grid container justify="flex-start" spacing={1}>
+                        {prescricoes?.filter(p => !p.emuso).map(x =>
+                            <Grid item key={x.id}>
+                                <Chip
+                                    label={x.medicamento.farmaco}
+                                    clickable
+                                    color="primary"
+                                    variant="outlined"
+                                    onClick={handleChip(x)}
                                 />
                             </Grid>
-                            <Grid item xs={2}>
-                                <TextField
-                                    fullWidth
-                                    variant='outlined'
-                                    name={z[1][0]}
-                                    label='Dose'
-                                    value={z[1][1]}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <TextField
-                                    fullWidth
-                                    variant='outlined'
-                                    name={z[2][0]}
-                                    label='Início'
-                                    value={z[2][1]}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={2}>
-                                <TextField
-                                    fullWidth
-                                    variant='outlined'
-                                    name={z[3][0]}
-                                    label='Fim'
-                                    value={z[3][1]}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    variant='outlined'
-                                    name={z[4][0]}
-                                    label='Motivo'
-                                    value={z[4][1]}
-                                    onChange={handleChange}
-                                />
+                        )}
+                    </Grid>
+                </Box>
+                <Box mt={2}>
+                    {indices.map((z, index) =>
+                        <Grid container key={index} spacing={2}>
+                            <Grid container item spacing={1}>
+                                <Grid item xs={6}>
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        name={z[0][0]}
+                                        label='Medicamento'
+                                        value={z[0][1]}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        name={z[1][0]}
+                                        label='Dose'
+                                        value={z[1][1]}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        name={z[2][0]}
+                                        label='Início'
+                                        value={z[2][1]}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={2}>
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        name={z[3][0]}
+                                        label='Fim'
+                                        value={z[3][1]}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        name={z[4][0]}
+                                        label='Motivo'
+                                        value={z[4][1]}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                )}
+                    )}
+                </Box>
             </Box>
         </>
     )

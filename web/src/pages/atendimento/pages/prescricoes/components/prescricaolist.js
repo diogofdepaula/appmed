@@ -66,6 +66,7 @@ export default function PrescricaoList() {
             </List>
             <Typography variant={'h6'}>Fez uso</Typography>
             <List>
+            {/* {prescricoes?.filter(p => !p.emuso).map(x => */}
                 {prescricoes && prescricoes.map(prescricao =>
                     !prescricao.emuso && (
                         <div key={prescricao.id}>

@@ -22,7 +22,6 @@ const LMEVarSet = () => {
                         multiline
                         variant='outlined'
                         rows={4}
-                        id="anamnese"
                         name="anamnese"
                         label="História clínica (Anamnese e tratamento prévio)"
                         value={lmeEdit.anamnese}
@@ -41,7 +40,7 @@ const LMEVarSet = () => {
                                         <Checkbox
                                             color='primary'
                                             name="tratamentoprevio"
-                                            checked={lmeEdit.tratamentoprevio}
+                                            checked={lmeEdit.tratamentoprevio === '' ? false : true}
                                             onChange={handleChange}
                                         />}
                                     label='Tratamento Prévio'
@@ -63,7 +62,7 @@ const LMEVarSet = () => {
                                         <Checkbox
                                             color='primary'
                                             name="atestadocapacidade"
-                                            checked={lmeEdit.atestadocapacidade}
+                                            checked={lmeEdit.atestadocapacidade === '' ? false : true}
                                             onChange={handleChange}
                                         />}
                                     label='Atestado de capacidade'

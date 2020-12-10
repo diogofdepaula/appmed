@@ -22,7 +22,7 @@ const LMEDoses = () => {
     return (
         <>
             <Box>
-                <Grid container spacing={1} noWrap={true} >
+                <Grid container spacing={1} >
                     {indica?.map((w, i) =>
                         <Grid item xs key={i}>
                             <TextField
