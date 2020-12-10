@@ -50,7 +50,7 @@ const RelatorioSet4 = () => {
                                 variant='outlined'
                                 label="PPD"
                                 // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
-                                value={lmeEdit.relatorio?.ppddata}
+                                value={lmeEdit.relatorio?.ppddata || ''}
                                 onChange={handleChange}
                             />
                             </Box>
