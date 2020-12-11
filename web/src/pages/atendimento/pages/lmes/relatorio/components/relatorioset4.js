@@ -9,9 +9,9 @@ const RelatorioSet4 = () => {
     const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setLmeEdit({ ...lmeEdit, relatorio: {...lmeEdit.relatorio , [event.target.name]: event.target.value }})
+        setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.value } })
     }
-    
+
 
     // const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
     // const [validation, setValidation] = useState(false)
@@ -33,7 +33,7 @@ const RelatorioSet4 = () => {
     //     }))
     //     setStepContext(5)
     // }, [relatorioContext, setRelatorioContext, setStepContext])
- 
+
     // useEffect(() => {
     //     if (validation) {
     //         send()
@@ -44,102 +44,107 @@ const RelatorioSet4 = () => {
         <>
             <Box m={2}>
                 <Box>
-                            <TextField
-                                type="date"
-                                name="ppddata"
-                                variant='outlined'
-                                autoFocus
-                                label="PPD"
-                                // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
-                                value={lmeEdit.relatorio?.ppddata || ''}
-                                onChange={handleChange}
-                            />
-                            </Box>
-                            <Box>
-                            <FormControl>
-                                <FormControlLabel 
-                                    name='ppdresultado'
-                                    value="a"
-                                    control={<Radio />} 
-                                    label="Até 5 mm"
-                                   // checked={lmeEdit.relatorio?.ppdresultado === "a"}
-                                    onChange={handleChange}
-                                />
-                                 <FormControlLabel 
-                                    name='ppdresultado'
-                                    value="b"
-                                    control={<Radio />} 
-                                    label="Acima de 5 mm"
-                                   // checked={lmeEdit.relatorio?.ppdresultado === "b"}
-                                    onChange={handleChange}
-                                />
-                               <FormControlLabel 
-                                    name='ppdresultado'
-                                    value="c"
-                                    control={<Radio />} 
-                                    label="Não reator"
-                                   // checked={lmeEdit.relatorio?.ppdresultado === "c"}
-                                    onChange={handleChange}
-                                />
+                    <TextField
+                        type="date"
+                        name="ppddata"
+                        variant='outlined'
+                        autoFocus
+                        label="PPD"
+                        // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
+                        value={lmeEdit.relatorio?.ppddata || ''}
+                        onChange={handleChange}
+                    />
+                </Box>
+                <Box>
+                    <FormControl>
+                        <FormControlLabel
+                            name='ppdresultado'
+                            value="a"
+                            control={<Radio />}
+                            label="Até 5 mm"
+                            checked={lmeEdit.relatorio?.ppdresultado === "a" || false}
+                            onChange={handleChange}
+                        />
+                        <FormControlLabel
+                            name='ppdresultado'
+                            value="b"
+                            control={<Radio />}
+                            label="Acima de 5 mm"
+                            checked={lmeEdit.relatorio?.ppdresultado === "b" || false}
+                            onChange={handleChange}
+                        />
+                        <FormControlLabel
+                            name='ppdresultado'
+                            value="c"
+                            control={<Radio />}
+                            label="Não reator"
+                            checked={lmeEdit.relatorio?.ppdresultado === "c" || false}
+                            onChange={handleChange}
+                        />
                     </FormControl>
+                    <Box>
+                        <TextField
+                            type="date"
+                            name="rxtoraxdata"
+                            variant='outlined'
+                            label="Rx de Tórax"
+                            // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
+                            value={lmeEdit.relatorio?.rxtoraxdata || ''}
+                            onChange={handleChange}
+                        />
                     </Box>
-{/* parei aqui */}
-                            {/* <Form.Control
-                                type="date"
-                                id="rxtoraxdata"
-                                name="rxtoraxdata"
-                                placeholder="RxTórax"
-                                value={lmeEdit.relatorio?.rxtoraxdata || ''}
-                                onChange={handleChange}
-                            />
-                            <Form.Check
-                                inline
-                                type="radio"
-                                label="Radiografia de tórax normal"
-                                name="rxtoraxresultado"
-                                id="rxtoraxresultadoa"
-                                value="a"
-                                checked={lmeEdit.relatorio.rxtoraxresultado === "a"}
-                                onChange={handleChange}
 
-                            />
 
-                            
-                            <Form.Check
-                                inline
-                                type="radio"
-                                label="Radiografia de tórax alterada"
-                                name="rxtoraxresultado"
-                                id="rxtoraxresultadob"
-                                value="b"
-                                checked={lmeEdit.relatorio.rxtoraxresultado === "b"}
+                    <FormControl>
+                        <FormControlLabel
+                            name='rxtoraxresultado'
+                            value="a"
+                            control={<Radio />}
+                            label="Radiografia de tórax normal"
+                            checked={lmeEdit.relatorio?.rxtoraxresultado === "a" || false}
+                            onChange={handleChange}
+                        />
+                        <FormControlLabel
+                            name='rxtoraxresultado'
+                            value="b"
+                            control={<Radio />}
+                            label="Radiografia de tórax alterada"
+                            checked={lmeEdit.relatorio?.rxtoraxresultado === "b" || false}
+                            onChange={handleChange}
+                        />
+                    </FormControl>
+                    <Box>
+                        {lmeEdit.relatorio.rxtoraxresultado === "b" &&
+                            <TextField
+                                fullWidth
+                                variant='outlined'
+                                name='rxtoraxalteracao'
+                                label='Resultado do Rx'
+                                value={lmeEdit.relatorio.rxtoraxalteracao}
                                 onChange={handleChange}
                             />
-                            {lmeEdit.relatorio.rxtoraxresultado === "b" &&
-                                <Form.Control
-                                    type="text"
-                                    name="rxtoraxalteracao"
-                                    placeholder="Resultado do Rx"
-                                    value={lmeEdit.relatorio.rxtoraxalteracao}
-                                    onChange={handleChange}
-                                />
-                    }
-                            <Form.Control
-                                type="date"
-                                id="bhcgdata"
-                                name="bhcgdata"
-                                placeholder="Beta-HCG"
-                                value={lmeEdit.relatorio.bhcgdata || ''}
-                                onChange={handleChange}
-                            />
-                            <Form.Control
-                                type="text"
-                                id="bhcgjustificativa"
-                                name="bhcgjustificativa"
-                                placeholder="Justificativa do Beta-HCG"
-                                value={lmeEdit.relatorio.bhcgjustificativa}
-                                onChange={handleChange}
-                            /> */}
+                        }
+                    </Box>
+                    <Box>
+                        <TextField
+                            type="date"
+                            name="bhcgdata"
+                            variant='outlined'
+                            label="Beta-HCG"
+                            // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
+                            value={lmeEdit.relatorio?.bhcgdata || ''}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            fullWidth
+                            variant='outlined'
+                            name='bhcgjustificativa'
+                            label='Justificativa do Beta-HCG'
+                            value={lmeEdit.relatorio.bhcgjustificativa}
+                            onChange={handleChange}
+                        />
+                    </Box>
+                </Box>
             </Box>
         </>
     )
