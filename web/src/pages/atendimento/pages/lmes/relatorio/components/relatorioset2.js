@@ -77,7 +77,7 @@ const RelatorioSet2 = () => {
                                 <Checkbox
                                     color='primary'
                                     name={w[0]}
-                                    checked={w[2]}
+                                    checked={w[2] || false}
                                    // value={w[2]}
                                     onChange={handleChange}
                                 />}
