@@ -93,99 +93,18 @@ const RelatorioSet3 = () => {
             lmeEdit.relatorio.medicamento5,
             lmeEdit.relatorio.medicamento6,
             lmeEdit.relatorio.medicamento7
-        ].findIndex(x => x === '') + 1;
+        ].findIndex(x => x === '');
 
-        console.log(num)
-
-        switch (num) {
-            case 1:
-                setLmeEdit({
-                    ...lmeEdit, relatorio: {
-                        ...lmeEdit.relatorio,
-                        medicamento1: param.medicamento.farmaco,
-                        dose1: 'padrão',
-                        inicio1: param.inicio,
-                        fim1: param.termino,
-                        motivo1: param.motivotermico,
-                    }
-                })
-                break;
-            case 2:
-                setLmeEdit({
-                    ...lmeEdit, relatorio: {
-                        ...lmeEdit.relatorio,
-                        medicamento2: param.medicamento.farmaco,
-                        dose2: 'padrão',
-                        inicio2: param.inicio,
-                        fim2: param.termino,
-                        motivo2: param.motivotermico,
-                    }
-                })
-                break;
-            case 3:
-                setLmeEdit({
-                    ...lmeEdit, relatorio: {
-                        ...lmeEdit.relatorio,
-                        medicamento3: param.medicamento.farmaco,
-                        dose3: 'padrão',
-                        inicio3: param.inicio,
-                        fim3: param.termino,
-                        motivo3: param.motivotermico,
-                    }
-                })
-                break;
-            case 4:
-                setLmeEdit({
-                    ...lmeEdit, relatorio: {
-                        ...lmeEdit.relatorio,
-                        medicamento4: param.medicamento.farmaco,
-                        dose4: 'padrão',
-                        inicio4: param.inicio,
-                        fim4: param.termino,
-                        motivo4: param.motivotermico,
-                    }
-                })
-                break;
-            case 5:
-                setLmeEdit({
-                    ...lmeEdit, relatorio: {
-                        ...lmeEdit.relatorio,
-                        medicamento5: param.medicamento.farmaco,
-                        dose5: 'padrão',
-                        inicio5: param.inicio,
-                        fim5: param.termino,
-                        motivo5: param.motivotermico,
-                    }
-                })
-                break;
-            case 6:
-                setLmeEdit({
-                    ...lmeEdit, relatorio: {
-                        ...lmeEdit.relatorio,
-                        medicamento6: param.medicamento.farmaco,
-                        dose6: 'padrão',
-                        inicio6: param.inicio,
-                        fim6: param.termino,
-                        motivo6: param.motivotermico,
-                    }
-                })
-                break;
-            case 7:
-                setLmeEdit({
-                    ...lmeEdit, relatorio: {
-                        ...lmeEdit.relatorio,
-                        medicamento7: param.medicamento.farmaco,
-                        dose7: 'padrão',
-                        inicio7: param.inicio,
-                        fim7: param.termino,
-                        motivo7: param.motivotermico,
-                    }
-                })
-                break;
-
-            default:
-                break;
-        }
+        setLmeEdit({
+            ...lmeEdit, relatorio: {
+                ...lmeEdit.relatorio,
+                [indices[num][0][0]]: param.medicamento.farmaco,
+                [indices[num][1][0]]: 'padrão',
+                [indices[num][2][0]]: param.inicio,
+                [indices[num][3][0]]: param.termino,
+                [indices[num][4][0]]: param.motivotermico,
+            }
+        })
     }
 
     return (
