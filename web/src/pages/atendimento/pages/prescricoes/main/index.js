@@ -26,35 +26,35 @@ const PrescricaoMain = () => {
         <>
             <Grid container spacing={1}>
                 <Grid item xs={4}>
-                    {/* <Box mt={1} display="flex" justifyContent="center">
-                        <Typography variant={'h6'}>Prescrições</Typography>
-                    </Box> */}
-                    <Box ml={1}>
-                        {/* <List>
-                            {prescricoes && Reorder(prescricoes).map(prescricao =>
-                                <div key={prescricao.id}>
-                                    <ListItem
-                                        disabled={!prescricao.emuso}
-                                        onClick={() => setPrescricaoOnDuty(prescricao)}
-                                    >
-                                        <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
-                                    </ListItem>
-                                    <Divider light />
-                                </div>
-                            )}
-                            <ListItem disabled>Porta ac consectetur ac</ListItem>
-                        </List> */}
+                    <Box ml={1} mt={1}>
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                {prescricoes && Reorder(prescricoes).map(prescricao =>
+                                {prescricoes && Reorder(prescricoes).filter(x => x.emuso).map(prescricao =>
                                     <TableRow 
                                     key={prescricao.id}
-                                    disabled={!prescricao.emuso}
                                     onClick={() => setPrescricaoOnDuty(prescricao)}
                                     >
                                         <TableCell component="th" scope="row">
                                         {prescricao.medicamento.farmaco} - {prescricao.apresentaco.descricao}
+                                        </TableCell> 
+                                    </TableRow>
+                                )}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Box>
+                    <Box ml={1} mt={1}>
+                        <TableContainer component={Paper} >
+                            <Table>
+                                <TableBody>
+                                {prescricoes && Reorder(prescricoes).filter(x => !x.emuso).map(prescricao =>
+                                    <TableRow 
+                                    key={prescricao.id}
+                                    onClick={() => setPrescricaoOnDuty(prescricao)}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                        {prescricao.medicamento.farmaco} - interrompido
                                         </TableCell> 
                                     </TableRow>
                                 )}
