@@ -103,7 +103,7 @@ const RelatorioSet4 = () => {
                             </Grid>
                         </Grid>
                         <Grid item>
-                            {lmeEdit.relatorio.rxtoraxresultado === "b" &&
+                            {lmeEdit.relatorio?.rxtoraxresultado === "b" &&
                                 <TextField
                                     fullWidth
                                     variant='outlined'
@@ -136,7 +136,7 @@ const RelatorioSet4 = () => {
                                 variant='outlined'
                                 name='bhcgjustificativa'
                                 label='Justificativa do Beta-HCG'
-                                value={lmeEdit.relatorio.bhcgjustificativa}
+                                value={lmeEdit.relatorio?.bhcgjustificativa}
                                 onChange={handleChange}
                             />
                         </Grid>

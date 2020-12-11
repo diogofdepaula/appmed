@@ -1,59 +1,41 @@
+import { Box, FormControlLabel, Radio } from '@material-ui/core'
 import React, { useContext } from 'react'
-import { Button, Container, Form } from 'react-bootstrap'
-import { RelatorioContent } from '../relatoriovarset'
+import { AtendimentoContext } from '../../../..'
 
-export default function RelatorioSet5 (props) {
+const RelatorioSet5 = () => {
 
-    const { relatorioContext, setRelatorioContext, setStepContext } = useContext(RelatorioContent)
+    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setRelatorioContext({ ...relatorioContext, [event.target.name]: event.target.checked })
+        setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.checked } })
     }
 
     const comorb = [
-        ['infeccaoviral', 'Infecção viral', relatorioContext.infeccaoviral ],
-        ['hepatite', 'Hepatite', relatorioContext.hepatite ],
-        ['infeccaobacteriana', 'Infecção bacteriana', relatorioContext.infeccaobacteriana ],
-        ['neoplasia', 'Neoplasia', relatorioContext.neoplasia ],
-        ['anemia', 'Anemia', relatorioContext.anemia ],
-        ['alteracaohepatica', 'Alterações hepáticas', relatorioContext.alteracaohepatica ],
+        ['infeccaoviral', 'Infecção viral', lmeEdit.relatorio.infeccaoviral],
+        ['hepatite', 'Hepatite', lmeEdit.relatorio.hepatite],
+        ['infeccaobacteriana', 'Infecção bacteriana', lmeEdit.relatorio.infeccaobacteriana],
+        ['neoplasia', 'Neoplasia', lmeEdit.relatorio.neoplasia],
+        ['anemia', 'Anemia', lmeEdit.relatorio.anemia],
+        ['alteracaohepatica', 'Alterações hepáticas', lmeEdit.relatorio.alteracaohepatica],
     ]
 
     return (
-        <div>
-            <Container>
+        <>
+            <Box m={2}>
                 {comorb && comorb.map((w) =>
-                    <Form.Check
+                    <FormControlLabel
                         key={w[0]}
-                        type="checkbox"
-                        label={w[1]}
-                        id={w[0]}
                         name={w[0]}
-                        checked={w[2]}
+                        value="a"
+                        control={<Radio />}
+                        label={w[1]}
+                        checked={w[2] || false}
                         onChange={handleChange}
                     />
                 )}
-            </Container>
-            <Container className="mt-2">
-                <Button
-                    variant="outline-success"
-                    onClick={() => {
-                        setRelatorioContext(relatorioContext)
-                        setStepContext(4)
-                    }}
-                > Anterior
-                    </Button>
-                <Button
-                    className="ml-1"
-                    variant="outline-success"
-                    onClick={() => {
-                        setRelatorioContext(relatorioContext)
-                        setStepContext(6)
-                    }}
-                > Próximo
-                    </Button>
-            </Container>
-        </div>
+            </Box>
+        </>
     )
 }
 
+export default RelatorioSet5
