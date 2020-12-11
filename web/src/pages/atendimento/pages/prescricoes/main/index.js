@@ -73,5 +73,4 @@ const PrescricaoMain = () => {
         </>
     )
 }
-
 export default PrescricaoMain
