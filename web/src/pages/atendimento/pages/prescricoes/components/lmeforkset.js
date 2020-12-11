@@ -29,7 +29,6 @@ const LMEForkSet = () => {
     }
 
     const handleNewLME = () => {
-        console.log('teste')
         setPage('lmeinsert')
         
     }

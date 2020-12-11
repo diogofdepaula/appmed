@@ -15,7 +15,7 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 const EditorAppBar = () => {
 
   const { clientecontext } = useContext(ClienteContext)
-  const { step, setStep, medicamentoEdit, setMedicamentoEdit, setPrescricaoEdit, page, setPage } = useContext(AtendimentoContext)
+  const { step, setStep, prescricaoEdit, lmeEdit, medicamentoEdit, setMedicamentoEdit, setPrescricaoEdit, page, setPage } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clientecontext.id)
@@ -33,27 +33,68 @@ const EditorAppBar = () => {
     setStep(prevState => prevState + 10)
   }
 
-
   const linkRelatorio = () => {
     setStep(31)
   }
 
-  //   const handleSubmit = event => {
-  //     event.preventDefault();
-  //     fetch(`http://localhost:4001/api.appmed/prescricoes`, {
-  //       method: 'post',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify(prescricaoEdit)
-  //     }).then(data => {
-  //       if (data.ok) {
-  //         setPage('prescricoesmain')
-  //         setStep(0)
-  //         let newpresc = InitialPrescricao(clientecontext.id)
-  //         setPrescricaoEdit(newpresc)
-  //         setMedicamentoEdit(null)
-  //       }
-  //     })
+  const handleSubmit = event => {
+
+    // submit do insert e update , da prescricoes e lme juntos
+
+    let prespost = [`http://localhost:4001/api.appmed/prescricoes`, 'post', prescricaoEdit]
+    let lmepost = [`http://localhost:4001/api.appmed/lmes`, 'post', lmeEdit]
+    let presput = [`http://localhost:4001/api.appmed/prescricoes`, 'put', prescricaoEdit]
+    let lmeput = [`http://localhost:4001/api.appmed/lmes`, 'put', lmeEdit]
+
+    let submitvar
+
+    switch (page) {
+      case 'prescricaoinsert':
+        submitvar = prespost
+        break;
+      case 'lmeinsert':
+        submitvar = lmepost
+        break;
+      case 'prescricaoupdate':
+        submitvar = presput
+        break;
+      case 'lmeupdate':
+        submitvar = lmeput
+        break;
+      default:
+        break;
+    }
+
+    event.preventDefault();
+    fetch(submitvar[0], {
+      method: submitvar[1],
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(submitvar[2])
+    }).then(data => {
+      if (data.ok) {
+        setPage('prescricoesmain')
+        setStep(0)
+        let newpresc = InitialPrescricao(clientecontext.id)
+        setPrescricaoEdit(newpresc)
+        setMedicamentoEdit(null)
+      }
+    })
+  }
+
+  // fetch(`http://localhost:4001/api.appmed/prescricoes`, {
+  //   method: 'post',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(prescricaoEdit)
+  // }).then(data => {
+  //   if (data.ok) {
+  //     setPage('prescricoesmain')
+  //     setStep(0)
+  //     let newpresc = InitialPrescricao(clientecontext.id)
+  //     setPrescricaoEdit(newpresc)
+  //     setMedicamentoEdit(null)
   //   }
+  // })
+
 
 
   // do LME
@@ -158,8 +199,8 @@ const EditorAppBar = () => {
         <span>
           <IconButton
             color='secondary'
-          //  disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
-          //    onClick={handleSubmit}
+            //  disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
+            onClick={handleSubmit}
           >
             <SaveIcon />
           </IconButton>
@@ -170,7 +211,7 @@ const EditorAppBar = () => {
       >
         <span>
           <IconButton
-            disabled={medicamentoEdit?.classe !== 'MMCDB'}
+            disabled={medicamentoEdit?.classe !== 'MMCDB' || step === 81}
             onClick={linkRelatorio}
           >
             <ArrowForwardIcon />
