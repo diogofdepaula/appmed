@@ -50,6 +50,9 @@ const RelatorioSet4 = () => {
                         variant='outlined'
                         autoFocus
                         label="PPD"
+                        InputLabelProps={{
+                            shrink: true,
+                          }}
                         // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
                         value={lmeEdit.relatorio?.ppddata || ''}
                         onChange={handleChange}
@@ -86,6 +89,9 @@ const RelatorioSet4 = () => {
                         <TextField
                             type="date"
                             name="rxtoraxdata"
+                            InputLabelProps={{
+                                shrink: true,
+                              }}
                             variant='outlined'
                             label="Rx de Tórax"
                             // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
@@ -131,13 +137,16 @@ const RelatorioSet4 = () => {
                             name="bhcgdata"
                             variant='outlined'
                             label="Beta-HCG"
+                            InputLabelProps={{
+                                shrink: true,
+                              }}
                             // value={format(lmeEdit.relatorio?.ppddata, "dd-MM-yyyy") || ''}
                             value={lmeEdit.relatorio?.bhcgdata || ''}
                             onChange={handleChange}
                         />
                         <TextField
                             fullWidth
-                            variant='outlined'
+                           // variant='outlined'
                             name='bhcgjustificativa'
                             label='Justificativa do Beta-HCG'
                             value={lmeEdit.relatorio.bhcgjustificativa}
