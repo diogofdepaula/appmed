@@ -55,25 +55,6 @@ const EditorAppBar = () => {
   }
 
 
-//dá uma olhada no LMEappbar como eu fiz lá
-
-//   const handleSubmit = event => {
-
-//     event.preventDefault();
-//     fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricao.id}`, {
-//         method: 'put',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(prescricao)
-//     }).then(data => {
-//         if (data.ok) {
-//             setPrescricaoMain(null)
-//             setPageContentContext('prescricoes')
-//         }
-//     })
-// }
-
-
-
   const sendFork = () => {
     setPrescricaoEdit(prescricaoEdit)
     if (prescricaoEdit.lmeId) {
