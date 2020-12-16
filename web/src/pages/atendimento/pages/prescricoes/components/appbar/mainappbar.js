@@ -9,7 +9,13 @@ import { AtendimentoContext } from '../../../..';
 
 const PrescricoesMainAppBar = () => {
 
-    const { setPage, prescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setPage, prescricaoOnDuty, setStep, setPrescricaoEdit } = useContext(AtendimentoContext)
+
+    const handleEditar = () => {
+        setPrescricaoEdit(prescricaoOnDuty)
+        setStep(21)
+        setPage('prescricaoupdate')
+    }
 
     return (
         <>
@@ -27,7 +33,7 @@ const PrescricoesMainAppBar = () => {
                     <span>
                         <IconButton
                             disabled={!prescricaoOnDuty}
-                            onClick={() => setPage('prescricaoupdate')}
+                            onClick={handleEditar}
                         >
                             <EditIcon />
                         </IconButton>

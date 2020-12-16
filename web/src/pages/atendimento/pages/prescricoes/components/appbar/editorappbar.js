@@ -11,7 +11,7 @@ import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
 import InitialPrescricao from '../../../../component/initialprescricao';
 
-// PRESCRICAO EDITOR
+// PRESCRICAO EDITOR Prescricao
 const EditorAppBar = () => {
 
   const { clientecontext } = useContext(ClienteContext)
@@ -53,6 +53,26 @@ const EditorAppBar = () => {
       }
     })
   }
+
+
+//dá uma olhada no LMEappbar como eu fiz lá
+
+//   const handleSubmit = event => {
+
+//     event.preventDefault();
+//     fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricao.id}`, {
+//         method: 'put',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(prescricao)
+//     }).then(data => {
+//         if (data.ok) {
+//             setPrescricaoMain(null)
+//             setPageContentContext('prescricoes')
+//         }
+//     })
+// }
+
+
 
   const sendFork = () => {
     setPrescricaoEdit(prescricaoEdit)

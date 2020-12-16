@@ -11,7 +11,7 @@ import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
 import InitialPrescricao from '../../../../component/initialprescricao';
 
-// PRESCRICAO EDITOR
+// PRESCRICAO EDITOR LME
 const EditorAppBar = () => {
 
   const { clientecontext } = useContext(ClienteContext)

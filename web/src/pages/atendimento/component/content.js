@@ -6,8 +6,6 @@ import PrescricaoMain from '../pages/prescricoes/main'
 import PrescricaoUpdate from '../pages/prescricoes/update'
 import LMEInsert from '../pages/lmes/insert'
 
-export 
-
 const Content = () => {
 
     const { page, update } = useContext(AtendimentoContext)

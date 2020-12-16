@@ -16,15 +16,14 @@ const ThirdAppBar = () => {
             return <PrescricoesMainAppBar />
          case 'prescricaoinsert':
             return <PrecricoesEditorAppBar />
-         //return <PrescricaoInsert />
-         //   case 'prescricaoupdate':
-         //       return <PrescricaoUpdate />
+         case 'prescricaoupdate':
+            return <PrecricoesEditorAppBar />
          //   case 'prescricaodelete':
          //       return <PrescricaoDelete />
          // case 'lmes':
          //     return <LMEMain />
          case 'lmeinsert':
-             return <LmeEditorAppBar />
+            return <LmeEditorAppBar />
          // case 'lmeupdate':
          //     return <LMEUpdate />
          // case 'lmedelete':

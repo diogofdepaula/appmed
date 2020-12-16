@@ -1,6 +1,5 @@
 import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
-import { format } from 'date-fns';
 import { parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
@@ -60,7 +59,7 @@ const PrescricaoVarSet = () => {
                         <TextField
                             type="date"
                             name="inicio"
-                            value={format(prescricaoEdit.inicio, "yyyy-MM-dd")}
+                            value={prescricaoEdit.inicio}
                             onChange={(e) => handleDataInicio(e)}
                         />
                     </Grid>
