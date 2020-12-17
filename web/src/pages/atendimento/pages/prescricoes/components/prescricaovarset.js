@@ -1,6 +1,6 @@
 import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@material-ui/core';
 import PostAddIcon from '@material-ui/icons/PostAdd';
-import { parseISO } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 
@@ -16,7 +16,7 @@ const PrescricaoVarSet = () => {
     }
 
     const handleDataInicio = event => {
-        setPrescricaoEdit({ ...prescricaoEdit, inicio: parseISO(event.target.value) })
+        setPrescricaoEdit({ ...prescricaoEdit, inicio: format(parseISO(event.target.value), "yyyy-MM-dd") })
     }
 
     const handleOrientacoes = () => {

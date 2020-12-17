@@ -15,7 +15,7 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 const EditorAppBar = () => {
 
   const { clientecontext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit } = useContext(AtendimentoContext)
+  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit, lmeEdit } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clientecontext.id)
@@ -38,11 +38,40 @@ const EditorAppBar = () => {
   }
 
   const handleSubmit = event => {
+
+    // submit do insert e update , da prescricoes e lme juntos
+
+    let prespost = [`http://localhost:4001/api.appmed/prescricoes`, 'post', prescricaoEdit]
+    let lmepost = [`http://localhost:4001/api.appmed/lmes`, 'post', lmeEdit]
+    let presput = [`http://localhost:4001/api.appmed/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit]
+    let lmeput = [`http://localhost:4001/api.appmed/lmes/${lmeEdit.id}`, 'put', lmeEdit]
+
+    let submitvar
+
+    switch (page) {
+      case 'prescricaoinsert':
+        submitvar = prespost
+        break;
+      case 'lmeinsert':
+        submitvar = lmepost
+        break;
+      case 'prescricaoupdate':
+        submitvar = presput
+        break;
+      case 'lmeupdate':
+        submitvar = lmeput
+        break;
+      default:
+        break;
+    }
+
+    console.log('presc')
+
     event.preventDefault();
-    fetch(`http://localhost:4001/api.appmed/prescricoes`, {
-      method: 'post',
+    fetch(submitvar[0], {
+      method: submitvar[1],
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(prescricaoEdit)
+      body: JSON.stringify(submitvar[2])
     }).then(data => {
       if (data.ok) {
         setPage('prescricoesmain')
@@ -53,6 +82,23 @@ const EditorAppBar = () => {
       }
     })
   }
+
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //   fetch(`http://localhost:4001/api.appmed/prescricoes`, {
+  //     method: 'post',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(prescricaoEdit)
+  //   }).then(data => {
+  //     if (data.ok) {
+  //       setPage('prescricoesmain')
+  //       setStep(0)
+  //       let newpresc = InitialPrescricao(clientecontext.id)
+  //       setPrescricaoEdit(newpresc)
+  //       setMedicamentoEdit(null)
+  //     }
+  //   })
+  // }
 
   const sendFork = () => {
     setPrescricaoEdit(prescricaoEdit)

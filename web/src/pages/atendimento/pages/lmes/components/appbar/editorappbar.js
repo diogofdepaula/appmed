@@ -43,8 +43,8 @@ const EditorAppBar = () => {
 
     let prespost = [`http://localhost:4001/api.appmed/prescricoes`, 'post', prescricaoEdit]
     let lmepost = [`http://localhost:4001/api.appmed/lmes`, 'post', lmeEdit]
-    let presput = [`http://localhost:4001/api.appmed/prescricoes`, 'put', prescricaoEdit]
-    let lmeput = [`http://localhost:4001/api.appmed/lmes`, 'put', lmeEdit]
+    let presput = [`http://localhost:4001/api.appmed/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit]
+    let lmeput = [`http://localhost:4001/api.appmed/lmes/${lmeEdit.id}`, 'put', lmeEdit]
 
     let submitvar
 
@@ -64,6 +64,8 @@ const EditorAppBar = () => {
       default:
         break;
     }
+
+    console.log('lme')
 
     event.preventDefault();
     fetch(submitvar[0], {

@@ -24,8 +24,8 @@ const RelatorioSet6 = () => {
         <>
             <Box m={2}>
                 <Grid container spacing={1}>
-                    {indices?.map((w) =>
-                        <Grid item xs>
+                    {indices?.map((w, i) =>
+                        <Grid item xs key={i}>
                             <TextField
                                 fullWidth
                                 variant='outlined'
