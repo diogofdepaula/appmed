@@ -219,13 +219,13 @@ const EditorAppBar = () => {
           </IconButton>
         </span>
       </Tooltip>
-      {step > 21 &&
+      {step > 21  &&
         <div>
           <Tooltip title="Próximo">
             <span>
               <IconButton
                 color='primary'
-                disabled={page === 'lmeinsert' && (step === 11 || step === 21 || step === 81)}
+                disabled={(page === 'lmeinsert' && (step === 11 || step === 21 || step === 81)) || (page === 'lmeupdate' && step === 81)}
                 onClick={nextStep}
               >
                 <ArrowForwardIosIcon />

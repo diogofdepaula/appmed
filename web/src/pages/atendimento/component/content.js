@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
+import LMEInsert from '../pages/lmes/insert'
+import LMEUpdate from '../pages/lmes/update'
 import PrescricaoDelete from '../pages/prescricoes/delete'
 import PrescricaoInsert from '../pages/prescricoes/insert'
 import PrescricaoMain from '../pages/prescricoes/main'
 import PrescricaoUpdate from '../pages/prescricoes/update'
-import LMEInsert from '../pages/lmes/insert'
 
 const Content = () => {
 
@@ -24,14 +25,14 @@ const Content = () => {
         //     return <LMEMain />
         case 'lmeinsert':
             return <LMEInsert />
-        // case 'lmeupdate':
-        //     return <LMEUpdate />
+        case 'lmeupdate':
+            return <LMEUpdate />
         // case 'lmedelete':
         //     return <LMEDelete />
 
 
 
-        
+
         // case 'print':
         //     return <Print />
         case 'teste':

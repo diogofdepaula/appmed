@@ -87,27 +87,6 @@ const PrescricaoVarSet = () => {
                     onChange={handleChange}
                 />
             </Box>
-
-            {/* <Box mt={1}>
-                <Button
-                    variant="contained"
-                    onClick={() => {
-                        setPrescricaoEdit(prescricaoEdit)
-                        setStep(0)
-                    }}
-                >{!prescricaoEdit.id ? 'Encerrar' : 'Atualizar'}
-                </Button>
-                <Button
-                    className="ml-2"
-                    disabled={!prescricaoEdit.lme}
-                    variant="contained"
-                    onClick={() => {
-                        setPrescricaoEdit(prescricaoEdit)
-                        setStep(51)
-                    }}
-                >{!prescricaoEdit.id ? 'Vincular a uma LME' : 'Editar LME'}
-                </Button>
-            </Box> */}
         </>
     )
 }

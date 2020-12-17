@@ -24,8 +24,8 @@ const ThirdAppBar = () => {
          //     return <LMEMain />
          case 'lmeinsert':
             return <LmeEditorAppBar />
-         // case 'lmeupdate':
-         //     return <LMEUpdate />
+         case 'lmeupdate':
+             return <LmeEditorAppBar />
          // case 'lmedelete':
          //     return <LMEDelete />
          // case 'print':

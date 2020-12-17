@@ -54,11 +54,11 @@ const EditorAppBar = () => {
     })
   }
 
-
   const sendFork = () => {
     setPrescricaoEdit(prescricaoEdit)
     if (prescricaoEdit.lmeId) {
-      setStep(1) // manda para o lmeupdate
+      setPage('lmeupdate')
+      setStep(21) // manda para o lmeupdate
     } else {
       setStep(61) // continua a edição
     }
@@ -114,7 +114,7 @@ const EditorAppBar = () => {
       >
         <span>
           <IconButton
-            disabled={!medicamentoEdit?.lme}
+            disabled={page === 'prescricaoinsert' ? (step === 41 ? !medicamentoEdit?.lme : true) : false}
             onClick={linkLME}
           >
             <ArrowForwardIcon />
@@ -124,7 +124,7 @@ const EditorAppBar = () => {
       </Tooltip>
       {step === 51 &&
         <div>
-          <Tooltip title="Próximo">
+          <Tooltip title="Continuar editando LME">
             <span>
               <IconButton
                 color='primary'
@@ -135,7 +135,7 @@ const EditorAppBar = () => {
             </span>
           </Tooltip>
         </div>
-        }
+      }
       <Divider />
     </Grid>
   )

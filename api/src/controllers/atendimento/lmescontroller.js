@@ -46,6 +46,7 @@ exports.SearchAllFit = (req, res, next) => {
 
 exports.SearchOne = (req, res, next) => {
     const id = req.params.id;
+    // findOne não trás os includes
     Lmes.findAll({ where: { id: id }, include: [Relatorios, Prescricoes] })
         .then((lmes) => {
             return res.json(lmes)
