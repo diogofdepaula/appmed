@@ -49,7 +49,7 @@ const LMEVarSet = () => {
                                             <Checkbox
                                                 color='primary'
                                                 name="tratamentoprevio"
-                                                //checked={lmeEdit.tratamentoprevio ?? true}
+                                                checked={lmeEdit.tratamentoprevio ?? true}
                                                 //value={lmeEdit.tratamentoprevio ?? ''}
                                                 onChange={handleChange}
                                             />}
