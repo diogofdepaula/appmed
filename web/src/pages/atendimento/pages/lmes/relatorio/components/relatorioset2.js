@@ -67,9 +67,7 @@ const RelatorioSet2 = () => {
     }, [getList])
 
 
-    
-
-    return (
+        return (
         <>
             <Box m={2}>
                     {list?.map((w) =>
