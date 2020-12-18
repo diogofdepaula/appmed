@@ -60,6 +60,7 @@ const RelatorioSet2 = () => {
         }
         // não sei como tirar toda essa lógica aqui de dentro.
         // as const quando estão lá fora e são postas na lista de dependências dá loop infinito
+        
     }, [lmeEdit])
 
     useEffect(() => {
