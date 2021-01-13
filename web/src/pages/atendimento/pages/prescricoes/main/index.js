@@ -30,16 +30,18 @@ const PrescricaoMain = () => {
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                {prescricoes && Reorder(prescricoes).filter(x => x.emuso).map(prescricao =>
-                                    <TableRow 
-                                    key={prescricao.id}
-                                    onClick={() => setPrescricaoOnDuty(prescricao)}
-                                    >
-                                        <TableCell component="th" scope="row">
-                                        {prescricao.medicamento.farmaco} - {prescricao.apresentaco.descricao}
-                                        </TableCell> 
-                                    </TableRow>
-                                )}
+                                    {prescricoes && Reorder(prescricoes).filter(x => x.emuso).map(prescricao =>
+                                        <TableRow
+                                            key={prescricao.id}
+                                            onClick={() => setPrescricaoOnDuty(prescricao)}
+                                        >
+                                            <TableCell component="th" scope="row">
+                                                <Box fontWeight={prescricaoOnDuty?.id === prescricao.id ? "fontWeightBold" : ""}>
+                                                    {prescricao.medicamento.farmaco} - {prescricao.apresentaco.descricao}
+                                                </Box>
+                                            </TableCell>
+                                        </TableRow>
+                                    )}
                                 </TableBody>
                             </Table>
                         </TableContainer>
@@ -48,16 +50,16 @@ const PrescricaoMain = () => {
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                {prescricoes && Reorder(prescricoes).filter(x => !x.emuso).map(prescricao =>
-                                    <TableRow 
-                                    key={prescricao.id}
-                                    onClick={() => setPrescricaoOnDuty(prescricao)}
-                                    >
-                                        <TableCell component="th" scope="row">
-                                        {prescricao.medicamento.farmaco} - interrompido
-                                        </TableCell> 
-                                    </TableRow>
-                                )}
+                                    {prescricoes && Reorder(prescricoes).filter(x => !x.emuso).map(prescricao =>
+                                        <TableRow
+                                            key={prescricao.id}
+                                            onClick={() => setPrescricaoOnDuty(prescricao)}
+                                        >
+                                            <TableCell component="th" scope="row">
+                                                {prescricao.medicamento.farmaco} - interrompido
+                                        </TableCell>
+                                        </TableRow>
+                                    )}
                                 </TableBody>
                             </Table>
                         </TableContainer>

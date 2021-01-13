@@ -10,22 +10,8 @@ const LMEVarSet = () => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         setLmeEdit({ ...lmeEdit, [name]: value })
     }
-
-    // console.log('lmeEdit.tratamentoprevio', lmeEdit.tratamentoprevio)
-    // const [teste, setTeste] = useState(lmeEdit.tratamentoprevio)
-
-    // const handleChangeTeste = (event) => {
-    //     const target = event.target;
-    //     const value = target.type === 'checkbox' ? target.checked : target.value;
-    //     const name = target.name;
-
-    //     setTeste( value )
-    // }
-
-    console.log(lmeEdit.tratamentoprevio)
 
     return (
         <>

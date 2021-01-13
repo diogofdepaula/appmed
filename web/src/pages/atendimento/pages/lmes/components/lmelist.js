@@ -29,6 +29,10 @@ export default function LMEList() {
                             setLmeMain(lme)
                         }}
                     >{lme.cid10} - {lme.diagnostico}
+
+
+
+                    
                     <Button
                                 variant="link"
                                 size="sm"
