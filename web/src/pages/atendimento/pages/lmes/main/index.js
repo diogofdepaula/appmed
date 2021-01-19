@@ -1,47 +1,60 @@
-import React, { useContext } from 'react';
-import { Button, Col, Container, Row } from 'react-bootstrap';
-import { PageContext } from '../..';
+import { Box, Divider, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { AtendimentoContext } from '../../..';
+import { ClienteContext } from '../../../../../App';
 import LMEData from '../components/lmedata';
-import LMEList from '../components/lmelist';
 
-export default function LMEMain() {
+const LMEMain = () => {
 
-    const setPage = useContext(PageContext)
-   
-    const indices = [
-        ['prescricaoinsert', '(Nova) LME'],  // deixei aqui por deixar, pois a LME é iniciada na prescricao
-        ['lmeprint', 'Imprimir LME'],
-        ['rrrrrr', 'RRRRRR'],
-        ['uuuuu', 'UUUUU'],
-        ['oooooo', 'OOOOOO'],
-    ]
+    const { clientecontext } = useContext(ClienteContext)
+    const { lmeOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+
+    const [lmes, setLmes] = useState([])
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${clientecontext.id}`)
+        const json = await res.json();
+        setLmes(json);
+    }, [clientecontext])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
 
     return (
-        <div>
-            
-                <Container fluid className="mt-2">
-                    {indices.map(x =>
-                        <Button
-                            key={x[0]}
-                            variant="outline-primary"
-                            className="ml-2"
-                            onClick={() => {
-                                setPage(x[0])
-                            }}
-                        >{x[1]}
-                        </Button>
-                    )}
-                </Container>
-                <Container  className="mt-2">
-                    <Row>
-                        <Col sm={6}>
-                            <LMEList />
-                        </Col>
-                        <Col sm={4}>
-                            <LMEData />
-                        </Col>
-                    </Row>
-                </Container>
-        </div>
+        <>
+            <Grid container spacing={1}>
+                <Grid item xs={4}>
+                    <Box ml={1} mt={1}>
+                        <TableContainer component={Paper} >
+                            <Table>
+                                <TableBody>
+                                    {lmes && lmes.map(lme =>
+                                        <TableRow
+                                            key={lme.id}
+                                            onClick={() => setLmeOnDuty(lme)}
+                                        >
+                                            <TableCell component="th" scope="row">
+                                                <Box fontWeight={lmeOnDuty?.id === lme.id ? "fontWeightBold" : ""}>
+                                                    {lme.cid10} - Acho que só isso
+                                                </Box>
+                                            </TableCell>
+                                        </TableRow>
+                                    )}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Box>
+                </Grid>
+                <Grid item>
+                    <Divider orientation="vertical" flexItem />
+                </Grid>
+                <Grid item xs>
+                    {lmeOnDuty && <LMEData />}
+                </Grid>
+            </Grid>
+        </>
     )
 }
+
+export default LMEMain

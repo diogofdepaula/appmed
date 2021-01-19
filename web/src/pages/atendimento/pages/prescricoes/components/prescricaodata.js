@@ -75,7 +75,7 @@ const PrescricaoData = () => {
                 </Box>
             </Box>
         </>
-    );
+    )
 }
 
 export default PrescricaoData

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
+import LMEMain from '../pages/lmes/main'
 import LMEInsert from '../pages/lmes/insert'
 import LMEUpdate from '../pages/lmes/update'
 import PrescricaoDelete from '../pages/prescricoes/delete'
@@ -21,8 +22,8 @@ const Content = () => {
             return <PrescricaoUpdate />
         case 'prescricaodelete':
             return <PrescricaoDelete />
-        // case 'lmes':
-        //     return <LMEMain />
+        case 'lmesmain':
+            return <LMEMain />
         case 'lmeinsert':
             return <LMEInsert />
         case 'lmeupdate':

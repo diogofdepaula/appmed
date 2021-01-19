@@ -12,7 +12,7 @@ import SecondAppBar from './secondappbar';
 
 const FirstAppBar = () => {
 
-    const { setPage, updatePage, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setPage, updatePage, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
 
     return (
         <>
@@ -35,7 +35,13 @@ const FirstAppBar = () => {
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="LMEs">
-                        <IconButton>
+                        <IconButton
+                            onClick={() => {
+                                setLmeOnDuty(null)
+                                setPage('lmesmain')
+                                updatePage()
+                            }}
+                        >
                             <AccountBalanceIcon />
                         </IconButton>
                     </Tooltip>
