@@ -1,10 +1,18 @@
-import { Box, List, ListItem, ListItemText, Typography } from '@material-ui/core';
+import { Box, IconButton, List, ListItem, ListItemText, Tooltip, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
+import EditIcon from '@material-ui/icons/Edit';
 
 const LMEData = () => {
 
-    const { lmeOnDuty } = useContext(AtendimentoContext)
+    const { lmeOnDuty, setPrescricaoEdit, setStep, setPage, setLmeEdit } = useContext(AtendimentoContext)
+
+    const handleEditarPrescricao = param => () => {
+        setLmeEdit(null)
+        setPrescricaoEdit(param)
+        setStep(21)
+        setPage('prescricaoupdate')
+    }
 
     return (
         <>
@@ -18,11 +26,20 @@ const LMEData = () => {
                         <List>
                             {lmeOnDuty?.prescricoes.map(prescricao =>
                                 prescricao.emuso &&
-                                <ListItem>
+                                <ListItem key={prescricao.id}>
                                     <ListItemText
-                                        key={prescricao.id}
                                         primary={prescricao.medicamento.farmaco}
                                     />
+                                    <Tooltip title="Editar">
+                                        <span>
+                                            <IconButton
+                                                disabled={!lmeOnDuty}
+                                                onClick={handleEditarPrescricao(prescricao)}
+                                            >
+                                                <EditIcon />
+                                            </IconButton>
+                                        </span>
+                                    </Tooltip>
                                 </ListItem>
                             )}
                         </List>

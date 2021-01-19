@@ -15,7 +15,7 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 const EditorAppBar = () => {
 
   const { clientecontext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, lmeEdit, medicamentoEdit, setMedicamentoEdit, setPrescricaoEdit, page, setPage } = useContext(AtendimentoContext)
+  const { step, setStep, prescricaoEdit, lmeEdit, medicamentoEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoEdit, page, setPage } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clientecontext.id)
@@ -78,6 +78,7 @@ const EditorAppBar = () => {
         setStep(0)
         let newpresc = InitialPrescricao(clientecontext.id)
         setPrescricaoEdit(newpresc)
+        setLmeEdit(null)
         setMedicamentoEdit(null)
       }
     })

@@ -4,15 +4,7 @@ import LMEEditor from '../editor';
 
 const LMEUpdate = () => {
 
-    // // const cliente = useContext(ClienteContext)
-    // const setPage = useContext(PageContext)
-    // const { prescricaoMain, setPrescricaoMain } = useContext(PrescricaoMainContext)
-    // const [lme, setLme] = useState()
-    // const [validation, setValidation] = useState(false)
-    // const step = 21
-
-    //const { clientecontext } = useContext(ClienteContext)
-    const { prescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const fetchData = useCallback(async () => {
         const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoEdit.lmeId}`)
@@ -30,8 +22,10 @@ const LMEUpdate = () => {
     }, [prescricaoEdit, setLmeEdit])
 
     useEffect(() => {
-        fetchData();
-    }, [fetchData])
+        if (!lmeEdit) {
+            fetchData()
+        }
+    }, [lmeEdit, fetchData])
 
 
 
@@ -59,23 +53,6 @@ const LMEUpdate = () => {
     //     setLme(paramLME)
     //     //  setPage('prescricoes') // ou para onde for
     // }, [])
-
-    // const handleSubmit = event => {
-
-    //     event.preventDefault();
-
-    //     fetch(`http://localhost:4001/api.appmed/lmes/${lme.id}`, {
-    //         method: 'put',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(lme)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             setValidation(true)
-    //             setPrescricaoMain(null)
-    //             setPage('prescricoes')
-    //         }
-    //     })
-    // }
 
     return (
         <div>
