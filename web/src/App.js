@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
+    //backgroundColor: "green",
     //padding: theme.spacing(1),
   },
   offset: theme.mixins.toolbar,

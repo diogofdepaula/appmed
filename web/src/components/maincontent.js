@@ -22,7 +22,7 @@ const MainContent = () => {
         }
     }
 
-    return <GetContent />
+    return <GetContent /> 
 }
 
 export default MainContent

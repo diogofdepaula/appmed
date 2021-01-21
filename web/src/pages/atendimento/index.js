@@ -49,11 +49,11 @@ const Atendimento = () => {
                 medicamentoEdit: medicamentoEdit, 
                 setMedicamentoEdit: setMedicamentoEdit,
             }} >
-                <Box width='900px'>
+                <Box>
                     <Divider />
                     <AtendimentoAppBar />
                     <Content />
-                    step: {JSON.stringify(step)}
+                    {/* step: {JSON.stringify(step)}
                     <Divider />
                     page: {JSON.stringify(page)}
                     <Divider />
@@ -61,7 +61,7 @@ const Atendimento = () => {
                     <Divider />
                     lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />
-                    medicamentoEdit:  {JSON.stringify(medicamentoEdit)}
+                    medicamentoEdit:  {JSON.stringify(medicamentoEdit)} */}
                 </Box>
             </AtendimentoContext.Provider>
         </>

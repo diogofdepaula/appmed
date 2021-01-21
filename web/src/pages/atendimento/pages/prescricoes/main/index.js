@@ -24,54 +24,58 @@ const PrescricaoMain = () => {
 
     return (
         <>
-            <Grid container spacing={1}>
-                <Grid item xs={4}>
-                    <Box ml={1} mt={1}>
-                        <TableContainer component={Paper} >
-                            <Table>
-                                <TableBody>
-                                    {prescricoes && Reorder(prescricoes).filter(x => x.emuso).map(prescricao =>
-                                        <TableRow
-                                            key={prescricao.id}
-                                            onClick={() => setPrescricaoOnDuty(prescricao)}
-                                        >
-                                            <TableCell component="th" scope="row">
-                                                <Box fontWeight={prescricaoOnDuty?.id === prescricao.id ? "fontWeightBold" : ""}>
-                                                    {prescricao.medicamento.farmaco} - {prescricao.apresentaco.descricao}
-                                                </Box>
-                                            </TableCell>
-                                        </TableRow>
-                                    )}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                    </Box>
-                    <Box ml={1} mt={1}>
-                        <TableContainer component={Paper} >
-                            <Table>
-                                <TableBody>
-                                    {prescricoes && Reorder(prescricoes).filter(x => !x.emuso).map(prescricao =>
-                                        <TableRow
-                                            key={prescricao.id}
-                                            onClick={() => setPrescricaoOnDuty(prescricao)}
-                                        >
-                                            <TableCell component="th" scope="row">
-                                                {prescricao.medicamento.farmaco} - interrompido
+            <Box m={1}>
+                <Grid container spacing={1} >
+                    <Grid item xs={4}>
+                        <Box ml={1} mt={1}>
+                            <TableContainer component={Paper} >
+                                <Table>
+                                    <TableBody>
+                                        {prescricoes && Reorder(prescricoes).filter(x => x.emuso).map(prescricao =>
+                                            <TableRow
+                                                key={prescricao.id}
+                                                onClick={() => setPrescricaoOnDuty(prescricao)}
+                                            >
+                                                <TableCell component="th" scope="row">
+                                                    <Box fontWeight={prescricaoOnDuty?.id === prescricao.id ? "fontWeightBold" : ""}>
+                                                        {prescricao.medicamento.farmaco} - {prescricao.apresentaco.descricao}
+                                                    </Box>
+                                                </TableCell>
+                                            </TableRow>
+                                        )}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Box>
+                        <Box ml={1} mt={1}>
+                            <TableContainer component={Paper} >
+                                <Table>
+                                    <TableBody>
+                                        {prescricoes && Reorder(prescricoes).filter(x => !x.emuso).map(prescricao =>
+                                            <TableRow
+                                                key={prescricao.id}
+                                                onClick={() => setPrescricaoOnDuty(prescricao)}
+                                            >
+                                                <TableCell component="th" scope="row">
+                                                    {prescricao.medicamento.farmaco} - interrompido
                                         </TableCell>
-                                        </TableRow>
-                                    )}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                    </Box>
+                                            </TableRow>
+                                        )}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Box>
+                    </Grid>
+                    <Grid item>
+                        <Divider orientation="vertical" flexItem />
+                    </Grid>
+                    <Grid item xs>
+                        <Box mx={1}>
+                            {prescricaoOnDuty && <PrescricaoData />}
+                        </Box>
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    <Divider orientation="vertical" flexItem />
-                </Grid>
-                <Grid item xs>
-                    {prescricaoOnDuty && <PrescricaoData />}
-                </Grid>
-            </Grid>
+            </Box>
         </>
     )
 }
