@@ -1,6 +1,7 @@
 import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext } from '../../../../App';
+import ClienteData from '../components/clientedata';
 
 const ClienteMain = () => {
 
@@ -45,9 +46,9 @@ const ClienteMain = () => {
             </Box>
           </Grid>
           <Grid item xs>
-            {/* <Box mx={1}>
+             <Box mx={1}>
               {clienteEdit && <ClienteData />}
-            </Box> */}
+            </Box> 
           </Grid>
         </Grid>
       </Box>
