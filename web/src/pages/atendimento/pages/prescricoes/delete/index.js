@@ -68,7 +68,7 @@ const PrescricaoDelete = () => {
         })
     }, [prescricaoOnDuty])
 
-    useEffect(() => {
+    useEffect(() => { 
         if (change === 1) {
             changeEmUso()
         } else if (change === 2) {
@@ -80,7 +80,7 @@ const PrescricaoDelete = () => {
     }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setPage])
 
 
-    
+
     return (
         <>
             {prescricaoOnDuty &&
