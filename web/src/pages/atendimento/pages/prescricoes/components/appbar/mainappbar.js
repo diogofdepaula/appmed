@@ -1,6 +1,5 @@
 import { Box, IconButton, Tooltip } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -15,6 +14,11 @@ const PrescricoesMainAppBar = () => {
         setPrescricaoEdit(prescricaoOnDuty)
         setStep(21)
         setPage('prescricaoupdate')
+    }
+
+    const handleParar = () => {
+        setPrescricaoEdit(prescricaoOnDuty)
+        setPage('prescricaodelete')
     }
 
     return (
@@ -39,16 +43,17 @@ const PrescricoesMainAppBar = () => {
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title="Interromper uso">
+                <Tooltip title="Parar">
                     <span>
                         <IconButton
                             disabled={!prescricaoOnDuty}
+                            onClick={handleParar}
                         >
                             <HighlightOffIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title="Excluir">
+                {/* <Tooltip title="Excluir">
                     <span>
                         <IconButton
                             disabled={!prescricaoOnDuty}
@@ -56,7 +61,7 @@ const PrescricoesMainAppBar = () => {
                             <DeleteIcon />
                         </IconButton>
                     </span>
-                </Tooltip>
+                </Tooltip> */}
                 <Tooltip title="Outros">
                     <span>
                         <IconButton

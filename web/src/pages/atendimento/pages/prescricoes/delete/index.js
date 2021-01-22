@@ -1,10 +1,10 @@
+import { Box, Button, Card, Grid } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { Button, Card, Container, Row } from 'react-bootstrap';
 import { AtendimentoContext } from '../../..';
 
-export default function PrescricaoDelete() {
+const PrescricaoDelete = () => {
 
-    const { setPageContentContext, prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setPage, prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const [lme, setLme] = useState()
     const [change, setChange] = useState(0)
 
@@ -28,7 +28,7 @@ export default function PrescricaoDelete() {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoOnDuty(null)
-                setPageContentContext('prescricoes')
+                setPage('prescricoesmain')
             }
         })
     }
@@ -41,7 +41,7 @@ export default function PrescricaoDelete() {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoOnDuty(null)
-                setPageContentContext('prescricoes')
+                setPage('prescricoesmain')
             }
         })
     }
@@ -75,61 +75,73 @@ export default function PrescricaoDelete() {
             updateEmUso()
         } else if (change === 3) {
             setPrescricaoOnDuty(null)
-            setPageContentContext('prescricoes')
+            setPage('prescricoesmain')
         }
-    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setPageContentContext])
+    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setPage])
 
     return (
-        <div>
+        <>
             {prescricaoOnDuty &&
                 <>
-                    <Container>
-                        <Card body className="mt-2">
-                            <h5>{prescricaoOnDuty.medicamento.farmaco} ({prescricaoOnDuty.apresentaco.descricao})</h5>
-                            {prescricaoOnDuty.lmeId ?
-                                <div>
+                    <Box m={2}>
+                        <Card>
+                            <Box m={1}>
+                                <h5>{prescricaoOnDuty.medicamento.farmaco} ({prescricaoOnDuty.apresentaco.descricao})</h5>
+                                {prescricaoOnDuty.lmeId ?
+                                    <div>
 
-                                    <h4>Prescrição vinculada a LME</h4>
-                                    {lme && lme.prescricoes.length - 1 === 0 && <h5>Há outras prescrições na LME</h5>}
+                                        <h4>Prescrição vinculada a LME</h4>
+                                        {lme && lme.prescricoes.length - 1 === 0 && <h5>Há outras prescrições na LME</h5>}
 
-                                </div>
-                                :
-                                <div>
-                                    <p>Medicamento não vinculado a LME</p>
-                                </div>
-                            }
+                                    </div>
+                                    :
+                                    <div>
+                                        <p>Medicamento não vinculado a LME</p>
+                                    </div>
+                                }
+                            </Box>
                         </Card>
-                    </Container>
-                    <Container>
-                        <Row>
-                            <Button
-                                className="mt-2 ml-2"
-                                variant="outline-danger"
-                                onClick={() => setChange(1)}
-                            >Interromper o uso da prescrição (enviado a lista de Fez uso. Será mantida no bando de dados)
+                    </Box>
+                    <Box m={2}>
+                        <Grid container spacing={1} direction="column" justify="center" alignItems="flex-start">
+                            <Grid item>
+                                <Box>
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        onClick={() => setChange(1)}
+                                    >Interromper o uso da prescrição (enviado a lista de Fez uso. Será mantida no bando de dados)
                             </Button>
-                        </Row>
-                        <Row>
-                            <Button
-                                className="mt-2 ml-2"
-                                variant="outline-danger"
-                                onClick={handleDeletePrescricao()}
-                            >Remover a prescrição (apagará do bando de dados)
+                                </Box>
+                            </Grid>
+                            <Grid item>
+                                <Box>
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        onClick={handleDeletePrescricao()}
+                                    >Remover a prescrição (apagará do bando de dados)
                             </Button>
-                        </Row>
-                        {prescricaoOnDuty.lmeId &&
-                            <Row>
-                                <Button
-                                    className="mt-2 ml-2"
-                                    variant="outline-danger"
-                                    onClick={handleDeletePrescricaoLME()}
-                                >Remover a prescrição e a LME (apagará ambos do bando de dados)
+                                </Box>
+                            </Grid>
+                            <Grid item>
+                                {prescricaoOnDuty.lmeId &&
+                                    <Box>
+                                        <Button
+                                            variant="contained"
+                                            color="secondary"
+                                            onClick={handleDeletePrescricaoLME()}
+                                        >Remover a prescrição e a LME (apagará ambos do bando de dados)
                                 </Button>
-                            </Row>
-                        }
-                    </Container>
+                                    </Box>
+                                }
+                            </Grid>
+                        </Grid>
+                    </Box>
                 </>
             }
-        </div>
+        </>
     )
 }
+
+export default PrescricaoDelete
