@@ -79,6 +79,8 @@ const PrescricaoDelete = () => {
         }
     }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setPage])
 
+
+    
     return (
         <>
             {prescricaoOnDuty &&
