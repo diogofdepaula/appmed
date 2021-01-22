@@ -10,6 +10,23 @@ export default function ClienteInsert() {
     const setPage = useContext(PageContext)
     const { cliente, setCliente } = useContext(ClienteContext)
 
+    const { clienteContext } = useContext(ClientesContext)
+    
+    // const novocliente = {
+    //     nome: "",
+    //     nascimento: "",
+    //     sexo: "feminino",
+    //     peso: "",
+    //     altura: "",
+    //     endereco: "",
+    //     telefone: "",
+    //     celular: "",
+    //     email: "",
+    //     cns: "",
+    //     cpf: "",
+    //     mae: ""
+    //   }
+
     const handleSubmit = event => {
         event.preventDefault();
         fetch(`http://localhost:4001/api.appmed/clientes`, {

@@ -5,7 +5,7 @@ import LMEEditor from '../editor';
 
 const LMEInsert = () => {
 
-    const { clientecontext } = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
     const { prescricaoEdit, setStep, setLmeEdit,medicamentoEdit } = useContext(AtendimentoContext)
 
     const chargeInitial = useCallback(() => {
@@ -20,7 +20,7 @@ const LMEInsert = () => {
             preenchidopor: '',
             preenchidoporCPF: '',
             raca: '',
-            clienteId: clientecontext.id,
+            clienteId: clienteContext.id,
             prescricoes: prescricaoEdit,
             relatorio: medicamentoEdit?.classe === 'MMCDB' ? 
             {
@@ -109,7 +109,7 @@ const LMEInsert = () => {
         }
         setLmeEdit(initial)
         setStep(11)
-    }, [setStep, setLmeEdit, clientecontext, prescricaoEdit, medicamentoEdit])
+    }, [setStep, setLmeEdit, clienteContext, prescricaoEdit, medicamentoEdit])
 
     useEffect(() => {
         chargeInitial()

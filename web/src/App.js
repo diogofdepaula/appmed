@@ -26,14 +26,15 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
 
   const classes = useStyles();
-  const [clientecontext, setClienteContext] = useState()
-  const [pagecontentcontext, setPageContentContext] = useState()
+  const [clienteContext, setClienteContext] = useState()
+  const [clienteEdit, setClienteEdit] = useState([])
+  const [pageContentContext, setPageContentContext] = useState()
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <ClienteContext.Provider value={{ clientecontext: clientecontext, setClienteContext: setClienteContext }} >
-        <PageContentContext.Provider value={{ pagecontentcontext: pagecontentcontext, setPageContentContext: setPageContentContext }} >
+      <ClienteContext.Provider value={{ clienteContext: clienteContext, setClienteContext: setClienteContext, clienteEdit: clienteEdit, setClienteEdit: setClienteEdit }} >
+        <PageContentContext.Provider value={{ pageContentContext: pageContentContext, setPageContentContext: setPageContentContext }} >
           {/* não remover essas marcações div */}
           <div>
             <PrimaryAppBar />

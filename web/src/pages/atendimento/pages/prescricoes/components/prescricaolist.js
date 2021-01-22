@@ -8,16 +8,16 @@
 
 // const PrescricaoList = () => {
 
-//     const { clientecontext } = useContext(ClienteContext)
+//     const { clienteContext } = useContext(ClienteContext)
 //     const setPage = useContext(PageAtendimentoContext)
 //     const { setPrescricaoMain } = useContext(PrescricaoMainContext)
 //     const [prescricoes, setPrescricoes] = useState([])
 
 //     const fetchData = useCallback(async () => {
-//         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${clientecontext.id}`)
+//         const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${clienteContext.id}`)
 //         const json = await res.json();
 //         setPrescricoes(json);
-//     }, [clientecontext])
+//     }, [clienteContext])
 
 //     useEffect(() => {
 //         fetchData();

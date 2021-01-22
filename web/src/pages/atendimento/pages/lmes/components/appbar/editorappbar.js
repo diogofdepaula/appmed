@@ -14,11 +14,11 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 // PRESCRICAO EDITOR LME
 const EditorAppBar = () => {
 
-  const { clientecontext } = useContext(ClienteContext)
+  const { clienteContext } = useContext(ClienteContext)
   const { step, setStep, prescricaoEdit, lmeEdit, medicamentoEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoEdit, page, setPage } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
-    let newpresc = InitialPrescricao(clientecontext.id)
+    let newpresc = InitialPrescricao(clienteContext.id)
     setPage('prescricaoinsert')
     setPrescricaoEdit(newpresc)
     setMedicamentoEdit(null)
@@ -76,7 +76,7 @@ const EditorAppBar = () => {
       if (data.ok) {
         setPage('prescricoesmain')
         setStep(0)
-        let newpresc = InitialPrescricao(clientecontext.id)
+        let newpresc = InitialPrescricao(clienteContext.id)
         setPrescricaoEdit(newpresc)
         setLmeEdit(null)
         setMedicamentoEdit(null)
@@ -92,7 +92,7 @@ const EditorAppBar = () => {
   //   if (data.ok) {
   //     setPage('prescricoesmain')
   //     setStep(0)
-  //     let newpresc = InitialPrescricao(clientecontext.id)
+  //     let newpresc = InitialPrescricao(clienteContext.id)
   //     setPrescricaoEdit(newpresc)
   //     setMedicamentoEdit(null)
   //   }

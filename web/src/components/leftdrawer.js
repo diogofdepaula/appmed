@@ -37,14 +37,22 @@ const useStyles = makeStyles((theme) => ({
 
 const LeftDrawer = () => {
     const classes = useStyles();
-    const { pagecontentcontext, setPageContentContext } = useContext(PageContentContext)
-    const { clientecontext } = useContext(ClienteContext)
+    const { pageContentContext, setPageContentContext } = useContext(PageContentContext)
+    const { clienteContext } = useContext(ClienteContext)
 
     const [open, setOpen] = useState(true);
 
     const handleClick = () => {
         setOpen(!open);
-    };
+    }
+
+    const handleAtendimento = () => {
+        setPageContentContext('atendimento')
+    }
+
+    const handleCliente = () => {
+        setPageContentContext('clientes')
+    }
 
     return (
         <Drawer
@@ -66,7 +74,11 @@ const LeftDrawer = () => {
                     </ListItem>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                            <ListItem button className={classes.nested}>
+                            <ListItem
+                                button
+                                className={classes.nested}
+                                onClick={handleCliente}
+                            >
                                 <ListItemIcon>
                                     <GroupIcon />
                                 </ListItemIcon>
@@ -87,10 +99,10 @@ const LeftDrawer = () => {
                         </List>
                     </Collapse>
                     <ListItem
-                        disabled={clientecontext ? false : true}
+                        disabled={clienteContext ? false : true}
                         button
-                        selected={pagecontentcontext === 'atendimento'}
-                        onClick={() => setPageContentContext('atendimento')}
+                        selected={pageContentContext === 'atendimento'}
+                        onClick={handleAtendimento}
                     >
                         <ListItemIcon>
                             <AssistantIcon />

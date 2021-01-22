@@ -9,11 +9,11 @@ import InitialPrescricao from '../initialprescricao';
 
 const SecondAppBar = () => {
 
-    const { clientecontext } = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
     const { page, setPage, setPrescricaoEdit, setMedicamentoEdit, setStep } = useContext(AtendimentoContext)
 
     const iniciar = () => {
-        let newpresc = InitialPrescricao(clientecontext.id)
+        let newpresc = InitialPrescricao(clienteContext.id)
         setPrescricaoEdit(newpresc)
         setMedicamentoEdit(null)
         setStep(11)

@@ -6,16 +6,16 @@ import LMEData from '../components/lmedata';
 
 const LMEMain = () => {
 
-    const { clientecontext } = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
     const { lmeOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
 
     const [lmes, setLmes] = useState([])
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${clientecontext.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${clienteContext.id}`)
         const json = await res.json();
         setLmes(json);
-    }, [clientecontext])
+    }, [clienteContext])
 
     useEffect(() => {
         fetchData();

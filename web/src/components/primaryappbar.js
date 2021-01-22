@@ -114,6 +114,10 @@ const PrimaryAppBar = () => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    const handleHome = () => {
+        console.log("teste");
+    }
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -184,9 +188,14 @@ const PrimaryAppBar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography className={classes.title} variant="h6" noWrap={true}>
+                        <Typography
+                            className={classes.title}
+                            variant="h6"
+                            noWrap={true}
+                            onClick={handleHome}
+                        >
                             APPMed
-                    </Typography>
+                            </Typography>
                     </div>
                     <div className={classes.grow} >
                         <ClienteSet />

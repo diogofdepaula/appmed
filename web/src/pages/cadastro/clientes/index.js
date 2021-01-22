@@ -1,27 +1,24 @@
+import { Box } from '@material-ui/core';
 import React, { useState, createContext } from 'react';
-import ClienteMain from './main';
-import ClienteDetails from './details';
-import ClienteInsert from './insert';
-import ClienteUpdate from './update';
+import Content from './components/content';
 
-export const PageContext = createContext('clientemain')
-export const ClienteContext = createContext(null)
+// tem o ClienteContext (sem s) que eu preferi manter
+// para poder acessar o Cliente de todo o programa
+export const ClientesContext = createContext(null)
 
-export default function Clientes() {
+const Clientes = () => {
 
-    const [page, setPage] = useState('clientemain')
-    const [cliente, setCliente] = useState()
+    const [ page, setPage ] = useState('')
 
     return (
-        <div>
-            <PageContext.Provider value={setPage}>
-                <ClienteContext.Provider value={{ cliente: cliente, setCliente: setCliente }} >
-                    {page === 'clientemain' && <ClienteMain />}
-                    {page === 'clientedetails' && <ClienteDetails />}
-                    {page === 'clienteinsert' && <ClienteInsert />}
-                    {page === 'clienteupdate' && <ClienteUpdate />} 
-                </ClienteContext.Provider>
-            </PageContext.Provider>
-        </div>
+        <>
+            <ClientesContext.Provider value={{ page: page, setPage: setPage }} >
+                <Box>
+                    <Content />
+                </Box>
+            </ClientesContext.Provider>
+        </>
     )
 }
+
+export default Clientes

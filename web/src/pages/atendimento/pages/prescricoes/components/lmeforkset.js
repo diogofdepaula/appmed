@@ -5,15 +5,15 @@ import { ClienteContext } from '../../../../../App';
 
 const LMEForkSet = () => {
 
-    const { clientecontext } = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
     const { prescricaoEdit, setPrescricaoEdit, setPage, setLmeEdit } = useContext(AtendimentoContext)
     const [lmes, setlmes] = useState([])
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfit/${clientecontext.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfit/${clienteContext.id}`)
         const json = await res.json();
         setlmes(json);
-    }, [clientecontext])
+    }, [clienteContext])
 
     useEffect(() => {
         fetchData();

@@ -8,7 +8,7 @@ export const PrescricaoContext = createContext(null)
 
 const PrescricaoInsert = () => {
 
-    const { clientecontext } = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
     const { setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
     
     const chargeInitial = useCallback(() => {
@@ -31,7 +31,7 @@ const PrescricaoInsert = () => {
             inicio: new Date(),
             termino: null,
             motivotermico: '',
-            clienteId: clientecontext.id, 
+            clienteId: clienteContext.id, 
             lmeId: null,
             medicamentoId: '',
             apresentacoId: '',
@@ -39,7 +39,7 @@ const PrescricaoInsert = () => {
         }
         setPrescricaoEdit(initial)
         setStep(11)
-    }, [setStep, setPrescricaoEdit, clientecontext ])
+    }, [setStep, setPrescricaoEdit, clienteContext ])
 
     useEffect(() => {
             chargeInitial()

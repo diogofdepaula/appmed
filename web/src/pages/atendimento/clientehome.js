@@ -3,7 +3,7 @@ import { ClienteContext } from '../../App'
 
 const ClienteHome = () => {
 
-    const { clientecontext } = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
     
     return (
         <div display="flex">
@@ -11,7 +11,7 @@ const ClienteHome = () => {
                 Página ClienteHome
             </div>
             <div>
-                {clientecontext.nome}
+                {clienteContext.nome}
             </div>
         </div>
     )

@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
 import { PageContentContext } from '../App';
 import Atendimento from '../pages/atendimento';
-import ClienteHome from '../pages/atendimento/clientehome';
+import Clientes from '../pages/cadastro/clientes';
 
 const MainContent = () => {
 
-    const { pagecontentcontext } = useContext(PageContentContext)
+    const { pageContentContext } = useContext(PageContentContext)
 
     const GetContent = () => {
 
-        switch (pagecontentcontext) {
+        switch (pageContentContext) {
             case 'atendimento':
                 return <Atendimento />
-            case 'clientehome':
-                return <ClienteHome />
+            case 'clientes':
+                 return <Clientes />
             case 'teste':
                 return <div>Deixa aqui para os testes</div>
             default:
