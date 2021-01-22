@@ -29,4 +29,5 @@ const ClienteData = () => {
     )
 }
 
+
 export default ClienteData
