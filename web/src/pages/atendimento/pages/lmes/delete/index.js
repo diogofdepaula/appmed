@@ -1,37 +1,47 @@
+import { Box, Button, Card, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { PageContext, LMEMainContext } from '../..';
-import { Row, Button } from 'react-bootstrap';
+import { AtendimentoContext } from '../../..';
 
-export default function LMEDelete() {
+const LMEDelete = () => {
 
-    const setPage = useContext(PageContext)
-    const { lmeMain, setLmeMain } = useContext(LMEMainContext)
+    const { setPage, lmeOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
 
     const handleDeleteLME = () => event => {
 
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/lmes/${lmeMain.id}`, {
+        fetch(`http://localhost:4001/api.appmed/lmes/${lmeOnDuty.id}`, {
             method: 'delete',
         }).then(data => {
             if (data.ok) {
-                setLmeMain(null)
-                setPage('prescricoes')
+                setLmeOnDuty(null)
+                setPage('prescricoesmain')
             }
         })
     }
 
     return (
-        <div>
-
-            <Row className="mt-2">
-                <Button
-                    className="mt-2 ml-2"
-                    variant="outline-danger"
-                    onClick={handleDeleteLME()}
-                >Remover LME (apagará ambos do bando de dados)
+        <>
+            {lmeOnDuty &&
+                <>
+                    <Box m={2}>
+                        <Card>
+                            <Box m={1} display="flex" justifyContent="center" alignItems="flex-end">
+                                <Typography variant={'h6'}>{lmeOnDuty.cid10 + " - " + lmeOnDuty.diagnostico} </Typography>
+                            </Box>
+                        </Card>
+                    </Box>
+                    <Box m={2}>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            onClick={handleDeleteLME()}
+                        >Remover LME (apagará a LME e as prescrições do bando de dados)
                 </Button>
-            </Row>
-
-        </div>
+                    </Box>
+                </>
+            }
+        </>
     )
 }
+
+export default LMEDelete

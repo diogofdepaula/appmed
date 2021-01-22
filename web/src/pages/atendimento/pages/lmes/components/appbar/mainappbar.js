@@ -1,6 +1,5 @@
 import { Box, IconButton, Tooltip } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -15,6 +14,10 @@ const LmesMainAppBar = () => {
         setLmeEdit(lmeOnDuty)
         setStep(21)
         setPage('lmeupdate')
+    }
+
+    const handleParar = () => {
+        setPage('lmedelete')
     }
 
     return (
@@ -39,16 +42,17 @@ const LmesMainAppBar = () => {
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title="Interromper uso">
+                <Tooltip title="Parar">
                     <span>
                         <IconButton
                             disabled={!lmeOnDuty}
+                            onClick={handleParar}
                         >
                             <HighlightOffIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title="Excluir">
+                {/* <Tooltip title="Excluir">
                     <span>
                         <IconButton
                             disabled={!lmeOnDuty}
@@ -56,7 +60,7 @@ const LmesMainAppBar = () => {
                             <DeleteIcon />
                         </IconButton>
                     </span>
-                </Tooltip>
+                </Tooltip> */}
                 <Tooltip title="Outros">
                     <span>
                         <IconButton
