@@ -1,54 +1,82 @@
-import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
+import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core';
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext } from '../../../../App';
+import { ClientesContext } from '..';
 import ClienteData from '../components/clientedata';
 
 const ClienteMain = () => {
 
-  const { clienteEdit, setClienteEdit } = useContext(ClienteContext)
- // const { page, setPage } = useContext(ClientesContext)
+  const { clienteEdit, setClienteEdit } = useContext(ClientesContext)
   const [clientes, setClientes] = useState([])
+  const [clientesfiltrados, setClientesFiltrados] = useState([])
 
   const fetchData = useCallback(async () => {
     const res = await fetch(`http://localhost:4001/api.appmed/clientes/allfit`)
     const json = await res.json();
     setClientes(json);
+    setClientesFiltrados(json)
   }, [setClientes])
 
   useEffect(() => {
     fetchData();
   }, [fetchData])
 
+  const filterClientes = event => {
+
+    let filtro = [...clientes].filter(w =>
+      w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
+      w.nascimento.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+    )
+    if (filtro.length === 0) {
+      filtro.push({
+        id: 0,
+        nome: "nenhum cliente encontrado"
+      })
+    }
+    setClientesFiltrados(filtro)
+  }
+
   return (
     <>
       <Box m={1}>
-        <Grid container spacing={1} >
-          <Grid item xs={4}>
-            <Box ml={1} mt={1}>
-              <TableContainer component={Paper} >
-                <Table>
-                  <TableBody>
-                    {clientes?.map(cliente =>
-                      <TableRow
-                        key={cliente.id}
-                        onClick={() => setClienteEdit(cliente)}
-                      >
-                        <TableCell component="th" scope="row">
-                          <Box fontWeight={clienteEdit?.id === cliente.id ? "fontWeightBold" : ""}>
-                            {cliente.nome}
-                          </Box>
-                        </TableCell>
-                      </TableRow>
-                    )}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Box>
+        <Grid container spacing={1}>
+          <Grid container item xs={4} direction="column" justify="flex-start" alignItems="stretch">
+            <Grid item>
+              <Box m={2}>
+                <TextField
+                  fullWidth
+                  label="Filtrar"
+                  variant="outlined"
+                  onChange={filterClientes}
+                />
+              </Box>
+            </Grid>
+            <Grid item>
+              <Box ml={1} mt={1}>
+                <TableContainer component={Paper} >
+                  <Table>
+                    <TableBody>
+                      {clientesfiltrados?.map(cliente =>
+                        <TableRow
+                          key={cliente.id}
+                          onClick={() => setClienteEdit(cliente)}
+                        >
+                          <TableCell component="th" scope="row">
+                            <Box fontWeight={clienteEdit?.id === cliente.id ? "fontWeightBold" : ""}>
+                              {cliente.nome}
+                            </Box>
+                          </TableCell>
+                        </TableRow>
+                      )}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Box>
+            </Grid>
           </Grid>
           <Grid item xs>
-             <Box mx={1}>
-              {clienteEdit && <ClienteData />}
-            </Box> 
+            <Box mx={1}>
+              {clienteEdit.id && <ClienteData />}
+            </Box>
           </Grid>
         </Grid>
       </Box>

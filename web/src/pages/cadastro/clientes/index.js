@@ -1,5 +1,6 @@
 import { Box } from '@material-ui/core';
-import React, { useState, createContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+import { ClienteContext } from '../../../App';
 import Content from './components/content';
 
 // tem o ClienteContext (sem s) que eu preferi manter
@@ -8,11 +9,22 @@ export const ClientesContext = createContext(null)
 
 const Clientes = () => {
 
-    const [ page, setPage ] = useState('')
+    const { clientesContext } = useContext(ClienteContext)
+
+    const [page, setPage] = useState('')
+    const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
+    const [clienteEdit, setClienteEdit] = useState([])
 
     return (
         <>
-            <ClientesContext.Provider value={{ page: page, setPage: setPage }} >
+            <ClientesContext.Provider value={{
+                page: page,
+                setPage: setPage,
+                clienteOnDuty: clienteOnDuty,
+                setClienteOnDuty: setClienteOnDuty,
+                clienteEdit: clienteEdit,
+                setClienteEdit: setClienteEdit,
+            }} >
                 <Box>
                     <Content />
                 </Box>

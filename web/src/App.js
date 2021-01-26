@@ -27,13 +27,13 @@ const App = () => {
 
   const classes = useStyles();
   const [clienteContext, setClienteContext] = useState()
-  const [clienteEdit, setClienteEdit] = useState([])
+
   const [pageContentContext, setPageContentContext] = useState()
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <ClienteContext.Provider value={{ clienteContext: clienteContext, setClienteContext: setClienteContext, clienteEdit: clienteEdit, setClienteEdit: setClienteEdit }} >
+      <ClienteContext.Provider value={{ clienteContext: clienteContext, setClienteContext: setClienteContext }} >
         <PageContentContext.Provider value={{ pageContentContext: pageContentContext, setPageContentContext: setPageContentContext }} >
           {/* não remover essas marcações div */}
           <div>

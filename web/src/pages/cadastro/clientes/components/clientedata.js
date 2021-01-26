@@ -3,11 +3,11 @@ import EditIcon from '@material-ui/icons/Edit';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from "date-fns/locale";
 import React, { useContext } from 'react';
-import { ClienteContext } from '../../../../App';
+import { ClientesContext } from '..';
 
 const ClienteData = () => {
 
-    const { clienteEdit } = useContext(ClienteContext)
+    const { clienteEdit } = useContext(ClientesContext)
 
     const date = clienteEdit.nascimento ? format(parseISO(clienteEdit.nascimento), "dd '/' MM '/' yyyy", { locale: ptBR }) : ''
 
