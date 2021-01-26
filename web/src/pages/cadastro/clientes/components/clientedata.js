@@ -7,9 +7,9 @@ import { ClientesContext } from '..';
 
 const ClienteData = () => {
 
-    const { clienteEdit } = useContext(ClientesContext)
+    const { clienteOnDuty } = useContext(ClientesContext)
 
-    const date = clienteEdit.nascimento ? format(parseISO(clienteEdit.nascimento), "dd '/' MM '/' yyyy", { locale: ptBR }) : ''
+    const date = clienteOnDuty.nascimento ? format(parseISO(clienteOnDuty.nascimento), "dd '/' MM '/' yyyy", { locale: ptBR }) : ''
 
     return (
         <>
@@ -21,22 +21,22 @@ const ClienteData = () => {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {clienteEdit.nome}
+                            {clienteOnDuty.nome}
                         </Typography>
-                        {clienteEdit.nascimento && <p>Data de Nascimento: {date}</p>}
-                        {clienteEdit.sexo
+                        {clienteOnDuty.nascimento && <p>Data de Nascimento: {date}</p>}
+                        {clienteOnDuty.sexo
                             ? <p>Sexo: Masculino</p>
                             : <p>Sexo: Feminino</p>
                         }
-                        <p>Peso: {clienteEdit.peso} Kg</p>
-                        <p>Altura: {clienteEdit.altura}cm</p>
-                        <p>Endereço: {clienteEdit.endereco}</p>
-                        <p>Tefelone: {clienteEdit.telefone}</p>
-                        <p>Celular: {clienteEdit.celular}</p>
-                        <p>E-mail: {clienteEdit.email}</p>
-                        <p>CNS: {clienteEdit.cns}</p>
-                        <p>CPF: {clienteEdit.cpf}</p>
-                        <p>Nome da mãe: {clienteEdit.mae}</p>
+                        <p>Peso: {clienteOnDuty.peso} Kg</p>
+                        <p>Altura: {clienteOnDuty.altura}cm</p>
+                        <p>Endereço: {clienteOnDuty.endereco}</p>
+                        <p>Tefelone: {clienteOnDuty.telefone}</p>
+                        <p>Celular: {clienteOnDuty.celular}</p>
+                        <p>E-mail: {clienteOnDuty.email}</p>
+                        <p>CNS: {clienteOnDuty.cns}</p>
+                        <p>CPF: {clienteOnDuty.cpf}</p>
+                        <p>Nome da mãe: {clienteOnDuty.mae}</p>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>

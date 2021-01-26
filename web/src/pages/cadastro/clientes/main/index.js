@@ -5,7 +5,7 @@ import ClienteData from '../components/clientedata';
 
 const ClienteMain = () => {
 
-  const { clienteEdit, setClienteEdit } = useContext(ClientesContext)
+  const { clienteOnDuty, setClienteOnDuty } = useContext(ClientesContext)
   const [clientes, setClientes] = useState([])
   const [clientesfiltrados, setClientesFiltrados] = useState([])
 
@@ -58,10 +58,10 @@ const ClienteMain = () => {
                       {clientesfiltrados?.map(cliente =>
                         <TableRow
                           key={cliente.id}
-                          onClick={() => setClienteEdit(cliente)}
+                          onClick={() => setClienteOnDuty(cliente)}
                         >
                           <TableCell component="th" scope="row">
-                            <Box fontWeight={clienteEdit?.id === cliente.id ? "fontWeightBold" : ""}>
+                            <Box fontWeight={clienteOnDuty?.id === cliente.id ? "fontWeightBold" : ""}>
                               {cliente.nome}
                             </Box>
                           </TableCell>
@@ -75,7 +75,7 @@ const ClienteMain = () => {
           </Grid>
           <Grid item xs>
             <Box mx={1}>
-              {clienteEdit.id && <ClienteData />}
+              {clienteOnDuty && <ClienteData />}
             </Box>
           </Grid>
         </Grid>

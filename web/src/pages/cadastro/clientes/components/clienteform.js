@@ -1,26 +1,27 @@
 import { Box, FormControlLabel, Grid, Radio, RadioGroup, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
-import { ClienteContext } from '..';
+import { ClientesContext } from '..';
 
-export default function ClienteForm() {
+const ClienteForm = () => {
 
-    const { cliente, setCliente } = useContext(ClienteContext)
+    const { clienteEdit, setClienteEdit } = useContext(ClientesContext)
 
     const handleChange = event => {
-        setCliente({ ...cliente, [event.target.name]: event.target.value })
+        setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
     }
 
     return (
         <>
-            <Grid container spacing={2}>
-                <Grid container spacing={2} >
+            <Grid container spacing={2} >
+                <Grid container item spacing={2} >
                     <Grid item xs={9} >
                         <TextField
                             autoFocus
                             fullWidth
                             name="nome"
                             label="Nome completo"
-                            value={cliente.nome}
+                            variant="outlined" 
+                            value={clienteEdit.nome}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -31,73 +32,81 @@ export default function ClienteForm() {
                                     name='sexo'
                                     value="feminino"
                                     control={<Radio />}
-                                    checked={cliente.sexo === "feminino"}
+                                    checked={clienteEdit.sexo === "feminino"}
                                     label="Feminino"
+                                    variant="outlined" 
                                 />
                                 <FormControlLabel
                                     name='sexo'
                                     value="masculino"
                                     control={<Radio />}
-                                    checked={cliente.sexo === "masculino"}
+                                    checked={clienteEdit.sexo === "masculino"}
                                     label="Masculino"
+                                    variant="outlined" 
                                 />
                             </Box>
                         </RadioGroup>
                     </Grid>
                 </Grid>
-                <Grid container spacing={2}>
+                <Grid container item spacing={2}>
                     <Grid item xs>
                         <TextField
                             name="nascimento"
                             label="Data de Nascimento"
                             type="date"
+                            variant="outlined" 
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            value={cliente.nascimento}
+                            value={clienteEdit.nascimento}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs>
                         <TextField
                             name="peso"
+                            variant="outlined" 
                             label="Peso(Kg)"
-                            value={cliente.peso}
+                            value={clienteEdit.peso}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs>
                         <TextField
                             name="altura"
+                            variant="outlined" 
                             label="Altura(cm)"
-                            value={cliente.altura}
+                            value={clienteEdit.altura}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs>
                         <TextField
                             name="telefone"
+                            variant="outlined" 
                             label="Telefone"
-                            value={cliente.telefone}
+                            value={clienteEdit.telefone}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs>
                         <TextField
                             name="celular"
+                            variant="outlined" 
                             label="Celular"
-                            value={cliente.celular}
+                            value={clienteEdit.celular}
                             onChange={handleChange}
                         />
                     </Grid>
                 </Grid>
-                <Grid container spacing={2}>
+                <Grid container item spacing={2}>
                     <Grid item xs>
                         <TextField
                             fullWidth
                             name="cns"
+                            variant="outlined" 
                             label="CNS"
-                            value={cliente.cns}
+                            value={clienteEdit.cns}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -105,8 +114,9 @@ export default function ClienteForm() {
                         <TextField
                             fullWidth
                             name="cpf"
+                            variant="outlined" 
                             label="CPF"
-                            value={cliente.cpf}
+                            value={clienteEdit.cpf}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -114,28 +124,31 @@ export default function ClienteForm() {
                         <TextField
                             fullWidth
                             name="email"
+                            variant="outlined" 
                             label="Email"
-                            value={cliente.email}
+                            value={clienteEdit.email}
                             onChange={handleChange}
                         />
                     </Grid>
                 </Grid>
-                <Grid container spacing={2}>
+                <Grid container item spacing={2}>
                     <Grid item xs sm>
                         <TextField
                             fullWidth
                             name="mae"
+                            variant="outlined" 
                             label="Nome da Mãe"
-                            value={cliente.mae}
+                            value={clienteEdit.mae}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs>
                         <TextField
                             fullWidth
+                            variant="outlined" 
                             name="endereco"
                             label="Endereço"
-                            value={cliente.enderecoe}
+                            value={clienteEdit.endereco}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -145,4 +158,4 @@ export default function ClienteForm() {
     )
 }
 
-
+export default ClienteForm

@@ -1,6 +1,7 @@
 import { Box } from '@material-ui/core';
 import React, { createContext, useContext, useState } from 'react';
 import { ClienteContext } from '../../../App';
+import ClientesAppBar from './components/appbar';
 import Content from './components/content';
 
 // tem o ClienteContext (sem s) que eu preferi manter
@@ -26,6 +27,7 @@ const Clientes = () => {
                 setClienteEdit: setClienteEdit,
             }} >
                 <Box>
+                    <ClientesAppBar />
                     <Content />
                 </Box>
             </ClientesContext.Provider>
