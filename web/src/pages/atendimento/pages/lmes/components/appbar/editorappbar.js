@@ -65,8 +65,6 @@ const EditorAppBar = () => {
         break;
     }
 
-    console.log('lme')
-
     event.preventDefault();
     fetch(submitvar[0], {
       method: submitvar[1],

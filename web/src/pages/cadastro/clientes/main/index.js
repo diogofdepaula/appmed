@@ -10,7 +10,7 @@ const ClienteMain = () => {
   const [clientesfiltrados, setClientesFiltrados] = useState([])
 
   const fetchData = useCallback(async () => {
-    const res = await fetch(`http://localhost:4001/api.appmed/clientes/allfit`)
+    const res = await fetch(`http://localhost:4001/api.appmed/clientes/allfat`)
     const json = await res.json();
     setClientes(json);
     setClientesFiltrados(json)

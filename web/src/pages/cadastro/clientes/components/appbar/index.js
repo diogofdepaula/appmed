@@ -14,84 +14,90 @@ const ClientesAppBar = () => {
 
     const { clienteOnDuty, setClienteOnDuty, clienteEdit, setClienteEdit, page, setPage } = useContext(ClientesContext)
 
-    const handleNovo = () => {
+    const handleBack = () => {
+        setClienteEdit(null)
+        setClienteOnDuty(null)
+        setPage('clientemain')
+    }
+
+    const handleInsert = () => {
         const newcliente = InitialCliente()
         setClienteOnDuty(null)
         setClienteEdit(newcliente)
         setPage('clienteinsert')
     }
 
-    const handleEditar = () => {
+    const handleUpdate = () => {
         setClienteEdit(clienteOnDuty)
         setPage('clienteupdate')
     }
 
-    // const handleParar = () => {
-    //     setPrescricaoEdit(prescricaoOnDuty)
-    //     setPage('prescricaodelete')
-    // }
-
     const handleSubmit = event => {
 
         // submit do insert e update , da prescricoes e lme juntos
-    
+
         let clipost = [`http://localhost:4001/api.appmed/clientes`, 'post', clienteEdit]
         let cliput = [`http://localhost:4001/api.appmed/clientes/${clienteEdit.id}`, 'put', clienteEdit]
-    
+
         let submitvar
-    
+
         switch (page) {
-          case 'clienteinsert':
-            submitvar = clipost
-            break;
-          case 'clienteupdate':
-            submitvar = cliput
-            break;
-          default:
-            break;
+            case 'clienteinsert':
+                submitvar = clipost
+                break;
+            case 'clienteupdate':
+                submitvar = cliput
+                break;
+            default:
+                break;
         }
-    
+
         event.preventDefault();
         fetch(submitvar[0], {
-          method: submitvar[1],
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(submitvar[2])
+            method: submitvar[1],
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(submitvar[2])
         }).then(data => {
-          if (data.ok) {
-            setPage('clientemain')
-            setClienteEdit(null)
-            setClienteOnDuty(null)
-          }
+            if (data.ok) {
+                //tem que inventar um refresh
+                setPage('clientemain')
+                setClienteEdit(null)
+                setClienteOnDuty(null)
+            }
         })
-      }
+    }
 
-    // const handleSubmit = event => {
-    //     // fazer uma validação descente depois.
-    //     // fazer antes de submeter. Lá no form ou na habilitação do botão
-    //     event.preventDefault();
-    //     fetch(`http://localhost:4001/api.appmed/clientes`, {
-    //         method: 'post',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(clienteEdit)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             setPage('clientemain')
-    //         }
-    //     })
-    // }
+    const fetchDelete = () => {
 
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-    //     fetch(`http://localhost:4001/api.appmed/clientes/${clienteEdit.id}`, {
-    //         method: 'put',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(clienteEdit)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             setPage('clientemain')
-    //         }
-    //     })
-    // }
+        fetch(`http://localhost:4001/api.appmed/clientes/${clienteOnDuty.id}`, {
+            method: 'delete'
+        }).then(data => {
+            if (data.ok) {
+                handleBack()
+            }
+        })
+
+        fetch(`http://localhost:4001/api.appmed/clientes/${clienteOnDuty.id}`, {
+            method: 'delete'
+        }).then(data => {
+            if (data.ok) {
+                handleBack()
+            }
+        })
+
+        fetch(`http://localhost:4001/api.appmed/clientes/${clienteOnDuty.id}`, {
+            method: 'delete'
+        }).then(data => {
+            if (data.ok) {
+                handleBack()
+            }
+        })
+    }
+
+    const handleDelete = () => {
+        fetchDelete()
+    }
+
 
     return (
         <>
@@ -99,7 +105,8 @@ const ClientesAppBar = () => {
                 <Tooltip title="Voltar">
                     <span>
                         <IconButton
-                        //disabled={!prescricaoOnDuty}
+                            disabled={!clienteOnDuty}
+                            onClick={handleBack}
                         >
                             <ArrowUpwardIcon />
                         </IconButton>
@@ -107,7 +114,7 @@ const ClientesAppBar = () => {
                 </Tooltip>
                 <Tooltip title="Novo cliente">
                     <IconButton
-                        onClick={handleNovo}
+                        onClick={handleInsert}
                     >
                         <PersonAddIcon />
                     </IconButton>
@@ -116,7 +123,7 @@ const ClientesAppBar = () => {
                     <span>
                         <IconButton
                             disabled={!clienteOnDuty}
-                            onClick={handleEditar}
+                            onClick={handleUpdate}
                         >
                             <EditIcon />
                         </IconButton>
@@ -135,7 +142,8 @@ const ClientesAppBar = () => {
                 <Tooltip title="Excluir">
                     <span>
                         <IconButton
-                        // disabled={!prescricaoOnDuty}
+                            disabled={!clienteOnDuty}
+                            onClick={handleDelete}
                         >
                             <DeleteIcon />
                         </IconButton>

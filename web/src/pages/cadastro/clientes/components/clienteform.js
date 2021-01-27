@@ -20,7 +20,7 @@ const ClienteForm = () => {
                             fullWidth
                             name="nome"
                             label="Nome completo"
-                            variant="outlined" 
+                            variant="outlined"
                             value={clienteEdit.nome}
                             onChange={handleChange}
                         />
@@ -34,7 +34,7 @@ const ClienteForm = () => {
                                     control={<Radio />}
                                     checked={clienteEdit.sexo === "feminino"}
                                     label="Feminino"
-                                    variant="outlined" 
+                                    variant="outlined"
                                 />
                                 <FormControlLabel
                                     name='sexo'
@@ -42,7 +42,7 @@ const ClienteForm = () => {
                                     control={<Radio />}
                                     checked={clienteEdit.sexo === "masculino"}
                                     label="Masculino"
-                                    variant="outlined" 
+                                    variant="outlined"
                                 />
                             </Box>
                         </RadioGroup>
@@ -54,7 +54,7 @@ const ClienteForm = () => {
                             name="nascimento"
                             label="Data de Nascimento"
                             type="date"
-                            variant="outlined" 
+                            variant="outlined"
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -65,7 +65,7 @@ const ClienteForm = () => {
                     <Grid item xs>
                         <TextField
                             name="peso"
-                            variant="outlined" 
+                            variant="outlined"
                             label="Peso(Kg)"
                             value={clienteEdit.peso}
                             onChange={handleChange}
@@ -74,7 +74,7 @@ const ClienteForm = () => {
                     <Grid item xs>
                         <TextField
                             name="altura"
-                            variant="outlined" 
+                            variant="outlined"
                             label="Altura(cm)"
                             value={clienteEdit.altura}
                             onChange={handleChange}
@@ -83,7 +83,7 @@ const ClienteForm = () => {
                     <Grid item xs>
                         <TextField
                             name="telefone"
-                            variant="outlined" 
+                            variant="outlined"
                             label="Telefone"
                             value={clienteEdit.telefone}
                             onChange={handleChange}
@@ -92,7 +92,7 @@ const ClienteForm = () => {
                     <Grid item xs>
                         <TextField
                             name="celular"
-                            variant="outlined" 
+                            variant="outlined"
                             label="Celular"
                             value={clienteEdit.celular}
                             onChange={handleChange}
@@ -104,7 +104,7 @@ const ClienteForm = () => {
                         <TextField
                             fullWidth
                             name="cns"
-                            variant="outlined" 
+                            variant="outlined"
                             label="CNS"
                             value={clienteEdit.cns}
                             onChange={handleChange}
@@ -114,7 +114,7 @@ const ClienteForm = () => {
                         <TextField
                             fullWidth
                             name="cpf"
-                            variant="outlined" 
+                            variant="outlined"
                             label="CPF"
                             value={clienteEdit.cpf}
                             onChange={handleChange}
@@ -124,7 +124,7 @@ const ClienteForm = () => {
                         <TextField
                             fullWidth
                             name="email"
-                            variant="outlined" 
+                            variant="outlined"
                             label="Email"
                             value={clienteEdit.email}
                             onChange={handleChange}
@@ -136,7 +136,7 @@ const ClienteForm = () => {
                         <TextField
                             fullWidth
                             name="mae"
-                            variant="outlined" 
+                            variant="outlined"
                             label="Nome da Mãe"
                             value={clienteEdit.mae}
                             onChange={handleChange}
@@ -145,7 +145,7 @@ const ClienteForm = () => {
                     <Grid item xs>
                         <TextField
                             fullWidth
-                            variant="outlined" 
+                            variant="outlined"
                             name="endereco"
                             label="Endereço"
                             value={clienteEdit.endereco}
