@@ -32,19 +32,66 @@ const ClientesAppBar = () => {
     // }
 
     const handleSubmit = event => {
-        // fazer uma validação descente depois.
-        // fazer antes de submeter. Lá no form ou na habilitação do botão
+
+        // submit do insert e update , da prescricoes e lme juntos
+    
+        let clipost = [`http://localhost:4001/api.appmed/clientes`, 'post', clienteEdit]
+        let cliput = [`http://localhost:4001/api.appmed/clientes/${clienteEdit.id}`, 'put', clienteEdit]
+    
+        let submitvar
+    
+        switch (page) {
+          case 'clienteinsert':
+            submitvar = clipost
+            break;
+          case 'clienteupdate':
+            submitvar = cliput
+            break;
+          default:
+            break;
+        }
+    
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/clientes`, {
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(clienteEdit)
+        fetch(submitvar[0], {
+          method: submitvar[1],
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(submitvar[2])
         }).then(data => {
-            if (data.ok) {
-                setPage('clientemain')
-            }
+          if (data.ok) {
+            setPage('clientemain')
+            setClienteEdit(null)
+            setClienteOnDuty(null)
+          }
         })
-    }
+      }
+
+    // const handleSubmit = event => {
+    //     // fazer uma validação descente depois.
+    //     // fazer antes de submeter. Lá no form ou na habilitação do botão
+    //     event.preventDefault();
+    //     fetch(`http://localhost:4001/api.appmed/clientes`, {
+    //         method: 'post',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(clienteEdit)
+    //     }).then(data => {
+    //         if (data.ok) {
+    //             setPage('clientemain')
+    //         }
+    //     })
+    // }
+
+    // const handleSubmit = event => {
+    //     event.preventDefault();
+    //     fetch(`http://localhost:4001/api.appmed/clientes/${clienteEdit.id}`, {
+    //         method: 'put',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(clienteEdit)
+    //     }).then(data => {
+    //         if (data.ok) {
+    //             setPage('clientemain')
+    //         }
+    //     })
+    // }
 
     return (
         <>
