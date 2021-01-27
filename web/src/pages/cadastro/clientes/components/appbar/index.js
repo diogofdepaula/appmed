@@ -12,7 +12,7 @@ import InitialCliente from '../initialcliente';
 
 const ClientesAppBar = () => {
 
-    const { clienteOnDuty, setClienteOnDuty, setClienteEdit, setPage } = useContext(ClientesContext)
+    const { clienteOnDuty, setClienteOnDuty, clienteEdit, setClienteEdit, page, setPage } = useContext(ClientesContext)
 
     const handleNovo = () => {
         const newcliente = InitialCliente()
@@ -31,18 +31,18 @@ const ClientesAppBar = () => {
     //     setPage('prescricaodelete')
     // }
 
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-    //     fetch(`http://localhost:4001/api.appmed/clientes`, {
-    //         method: 'post',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(cliente)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             setPage('clientemain')
-    //         }
-    //     })
-    // }
+    const handleSubmit = event => {
+        event.preventDefault();
+        fetch(`http://localhost:4001/api.appmed/clientes`, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(clienteEdit)
+        }).then(data => {
+            if (data.ok) {
+                setPage('clientemain')
+            }
+        })
+    }
 
     return (
         <>
@@ -57,12 +57,12 @@ const ClientesAppBar = () => {
                     </span>
                 </Tooltip>
                 <Tooltip title="Novo cliente">
-                        <IconButton
-                           onClick={handleNovo}
-                        >
-                            <PersonAddIcon />
-                        </IconButton>
-                    </Tooltip>
+                    <IconButton
+                        onClick={handleNovo}
+                    >
+                        <PersonAddIcon />
+                    </IconButton>
+                </Tooltip>
                 <Tooltip title="Editar">
                     <span>
                         <IconButton
@@ -76,8 +76,8 @@ const ClientesAppBar = () => {
                 <Tooltip title="Salvar">
                     <span>
                         <IconButton
-                        //   disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
-                        // onClick={handleSubmit}
+                            disabled={page === 'clienteinsert' ? (clienteEdit.nome !== "" ? false : true) : false}
+                            onClick={handleSubmit}
                         >
                             <SaveIcon />
                         </IconButton>
