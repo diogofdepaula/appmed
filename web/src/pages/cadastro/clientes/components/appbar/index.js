@@ -32,6 +32,8 @@ const ClientesAppBar = () => {
     // }
 
     const handleSubmit = event => {
+        // fazer uma validação descente depois.
+        // fazer antes de submeter. Lá no form ou na habilitação do botão
         event.preventDefault();
         fetch(`http://localhost:4001/api.appmed/clientes`, {
             method: 'post',
