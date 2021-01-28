@@ -76,22 +76,6 @@ const ClientesAppBar = () => {
                 handleBack()
             }
         })
-
-        fetch(`http://localhost:4001/api.appmed/clientes/${clienteOnDuty.id}`, {
-            method: 'delete'
-        }).then(data => {
-            if (data.ok) {
-                handleBack()
-            }
-        })
-
-        fetch(`http://localhost:4001/api.appmed/clientes/${clienteOnDuty.id}`, {
-            method: 'delete'
-        }).then(data => {
-            if (data.ok) {
-                handleBack()
-            }
-        })
     }
 
     const handleDelete = () => {

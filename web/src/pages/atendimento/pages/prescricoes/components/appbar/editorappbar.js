@@ -41,10 +41,12 @@ const EditorAppBar = () => {
 
     // submit do insert e update , da prescricoes e lme juntos
 
+    console.log("sabe da prescricao ", page );
+
     let prespost = [`http://localhost:4001/api.appmed/prescricoes`, 'post', prescricaoEdit]
     let lmepost = [`http://localhost:4001/api.appmed/lmes`, 'post', lmeEdit]
-    let presput = [`http://localhost:4001/api.appmed/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit]
-    let lmeput = [`http://localhost:4001/api.appmed/lmes/${lmeEdit.id}`, 'put', lmeEdit]
+    let presput = prescricaoEdit ? [`http://localhost:4001/api.appmed/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit] : []
+    let lmeput = lmeEdit ? [`http://localhost:4001/api.appmed/lmes/${lmeEdit.id}`, 'put', lmeEdit] : []
 
     let submitvar
 
@@ -64,8 +66,6 @@ const EditorAppBar = () => {
       default:
         break;
     }
-
-    console.log('presc')
 
     event.preventDefault();
     fetch(submitvar[0], {

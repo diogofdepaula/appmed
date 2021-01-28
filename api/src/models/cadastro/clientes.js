@@ -1,5 +1,7 @@
 const { DataTypes, Model } = require('sequelize');
-const database = require('../../database/database')
+const database = require('../../database/database');
+const Lmes = require('../atendimento/lmes');
+const Prescricoes = require('../atendimento/prescricoes');
 const sequelize = database.sequelize;
 
 class Clientes extends Model { }
@@ -45,5 +47,8 @@ Clientes.init({
     sequelize,
     modelName: 'clientes'
 });
+
+Clientes.hasMany(Prescricoes, {onDelete: 'cascade'})
+Clientes.hasMany(Lmes, {onDelete: 'cascade'}) 
 
 module.exports = Clientes;

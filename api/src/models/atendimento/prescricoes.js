@@ -67,7 +67,7 @@ Prescricoes.init({
 });
 
 // No belongsTo a forentkey fica aqui // no HasOne a chave fila lá // sempre deixa com o mais fraco que ser apagado não apaga o outro da relação
-Prescricoes.belongsTo(Clientes)
+//Prescricoes.belongsTo(Clientes)
 Prescricoes.belongsTo(Medicamentos) 
 Prescricoes.belongsTo(Apresentacoes)
 Prescricoes.belongsTo(Posologias)

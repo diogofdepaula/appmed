@@ -45,7 +45,7 @@ Lmes.init({
     modelName: 'lmes'
 });
 
-Lmes.belongsTo(Clientes) 
+//Lmes.belongsTo(Clientes) 
 Lmes.hasOne(Relatorios, {onDelete: 'cascade'})
 Lmes.hasMany(Prescricoes, {onDelete: 'cascade'})
 
