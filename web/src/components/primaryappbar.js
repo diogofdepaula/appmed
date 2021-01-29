@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
+        cursor: 'default'
     },
     search: {
         position: 'relative',
@@ -115,7 +116,7 @@ const PrimaryAppBar = () => {
     };
 
     const handleHome = () => {
-        console.log("teste");
+        window.location.reload()
     }
 
     const menuId = 'primary-search-account-menu';
@@ -195,7 +196,7 @@ const PrimaryAppBar = () => {
                             onClick={handleHome}
                         >
                             APPMed
-                            </Typography>
+                        </Typography>
                     </div>
                     <div className={classes.grow} >
                         <ClienteSet />
