@@ -41,8 +41,6 @@ const EditorAppBar = () => {
 
     // submit do insert e update , da prescricoes e lme juntos
 
-    console.log("sabe da prescricao ", page );
-
     let prespost = [`http://localhost:4001/api.appmed/prescricoes`, 'post', prescricaoEdit]
     let lmepost = [`http://localhost:4001/api.appmed/lmes`, 'post', lmeEdit]
     let presput = prescricaoEdit ? [`http://localhost:4001/api.appmed/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit] : []

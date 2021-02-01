@@ -1,3 +1,5 @@
+import { format } from "date-fns"
+
 export default function InitialPrescricao (param) {
 
     const initial = {
@@ -15,7 +17,7 @@ export default function InitialPrescricao (param) {
         lmemes4: '',
         lmemes5: '',
         lmemes6: '',
-        inicio: new Date(),
+        inicio: format(new Date(), "yyyy-MM-dd"), //new Date(),
         termino: null,
         motivotermico: '',
         clienteId: param, 

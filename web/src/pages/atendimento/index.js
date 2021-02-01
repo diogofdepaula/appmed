@@ -46,22 +46,34 @@ const Atendimento = () => {
                 setLmeOnDuty: setLmeOnDuty,
                 lmeEdit: lmeEdit,
                 setLmeEdit: setLmeEdit,
-                medicamentoEdit: medicamentoEdit, 
+                medicamentoEdit: medicamentoEdit,
                 setMedicamentoEdit: setMedicamentoEdit,
             }} >
                 <Box>
                     <Divider />
                     <AtendimentoAppBar />
                     <Content />
-                    {/* step: {JSON.stringify(step)}
+
                     <Divider />
-                    page: {JSON.stringify(page)}
+                    step: {JSON.stringify(step)}
                     <Divider />
+
+                    {/* <Divider />
+                    page: {JSON.stringify(page)} 
+                    <Divider /> */}
+                    {/* <Divider />
                     prescEdit: {JSON.stringify(prescricaoEdit)}
-                    <Divider />
+                    <Divider /> */}
+                    
+                    <Divider /> 
                     lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />
-                    medicamentoEdit:  {JSON.stringify(medicamentoEdit)} */}
+                   
+                    {/*
+                    <Divider /> 
+                    medicamentoEdit:  {JSON.stringify(medicamentoEdit)} 
+                    <Divider /> 
+                    */}
                 </Box>
             </AtendimentoContext.Provider>
         </>

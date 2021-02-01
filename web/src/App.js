@@ -30,8 +30,6 @@ const App = () => {
 
   const [pageContentContext, setPageContentContext] = useState()
 
-  console.log('App teste');
-
   return (
     <div className={classes.root}>
       <CssBaseline />

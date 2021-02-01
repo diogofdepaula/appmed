@@ -15,7 +15,8 @@ const PrescricaoVarSet = () => {
         setPrescricaoEdit({ ...prescricaoEdit, [name]: value })
     }
 
-    const handleDataInicio = event => {
+    const handleDataInicio = (event) => {
+        console.log('passou por aqui');
         setPrescricaoEdit({ ...prescricaoEdit, inicio: format(parseISO(event.target.value), "yyyy-MM-dd") })
     }
 
