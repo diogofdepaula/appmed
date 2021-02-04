@@ -56,21 +56,22 @@ const Atendimento = () => {
                     <AtendimentoAppBar />
                     <Content />
 
-                    <Divider />
-                    step: {JSON.stringify(step)}
-                    <Divider />
-
                     {/* <Divider />
+                    step: {JSON.stringify(step)}
+                    <Divider /> */}
+{/* 
+                    <Divider />
                     page: {JSON.stringify(page)} 
                     <Divider /> */}
+
                     {/* <Divider />
                     prescEdit: {JSON.stringify(prescricaoEdit)}
                     <Divider /> */}
                     
-                    <Divider /> 
+                    {/* <Divider /> 
                     lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />
-                   
+                    */}
                     {/*
                     <Divider /> 
                     medicamentoEdit:  {JSON.stringify(medicamentoEdit)} 

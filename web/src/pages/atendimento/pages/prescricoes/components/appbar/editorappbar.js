@@ -6,7 +6,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ReplayIcon from '@material-ui/icons/Replay';
 import SaveIcon from '@material-ui/icons/Save';
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
 import InitialPrescricao from '../../../../component/initialprescricao';
@@ -15,7 +15,7 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 const EditorAppBar = () => {
 
   const { clienteContext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit, lmeEdit } = useContext(AtendimentoContext)
+  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clienteContext.id)
@@ -24,17 +24,55 @@ const EditorAppBar = () => {
     setStep(11)
   }
 
-  const linkLME = () => {
-    setPrescricaoEdit(prescricaoEdit)
-    setStep(51)
-  }
-
   const previousStep = () => {
     setStep(prevState => prevState - 10)
   }
 
   const nextStep = () => {
     setStep(prevState => prevState + 10)
+  }
+
+  const linkLME = () => {
+    setPrescricaoEdit(prescricaoEdit)
+    setStep(51)
+  }
+
+  const fetchDataLME = useCallback(async () => {
+
+    const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoEdit.lmeId}`)
+    const json = await res.json();
+    // o findOne do Sequelize não tras os includes, por isso usou-se findAll
+    let lmeupdate = json[0]
+
+    //console.log(lmeupdate);
+
+    let index = lmeupdate.prescricoes.findIndex((p) => p.id === prescricaoEdit.id);
+    //if (index === -1) {
+    //  lmeupdate.prescricoes.push(prescricaoEdit);
+    //} else {
+      lmeupdate.prescricoes[index] = prescricaoEdit;
+    //}
+    //console.log(lmeupdate);
+    setLmeEdit(lmeupdate)
+
+
+  }, [prescricaoEdit, setLmeEdit])
+
+  const sendFork = () => {
+    setPrescricaoEdit(prescricaoEdit)
+    if (prescricaoEdit.lmeId) {
+      // setando a LMEEdit para mandar para o updatelme já setado
+      // fiz isso, pois prescricoes a serem inclusas em lme existente
+      // já manda para o lmeupdate com lmeEdit com a prescricão nova
+      // adicionada (vide LMEForkSet - const handleTableRow)
+      fetchDataLME()
+
+      setPage('lmeupdate')
+      setStep(21)
+    } else {
+      // envia para ForkLME para adicionar a uma LME
+      setStep(61)
+    }
   }
 
   const handleSubmit = event => {
@@ -98,16 +136,7 @@ const EditorAppBar = () => {
   //   })
   // }
 
-  const sendFork = () => {
-    setPrescricaoEdit(prescricaoEdit)
-    if (prescricaoEdit.lmeId) {
-      
-      setPage('lmeupdate')
-      setStep(21) // manda para o lmeupdate
-    } else {
-      setStep(61) // continua a edição
-    }
-  }
+
 
   return (
     <Grid container direction="row" justify="flex-start" alignItems="center">
@@ -155,7 +184,7 @@ const EditorAppBar = () => {
         </span>
       </Tooltip>
       <Tooltip
-        title={!prescricaoEdit.id ? 'Vincular a uma LME' : 'Editar LME'}
+        title={!prescricaoEdit.id ? 'Vincular a uma LME' : 'Editar doses na LME'}
       >
         <span>
           <IconButton
@@ -164,6 +193,7 @@ const EditorAppBar = () => {
           >
             <ArrowForwardIcon />
             <AccountBalanceIcon />
+            Editar doses na LME
           </IconButton>
         </span>
       </Tooltip>

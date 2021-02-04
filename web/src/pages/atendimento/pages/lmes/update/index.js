@@ -1,10 +1,9 @@
-import React, { useCallback, useContext, useEffect } from 'react';
-import { AtendimentoContext } from '../../..';
+import React from 'react';
 import LMEEditor from '../editor';
 
 const LMEUpdate = () => {
 
-    const { prescricaoEdit, lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
+    //const { prescricaoEdit, lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     // já vai vir com a prescricao na lme
 
