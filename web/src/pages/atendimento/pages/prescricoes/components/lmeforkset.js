@@ -6,7 +6,7 @@ import { ClienteContext } from '../../../../../App';
 const LMEForkSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setPrescricaoEdit, setPage, setLmeEdit, setStep } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPage, lmeEdit, setLmeEdit, setStep } = useContext(AtendimentoContext)
     const [lmes, setlmes] = useState([])
 
     const fetchData = useCallback(async () => {
@@ -20,16 +20,18 @@ const LMEForkSet = () => {
     }, [fetchData])
 
     const handleTableRow = param => () => {
-        setPrescricaoEdit({
-            ...prescricaoEdit,
-            lmeId: param.id
+
+        // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
+        setLmeEdit({
+            ...param,
+            prescricoes: [...param.prescricoes, {...prescricaoEdit, lmeId: param.id}]
         })
-        setLmeEdit(param)
         setPage('lmeupdate')
         setStep(21)
     }
 
     const handleNewLME = () => {
+        // vai criar uma nova lme para inserir prescricao nela
         setPage('lmeinsert')
         setStep(11)
     }

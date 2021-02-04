@@ -6,7 +6,6 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ReplayIcon from '@material-ui/icons/Replay';
 import SaveIcon from '@material-ui/icons/Save';
-import { lastDayOfISOWeek } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -38,10 +37,6 @@ const EditorAppBar = () => {
     setStep(prevState => prevState + 10)
   }
 
-  const fetchSubmit = (var1, var2, var3 ) => {
-
-  }
-
   const handleSubmit = event => {
 
     // submit do insert e update , da prescricoes e lme juntos
@@ -69,11 +64,6 @@ const EditorAppBar = () => {
       default:
         break;
     }
-
-    TEM QUE REFAZER ISSO AQUI PARA SALVAR E ATUALIZAR TANTO PRESCRICAO NOVA COMO UPDATE E LME NOVA E UPDATE
-    TEM QUE FAZER PARA OS DOIS 
-    USAR O IF ID >0 OU != NULL PARA DeferredPermissionRequest
-    FAZER UMA FUNÇÃO NOVA.
 
     event.preventDefault();
     fetch(submitvar[0], {
@@ -111,6 +101,7 @@ const EditorAppBar = () => {
   const sendFork = () => {
     setPrescricaoEdit(prescricaoEdit)
     if (prescricaoEdit.lmeId) {
+      
       setPage('lmeupdate')
       setStep(21) // manda para o lmeupdate
     } else {

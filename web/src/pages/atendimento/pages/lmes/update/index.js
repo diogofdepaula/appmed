@@ -6,28 +6,30 @@ const LMEUpdate = () => {
 
     const { prescricaoEdit, lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
-    const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoEdit.lmeId}`)
-        const json = await res.json();
-        // o findOne do Sequelize não tras os includes, por isso usou-se findAll
-        let lmeupdate = json[0]
-        let index = lmeupdate.prescricoes.findIndex((p) => p.id === prescricaoEdit.id);
-        if (index === -1) {
-            lmeupdate.prescricoes.push(prescricaoEdit);
-        } else {
-            lmeupdate.prescricoes[index] = prescricaoEdit;
-        }
-        setLmeEdit(lmeupdate)
+    // já vai vir com a prescricao na lme
 
-    }, [prescricaoEdit, setLmeEdit])
+    // const fetchData = useCallback(async () => {
+    //     const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoEdit.lmeId}`)
+    //     const json = await res.json();
+    //     // o findOne do Sequelize não tras os includes, por isso usou-se findAll
+    //     let lmeupdate = json[0]
+    //     let index = lmeupdate.prescricoes.findIndex((p) => p.id === prescricaoEdit.id);
+    //     if (index === -1) {
+    //         lmeupdate.prescricoes.push(prescricaoEdit);
+    //     } else {
+    //         lmeupdate.prescricoes[index] = prescricaoEdit;
+    //     }
+    //     setLmeEdit(lmeupdate)
 
-    useEffect(() => {
-        if (!lmeEdit) {
-            fetchData()
-        }
-    }, [lmeEdit, fetchData])
+    // }, [prescricaoEdit, setLmeEdit])
 
+    // useEffect(() => {
+    //     if (!lmeEdit) {
+    //         fetchData()
+    //     }
+    // }, [lmeEdit, fetchData])
 
+    // console.log(lmeEdit);
 
     // const fetchData = useCallback(async () => {
     //     const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoMain.lmeId}`)

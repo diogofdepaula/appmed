@@ -28,6 +28,8 @@ const Atendimento = () => {
         })
     }
 
+    console.log(lmeEdit);
+
     return (
         <>
             <ClienteHeader />

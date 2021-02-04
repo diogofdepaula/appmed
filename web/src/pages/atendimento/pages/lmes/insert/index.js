@@ -21,6 +21,7 @@ const LMEInsert = () => {
             preenchidoporCPF: '',
             raca: '',
             clienteId: clienteContext.id,
+            // isso adiciona a nova prescricao na nova lme
             prescricoes: prescricaoEdit,
             relatorio: medicamentoEdit?.classe === 'MMCDB' ? 
             {
