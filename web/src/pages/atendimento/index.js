@@ -28,8 +28,6 @@ const Atendimento = () => {
         })
     }
 
-    console.log(lmeEdit);
-
     return (
         <>
             <ClienteHeader />
@@ -58,25 +56,30 @@ const Atendimento = () => {
 
                     {/* <Divider />
                     step: {JSON.stringify(step)}
-                    <Divider /> */}
-{/* 
+                    <Divider />
+
                     <Divider />
                     page: {JSON.stringify(page)} 
-                    <Divider /> */}
+                    <Divider />
 
-                    {/* <Divider />
+                    <Divider />
                     prescEdit: {JSON.stringify(prescricaoEdit)}
-                    <Divider /> */}
+                    <Divider />
                     
-                    {/* <Divider /> 
+                    <Divider />
+                    prescOnDuty: {JSON.stringify(prescricaoOnDuty)}
+                    <Divider />
+
+
+                    <Divider /> 
                     lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />
-                    */}
-                    {/*
+                   
+                    
                     <Divider /> 
                     medicamentoEdit:  {JSON.stringify(medicamentoEdit)} 
-                    <Divider /> 
-                    */}
+                    <Divider />  */}
+                   
                 </Box>
             </AtendimentoContext.Provider>
         </>

@@ -15,7 +15,7 @@ import InitialPrescricao from '../../../../component/initialprescricao';
 const EditorAppBar = () => {
 
   const { clienteContext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
+  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clienteContext.id)
@@ -43,18 +43,9 @@ const EditorAppBar = () => {
     const json = await res.json();
     // o findOne do Sequelize não tras os includes, por isso usou-se findAll
     let lmeupdate = json[0]
-
-    //console.log(lmeupdate);
-
     let index = lmeupdate.prescricoes.findIndex((p) => p.id === prescricaoEdit.id);
-    //if (index === -1) {
-    //  lmeupdate.prescricoes.push(prescricaoEdit);
-    //} else {
-      lmeupdate.prescricoes[index] = prescricaoEdit;
-    //}
-    //console.log(lmeupdate);
+    lmeupdate.prescricoes[index] = prescricaoEdit;
     setLmeEdit(lmeupdate)
-
 
   }, [prescricaoEdit, setLmeEdit])
 
@@ -66,7 +57,6 @@ const EditorAppBar = () => {
       // já manda para o lmeupdate com lmeEdit com a prescricão nova
       // adicionada (vide LMEForkSet - const handleTableRow)
       fetchDataLME()
-
       setPage('lmeupdate')
       setStep(21)
     } else {
@@ -110,11 +100,19 @@ const EditorAppBar = () => {
       body: JSON.stringify(submitvar[2])
     }).then(data => {
       if (data.ok) {
-        setPage('prescricoesmain')
+        // setPage('prescricoesmain')
+        // setStep(0)
+        // let newpresc = InitialPrescricao(clienteContext.id)
+        // setPrescricaoEdit(newpresc)
+        // setMedicamentoEdit(null)
+
         setStep(0)
-        let newpresc = InitialPrescricao(clienteContext.id)
-        setPrescricaoEdit(newpresc)
+        setPrescricaoEdit(null)
+        setPrescricaoOnDuty(null)
+        setLmeEdit(null)
+        setLmeOnDuty(null)
         setMedicamentoEdit(null)
+        setPage('prescricoesmain')
       }
     })
   }
@@ -184,7 +182,7 @@ const EditorAppBar = () => {
         </span>
       </Tooltip>
       <Tooltip
-        title={!prescricaoEdit.id ? 'Vincular a uma LME' : 'Editar doses na LME'}
+        title={!prescricaoEdit?.id ? 'Vincular a uma LME' : 'Editar doses na LME'}
       >
         <span>
           <IconButton
