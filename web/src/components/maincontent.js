@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { PageContentContext } from '../App';
 import Atendimento from '../pages/atendimento';
 import Clientes from '../pages/cadastro/clientes';
+import Medicamentos from '../pages/cadastro/medicamentos';
 
 const MainContent = () => {
 
@@ -13,7 +14,9 @@ const MainContent = () => {
             case 'atendimento':
                 return <Atendimento />
             case 'clientes':
-                 return <Clientes />
+                return <Clientes />
+            case 'medicamentos':
+                return <Medicamentos />
             case 'teste':
                 return <div>Deixa aqui para os testes</div>
             default:
@@ -22,7 +25,7 @@ const MainContent = () => {
         }
     }
 
-    return <GetContent /> 
+    return <GetContent />
 }
 
 export default MainContent

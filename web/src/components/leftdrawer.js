@@ -54,6 +54,11 @@ const LeftDrawer = () => {
         setPageContentContext('clientes')
     }
 
+    const handleMedicamento = () => {
+        setPageContentContext('medicamentos')
+    }
+
+
     return (
         <Drawer
             className={classes.drawer}
@@ -84,7 +89,11 @@ const LeftDrawer = () => {
                                 </ListItemIcon>
                                 <ListItemText primary="Clientes" />
                             </ListItem>
-                            <ListItem button className={classes.nested}>
+                            <ListItem
+                                button
+                                className={classes.nested}
+                                onClick={handleMedicamento}
+                            >
                                 <ListItemIcon>
                                     <LocalHospitalIcon />
                                 </ListItemIcon>
