@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
 import SaveIcon from '@material-ui/icons/Save';
 import React from 'react';
 
@@ -98,7 +98,7 @@ const MedicamentosAppBar = () => {
                     <IconButton
                         // onClick={handleInsert}
                     >
-                        <PersonAddIcon />
+                        <LocalPharmacyIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title="Editar">
