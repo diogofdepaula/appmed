@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { MedicamentosContext } from '..'
+import MedicamentoInsert from '../insert'
 import MedicamentoMain from '../main'
 
 const Content = () => {
@@ -10,8 +11,8 @@ const Content = () => {
     switch (page) {
         case 'medicamentosmain':
             return <MedicamentoMain /> 
-        // case 'clienteinsert':
-        //     return <ClienteInsert />
+        case 'medicamentoinsert':
+            return <MedicamentoInsert />
         // case 'clienteupdate':
         //     return <ClienteUpdate />
         // case 'prescricaodelete':

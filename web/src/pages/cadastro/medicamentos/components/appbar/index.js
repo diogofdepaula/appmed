@@ -6,11 +6,13 @@ import HealingIcon from '@material-ui/icons/Healing';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
 import SaveIcon from '@material-ui/icons/Save';
-import React from 'react';
+import React, { useContext } from 'react';
+import { MedicamentosContext } from '../..';
+import InitialMedicamento from '../initial/initialmedicamento';
 
 const MedicamentosAppBar = () => {
 
-    // const { clienteOnDuty, setClienteOnDuty, clienteEdit, setClienteEdit, page, setPage } = useContext(ClientesContext)
+     const { setMedicamentoOnDuty, setMedicamentoEdit, setPage } = useContext(MedicamentosContext)
 
     // const handleBack = () => {
     //     setClienteEdit(null)
@@ -18,12 +20,12 @@ const MedicamentosAppBar = () => {
     //     setPage('clientemain')
     // }
 
-    // const handleInsert = () => {
-    //     const newcliente = InitialCliente()
-    //     setClienteOnDuty(null)
-    //     setClienteEdit(newcliente)
-    //     setPage('clienteinsert')
-    // }
+    const handleInsert = () => {
+        const newmedicamento = InitialMedicamento()
+        setMedicamentoOnDuty(null)
+        setMedicamentoEdit(newmedicamento)
+        setPage('medicamentoinsert')
+    }
 
     // const handleUpdate = () => {
     //     setClienteEdit(clienteOnDuty)
@@ -94,9 +96,9 @@ const MedicamentosAppBar = () => {
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title="Novo cliente">
+                <Tooltip title="Novo medicamento">
                     <IconButton
-                        // onClick={handleInsert}
+                         onClick={handleInsert}
                     >
                         <LocalPharmacyIcon />
                     </IconButton>
