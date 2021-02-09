@@ -33,6 +33,7 @@ exports.SearchAllShort = (req, res, next) => {
 }
 
 exports.SearchOne = (req, res, next) => {
+    console.log('teste');
     const id = req.params.id;
     Medicamentos.findByPk(id, { include: [Nomescomerciais, Apresentacoes, Posologias] })
         .then((medicamento) => {

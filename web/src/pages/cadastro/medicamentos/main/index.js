@@ -1,6 +1,7 @@
 import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { MedicamentosContext } from '..';
+import MedicamentoData from '../components/medicamentodata';
 
 const MedicamentoMain = () => {
 
@@ -9,7 +10,7 @@ const MedicamentoMain = () => {
   const [medicamentosFiltrados, setMedicamentosFiltrados] = useState([])
 
   const fetchData = useCallback(async () => {
-    const res = await fetch(`http://localhost:4001/api.appmed/medicamentos`)
+    const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/short`)
     const json = await res.json();
     setMedicamentos(json);
     setMedicamentosFiltrados(json)
@@ -74,7 +75,7 @@ const MedicamentoMain = () => {
           </Grid>
           <Grid item xs>
             <Box mx={1}>
-              {/* {clienteOnDuty && <ClienteData />} */}
+              {medicamentoOnDuty && <MedicamentoData />}
             </Box>
           </Grid>
         </Grid>
