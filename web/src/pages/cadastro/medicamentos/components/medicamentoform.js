@@ -16,13 +16,14 @@ const MedicamentoForm = () => {
     }
 
     const classes = Classes()
-    
-    //     farmaco: '',
-    //     orientacoes: '',
-    //     abreviatura: '',
-    //     lme: '',
-    //     controlado: '',
-    //     favorito: '',
+
+
+        // // farmaco: '',
+        // // orientacoes: '',
+        // // abreviatura: '',
+        // // lme: '',
+        // // controlado: '',
+        // // favorito: '',
     //     classe: '',
     //     nomescomerciais: [nc],
     //     apresentacoes: [ap],
