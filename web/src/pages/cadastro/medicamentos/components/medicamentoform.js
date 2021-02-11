@@ -2,6 +2,7 @@ import { FormControl, FormControlLabel, FormGroup, Grid, InputLabel, Select, Swi
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
 import Classes from './classes';
+import NomeComercialForm from './nomecomercialform';
 
 const MedicamentoForm = () => {
 
@@ -17,17 +18,7 @@ const MedicamentoForm = () => {
 
     const classes = Classes()
 
-
-        // // farmaco: '',
-        // // orientacoes: '',
-        // // abreviatura: '',
-        // // lme: '',
-        // // controlado: '',
-        // // favorito: '',
-    //     classe: '',
-    //     nomescomerciais: [nc],
-    //     apresentacoes: [ap],
-    //     posologias: [pp]
+    console.log(medicamentoEdit);
 
     return (
         <>
@@ -48,34 +39,11 @@ const MedicamentoForm = () => {
                         <TextField
                             fullWidth
                             name="abreviatura"
-                            label="Abreviatura"
+                            label="Abrev."
                             variant="outlined"
                             value={medicamentoEdit.abreviatura}
                             onChange={handleChange}
                         />
-
-
-
-                        {/* <RadioGroup aria-label="gender" name="gender" onChange={handleChange}>
-                            <Box display="flex" >
-                                <FormControlLabel
-                                    name='sexo'
-                                    value="feminino"
-                                    control={<Radio />}
-                                    checked={clienteEdit.sexo === "feminino"}
-                                    label="Feminino"
-                                    variant="outlined"
-                                />
-                                <FormControlLabel
-                                    name='sexo'
-                                    value="masculino"
-                                    control={<Radio />}
-                                    checked={clienteEdit.sexo === "masculino"}
-                                    label="Masculino"
-                                    variant="outlined"
-                                />
-                            </Box>
-                        </RadioGroup> */}
                     </Grid>
                 </Grid>
                 <Grid container item spacing={2} >
@@ -127,7 +95,7 @@ const MedicamentoForm = () => {
                                 inputProps={{
                                     name: 'classe',
                                     id: 'outlined-age-native-simple',
-                                  }}
+                                }}
                             >
                                 <option aria-label="None" value="" />
                                 {classes.map((c, i) =>
@@ -136,113 +104,25 @@ const MedicamentoForm = () => {
                             </Select>
                         </FormControl>
                     </Grid>
-                </Grid>
-
-                {/* <Grid container item spacing={2}>
                     <Grid item xs>
                         <TextField
-                            name="nascimento"
-                            label="Data de Nascimento"
-                            type="date"
-                            variant="outlined"
+                            fullWidth
+                            multiline
+                            variant='outlined'
+                            rows={2}
+                            name="orientacoes"
+                            label="Orientações sobre a medicação"
                             InputLabelProps={{
                                 shrink: true,
                             }}
-                            value={clienteEdit.nascimento}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <TextField
-                            name="peso"
-                            variant="outlined"
-                            label="Peso(Kg)"
-                            value={clienteEdit.peso}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <TextField
-                            name="altura"
-                            variant="outlined"
-                            label="Altura(cm)"
-                            value={clienteEdit.altura}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <TextField
-                            name="telefone"
-                            variant="outlined"
-                            label="Telefone"
-                            value={clienteEdit.telefone}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <TextField
-                            name="celular"
-                            variant="outlined"
-                            label="Celular"
-                            value={clienteEdit.celular}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                </Grid> */}
-                {/* <Grid container item spacing={2}>
-                    <Grid item xs>
-                        <TextField
-                            fullWidth
-                            name="cns"
-                            variant="outlined"
-                            label="CNS"
-                            value={clienteEdit.cns}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <TextField
-                            fullWidth
-                            name="cpf"
-                            variant="outlined"
-                            label="CPF"
-                            value={clienteEdit.cpf}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <TextField
-                            fullWidth
-                            name="email"
-                            variant="outlined"
-                            label="Email"
-                            value={clienteEdit.email}
+                            value={medicamentoEdit.orientacoes}
                             onChange={handleChange}
                         />
                     </Grid>
                 </Grid>
-                <Grid container item spacing={2}>
-                    <Grid item xs sm>
-                        <TextField
-                            fullWidth
-                            name="mae"
-                            variant="outlined"
-                            label="Nome da Mãe"
-                            value={clienteEdit.mae}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                    <Grid item xs>
-                        <TextField
-                            fullWidth
-                            variant="outlined"
-                            name="endereco"
-                            label="Endereço"
-                            value={clienteEdit.endereco}
-                            onChange={handleChange}
-                        />
-                    </Grid>
-                </Grid> */}
+                <Grid item xs>
+                    <NomeComercialForm />
+                </Grid>
             </Grid>
         </>
     )

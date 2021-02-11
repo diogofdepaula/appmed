@@ -1,12 +1,4 @@
-import InitialApresentacao from "./initialapresentacao"
-import InitialNomeComercial from "./initialnomecomercial"
-import InitialPosologia from "./initialposologia"
-
 export default function InitialMedicamento() {
-
-    const nc = InitialNomeComercial()
-    const ap = InitialApresentacao()
-    const pp = InitialPosologia()
 
     const initial = {
         farmaco: '',
@@ -16,9 +8,9 @@ export default function InitialMedicamento() {
         controlado: false,
         favorito: false,
         classe: '',
-        nomescomerciais: [nc],
-        apresentacoes: [ap],
-        posologias: [pp]
+        nomescomerciais: [],
+        apresentacoes: [],
+        posologias: [],
     }
 
     return initial
