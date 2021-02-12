@@ -8,7 +8,7 @@ import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
 import SaveIcon from '@material-ui/icons/Save';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '../..';
-import InitialMedicamento from '../initial/initialmedicamento';
+import InitialMedicamento from '../initialmedicamento';
 
 const MedicamentosAppBar = () => {
 
