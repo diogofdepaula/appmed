@@ -63,13 +63,15 @@ const NomeComercialForm = () => {
                     }
                 </Grid>
                 <Grid container item>
-                    <Grid item xs={11}>
-                        <TextField
-                            fullWidth
-                            id="nomefantasia"
-                            label="Nome de fantasia"
-                            variant="outlined"
-                        />
+                    <Grid container item spacing={1} xs={11}>
+                        <Grid item xs>
+                            <TextField
+                                fullWidth
+                                id="nomefantasia"
+                                label="Nome de fantasia"
+                                variant="outlined"
+                            />
+                        </Grid>
                     </Grid>
                     <Grid item xs={1}>
                         <Tooltip title="Adicionar">

@@ -29,6 +29,7 @@ const ClientesAppBar = () => {
 
     const handleUpdate = () => {
         setClienteEdit(clienteOnDuty)
+        setClienteOnDuty(null)
         setPage('clienteupdate')
     }
 

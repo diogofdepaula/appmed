@@ -12,6 +12,9 @@ const ClienteMain = () => {
   const fetchData = useCallback(async () => {
     const res = await fetch(`http://localhost:4001/api.appmed/clientes/allfat`)
     const json = await res.json();
+
+    json.sort((a, b) => a.nome.localeCompare(b.nome))
+
     setClientes(json);
     setClientesFiltrados(json)
   }, [setClientes])

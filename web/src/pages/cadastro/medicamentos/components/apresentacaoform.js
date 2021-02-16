@@ -65,9 +65,9 @@ const ApresentacaoForm = () => {
                         </TableContainer>
                     }
                 </Grid>
-                <Grid container item>
+                <Grid container item> 
                     <Grid container item spacing={1} xs={11}>
-                        <Grid item xs={10}>
+                        <Grid item xs={9}>
                             <TextField
                                 fullWidth
                                 id="descricao"
@@ -75,7 +75,7 @@ const ApresentacaoForm = () => {
                                 variant="outlined"
                             />
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs={3}>
                             <TextField
                                 fullWidth
                                 id="uso"

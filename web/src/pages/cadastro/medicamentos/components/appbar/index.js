@@ -12,7 +12,7 @@ import InitialMedicamento from '../initialmedicamento';
 
 const MedicamentosAppBar = () => {
 
-     const { setMedicamentoOnDuty, setMedicamentoEdit, setPage } = useContext(MedicamentosContext)
+     const { medicamentoOnDuty, setMedicamentoOnDuty, medicamentoEdit, setMedicamentoEdit, page, setPage } = useContext(MedicamentosContext)
 
     // const handleBack = () => {
     //     setClienteEdit(null)
@@ -27,45 +27,47 @@ const MedicamentosAppBar = () => {
         setPage('medicamentoinsert')
     }
 
-    // const handleUpdate = () => {
-    //     setClienteEdit(clienteOnDuty)
-    //     setPage('clienteupdate')
-    // }
+    const handleUpdate = () => {
+        setMedicamentoEdit(medicamentoOnDuty)
+        setMedicamentoOnDuty(null)
+        setPage('medicamentoupdate')
+    }
 
-    // const handleSubmit = event => {
+    const handleSubmit = event => {
 
-    //     // submit do insert e update , da prescricoes e lme juntos
+        // submit do insert e update , da prescricoes e lme juntos
 
-    //     let clipost = [`http://localhost:4001/api.appmed/clientes`, 'post', clienteEdit]
-    //     let cliput = [`http://localhost:4001/api.appmed/clientes/${clienteEdit.id}`, 'put', clienteEdit]
+        let medpost = [`http://localhost:4001/api.appmed/medicamentos`, 'post', medicamentoEdit]
+        let medput = [`http://localhost:4001/api.appmed/medicamentos/${medicamentoEdit.id}`, 'put', medicamentoEdit]
 
-    //     let submitvar
+        let submitvar
 
-    //     switch (page) {
-    //         case 'clienteinsert':
-    //             submitvar = clipost
-    //             break;
-    //         case 'clienteupdate':
-    //             submitvar = cliput
-    //             break;
-    //         default:
-    //             break;
-    //     }
+        switch (page) {
+            case 'medicamentoinsert':
+                submitvar = medpost
+                break;
+            case 'medicamentoupdate':
+                submitvar = medput
+                break;
+            default:
+                break;
+        }
 
-    //     event.preventDefault();
-    //     fetch(submitvar[0], {
-    //         method: submitvar[1],
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(submitvar[2])
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             //tem que inventar um refresh
-    //             setPage('clientemain')
-    //             setClienteEdit(null)
-    //             setClienteOnDuty(null)
-    //         }
-    //     })
-    // }
+        event.preventDefault();
+        fetch(submitvar[0], {
+            method: submitvar[1],
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(submitvar[2])
+        }).then(data => {
+            if (data.ok) {
+                console.log(data);
+                //tem que inventar um refresh
+                setPage('medicamentosmain')
+                setMedicamentoEdit(null)
+                setMedicamentoOnDuty(null)
+            }
+        })
+    }
 
     // const fetchDelete = () => {
 
@@ -106,8 +108,8 @@ const MedicamentosAppBar = () => {
                 <Tooltip title="Editar">
                     <span>
                         <IconButton
-                            // disabled={!clienteOnDuty}
-                            // onClick={handleUpdate}
+                            disabled={!medicamentoOnDuty}
+                            onClick={handleUpdate}
                         >
                             <EditIcon />
                         </IconButton>
@@ -116,8 +118,8 @@ const MedicamentosAppBar = () => {
                 <Tooltip title="Salvar">
                     <span>
                         <IconButton
-                            // disabled={page === 'clienteinsert' ? (clienteEdit.nome !== "" ? false : true) : false}
-                            // onClick={handleSubmit}
+                             disabled={page === 'medicamentoinsert' ? (medicamentoEdit.farmaco !== "" ? false : true) : false}
+                             onClick={handleSubmit}
                         >
                             <SaveIcon />
                         </IconButton>
