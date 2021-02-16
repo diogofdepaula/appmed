@@ -1,6 +1,7 @@
 import { FormControl, FormControlLabel, FormGroup, Grid, InputLabel, Select, Switch, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
+import ApresentacaoForm from './apresentacaoform';
 import Classes from './classes';
 import NomeComercialForm from './nomecomercialform';
 
@@ -120,8 +121,13 @@ const MedicamentoForm = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid item xs>
-                    <NomeComercialForm />
+                <Grid container item direction="column" justify="flex-start" alignItems="stretch">
+                    <Grid item xs>
+                        <NomeComercialForm />
+                    </Grid>
+                    <Grid item xs>
+                        <ApresentacaoForm />
+                    </Grid>
                 </Grid>
             </Grid>
         </>

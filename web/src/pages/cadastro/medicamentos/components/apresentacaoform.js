@@ -4,30 +4,33 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
 
-const NomeComercialForm = () => {
+const ApresentacaoForm = () => {
 
     const { medicamentoEdit, setMedicamentoEdit } = useContext(MedicamentosContext)
 
     const handleAdd = () => {
 
-        let ncnomefantasia = document.getElementById('nomefantasia')
+        let apdescricao = document.getElementById('descricao')
+        let apuso = document.getElementById('uso')
 
         setMedicamentoEdit({
             ...medicamentoEdit,
-            nomescomerciais: [
-                ...medicamentoEdit.nomescomerciais, {
-                    nomefantasia: ncnomefantasia.value,
+            apresentacoes: [
+                ...medicamentoEdit.apresentacoes, {
+                    descricao: apdescricao.value,
+                    uso: apuso.value,
                 }]
         })
 
-        ncnomefantasia.value = ""
+        apdescricao.value = ""
+        apuso.value = ""
     }
 
     const handleDelete = param => () => {
 
         setMedicamentoEdit({
             ...medicamentoEdit,
-            nomescomerciais: medicamentoEdit.nomescomerciais.filter((w, index) => index !== param)
+            apresentacoes: medicamentoEdit.apresentacoes.filter((w, index) => index !== param)
         })
     }
 
@@ -35,14 +38,14 @@ const NomeComercialForm = () => {
         <>
             <Grid container item spacing={2} >
                 <Grid item xs>
-                    {medicamentoEdit.nomescomerciais &&
+                    {medicamentoEdit.apresentacoes &&
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                    {medicamentoEdit.nomescomerciais?.map((nc, i) =>
+                                    {medicamentoEdit.apresentacoes?.map((ap, i) =>
                                         <TableRow key={i}>
                                             <TableCell component="th" scope="row">
-                                                {nc.nomefantasia}
+                                                {ap.descricao} - {ap.uso}
                                             </TableCell>
                                             <TableCell align="right">
                                                 <Tooltip title="Excluir">
@@ -63,13 +66,25 @@ const NomeComercialForm = () => {
                     }
                 </Grid>
                 <Grid container item>
-                    <Grid item xs={11}>
-                        <TextField
-                            fullWidth
-                            id="nomefantasia"
-                            label="Nome de fantasia"
-                            variant="outlined"
-                        />
+                    <Grid container item spacing={1} xs={11}>
+                        <Grid item xs={10}>
+                            <TextField
+                                autoFocus
+                                fullWidth
+                                id="descricao"
+                                label="Apresentação"
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={2}>
+                            <TextField
+                                autoFocus
+                                fullWidth
+                                id="uso"
+                                label="Uso"
+                                variant="outlined"
+                            />
+                        </Grid>
                     </Grid>
                     <Grid item xs={1}>
                         <Tooltip title="Adicionar">
@@ -88,4 +103,4 @@ const NomeComercialForm = () => {
     )
 }
 
-export default NomeComercialForm
+export default ApresentacaoForm
