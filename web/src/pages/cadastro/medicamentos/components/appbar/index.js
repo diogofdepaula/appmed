@@ -14,11 +14,11 @@ const MedicamentosAppBar = () => {
 
      const { medicamentoOnDuty, setMedicamentoOnDuty, medicamentoEdit, setMedicamentoEdit, page, setPage } = useContext(MedicamentosContext)
 
-    // const handleBack = () => {
-    //     setClienteEdit(null)
-    //     setClienteOnDuty(null)
-    //     setPage('clientemain')
-    // }
+    const handleBack = () => {
+        setMedicamentoEdit(null)
+        setMedicamentoOnDuty(null)
+        setPage('medicamentomain')
+    }
 
     const handleInsert = () => {
         const newmedicamento = InitialMedicamento()
@@ -28,7 +28,8 @@ const MedicamentosAppBar = () => {
     }
 
     const handleUpdate = () => {
-        setMedicamentoEdit(medicamentoOnDuty)
+        // o medicamentoEdit já está completo dedivo o medicamentoData
+        // setMedicamentoEdit(medicamentoOnDuty)
         setMedicamentoOnDuty(null)
         setPage('medicamentoupdate')
     }
@@ -91,8 +92,8 @@ const MedicamentosAppBar = () => {
                 <Tooltip title="Voltar">
                     <span>
                         <IconButton
-                            // disabled={!clienteOnDuty}
-                            // onClick={handleBack}
+                            disabled={!medicamentoOnDuty}
+                            onClick={handleBack}
                         >
                             <ArrowUpwardIcon />
                         </IconButton>

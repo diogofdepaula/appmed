@@ -14,6 +14,8 @@ const Medicamentos = () => {
     const [apresentacoesEdit, setApresentacoesEdit] = useState([])
     const [posologiasEdit, setPosologiasEdit] = useState([])
 
+    console.log(medicamentoEdit);
+
     return (
         <>
             <MedicamentosContext.Provider value={{
