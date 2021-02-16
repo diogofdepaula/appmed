@@ -6,14 +6,14 @@ import MedicamentoUpdate from '../update'
 
 const Content = () => {
 
-    const { page } = useContext(MedicamentosContext)
+    const { update, page } = useContext(MedicamentosContext)
 
     /// se mudar aqui: não esquercer de atualizar a ThirdAppBar
     switch (page) {
         case 'medicamentosmain':
-            return <MedicamentoMain /> 
+            return <MedicamentoMain key={update} /> 
         case 'medicamentoinsert':
-            return <MedicamentoInsert />
+            return <MedicamentoInsert key={update} />
         case 'medicamentoupdate':
             return <MedicamentoUpdate />
         // case 'prescricaodelete':

@@ -12,12 +12,14 @@ import InitialMedicamento from '../initialmedicamento';
 
 const MedicamentosAppBar = () => {
 
-     const { medicamentoOnDuty, setMedicamentoOnDuty, medicamentoEdit, setMedicamentoEdit, page, setPage } = useContext(MedicamentosContext)
+     const { updatePage, medicamentoOnDuty, setMedicamentoOnDuty, medicamentoEdit, setMedicamentoEdit, page, setPage } = useContext(MedicamentosContext)
 
     const handleBack = () => {
         setMedicamentoEdit(null)
         setMedicamentoOnDuty(null)
         setPage('medicamentomain')
+        updatePage()
+
     }
 
     const handleInsert = () => {
@@ -61,11 +63,10 @@ const MedicamentosAppBar = () => {
             body: JSON.stringify(submitvar[2])
         }).then(data => {
             if (data.ok) {
-                console.log(data);
-                //tem que inventar um refresh
                 setPage('medicamentosmain')
                 setMedicamentoEdit(null)
                 setMedicamentoOnDuty(null)
+                updatePage()
             }
         })
     }

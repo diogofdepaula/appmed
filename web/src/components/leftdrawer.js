@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 
 const LeftDrawer = () => {
     const classes = useStyles();
-    const { pageContentContext, setPageContentContext } = useContext(PageContentContext)
+    const { pageContentContext, setPageContentContext, forceUpdate } = useContext(PageContentContext)
     const { clienteContext } = useContext(ClienteContext)
 
     const [open, setOpen] = useState(true);
@@ -48,14 +48,17 @@ const LeftDrawer = () => {
 
     const handleAtendimento = () => {
         setPageContentContext('atendimento')
+        forceUpdate()
     }
 
     const handleCliente = () => {
         setPageContentContext('clientes')
+        forceUpdate()
     }
 
     const handleMedicamento = () => {
         setPageContentContext('medicamentos')
+        forceUpdate()
     }
 
 

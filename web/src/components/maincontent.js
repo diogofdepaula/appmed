@@ -17,8 +17,8 @@ const MainContent = () => {
                 return <Clientes />
             case 'medicamentos':
                 return <Medicamentos />
-            case 'teste':
-                return <div>Deixa aqui para os testes</div>
+            case 'refresh':
+                return <div></div>
             default:
                 // FAZER UMA PÁGINA INICIAL DEPOIS
                 return <div>Futuramente página inicial</div>

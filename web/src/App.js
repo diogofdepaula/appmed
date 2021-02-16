@@ -2,7 +2,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'fontsource-roboto';
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer, useState } from 'react';
 import LeftDrawer from './components/leftdrawer';
 import MainContent from './components/maincontent';
 import PrimaryAppBar from './components/primaryappbar';
@@ -27,14 +27,14 @@ const App = () => {
 
   const classes = useStyles();
   const [clienteContext, setClienteContext] = useState()
-
   const [pageContentContext, setPageContentContext] = useState()
+  const [, forceUpdate] = useReducer((x) => x + 1, 0)
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <ClienteContext.Provider value={{ clienteContext: clienteContext, setClienteContext: setClienteContext }} >
-        <PageContentContext.Provider value={{ pageContentContext: pageContentContext, setPageContentContext: setPageContentContext }} >
+        <PageContentContext.Provider value={{ pageContentContext: pageContentContext, setPageContentContext: setPageContentContext, forceUpdate: forceUpdate }} >
           {/* não remover essas marcações div */}
           <div>
             <PrimaryAppBar />

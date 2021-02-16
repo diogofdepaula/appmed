@@ -13,12 +13,25 @@ const Medicamentos = () => {
     const [nomesComerciaisEdit, setNomesComerciaisEdit] = useState([])
     const [apresentacoesEdit, setApresentacoesEdit] = useState([])
     const [posologiasEdit, setPosologiasEdit] = useState([])
+    
 
-    console.log(medicamentoEdit);
+    const [update, setUpdate] = useState({
+        count: 0,
+        page: ''
+    })
+
+    const updatePage = () => {
+        setUpdate({
+            count: update.count + 1,
+            page: page
+        })
+    }
 
     return (
         <>
             <MedicamentosContext.Provider value={{
+                update: update,
+                updatePage: updatePage,
                 page: page,
                 setPage: setPage,
                 medicamentoOnDuty: medicamentoOnDuty,
