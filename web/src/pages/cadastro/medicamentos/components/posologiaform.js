@@ -48,7 +48,14 @@ const PosologiaForm = () => {
                                     {medicamentoEdit.posologias?.map((pp, i) =>
                                         <TableRow key={i}>
                                             <TableCell component="th" scope="row">
-                                                {pp.posologia} - {pp.quantidade} - {pp.forma}
+                                                <Grid container direction="column" justify="flex-start" alignItems="stretch">
+                                                    <Grid item>
+                                                        {pp.posologia}
+                                                    </Grid>
+                                                    <Grid item>
+                                                        {pp.quantidade} - {pp.forma}
+                                                    </Grid>
+                                                </Grid>
                                             </TableCell>
                                             <TableCell align="right">
                                                 <Tooltip title="Excluir">
