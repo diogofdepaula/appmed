@@ -29,12 +29,32 @@ const PosologiaForm = () => {
         ppforma.value = ""
     }
 
-    const handleDelete = param => () => {
+    const handleDelete = (param, ind) => () => {
 
-        setMedicamentoEdit({
-            ...medicamentoEdit,
-            posologias: medicamentoEdit.posologias.filter((w, index) => index !== param)
-        })
+        if (param.id >= 0) {
+            // deletar uma que já existe
+            setMedicamentoEdit({
+                ...medicamentoEdit,
+                posologias: [
+                    ...medicamentoEdit.posologias.map(pp => {
+                        if (pp.id !== param.id) {
+                            return pp
+                        } else {
+                            return {
+                                ...pp,
+                                medicamentoId: ""
+                            }
+                        }
+                    })
+                ]
+            })
+        } else {
+            // retira um que nem foi registrado no banco
+            setMedicamentoEdit({
+                ...medicamentoEdit,
+                posologias: medicamentoEdit.posologias.filter((w, index) => index !== ind)
+            })
+        }
     }
 
     return (
@@ -45,31 +65,33 @@ const PosologiaForm = () => {
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                    {medicamentoEdit.posologias?.map((pp, i) =>
-                                        <TableRow key={i}>
-                                            <TableCell component="th" scope="row">
-                                                <Grid container direction="column" justify="flex-start" alignItems="stretch">
-                                                    <Grid item>
-                                                        {pp.posologia}
+                                    {medicamentoEdit.posologias
+                                        .filter(x => x.id === undefined || (x.id >= 0 && x.medicamentoId !== ""))
+                                        .map((pp, i) =>
+                                            <TableRow key={i}>
+                                                <TableCell component="th" scope="row">
+                                                    <Grid container direction="column" justify="flex-start" alignItems="stretch">
+                                                        <Grid item>
+                                                            {pp.posologia}
+                                                        </Grid>
+                                                        <Grid item>
+                                                            {pp.quantidade} - {pp.forma}
+                                                        </Grid>
                                                     </Grid>
-                                                    <Grid item>
-                                                        {pp.quantidade} - {pp.forma}
-                                                    </Grid>
-                                                </Grid>
-                                            </TableCell>
-                                            <TableCell align="right">
-                                                <Tooltip title="Excluir">
-                                                    <span>
-                                                        <IconButton
-                                                            onClick={handleDelete(i)}
-                                                        >
-                                                            <DeleteIcon />
-                                                        </IconButton>
-                                                    </span>
-                                                </Tooltip>
-                                            </TableCell>
-                                        </TableRow>
-                                    )}
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    <Tooltip title="Excluir">
+                                                        <span>
+                                                            <IconButton
+                                                                onClick={handleDelete(pp, i)}
+                                                            >
+                                                                <DeleteIcon />
+                                                            </IconButton>
+                                                        </span>
+                                                    </Tooltip>
+                                                </TableCell>
+                                            </TableRow>
+                                        )}
                                 </TableBody>
                             </Table>
                         </TableContainer>

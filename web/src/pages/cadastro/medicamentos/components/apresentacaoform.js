@@ -26,12 +26,32 @@ const ApresentacaoForm = () => {
         apuso.value = ""
     }
 
-    const handleDelete = param => () => {
+    const handleDelete = (param, ind) => () => {
 
-        setMedicamentoEdit({
-            ...medicamentoEdit,
-            apresentacoes: medicamentoEdit.apresentacoes.filter((w, index) => index !== param)
-        })
+        if (param.id >= 0) {
+            // deletar uma que já existe
+            setMedicamentoEdit({
+                ...medicamentoEdit,
+                apresentacoes: [
+                    ...medicamentoEdit.apresentacoes.map(ap => {
+                        if (ap.id !== param.id) {
+                            return ap
+                        } else {
+                            return {
+                                ...ap,
+                                medicamentoId: ""
+                            }
+                        }
+                    })
+                ]
+            })
+        } else {
+            // retira um que nem foi registrado no banco
+            setMedicamentoEdit({
+                ...medicamentoEdit,
+                apresentacoes: medicamentoEdit.apresentacoes.filter((w, index) => index !== ind)
+            })
+        }
     }
 
     return (
@@ -42,30 +62,32 @@ const ApresentacaoForm = () => {
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                    {medicamentoEdit.apresentacoes?.map((ap, i) =>
-                                        <TableRow key={i}>
-                                            <TableCell component="th" scope="row">
-                                                {ap.descricao} - {ap.uso}
-                                            </TableCell>
-                                            <TableCell align="right">
-                                                <Tooltip title="Excluir">
-                                                    <span>
-                                                        <IconButton
-                                                            onClick={handleDelete(i)}
-                                                        >
-                                                            <DeleteIcon />
-                                                        </IconButton>
-                                                    </span>
-                                                </Tooltip>
-                                            </TableCell>
-                                        </TableRow>
-                                    )}
+                                    {medicamentoEdit.apresentacoes
+                                        .filter(x => x.id === undefined || (x.id >= 0 && x.medicamentoId !== ""))
+                                        .map((ap, i) =>
+                                            <TableRow key={i}>
+                                                <TableCell component="th" scope="row">
+                                                    {ap.descricao} - {ap.uso}
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    <Tooltip title="Excluir">
+                                                        <span>
+                                                            <IconButton
+                                                                onClick={handleDelete(ap, i)}
+                                                            >
+                                                                <DeleteIcon />
+                                                            </IconButton>
+                                                        </span>
+                                                    </Tooltip>
+                                                </TableCell>
+                                            </TableRow>
+                                        )}
                                 </TableBody>
                             </Table>
                         </TableContainer>
                     }
                 </Grid>
-                <Grid container item> 
+                <Grid container item>
                     <Grid container item spacing={1} xs={11}>
                         <Grid item xs={9}>
                             <TextField

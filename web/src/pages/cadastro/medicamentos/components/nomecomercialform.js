@@ -23,12 +23,32 @@ const NomeComercialForm = () => {
         ncnomefantasia.value = ""
     }
 
-    const handleDelete = param => () => {
+    const handleDelete = (param, ind) => () => {
 
-        setMedicamentoEdit({
-            ...medicamentoEdit,
-            nomescomerciais: medicamentoEdit.nomescomerciais.filter((w, index) => index !== param)
-        })
+        if (param.id >= 0) {
+            // deletar uma que já existe
+            setMedicamentoEdit({
+                ...medicamentoEdit,
+                nomescomerciais: [
+                    ...medicamentoEdit.nomescomerciais.map(nc => {
+                        if (nc.id !== param.id) {
+                            return nc
+                        } else {
+                            return {
+                                ...nc,
+                                medicamentoId: ""
+                            }
+                        }
+                    })
+                ]
+            })
+        } else {
+            // retira um que nem foi registrado no banco
+            setMedicamentoEdit({
+                ...medicamentoEdit,
+                nomescomerciais: medicamentoEdit.nomescomerciais.filter((w, index) => index !== ind)
+            })
+        }
     }
 
     return (
@@ -39,24 +59,26 @@ const NomeComercialForm = () => {
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                    {medicamentoEdit.nomescomerciais?.map((nc, i) =>
-                                        <TableRow key={i}>
-                                            <TableCell component="th" scope="row">
-                                                {nc.nomefantasia}
-                                            </TableCell>
-                                            <TableCell align="right">
-                                                <Tooltip title="Excluir">
-                                                    <span>
-                                                        <IconButton
-                                                            onClick={handleDelete(i)}
-                                                        >
-                                                            <DeleteIcon />
-                                                        </IconButton>
-                                                    </span>
-                                                </Tooltip>
-                                            </TableCell>
-                                        </TableRow>
-                                    )}
+                                    {medicamentoEdit.nomescomerciais
+                                        .filter(x => x.id === undefined || (x.id >= 0 && x.medicamentoId !== ""))  
+                                        .map((nc, i) =>
+                                            <TableRow key={i}>
+                                                <TableCell component="th" scope="row">
+                                                    {nc.nomefantasia}
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    <Tooltip title="Excluir">
+                                                        <span>
+                                                            <IconButton
+                                                                onClick={handleDelete(nc, i)}
+                                                            >
+                                                                <DeleteIcon />
+                                                            </IconButton>
+                                                        </span>
+                                                    </Tooltip>
+                                                </TableCell>
+                                            </TableRow>
+                                        )}
                                 </TableBody>
                             </Table>
                         </TableContainer>
