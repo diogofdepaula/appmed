@@ -4,33 +4,36 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
 
-const ApresentacaoForm = () => {
+const PosologiaForm = () => {
 
     const { medicamentoEdit, setMedicamentoEdit } = useContext(MedicamentosContext)
 
     const handleAdd = () => {
 
-        let apdescricao = document.getElementById('descricao')
-        let apuso = document.getElementById('uso')
+        let ppposologia = document.getElementById('posologia')
+        let ppquantidade = document.getElementById('quantidade')
+        let ppforma = document.getElementById('forma')
 
         setMedicamentoEdit({
             ...medicamentoEdit,
-            apresentacoes: [
-                ...medicamentoEdit.apresentacoes, {
-                    descricao: apdescricao.value,
-                    uso: apuso.value,
+            posologias: [
+                ...medicamentoEdit.posologias, {
+                    posologia: ppposologia.value,
+                    quantidade: ppquantidade.value,
+                    forma: ppforma.value,
                 }]
         })
 
-        apdescricao.value = ""
-        apuso.value = ""
+        ppposologia.value = ""
+        ppquantidade.value = ""
+        ppforma.value = ""
     }
 
     const handleDelete = param => () => {
 
         setMedicamentoEdit({
             ...medicamentoEdit,
-            apresentacoes: medicamentoEdit.apresentacoes.filter((w, index) => index !== param)
+            posologias: medicamentoEdit.posologias.filter((w, index) => index !== param)
         })
     }
 
@@ -38,14 +41,14 @@ const ApresentacaoForm = () => {
         <>
             <Grid container item spacing={2} >
                 <Grid item xs>
-                    {medicamentoEdit.apresentacoes &&
+                    {medicamentoEdit.posologias &&
                         <TableContainer component={Paper} >
                             <Table>
                                 <TableBody>
-                                    {medicamentoEdit.apresentacoes?.map((ap, i) =>
+                                    {medicamentoEdit.posologias?.map((pp, i) =>
                                         <TableRow key={i}>
                                             <TableCell component="th" scope="row">
-                                                {ap.descricao} - {ap.uso}
+                                                {pp.posologia} - {pp.quantidade} - {pp.forma}
                                             </TableCell>
                                             <TableCell align="right">
                                                 <Tooltip title="Excluir">
@@ -67,19 +70,29 @@ const ApresentacaoForm = () => {
                 </Grid>
                 <Grid container item>
                     <Grid container item spacing={1} xs={11}>
-                        <Grid item xs={10}>
+                        <Grid item xs={12}>
                             <TextField
                                 fullWidth
-                                id="descricao"
-                                label="Apresentação"
+                                multiline
+                                rows={3}
+                                id="posologia"
+                                label="Posologia"
                                 variant="outlined"
                             />
                         </Grid>
-                        <Grid item xs={2}>
+                        <Grid item xs={6}>
                             <TextField
                                 fullWidth
-                                id="uso"
-                                label="Uso"
+                                id="quantidade"
+                                label="Quantidade"
+                                variant="outlined"
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <TextField
+                                fullWidth
+                                id="forma"
+                                label="Forma"
                                 variant="outlined"
                             />
                         </Grid>
@@ -101,4 +114,4 @@ const ApresentacaoForm = () => {
     )
 }
 
-export default ApresentacaoForm
+export default PosologiaForm

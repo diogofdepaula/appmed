@@ -1,9 +1,10 @@
-import { FormControl, FormControlLabel, FormGroup, Grid, InputLabel, Select, Switch, TextField } from '@material-ui/core';
+import { Divider, FormControl, FormControlLabel, FormGroup, Grid, InputLabel, Select, Switch, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
 import ApresentacaoForm from './apresentacaoform';
 import Classes from './classes';
 import NomeComercialForm from './nomecomercialform';
+import PosologiaForm from './posologiaform';
 
 const MedicamentoForm = () => {
 
@@ -18,8 +19,6 @@ const MedicamentoForm = () => {
     }
 
     const classes = Classes()
-
-    console.log(medicamentoEdit);
 
     return (
         <>
@@ -121,12 +120,18 @@ const MedicamentoForm = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid container item direction="column" justify="flex-start" alignItems="stretch">
+                <Grid container item direction="column" justify="flex-start" alignItems="stretch" spacing={2}>
+                    <Divider />
                     <Grid item xs>
                         <NomeComercialForm />
                     </Grid>
+                    <Divider />
                     <Grid item xs>
                         <ApresentacaoForm />
+                    </Grid>
+                    <Divider />
+                    <Grid item xs>
+                        <PosologiaForm />
                     </Grid>
                 </Grid>
             </Grid>
