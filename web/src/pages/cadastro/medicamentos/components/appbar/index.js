@@ -70,21 +70,16 @@ const MedicamentosAppBar = () => {
         })
     }
 
-    // const fetchDelete = () => {
+    const handleDelete = () => {
 
-    //     fetch(`http://localhost:4001/api.appmed/clientes/${clienteOnDuty.id}`, {
-    //         method: 'delete'
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             handleBack()
-    //         }
-    //     })
-    // }
-
-    // const handleDelete = () => {
-    //     fetchDelete()
-    // }
-
+        fetch(`http://localhost:4001/api.appmed/medicamentos/${medicamentoOnDuty.id}`, {
+            method: 'delete'
+        }).then(data => {
+            if (data.ok) {
+                handleBack()
+            }
+        })
+    }
 
     return (
         <>
@@ -92,7 +87,7 @@ const MedicamentosAppBar = () => {
                 <Tooltip title="Voltar">
                     <span>
                         <IconButton
-                            disabled={!medicamentoOnDuty}
+                           // disabled={!medicamentoOnDuty}
                             onClick={handleBack}
                         >
                             <ArrowUpwardIcon />
@@ -129,8 +124,8 @@ const MedicamentosAppBar = () => {
                 <Tooltip title="Excluir">
                     <span>
                         <IconButton
-                            // disabled={!clienteOnDuty}
-                            // onClick={handleDelete}
+                            disabled={!medicamentoOnDuty}
+                            onClick={handleDelete}
                         >
                             <DeleteIcon />
                         </IconButton>
