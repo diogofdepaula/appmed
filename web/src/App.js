@@ -1,6 +1,5 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'fontsource-roboto';
 import React, { createContext, useReducer, useState } from 'react';
 import LeftDrawer from './components/leftdrawer';
