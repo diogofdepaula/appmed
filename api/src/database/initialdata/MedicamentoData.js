@@ -3,7 +3,7 @@ const Nomescomerciais = require('../../models/cadastro/nomescomerciais')
 const Apresentacoes = require('../../models/cadastro/apresentacoes')
 const Posologias = require('../../models/cadastro/posologias')
 
-// MUDAR O PADRAO DE PREENCHIMENTO DAS POSOLOGIAS DA LME PARA SOMENTE FRASCOS OU COMPROMIDOS
+// MUDAR O PADRÃO DE PREENCHIMENTO DAS POSOLOGIAS DA LME PARA SOMENTE FRASCOS E COMPRIMIDOS
 // TIRAR O "POR TRÊS MESES" DA FORMA.
 // PASSEI A RESPONSABILIDADE DA SOMA PARA A PAGE PRINT QUE IRÁ FAZER A SOMA DOS VALORES DAS DOSES MENSAIS DA LME NA HORA DE IMPRIMIR MESMO.
 
@@ -20,8 +20,8 @@ Medicamentos.count().then(data =>
 				favorito: true,
 				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
 					"- Trazer a medicação para aplicação dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável. \r\n" +
-					"- Agendar a infusão com antecedência se possível.\r\n" +
-					"- Aplicar somente em Centro de Infusão habilitado.\r\n",
+					"- Agendar a infusão com antecedência se possível. \r\n" +
+					"- Aplicar somente em Centro de Infusão habilitado. \r\n",
 				abreviatura: "ABT",
 				classe: "MMCDB",
 				nomescomerciais: [
@@ -31,11 +31,11 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "250mg Inj Fr Amp",
+						descricao: "250 mg Inj Fr Amp",
 						uso: "uso externo"
 					},
 					{
-						descricao: "250mg Inj Fr Amp",
+						descricao: "250 mg Inj Fr Amp",
 						uso: "uso externo"
 					}
 				],
@@ -43,58 +43,58 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Fazer a aplicação de 02 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 4 semanas.",
 						quantidade: "8",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 03 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 4 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 04 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 4 semanas.",
 						quantidade: "16",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 02 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "6",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 03 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "9",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 04 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
-						posologia: "Aplique 01 ampola (seringa) no subcutâneo uma vez por semana.",
+						posologia: "Aplicar 01 ampola (seringa) no subcutâneo uma vez por semana.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 				]
 			},
@@ -113,7 +113,7 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "40mg/mL Xpe",
+						descricao: "40 mg/mL Xpe",
 						uso: "uso interno",
 					},
 					{
@@ -121,24 +121,24 @@ Medicamentos.count().then(data =>
 						uso: "uso interno",
 					},
 					{
-						descricao: "200mg Comp",
+						descricao: "200 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 15mL (600 mg) uma vez ao dia, de preferência à noite, por 7 dias.",
+						posologia: "Tomar 15 mL (600 mg) uma vez ao dia, de preferência à noite, por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Dissolver 01 envelope em um copo d’água (200mL) em temperatura ambiente e ingira em seguida. Não se deve guardar a solução"
-							+ "Tome um envelope dissolvido uma vez ao dia por 7 dias.",
+						posologia: "Dissolver 01 envelope em um copo d’água (200 mL) em temperatura ambiente e ingira em seguida. Não se deve guardar a solução"
+							+ "Tomar um envelope dissolvido uma vez ao dia por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -162,15 +162,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "100mg Comp Ver",
+						descricao: "100 mg Comp Ver",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido após almoço.",
+						posologia: "Tomar 01 comprimido após almoço.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -189,31 +189,31 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "200mg Comp",
+						descricao: "200 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "400mg Comp",
+						descricao: "400 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "50mg/g Creme",
+						descricao: "50 mg/g Creme",
 						uso: "uso externo"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01' comprimido (200 mg), de 4 em 4 horas por 7 dias.\r\nPule a dose da madrugada.",
+						posologia: "Tomar 01 comprimido (200 mg), de 4 em 4 horas por 7 dias. \r\nPular a dose da madrugada.",
 						quantidade: "35",
 						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos (800 mg), de 4 em 4 horas por 7 dias.\r\nPule a dose da madrugada.",
+						posologia: "Tomar 02 comprimidos (800 mg), de 4 em 4 horas por 7 dias. \r\nPular a dose da madrugada.",
 						quantidade: "70",
 						forma: "comp"
 					},
 					{
-						posologia: "Aplicar uma adequada quantidade na região afetada de 4 em 4 horas.\r\nPule a aplicação da madrugada.",
+						posologia: "Aplicar uma adequada quantidade na região afetada de 4 em 4 horas. \r\nPular a aplicação da madrugada.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -237,20 +237,20 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "5mg Comp",
+						descricao: "5 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido um dia após o dia em que tomar o Metotrexate.",
+						posologia: "Tomar 01 comprimido no dia seguinte que escolheu tomar o Metotrexate. ",
 						quantidade: "12",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -258,7 +258,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Adalimumabe",
 				lme: true,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "MMCDB",
 				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
 					"- Transportar a medicação somente dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável.",
@@ -270,33 +270,33 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "40mg Inj Ser",
+						descricao: "40 mg Inj Ser",
 						uso: "uso externo"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Aplique 01 ampola (seringa) [40mg] no subcutâneo a cada 14 dias.",
+						posologia: "Aplicar 01 ampola (seringa) [40 mg] no subcutâneo a cada 14 dias.",
 						quantidade: "6",
-						forma: "ampolas (seringas) em três meses",
+						forma: "ampolas (seringas)",
 					},
 					{
-						posologia: "Aplique 01 ampola (seringa) [40mg] no subcutâneo uma vez por semana.",
+						posologia: "Aplicar 01 ampola (seringa) [40 mg] no subcutâneo uma vez por semana.",
 						quantidade: "12",
-						forma: "ampolas (seringas) em três meses",
+						forma: "ampolas (seringas)",
 					},
 					{
-						posologia: "Semana 0: Aplicar 4 ampolas (seringas) [160 mg] por via subcutânea no mesmo dia.\n\r" +
-							"Semana 2: Aplicar 2 ampolas (seringas) [80 mg] por via subcutânea no mesmo dia.\r\n" +
-							"Semana 4 em diante: Aplicar 2 ampolas (seringas) [40 mg] por via subcutânea a cada 14 dias",
+						posologia: "Semana 0: Aplicar 4 ampolas (seringas) [160 mg] por via subcutânea no mesmo dia.\r\n" +
+							"Semana 2: Aplicar 2 ampolas (seringas) [80 mg] por via subcutânea no mesmo dia. \r\n" +
+							"Semana 4 em diante: Aplicar 2 ampolas (seringas) [40 mg] por via subcutânea a cada 14 dias.",
 						quantidade: "10",
-						forma: "ampolas (seringas) em três meses",
+						forma: "ampolas (seringas)",
 					},
 					{
-						posologia: "Semana 0: Aplicar 2 ampolas (seringas) [80 mg] por via subcutânea no mesmo dia.\r\n" +
-							"Semana 2 em diante: Aplicar 2 ampolas (seringas) [40 mg] por via subcutânea a cada 14 dias",
+						posologia: "Semana 0: Aplicar 2 ampolas (seringas) [80 mg] por via subcutânea no mesmo dia. \r\n" +
+							"Semana 2 em diante: Aplicar 2 ampolas (seringas) [40 mg] por via subcutânea a cada 14 dias.",
 						quantidade: "10",
-						forma: "ampolas (seringas) em três meses"
+						forma: "ampolas (seringas)"
 					},
 				]
 			},
@@ -318,13 +318,13 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "400mg Comp Mast",
+						descricao: "400 mg Comp Mast",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 3 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 3 dias.",
 						quantidade: "3",
 						forma: "Comp"
 					},
@@ -345,15 +345,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "70mg Comp",
+						descricao: "70 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez por semana.\n\rTome pela manhã em jejum. Não deitar após tomar a medicação.",
+						posologia: "Tomar 01 comprimido uma vez por semana. \r\nTome pela manhã em jejum. Não deitar após tomar a medicação.",
 						quantidade: "4",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -372,24 +372,24 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "100mg Comp",
+						descricao: "100 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "300mg Comp",
+						descricao: "300 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -412,24 +412,24 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "25mg Comp Rev",
+						descricao: "25 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "75mg Comp Rev",
+						descricao: "75 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido a noite próximo à hora de dormir.",
+						posologia: "Tomar 01 comprimido a noite próximo à hora de dormir.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos a noite próximo à hora de dormir. ",
+						posologia: "Tomar 02 comprimidos a noite próximo à hora de dormir. ",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -439,7 +439,7 @@ Medicamentos.count().then(data =>
 				controlado: true,
 				favorito: false,
 				classe: "ANTIMICROBIANO",
-				orientacoes: "dose para suspensão: 25 mg/ kg / dia",
+				orientacoes: "dose para suspensão: 25 mg/kg/dia",
 				abreviatura: "",
 				nomescomerciais: [
 					{
@@ -451,27 +451,27 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "875mg Comp Rev",
+						descricao: "875 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "400mg/5mL Pó Susp Or",
+						descricao: "400 mg/5mL Pó Susp Or",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
 						quantidade: "14",
 						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 10 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 10 dias.",
 						quantidade: "20",
 						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 14 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 14 dias.",
 						quantidade: "28",
 						forma: "comp"
 					},
@@ -496,23 +496,23 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "875mg + 125mg Comp",
+						descricao: "875 mg + 125 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
 						quantidade: "14",
 						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 10 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 10 dias.",
 						quantidade: "20",
 						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 14 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 14 dias.",
 						quantidade: "28",
 						forma: "comp"
 					},
@@ -537,19 +537,19 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "5,0mg Comp",
+						descricao: "5,0 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "10mg Comp",
+						descricao: "10 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -569,24 +569,24 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "25mg Comp",
+						descricao: "25 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "50mg Comp",
+						descricao: "50 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -606,23 +606,23 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg Comp Rev",
+						descricao: "10 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "20mg Comp Rev",
+						descricao: "20 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "40mg Comp Rev",
+						descricao: "40 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido a noite próximo à hora de dormir.",
+						posologia: "Tomar 01 comprimido a noite próximo à hora de dormir.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -630,7 +630,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Azatioprina",
 				lme: true,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "MMCDS",
 				orientacoes: "",
 				abreviatura: "AZA",
@@ -642,40 +642,40 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "50mg Comp Rev",
+						descricao: "50 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas.",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos pela manhã e 01 comprimido a noite.",
+						posologia: "Tomar 02 comprimidos pela manhã e 01 comprimido a noite.",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos de 12 em 12 horas.",
+						posologia: "Tomar 02 comprimidos de 12 em 12 horas.",
 						quantidade: "120",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos de 8 em 8 horas.",
+						posologia: "Tomar 02 comprimidos de 8 em 8 horas.",
 						quantidade: "180",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -697,23 +697,23 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Comp Rev",
+						descricao: "500 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 3 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 3 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 5 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 02 comprimidos dose única.",
+						posologia: "Tomar 02 comprimidos dose única.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -727,8 +727,8 @@ Medicamentos.count().then(data =>
 				classe: "MMCDB",
 				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
 					"- Trazer a medicação para aplicação dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável. \r\n" +
-					"- Agendar a infusão com antecedência se possível.\r\n" +
-					"- Aplicar somente em Centro de Infusão habilitado.\r\n",
+					"- Agendar a infusão com antecedência se possível. \r\n" +
+					"- Aplicar somente em Centro de Infusão habilitado. \r\n",
 				abreviatura: "BLM",
 				nomescomerciais: [
 					{
@@ -737,11 +737,11 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "120mg Fr Amp",
+						descricao: "120 mg Fr Amp",
 						uso: "uso externo",
 					},
 					{
-						descricao: "400mg Fr Amp",
+						descricao: "400 mg Fr Amp",
 						uso: "uso externo"
 					},
 				],
@@ -749,53 +749,53 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Fazer a aplicação de 02 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 4 semanas.",
 						quantidade: "8",
-						forma: "frascos em três meses",
+						forma: "frascos",
 					},
 					{
 						posologia: "Fazer a aplicação de 03 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 4 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses",
+						forma: "frascos",
 					},
 					{
 						posologia: "Fazer a aplicação de 04 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 4 semanas.",
 						quantidade: "16",
-						forma: "frascos em três meses",
+						forma: "frascos",
 					},
 					{
 						posologia: "Fazer a aplicação de 02 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "6",
-						forma: "frascos em três meses",
+						forma: "frascos",
 					},
 					{
 						posologia: "Fazer a aplicação de 03 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "9",
-						forma: "frascos em três meses",
+						forma: "frascos",
 					},
 					{
 						posologia: "Fazer a aplicação de 04 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 				]
 			},
@@ -824,14 +824,14 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplique 01 frasco-ampola intramuscular profunda (glúteo) dose única.",
+						posologia: "Aplicar 01 frasco-ampola intramuscular profunda (glúteo) dose única.",
 						quantidade: "1",
 						forma: "ampola"
 					},
 					{
-						posologia: "Aplique 01 frasco-ampola intramuscular profunda (glúteo) a cada 21 dias.",
+						posologia: "Aplicar 01 frasco-ampola intramuscular profunda (glúteo) a cada 21 dias.",
 						quantidade: "2",
-						forma: "ampolas por mês"
+						forma: "ampolas"
 					},
 				]
 			},
@@ -839,7 +839,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Betametasona",
 				lme: false,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "CORTICOIDE",
 				orientacoes: "",
 				abreviatura: "BMS",
@@ -853,13 +853,13 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "6,43 + 2,63mg Inj",
+						descricao: "6,43 + 2,63 mg Inj",
 						uso: "uso externo"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Aplique 01 frasco-ampola intramuscular profunda (glúteo) dose única.",
+						posologia: "Aplicar 01 frasco-ampola intramuscular profunda (glúteo) dose única.",
 						quantidade: "1",
 						forma: "ampola"
 					},
@@ -871,7 +871,7 @@ Medicamentos.count().then(data =>
 				controlado: false,
 				favorito: false,
 				classe: "CORTICOIDE",
-				orientacoes: "Colocar uma pequena quantidade que cubra a ponta do dedo indicador.\n\r" + "Não utilizar maiores quantidades do que essa.\n\r"
+				orientacoes: "Colocar uma pequena quantidade que cubra a ponta do dedo indicador. \r\n" + "Não utilizar maiores quantidades do que essa.\r\n"
 					+ "Aplicar até ter uma fina camada. Não deixar uma grossa camada.",
 				abreviatura: "BMS",
 				nomescomerciais: [
@@ -881,27 +881,27 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "0,64mg/mL Loç Derm",
+						descricao: "0,64 mg/mL Loç Derm",
 						uso: "uso externo",
 					},
 					{
-						descricao: "0,64mg/G Crem Derm",
+						descricao: "0,64 mg/g Crem Derm",
 						uso: "uso externo"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Aplique uma quantidade adequada como explicado em consulta na região afetada de 12 em 12 horas por 7 dias.",
+						posologia: "Aplicar uma quantidade adequada como explicado em consulta na região afetada de 12 em 12 horas por 7 dias.",
 						quantidade: "1",
 						forma: "frasco"
 					},
 					{
-						posologia: "Aplique uma quantidade adequada como explicado em consulta na região afetada de 12 em 12 horas por 14 dias.",
+						posologia: "Aplicar uma quantidade adequada como explicado em consulta na região afetada de 12 em 12 horas por 14 dias.",
 						quantidade: "1",
 						forma: "frasco"
 					},
 					{
-						posologia: "Aplique uma quantidade adequada como explicado em consulta na região afetada de 12 em 12 horas até melhora da lesão.",
+						posologia: "Aplicar uma quantidade adequada como explicado em consulta na região afetada de 12 em 12 horas até melhora da lesão.",
 						quantidade: "2",
 						forma: "frascos"
 					},
@@ -922,34 +922,34 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "62,5mg Comp Rev",
+						descricao: "62,5 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "125mg Comp Rev",
+						descricao: "125 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos pela manhã e 01 comprimido a noite.",
+						posologia: "Tomar 02 comprimidos pela manhã e 01 comprimido a noite.",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos de 12 em 12 horas.",
+						posologia: "Tomar 02 comprimidos de 12 em 12 horas.",
 						quantidade: "120",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -971,18 +971,18 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg Cap Dura",
+						descricao: "10 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas se náusea ou vômitos.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas se náusea ou vômitos.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 5 dias.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -1009,20 +1009,20 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "150mg Comp. Rev.",
+						descricao: "150 mg Comp. Rev.",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1044,15 +1044,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "300mg Comp. Rev.",
+						descricao: "300 mg Comp. Rev.",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1060,13 +1060,16 @@ Medicamentos.count().then(data =>
 				farmaco: "Cálcio (cálcio citrato malato) + Vitamina D3 + Vitamina K + Magnésio",
 				lme: false,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "SUPLEMENTO",
 				orientacoes: "",
 				abreviatura: "CDKM",
 				nomescomerciais: [
 					{
 						nomefantasia: "Caldê KM"
+					},
+					{
+						nomefantasia: "Velus"
 					},
 				],
 				apresentacoes: [
@@ -1077,9 +1080,40 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido após almoço.",
+						posologia: "Tomar 01 comprimido após almoço.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
+					},
+				]
+			},
+			{
+				farmaco: "Cálcio (cálcio citrato malato) + Vitamina D3 + Vitamina K + Magnésio",
+				lme: false,
+				controlado: false,
+				favorito: true,
+				classe: "SUPLEMENTO",
+				orientacoes: "",
+				abreviatura: "CDMDK",
+				nomescomerciais: [
+					{
+						nomefantasia: "Caldê KDM"
+					},
+				],
+				apresentacoes: [
+					{
+						descricao: "260mg+70mg+90mcg+1000UI Comp Rev",
+						uso: "uso interno"
+					},
+					{
+						descricao: "260mg+70mg+90mcg+2000UI Comp Rev",
+						uso: "uso interno"
+					}
+				],
+				posologias: [
+					{
+						posologia: "Tomar 01 comprimido após almoço.",
+						quantidade: "30",
+						forma: "comp"
 					},
 				]
 			},
@@ -1098,24 +1132,24 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "25mg Comp",
+						descricao: "25 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "50mg Comp",
+						descricao: "50 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1134,15 +1168,21 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg/mL Spray",
+						descricao: "10 mg/mL Spray",
 						uso: "uso oral"
 					},
 				],
 				posologias: [
-					{
-						posologia: "Aplicar varios jatos dentro da boca sempre que necessário.",
+{
+						posologia: "Aplicar 02 jatos dentro da boca a cada 4 horas e antes das refeições.",
 						quantidade: "3",
-						forma: "frasos por mês"
+						forma: "frascos"
+					},
+
+					{
+						posologia: "Aplicar vários jatos dentro da boca sempre que necessário.",
+						quantidade: "3",
+						forma: "frascos"
 					},
 				]
 			},
@@ -1169,7 +1209,7 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Pingar uma gota em ambos os olhos uma a duas vezes ao dia.",
 						quantidade: "2",
-						forma: "frasos por mês"
+						forma: "frascos"
 					},
 				]
 			},
@@ -1191,32 +1231,32 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "3,125mg Comp",
+						descricao: "3,125 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "6,25mg Comp",
+						descricao: "6,25 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "12,5mg Comp",
+						descricao: "12,5 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "25mg Comp",
+						descricao: "25 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1235,13 +1275,13 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Cap Dura",
+						descricao: "500 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -1262,13 +1302,13 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Drag",
+						descricao: "500 mg Drag",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 drágea de 6 em 6 horas por 7 dias.",
+						posologia: "Tomar 01 drágea de 6 em 6 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -1289,22 +1329,22 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Pó Sol Inj",
+						descricao: "500 mg Pó Sol Inj",
 						uso: "uso interno",
 					},
 					{
-						descricao: "1000mg Pó Sol Inj",
+						descricao: "1000 mg Pó Sol Inj",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Aplique 01 ampola intramuscular profunda (glúteo) uma vez ao dia por 7 dias.",
+						posologia: "Aplicar 01 ampola intramuscular profunda (glúteo) uma vez ao dia por 7 dias.",
 						quantidade: "7",
 						forma: "ampolas"
 					},
 					{
-						posologia: "Aplique 01 ampola intramuscular profunda (glúteo) de 12 em 12 horas por 7 dias.",
+						posologia: "Aplicar 01 ampola intramuscular profunda (glúteo) de 12 em 12 horas por 7 dias.",
 						quantidade: "14",
 						forma: "ampolas"
 					},
@@ -1314,7 +1354,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Celecoxibe",
 				lme: false,
 				controlado: true,
-				favorito: false,
+				favorito: true,
 				classe: "ANTIINFLAMATORIO",
 				orientacoes: "Tomar sempre de estômago cheio",
 				abreviatura: "CLB",
@@ -1322,23 +1362,26 @@ Medicamentos.count().then(data =>
 					{
 						nomefantasia: "Celebra"
 					},
+					{
+						nomefantasia: "Digoxibe"
+					},
 				],
 				apresentacoes: [
 					{
-						descricao: "100mg Cap Dura",
+						descricao: "100 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 30 dias.",
-						quantidade: "60",
-						forma: "comp por mês"
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 30 dias.",
+						quantidade: "2",
+						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 60 dias.",
-						quantidade: "60",
-						forma: "comp por mês"
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 60 dias.",
+						quantidade: "4",
+						forma: "caixas"
 					},
 				]
 			},
@@ -1346,7 +1389,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Celecoxibe",
 				lme: false,
 				controlado: true,
-				favorito: false,
+				favorito: true,
 				classe: "ANTIINFLAMATORIO",
 				orientacoes: "Tomar sempre de estômago cheio",
 				abreviatura: "CLB",
@@ -1363,40 +1406,40 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "200mg Cap Dura",
+						descricao: "200 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 5 dias.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 10 dias.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 10 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 14 dias.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 14 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 30 dias.",
-						quantidade: "60",
-						forma: "comp por mês"
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 30 dias.",
+						quantidade: "2",
+						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas por 60 dias.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas por 60 dias.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "caixas"
 					},
 				]
 			},
@@ -1416,28 +1459,28 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "200mg/mL Inj Ser",
+						descricao: "200 mg/mL Inj Ser",
 						uso: "uso externo"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Semana 0: Aplicar 2 ampolas (seringas) [400 mg] por via subcutânea no mesmo dia.\n\r" +
-							"Semana 2: Aplicar 2 ampolas (seringas) [400 mg] por via subcutânea no mesmo dia.\r\n" +
-							"Semana 4: Aplicar 2 ampolas (seringas) [400 mg] por via subcutânea no mesmo dia.\r\n" +
-							"Semana 6 em diante: Aplicar 1 ampola (seringa) [200 mg] por via subcutânea a cada 14 dias",
+						posologia: "Semana 0: Aplicar 2 ampolas (seringas) [400 mg] por via subcutânea no mesmo dia. \r\n" +
+							"Semana 2: Aplicar 2 ampolas (seringas) [400 mg] por via subcutânea no mesmo dia. \r\n" +
+							"Semana 4: Aplicar 2 ampolas (seringas) [400 mg] por via subcutânea no mesmo dia. \r\n" +
+							"Semana 6 em diante: Aplicar 1 ampola (seringa) [200 mg] por via subcutânea a cada 14 dias.",
 						quantidade: "8",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
-						posologia: "Aplique 01 ampola (seringa) [200mg] no subcutâneo a cada 14 dias.",
+						posologia: "Aplicar 01 ampola (seringa) [200 mg] no subcutâneo a cada 14 dias.",
 						quantidade: "6",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
-						posologia: "Aplique 02 ampolas (seringas) [400mg] no subcutâneo no mesmo dia a cada 28 dias.",
+						posologia: "Aplicar 02 ampolas (seringas) [400 mg] no subcutâneo no mesmo dia a cada 28 dias.",
 						quantidade: "6",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 				]
 			},
@@ -1459,38 +1502,38 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "200mg Comp",
+						descricao: "200 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "20mg/g Crem Derm",
+						descricao: "20 mg/g Crem Derm",
 						uso: "uso externo",
 					},
 					{
-						descricao: "20mg/g Xamp",
+						descricao: "20 mg/g Xamp",
 						uso: "uso externo"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 7 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 14 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 14 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
 						posologia: "Aplicar uma adequada quantidade na região afetada uma vez ao dia por 7 dias.",
 						quantidade: "1",
-						forma: "caixa"
+						forma: "frasco"
 					},
 					{
 						posologia: "Aplicar uma adequada quantidade na região afetada uma vez ao dia por 14 dias.",
 						quantidade: "1",
-						forma: "caixa"
+						forma: "frasco"
 					},
 				]
 			},
@@ -1509,28 +1552,28 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "200mg+20mg Cap",
+						descricao: "200 mg + 20 mg Cap",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 5 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 7 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 10 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 10 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 14 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 14 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -1551,7 +1594,7 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "25mg/g Gel",
+						descricao: "25 mg/g Gel",
 						uso: "uso externo"
 					}
 				],
@@ -1559,12 +1602,12 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Aplicar uma adequada quantidade na região afetada uma vez ao dia por 7 dias.",
 						quantidade: "1",
-						forma: "caixa"
+						forma: "frasco"
 					},
 					{
 						posologia: "Aplicar uma adequada quantidade na região afetada uma vez ao dia por 14 dias.",
 						quantidade: "1",
-						forma: "caixa"
+						forma: "frasco"
 					},
 				]
 			},
@@ -1574,7 +1617,7 @@ Medicamentos.count().then(data =>
 				controlado: false,
 				favorito: false,
 				classe: "CONVENCIONAL",
-				orientacoes: "",
+				orientacoes: "Essa medicação pode causar sonolência.",
 				abreviatura: "Cz",
 				nomescomerciais: [
 					{
@@ -1586,29 +1629,29 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "5mg Comp Rev)",
+						descricao: "5 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "10mg Comp Rev)",
+						descricao: "10 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido a noite próximo à hora de dormir por 7 dias.",
+						posologia: "Tomar 01 comprimido a noite próximo à hora de dormir por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido a noite próximo à hora de dormir por 10 dias.",
+						posologia: "Tomar 01 comprimido a noite próximo à hora de dormir por 10 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido a noite próximo à hora de dormir.",
+						posologia: "Tomar 01 comprimido a noite próximo à hora de dormir.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1627,15 +1670,21 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "50mg Comp Rev)",
+						descricao: "50 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
+						quantidade: "30",
+						forma: "comp"
+					},
+	
+					{
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1654,27 +1703,27 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg Cáp",
+						descricao: "10 mg Cáp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "25mg Cáp",
+						descricao: "25 mg Cáp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "50mg Cáp",
+						descricao: "50 mg Cáp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "100mg Cáp",
+						descricao: "100 mg Cáp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "cap por mês"
+						forma: "cap"
 					},
 				]
 			},
@@ -1696,28 +1745,28 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Comp Rev",
+						descricao: "500 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 5 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 10 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 10 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 14 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 14 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
@@ -1741,15 +1790,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "20mg Comp",
+						descricao: "20 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1768,23 +1817,23 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Comp",
+						descricao: "500 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia com alimentos (estômago cheio) por 7 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia com alimentos (estômago cheio) por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia com alimentos (estômago cheio) por 10 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia com alimentos (estômago cheio) por 10 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia com alimentos (estômago cheio) por 14 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia com alimentos (estômago cheio) por 14 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
@@ -1796,7 +1845,7 @@ Medicamentos.count().then(data =>
 				controlado: true,
 				favorito: false,
 				classe: "ANTIMICROBIANO",
-				orientacoes: "Tomar sempre com um copo de água bem cheio.",
+				orientacoes: "Tomar sempre com um copo d' água bem cheio.",
 				abreviatura: "",
 				nomescomerciais: [
 					{
@@ -1805,28 +1854,28 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "300mg Cap Dura",
+						descricao: "300 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 5 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 10 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 10 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 14 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 14 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
@@ -1845,20 +1894,20 @@ Medicamentos.count().then(data =>
 						nomefantasia: "Psorex"
 					},
 					{
-						nomefantasia: "Psorex"
+						nomefantasia: "Clobex"
 					},
 				],
 				apresentacoes: [
 					{
-						descricao: "0,5mg/g Crem Derm",
+						descricao: "0,5 mg/g Crem Derm",
 						uso: "uso externo",
 					},
 					{
-						descricao: "0,5mg/g Pom Derm",
+						descricao: "0,5 mg/g Pom Derm",
 						uso: "uso externo",
 					},
 					{
-						descricao: "0,5mg/g Sol Capilar",
+						descricao: "0,5 mg/g Sol Capilar",
 						uso: "uso externo"
 					}
 				],
@@ -1866,17 +1915,17 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Aplicar uma fina camada na região afetada uma vez ao dia por 7 dias.",
 						quantidade: "1",
-						forma: "caixa"
+						forma: "frasco"
 					},
 					{
 						posologia: "Aplicar uma fina camada na região afetada uma vez ao dia por 14 dias.",
 						quantidade: "1",
-						forma: "caixa"
+						forma: "frascos"
 					},
 					{
 						posologia: "Aplicar uma fina camada na região afetada uma vez ao dia até melhora da lesão.",
 						quantidade: "3",
-						forma: "caixas"
+						forma: "frascos"
 					},
 				]
 			},
@@ -1895,15 +1944,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "75mg Comp Rev",
+						descricao: "75 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido após almoço.",
+						posologia: "Tomar 01 comprimido após almoço.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1922,19 +1971,19 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "25mg Comp",
+						descricao: "25 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "50mg Comp",
+						descricao: "50 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido pela manhã.",
+						posologia: "Tomar 01 comprimido pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -1953,29 +2002,44 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "30mg Comp",
+						descricao: "30 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "3mg/mL Sol",
+						descricao: "3 mg/mL Sol",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 6 em 6 horas se dor.",
+						posologia: "Tomar 01 comprimido de 6 em 6 horas se dor.",
+						quantidade: "1",
+						forma: "caixa"
+					},
+					{
+						posologia: "Tomar 01 comprimido de 6 em 6 horas se dor.",
 						quantidade: "120",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas se dor.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas se dor.",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas se dor.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas se dor.",
+						quantidade: "1",
+						forma: "caixa"
+					},
+					{
+						posologia: "Tomar 10 mL de 8 em 8 horas se dor.",
+						quantidade: "2",
+						forma: "frascos"
+					},
+					{
+						posologia: "Tomar 01 comprimido de 12 em 12 horas se dor.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2000,24 +2064,24 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "30mg+500mg Comp",
+						descricao: "30 mg + 500  mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 6 em 6 horas se dor.",
+						posologia: "Tomar 01 comprimido de 6 em 6 horas se dor.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas se dor.",
-						quantidade: "2",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas se dor.",
+						quantidade: "1",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas se dor.",
-						quantidade: "2",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas se dor.",
+						quantidade: "1",
 						forma: "caixas"
 					},
 				]
@@ -2037,32 +2101,32 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "0,5mg Comp",
+						descricao: "0,5 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "1,0mg Comp",
+						descricao: "1,0 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 6 em 6 horas.",
+						posologia: "Tomar 01 comprimido de 6 em 6 horas.",
 						quantidade: "120",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas.",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 30 em 30 minutos até que haja melhora das dores, ou se houver náusea, vômito ou diarréia.",
+						posologia: "Tomar 01 comprimido de 30 em 30 minutos até que haja melhora das dores, ou se houver náusea, vômito ou diarréia.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -2083,15 +2147,20 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "100mg Comp",
+						descricao: "100 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
+					},
+{
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
+						quantidade: "30",
+						forma: "comp"
 					},
 				]
 			},
@@ -2113,30 +2182,30 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "30mg Comp",
+						descricao: "30 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido pela manhã por 14 dias, então tome 1/2 (meio) comprimido pela manhã até o retorno.",
+						posologia: "Tomar 01 comprimido pela manhã por 14 dias, então tome 1/2 (meio) comprimido pela manhã até o retorno.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido pela manhã por 20 dias, então tome 1/2 (meio) comprimido pela manhã até o retorno.",
+						posologia: "Tomar 01 comprimido pela manhã por 20 dias, então tome 1/2 (meio) comprimido pela manhã até o retorno.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido pela manhã por 7 dias, então tome 1/2 (meio) comprimido pela manhã mais 7 dias, então pare.",
+						posologia: "Tomar 01 comprimido pela manhã por 7 dias, então tome 1/2 (meio) comprimido pela manhã mais 7 dias, então pare.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 comprimido pela manhã.",
+						posologia: "Tomar 01 comprimido pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2155,30 +2224,30 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "7,5mg Comp",
+						descricao: "7,5 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 02 comprimidos pela manhã por 14 dias, então tome 1 comprimido pela manhã até o retorno.",
+						posologia: "Tomar 02 comprimidos pela manhã por 14 dias, então tome 1 comprimido pela manhã até o retorno.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos pela manhã por 20 dias, então tome 1 comprimido pela manhã até o retorno.",
+						posologia: "Tomar 02 comprimidos pela manhã por 20 dias, então tome 1 comprimido pela manhã até o retorno.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos pela manhã.",
+						posologia: "Tomar 02 comprimidos pela manhã.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido pela manhã.",
+						posologia: "Tomar 01 comprimido pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2197,30 +2266,30 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "6mg Comp",
+						descricao: "6 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 02 comprimidos pela manhã por 14 dias, então tome 1 comprimido pela manhã até o retorno.",
+						posologia: "Tomar 02 comprimidos pela manhã por 14 dias, então tome 1 comprimido pela manhã até o retorno.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos pela manhã por 20 dias, então tome 1 comprimido pela manhã até o retorno.",
+						posologia: "Tomar 02 comprimidos pela manhã por 20 dias, então tome 1 comprimido pela manhã até o retorno.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos pela manhã.",
+						posologia: "Tomar 02 comprimidos pela manhã.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido pela manhã.",
+						posologia: "Tomar 01 comprimido pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2239,13 +2308,13 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "60mg/mL Inj Fr",
+						descricao: "60 mg/mL Inj Fr",
 						uso: "uso externo"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Aplique 01 frasco (injeção) subcutânea única de 60 mg administrada uma vez a cada 6 meses.",
+						posologia: "Aplicar 01 frasco (injeção) subcutânea única de 60 mg administrada uma vez a cada 6 meses.",
 						quantidade: "2",
 						forma: "frasco por ano"
 					},
@@ -2266,29 +2335,29 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "5mg Comp Rev",
+						descricao: "5 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 5 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 7 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 14 dias.",
-						quantidade: "2",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 14 dias.",
+						quantidade: "1",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 28 dias.",
-						quantidade: "2",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 28 dias.",
+						quantidade: "1",
 						forma: "caixas"
 					},
 				]
@@ -2308,19 +2377,19 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "50mg Comp Rev Lib Prol",
+						descricao: "50 mg Comp Rev Lib Prol",
 						uso: "uso interno",
 					},
 					{
-						descricao: "100mg Comp Rev Lib Prol",
+						descricao: "100 mg Comp Rev Lib Prol",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia, preferencialmente pela manhã.",
+						posologia: "Tomar 01 comprimido uma vez ao dia, preferencialmente pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2339,18 +2408,18 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "2mg Comp Rev",
+						descricao: "2 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas por 5 dias.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -2371,34 +2440,34 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "30mg Cáp Lib Ret",
+						descricao: "30 mg Cáp Lib Ret",
 						uso: "uso interno",
 					},
 					{
-						descricao: "60mg Cáp Lib Ret",
+						descricao: "60 mg Cáp Lib Ret",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula pela manhã em jejum por 7 dias.",
+						posologia: "Tomar 01 cápsula pela manhã em jejum por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula pela manhã em jejum por 14 dias.",
+						posologia: "Tomar 01 cápsula pela manhã em jejum por 14 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula pela manhã em jejum por 28 dias.",
+						posologia: "Tomar 01 cápsula pela manhã em jejum por 28 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula pela manhã em jejum",
+						posologia: "Tomar 01 cápsula pela manhã em jejum",
 						quantidade: "30",
-						forma: "cap por mês"
+						forma: "cap"
 					},
 				]
 			},
@@ -2417,15 +2486,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "50mg Comp",
+						descricao: "50 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 20 dias, então tome 01 comprimido de 12 em 12 horas por 4 meses.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 20 dias, então tome 01 comprimido de 12 em 12 horas por 4 meses.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2447,18 +2516,18 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "50mg Comp",
+						descricao: "50 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas por 5 dias.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -2479,15 +2548,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg Comp",
+						descricao: "10 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido 30 minutos antes do café, do almoço e da janta.",
+						posologia: "Tomar 01 comprimido 30 minutos antes do café, do almoço e da janta.",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2512,24 +2581,24 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "30mg Cap",
+						descricao: "30 mg Cap",
 						uso: "uso interno",
 					},
 					{
-						descricao: "60mg Cap",
+						descricao: "60 mg Cap",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Iniciar com as amostras de 30mg.\r\nTome 01 cápsula pela manhã.",
+						posologia: "Iniciar com as amostras de 30 mg. \r\nTomar 01 cápsula pela manhã.",
 						quantidade: "30",
-						forma: "cap por mês"
+						forma: "cap"
 					},
 					{
-						posologia: "Tome 01 cápsula pela manhã.",
+						posologia: "Tomar 01 cápsula pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2548,24 +2617,24 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "5mg Comp",
+						descricao: "5 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "10mg Comp",
+						descricao: "10 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2584,37 +2653,37 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "20 mg/0,2 mL",
+						descricao: "20 mg/0,2mL",
 						uso: "uso externo",
 					},
 					{
-						descricao: "40 mg/0,4 mL",
+						descricao: "40 mg/0,4mL",
 						uso: "uso externo",
 					},
 					{
-						descricao: "60 mg/0,6 mL",
+						descricao: "60 mg/0,6mL",
 						uso: "uso externo",
 					},
 					{
-						descricao: "80 mg/0,8 mL",
+						descricao: "80 mg/0,8mL",
 						uso: "uso externo"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Aplique 1 frasco subcutâneo uma vez ao dia.",
+						posologia: "Aplicar 1 frasco subcutâneo uma vez ao dia.",
 						quantidade: "30",
-						forma: "frascos por mês"
+						forma: "frascos"
 					},
 					{
-						posologia: "Aplique 1 frasco subcutâneo de 12 em 12 horas.",
+						posologia: "Aplicar 1 frasco subcutâneo de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "frascos por mês"
+						forma: "frascos"
 					},
 					{
-						posologia: "Aplique 1 frasco subcutâneo uma vez ao dia até a 16ª semana de gestação, então aplique 01 frasco subcutâneo de 12 em 12 horas até a 6ª de puerpério.",
+						posologia: "Aplicar 1 frasco subcutâneo uma vez ao dia até a 16ª semana de gestação, então aplique 01 frasco subcutâneo de 12 em 12 horas até a 6ª de puerpério.",
 						quantidade: "30 a 60",
-						forma: "frascos por mês"
+						forma: "frascos"
 					},
 				]
 			},
@@ -2636,23 +2705,23 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg Comp Rev",
+						descricao: "10 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "15mg Comp Rev",
+						descricao: "15 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "20mg Comp Rev",
+						descricao: "20 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido pela manhã.",
+						posologia: "Tomar 01 comprimido pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2671,19 +2740,19 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "20mg Comp Rev De Lib Retard",
+						descricao: "20 mg Comp Rev De Lib Retard",
 						uso: "uso interno",
 					},
 					{
-						descricao: "40mg Comp Rev De Lib Retard",
+						descricao: "40 mg Comp Rev De Lib Retard",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido pela manhã .",
+						posologia: "Tomar 01 comprimido pela manhã .",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2702,19 +2771,19 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "25mg Comp",
+						descricao: "25 mg Comp",
 						uso: "uso interno",
 					},
 					{
-						descricao: "100mg Comp",
+						descricao: "100 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido pela manhã.",
+						posologia: "Tomar 01 comprimido pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2724,7 +2793,7 @@ Medicamentos.count().then(data =>
 				controlado: false,
 				favorito: false,
 				classe: "MMCDB",
-				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR.\r\n" +
+				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
 					"- Transportar a medicação somente dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável.",
 				abreviatura: "ETN",
 				nomescomerciais: [
@@ -2734,19 +2803,19 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "25mg Inj Ser",
+						descricao: "25 mg Inj Ser",
 						uso: "uso externo",
 					},
 					{
-						descricao: "50mg Inj Ser",
+						descricao: "50 mg Inj Ser",
 						uso: "uso externo"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Aplique 01 ampola (seringa) no subcutâneo uma vez por semana.",
+						posologia: "Aplicar 01 ampola (seringa) no subcutâneo uma vez por semana.",
 						quantidade: "12",
-						forma: "ampolas (seringas) em três meses"
+						forma: "ampolas (seringas)"
 					},
 				]
 			},
@@ -2765,18 +2834,18 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Comp Rev",
+						descricao: "500 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 5 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 5 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -2800,32 +2869,32 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "60mg Comp Rev",
+						descricao: "60 mg Comp Rev",
 						uso: "uso interno",
 					},
 					{
-						descricao: "90mg Comp Rev",
+						descricao: "90 mg Comp Rev",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 7 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 14 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 14 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 28 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 28 dias.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia por 56 dias.",
+						posologia: "Tomar 01 comprimido uma vez ao dia por 56 dias.",
 						quantidade: "4",
 						forma: "caixas"
 					},
@@ -2846,18 +2915,18 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg Comp",
+						descricao: "500 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 7 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas por 14 dias.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas por 14 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -2878,15 +2947,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "200mg Cap",
+						descricao: "200 mg Cap",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido durante o almoço ou janta.",
+						posologia: "Tomar 01 comprimido durante o almoço ou janta.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2908,32 +2977,32 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "50mg Cap Dura",
+						descricao: "50 mg Cap Dura",
 						uso: "uso interno",
 					},
 					{
-						descricao: "150mg Cap Dura",
+						descricao: "150 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula dose única.",
+						posologia: "Tomar 01 cápsula dose única.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula uma vez por semana por 2 semanas.",
+						posologia: "Tomar 01 cápsula uma vez por semana por 2 semanas.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula uma vez por semana por 4 semanas.",
+						posologia: "Tomar 01 cápsula uma vez por semana por 4 semanas.",
 						quantidade: "2",
 						forma: "caixas"
 					},
 					{
-						posologia: "Tome 01 cápsula uma vez por semana por 6 semanas.",
+						posologia: "Tomar 01 cápsula uma vez por semana por 6 semanas.",
 						quantidade: "3",
 						forma: "caixas"
 					},
@@ -2957,20 +3026,20 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "20mg Cap Dura",
+						descricao: "20 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula pela manhã.",
+						posologia: "Tomar 01 cápsula pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 cápsulas pela manhã.",
+						posologia: "Tomar 02 cápsulas pela manhã.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -2989,15 +3058,15 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "40mg Comp",
+						descricao: "40 mg Comp",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido pela manhã.",
+						posologia: "Tomar 01 comprimido pela manhã.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -3019,56 +3088,56 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "300mg Cap Dura",
+						descricao: "300 mg Cap Dura",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia",
+						posologia: "Tomar 01 comprimido uma vez ao dia",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 8 em 8 horas",
+						posologia: "Tomar 01 comprimido de 8 em 8 horas",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido pela manhã e 02 comprimidos a noite",
+						posologia: "Tomar 01 comprimido pela manhã e 02 comprimidos a noite",
 						quantidade: "90",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido pela manha, 01 comprimido a tarde e 02 comprimidos a noite.",
+						posologia: "Tomar 01 comprimido pela manha, 01 comprimido a tarde e 02 comprimidos a noite.",
 						quantidade: "120",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos de 12 em 12 horas",
+						posologia: "Tomar 02 comprimidos de 12 em 12 horas",
 						quantidade: "120",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 02 comprimidos de 8 em 8 horas",
+						posologia: "Tomar 02 comprimidos de 8 em 8 horas",
 						quantidade: "180",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
 						posologia:
-							"Primeira semana: tome 01 comprimido a noite.\r\n" +
-							"Segunda semana: tome 01 comprimido de manhã e 01 comprimidos a noite.\r\n" +
-							"Terceira a sexta semana: tome 01 comprimido de manhã, 01 comprimido a tarde e 01 comprimidos a noite.\r\n" +
+							"Primeira semana: tome 01 comprimido a noite. \r\n" +
+							"Segunda semana: tome 01 comprimido de manhã e 01 comprimidos a noite. \r\n" +
+							"Terceira a sexta semana: tome 01 comprimido de manhã, 01 comprimido a tarde e 01 comprimidos a noite. \r\n" +
 							"Sétima a décima semana: tome 01 comprimido de manhã, 01 comprimido a tarde e 02 comprimidos a noite. \r\n" +
-							"Décima primeira a décima quarta semana: tome 01 comprimido de manhã, 02 comprimidos a tarde e 2 comprimidos a noite.\r\n" +
+							"Décima primeira a décima quarta semana: tome 01 comprimido de manhã, 02 comprimidos a tarde e 2 comprimidos a noite. \r\n" +
 							"Décima quinta semana em diante: tome 02 comprimido de 8 em 8 horas.",
 						quantidade: "180",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -3087,20 +3156,20 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "5,0mg Comp",
+						descricao: "5,0 mg Comp",
 						uso: "uso interno"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido de 12 em 12 horas.",
+						posologia: "Tomar 01 comprimido de 12 em 12 horas.",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -3128,22 +3197,22 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "500mg+400mg Cap",
+						descricao: "500 mg + 400 mg Cap",
 						uso: "uso interno"
 					}
 				],
 				posologias: [
 					{
-						posologia: "Colocar o conteúdo de um envelope em um copo de água (200mL).\r\n"
+						posologia: "Colocar o conteúdo de um envelope em um copo de água (200 mL). \r\n"
 							+ " Aguardar 3 minutos, então mexer com um colher. \r\n"
 							+ "Tomar a mistura uma vez ao dia por  6 meses.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 cápsula de 8 em 8 horas",
+						posologia: "Tomar 01 cápsula de 8 em 8 horas",
 						quantidade: "60",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -3163,73 +3232,73 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "50mg Inj Ser",
+						descricao: "50 mg Inj Ser",
 						uso: "uso externo"
 					},
 					{
-						descricao: "50mg/4mL Fra",
+						descricao: "50 mg/4mL Fra",
 						uso: "uso externo"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Aplique 01 ampola (seringa) no subcutâneo uma vez por mês.",
+						posologia: "Aplicar 01 ampola (seringa) no subcutâneo uma vez.",
 						quantidade: "3",
-						forma: "ampolas (seringas) em três meses"
+						forma: "ampolas (seringas)"
 					},
 					{
 						posologia:
 							"Fazer a aplicação de 02 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 8 semanas.",
 						quantidade: "6",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
 							"Fazer a aplicação de 03 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 8 semanas.",
 						quantidade: "9",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
 							"Fazer a aplicação de 04 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após"
 							+ "a cada 8 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 02 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "4",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 03 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "6",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia: "Fazer a aplicação de 04 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "9",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 				]
 			},
@@ -3248,11 +3317,11 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg/g Crem Derm",
+						descricao: "10 mg/g Crem Derm",
 						uso: "uso externo"
 					},
 					{
-						descricao: "10mg/g Pom Derm",
+						descricao: "10 mg/g Pom Derm",
 						uso: "uso externo"
 					},
 				],
@@ -3289,20 +3358,20 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "400mg Comp Rev",
+						descricao: "400 mg Comp Rev",
 						uso: "uso interno"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 comprimido uma vez ao dia.",
+						posologia: "Tomar 01 comprimido uma vez ao dia.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido em dias alternados.",
+						posologia: "Tomar 01 comprimido em dias alternados.",
 						quantidade: "15",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -3324,25 +3393,25 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "150mg Comp. Rev",
+						descricao: "150 mg Comp. Rev",
 						uso: "uso interno"
 					},
 				],
 				posologias: [
 					{
 						posologia:
-							"Tome 01 comprimido uma vez por mês.\r\n"
-							+ "Tome em jejum, 60 minutos antes da ingestão alimentos.\r\n"
-							+ "Tome com um copo cheio de água filtrada (180 a 240 mL).\r\n"
-							+ "Você deverá estar em posição ereta: sentado, em pé ou andando.\r\n"
+							"Tomar 01 comprimido uma vez. \r\n"
+							+ "Tomar em jejum, 60 minutos antes da ingestão alimentos. \r\n"
+							+ "Tomar com um copo cheio de água filtrada (180 a 240 mL). \r\n"
+							+ "Você deverá estar em posição ereta: sentado, em pé ou andando. \r\n"
 							+ "Você não deve deitar-se nos 60 minutos seguintes após tomar o medicamento.",
 						quantidade: "30",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 					{
-						posologia: "Tome 01 comprimido em dias alternados.",
+						posologia: "Tomar 01 comprimido em dias alternados.",
 						quantidade: "15",
-						forma: "comp por mês"
+						forma: "comp"
 					},
 				]
 			},
@@ -3364,13 +3433,13 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "600mg Cap Mole",
+						descricao: "600 mg Cap Mole",
 						uso: "uso interno"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Tome 01 cápsula de 12 em 12 horas somente se dor.",
+						posologia: "Tomar 01 cápsula de 12 em 12 horas somente se dor.",
 						quantidade: "1",
 						forma: "caixa"
 					},
@@ -3383,9 +3452,9 @@ Medicamentos.count().then(data =>
 				favorito: false,
 				classe: "MMCDB",
 				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
-					"- Trazer a medicação para aplicação dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável.\r\n" +
-					"- Agendar a infusão com antecedência se possível.\r\n" +
-					"- Aplicar somente em Centro de Infusão habilitado ou internado em hospital.\r\n",
+					"- Trazer a medicação para aplicação dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável. \r\n" +
+					"- Agendar a infusão com antecedência se possível. \r\n" +
+					"- Aplicar somente em Centro de Infusão habilitado ou internado em hospital. \r\n",
 				abreviatura: "IH",
 				nomescomerciais: [
 					{
@@ -3394,11 +3463,11 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "250mg Inj Fr Amp",
+						descricao: "250 mg Inj Fr Amp",
 						uso: "uso externo"
 					},
 					{
-						descricao: "125mg/mL Sol Inj",
+						descricao: "125 mg/mL Sol Inj",
 						uso: "uso externo"
 					},
 				],
@@ -3407,12 +3476,12 @@ Medicamentos.count().then(data =>
 						posologia:
 							"Fazer a aplicação de 05 frascos a cada dose, após devida preparação,"
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
-							+ "somente em centro de infusão habilitado em terapia assistida ou internado em hospital.\r\n"
+							+ "somente em centro de infusão habilitado em terapia assistida ou internado em hospital. \r\n"
 							+ "Fazer uma aplicação por dia por 5 dias consecutivos."
 							+ "Infundir a pré-medicação: "
 							+ "- Metilprednisolona 125 mg diluído em 100 mL correndo em 30 minutos"
-							+ "- Prometazina um comprimido de 25 mg ou uma ampola de 50 mg (2 ml) intra-muscular.\r\n"
-							+ "Infundir a Imunoglobulina em bomba de infusão a 0,5 mL/kg/hora na primeira hora e após a 1,0 mL/kg/hora.\r\n"
+							+ "- Prometazina um comprimido de 25 mg ou uma ampola de 50 mg (2 ml) intra-muscular. \r\n"
+							+ "Infundir a Imunoglobulina em bomba de infusão a 0,5 mL/kg/hora na primeira hora e após a 1,0 mL/kg/hora. \r\n"
 							+ "Paciente deve ser monitorizado durante a aplicação.",
 						quantidade: "25",
 						forma: "frascos"
@@ -3437,7 +3506,7 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "10mg/ml Inj Fr Amp de 10ml",
+						descricao: "10 mg/ml Inj Fr Amp de 10 mL",
 						uso: "uso externo"
 					},
 				],
@@ -3450,7 +3519,7 @@ Medicamentos.count().then(data =>
 							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
 							+ "a cada 8 semanas.",
 						quantidade: "8",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3460,7 +3529,7 @@ Medicamentos.count().then(data =>
 							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
 							+ "a cada 8 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3470,7 +3539,7 @@ Medicamentos.count().then(data =>
 							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
 							+ "a cada 8 semanas.",
 						quantidade: "16",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3480,7 +3549,7 @@ Medicamentos.count().then(data =>
 							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
 							+ "a cada 6 semanas.",
 						quantidade: "8",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3490,7 +3559,7 @@ Medicamentos.count().then(data =>
 							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
 							+ "a cada 6 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3500,7 +3569,7 @@ Medicamentos.count().then(data =>
 							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
 							+ "a cada 6 semanas.",
 						quantidade: "16",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3509,7 +3578,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "04",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3518,7 +3587,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "06",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3527,7 +3596,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "08",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3536,7 +3605,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 6 semanas.",
 						quantidade: "04",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3545,7 +3614,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 6 semanas.",
 						quantidade: "06",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3554,7 +3623,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 6 semanas.",
 						quantidade: "08",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3563,7 +3632,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "06",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3572,7 +3641,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "09",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 					{
 						posologia:
@@ -3581,7 +3650,7 @@ Medicamentos.count().then(data =>
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "12",
-						forma: "frascos em três meses"
+						forma: "frascos"
 					},
 				]
 			},
@@ -3600,23 +3669,23 @@ Medicamentos.count().then(data =>
 				],
 				apresentacoes: [
 					{
-						descricao: "100mg Cap Dura",
+						descricao: "100 mg Cap Dura",
 						uso: "uso interno"
 					},
 				],
 				posologias: [
 					{
-						posologia: "Tome 02 cápsulas de 12 em 12 horas por um dia.",
+						posologia: "Tomar 02 cápsulas de 12 em 12 horas por um dia.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 01 cápsula por dia por 15 dias.",
+						posologia: "Tomar 01 cápsula por dia por 15 dias.",
 						quantidade: "1",
 						forma: "caixa"
 					},
 					{
-						posologia: "Tome 02 cápsula por dia por 90 dias.",
+						posologia: "Tomar 02 cápsula por dia por 90 dias.",
 						quantidade: "90",
 						forma: "cápsulas"
 					}
@@ -3624,306 +3693,46 @@ Medicamentos.count().then(data =>
 			}
 		], {
 			include: [Nomescomerciais, Apresentacoes, Posologias]
-		}
+		},
+		{
+			farmaco: "Leflunomida",
+			lme: true,
+			controlado: true,
+			favorito: false,
+			classe: "MMCDS",
+			orientacoes: "",
+			abreviatura: "LFN",
+
+			nomescomerciais: [
+				{
+					nomefantasia: "Arava"
+				},
+			],
+			apresentacoes: [
+				{
+					descricao: "20 mg Comp",
+					uso: "uso interno"
+				}
+			],
+			posologias: [
+				{
+					posologia: "Tomar 01 comprimido uma vez ao dia.",
+					quantidade: "30",
+					forma: "comp"
+				},
+				{
+					posologia: "Tomar 01 comprimido em dias alternados (dia sim, dia não).",
+					quantidade: "15",
+					forma: "comp"
+				},
+			]
+		},
+
+
+
+
 		)
 	),
 )
 
 
-	//
-	//
-	// //
-	// ////0, "Leflunomida", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "LFN", 
-	// ////0, "Levofloxacino", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// ////0, "Levotiroxina Sódica", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "LT4", 
-	// ////0, "Lítio", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// ////0, "Loperamida", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// ////0, "Loratadina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// ////0, "Losartana Potássica", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "LST", 
-	// ////0, "Mebendazol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// ////0, "Medroxiprogesterona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Medroxiprogesterona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Meloxicam", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "MX", 
-	// //0, "Mesalazina", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "MSZ", 
-	// //0, "Metformina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "MTF", 
-	// //0, "Metildopa", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Metilprednisolona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "MPDN", 
-	// //0, "Metoclopramida", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Metoprolol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Metotrexato", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "MTX", 
-	// //0, "Metotrexato", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "MTX", 
-	// //0, "Metronidazol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Micofenolato de Mofetila", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "MMF", 
-	// //0, "Miconazol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Minoxidil", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Moxifloxacino", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Mupirocina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Naproxeno", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "NX", 
-	// //0, "Naproxeno + Esomeprazol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Nifedipino", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "NFD", 
-	// //0, "Nimesulida", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Nistatina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Nitazoxanida", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Nitrofurantoína", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Norfloxacino", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Nortriptilina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Omeprazol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "OMZ", 
-	// //0, "Ondansetrona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Oseltamivir", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Oxcarbazepina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Pamidronato", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PMD", 
-	// //0, "Pantoprazol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PMZ", 
-	// //0, "Paracetamol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PCT", 
-	// //0, "Paroxetina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PXT", 
-	// //0, "Pilocarpina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Piroxicam", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Piroxicam", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Pramipexol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Prednisolona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PLDN", 
-	// //0, "Prednisolona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PLDN", 
-	// //0, "Prednisona", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PDN", 
-	// //0, "Pregabalina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PGL", 
-	// //0, "Prometazina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Prometazina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Propanolol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "PPL", 
-	// //0, "Racecadotrila", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Raloxifeno", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Risedronato", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "RSD", 
-	// //0, "Rituximabe", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "RXT", 
-	// //0, "Sertralina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Sildenafil", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Sinvastatina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "SVT", 
-	// //0, "Sulfametoxazol + Trimetoprima", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Sumatriptano", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Valsartana", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Terbinafina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Tiocolchicosídeo", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Tobramicina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Tocilizumabe", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "TCZ", 
-	// //0, "Tofacitinibe", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "TFN", 
-	// //0, "Topiramato", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Tramadol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "TMD", 
-	// //0, "Tramadol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "TMD", 
-	// //0, "Tramadol + Paracetamol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Trazodona", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "TZD", 
-	// //0, "Triancinolona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Trometamol", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Ustekinumab", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Valproato de Sódio", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Valsartana", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Varfarina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Venlafaxina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "VFX", 
-	// //0, "Zoledrônico, Ácido", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "AZ", 
-	// //0, "Zolpidem", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Dexametasona", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Lisina + Ciclobenzaprina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Cálcio cálcio citrato malato + Vitamina D + Vitamina K + + Magnésio", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "CaVD", 
-	// //0, "Hemitartarato de zolpidem", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Cetoprofeno", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Ferro quelato glicinato + Ácido fólico", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Harpagophytum procumbens DC", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "HP", 
-	// //0, "Fluvoxamina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Valeriana officinalisL. + Humulus lupulus L.", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Dexlansoprazol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Vortioxetina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Glicinato de magnésio + cloridrato de piridoxina", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Danazol", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Doxiciclina", false, true,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Lesinurade", false, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: null, 
-	// //0, "Sulfassalazina", true, false,false,medicamentoclasse.",
-	// orientacoes: "",
-	// abreviatura: "SSZ", 
