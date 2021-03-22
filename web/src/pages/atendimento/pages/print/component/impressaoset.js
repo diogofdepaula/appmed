@@ -4,11 +4,11 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import PrintIcon from '@material-ui/icons/Print';
 import TuneIcon from '@material-ui/icons/Tune';
 import { ImpressaoContext } from '..';
-import { ClienteContext } from '../..';
 import { parseISO } from 'date-fns';
 import Reorder from './reorder';
+import { ClienteContext } from '../../../../../App';
 
-export default function ImpressaoSet(props) {
+const ImpressaoSet = (props) => {
 
     const cliente = useContext(ClienteContext)
     const { impressao, setImpressao } = useContext(ImpressaoContext)
@@ -193,3 +193,5 @@ export default function ImpressaoSet(props) {
         </>
     )
 }
+
+export default ImpressaoSet

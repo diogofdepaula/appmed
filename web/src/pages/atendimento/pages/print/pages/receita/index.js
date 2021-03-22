@@ -3,7 +3,7 @@ import ReceitaSUS from './sus';
 import PrescricaoSUS from './sus/componentes/prescricaosus';
 import Reorder from './../../component/reorder'
 
-export default function FactoryReceitasSUS(props) {
+const FactoryReceitasSUS = (props) => {
 
     const itemsRef = useRef([]);
 
@@ -68,3 +68,5 @@ export default function FactoryReceitasSUS(props) {
         </>
     )
 }
+
+export default FactoryReceitasSUS

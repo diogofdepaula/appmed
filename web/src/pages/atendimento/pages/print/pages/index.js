@@ -6,7 +6,7 @@ import FactoryLME from './lme';
 import FactoryReceitasSUS from './receita';
 import FactoryRelatorio from './relatorio';
 
-export default function Factory() {
+const Factory = () => {
 
     const { impressao } = useContext(ImpressaoContext)
 
@@ -55,3 +55,5 @@ export default function Factory() {
     return <PrintJob />
     
 }
+
+export default Factory

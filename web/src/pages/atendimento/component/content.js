@@ -8,6 +8,7 @@ import PrescricaoInsert from '../pages/prescricoes/insert'
 import PrescricaoMain from '../pages/prescricoes/main'
 import PrescricaoUpdate from '../pages/prescricoes/update'
 import LMEDelete from '../pages/lmes/delete'
+import Print from '../pages/print'
 
 const Content = () => {
 
@@ -31,8 +32,8 @@ const Content = () => {
             return <LMEUpdate />
         case 'lmedelete':
             return <LMEDelete />
-        // case 'print':
-        //     return <Print />
+        case 'print':
+            return <Print />
         case 'teste':
             return <div>{update}</div>
         default:

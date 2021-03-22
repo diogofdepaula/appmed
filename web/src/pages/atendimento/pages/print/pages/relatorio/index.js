@@ -16,7 +16,7 @@ import Linha13Relatorio from './component/linha13';
 
 export const LMEPrintContext = createContext(null)
 
-export default function FactoryRelatorio(props) {
+const FactoryRelatorio = (props) => {
 
     const a4size = {
         width: 1240,
@@ -60,3 +60,5 @@ export default function FactoryRelatorio(props) {
         </>
     )
 }
+
+export default FactoryRelatorio

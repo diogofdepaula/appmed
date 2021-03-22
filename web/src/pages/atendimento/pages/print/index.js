@@ -6,19 +6,11 @@ import Factory from './pages';
 
 export const ImpressaoContext = createContext(null)
 
-export default function Print() {
+const Print = () => {
 
-    // const setPage = useContext(PageContext)
-
-    //const cliente  = useContext(ClienteContext)
-
-    //const [lmes, setlmes] = useState([])
     const [validacao, setValidacao] = useState(false)
 
-    //variáveis para definir o que será impresso
-
     const [impressao, setImpressao] = useState({
-        cliente: "cliente teste",
         prescricoesSelecionadas: [],
         tipo: '', // simples, controlado
         meses: 1,
@@ -55,3 +47,4 @@ export default function Print() {
     )
 }
 
+export default Print

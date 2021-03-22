@@ -16,7 +16,7 @@ import Linha14LME from './component/linha14';
 
 export const LMEPrintContext = createContext(null)
 
-export default function FactoryLME(props) {
+const FactoryLME = (props) => {
 
     const a4size = {
         width: 1240,
@@ -60,3 +60,5 @@ export default function FactoryLME(props) {
         </>
     )
 }
+
+export default FactoryLME
