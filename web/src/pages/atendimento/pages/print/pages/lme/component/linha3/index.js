@@ -4,7 +4,7 @@ import { ClienteContext } from '../../../../../../../../App'
 
 const Linha3LME = () => {
 
-    const cliente = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
 
     return (
         <>
@@ -23,7 +23,7 @@ const Linha3LME = () => {
                                 <Grid item>
                                     <Box ml={1}>
                                         <Typography component={'span'} variant={'h5'} align={'left'}>
-                                            {cliente.nome ? <Box fontWeight="fontWeightBold">{cliente.nome}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                            {clienteContext.nome ? <Box fontWeight="fontWeightBold">{clienteContext.nome}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -43,7 +43,7 @@ const Linha3LME = () => {
                                 <Grid item>
                                     <Box>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{cliente.peso} Kg</Box>
+                                            <Box>{clienteContext.peso} Kg</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>

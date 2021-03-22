@@ -4,7 +4,7 @@ import { ClienteContext } from '../../../../../../../../App'
 
 const Linha2Relatorio = () => {
 
-    const cliente = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
 
     return (
         <>
@@ -22,7 +22,7 @@ const Linha2Relatorio = () => {
                             <Grid item>
                                 <Box ml={1}>
                                     <Typography component={'span'} variant={'h5'} align={'left'}>
-                                        {cliente.nome ? <Box fontWeight="fontWeightBold">{cliente.nome}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        {clienteContext.nome ? <Box fontWeight="fontWeightBold">{clienteContext.nome}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                     </Typography>
                                 </Box>
                             </Grid>
@@ -42,7 +42,7 @@ const Linha2Relatorio = () => {
                             <Grid item>
                                 <Box>
                                     <Typography component={'span'} variant={'h6'} align={'center'}>
-                                        <Box>{cliente.sexo}</Box>
+                                        <Box>{clienteContext.sexo}</Box>
                                     </Typography>
                                 </Box>
                             </Grid>

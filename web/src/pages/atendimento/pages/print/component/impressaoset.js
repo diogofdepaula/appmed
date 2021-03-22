@@ -8,25 +8,25 @@ import { parseISO } from 'date-fns';
 import Reorder from './reorder';
 import { ClienteContext } from '../../../../../App';
 
-const ImpressaoSet = (props) => {
+const ImpressaoSet = ({ setValidacao, handlePrint }) => {
 
-    const cliente = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
     const { impressao, setImpressao } = useContext(ImpressaoContext)
     const [prescricoes, setPrescricoes] = useState([])
     const [lmes, setLmes] = useState([])
 
     const fetchDataPrescricoes = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${cliente.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/prescricoes/all/${clienteContext.id}`)
         const json = await res.json();
-        
+
         setPrescricoes(Reorder(json));
-    }, [cliente])
+    }, [clienteContext])
 
     const fetchDataLmes = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${cliente.id}`)
+        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${clienteContext.id}`)
         const json = await res.json();
         setLmes(json);
-    }, [cliente])
+    }, [clienteContext])
 
     useEffect(() => {
         fetchDataPrescricoes();
@@ -176,7 +176,7 @@ const ImpressaoSet = (props) => {
             <Grid container>
                 <Grid item xs={12}>
                     <IconButton
-                        onClick={props.handlePrint}
+                        onClick={handlePrint}
                     >
                         <PrintIcon />
                     </IconButton>
@@ -184,7 +184,7 @@ const ImpressaoSet = (props) => {
                         <CancelIcon />
                     </IconButton>
                     <IconButton
-                        onClick={() => props.setValidacao(true)}
+                        onClick={() => setValidacao(true)}
                     >
                         <TuneIcon />
                     </IconButton>

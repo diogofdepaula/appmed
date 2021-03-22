@@ -4,7 +4,7 @@ import { ClienteContext } from '../../../../../../../../App'
 
 const IdentificacaoSUS = () => {
 
-    const cliente = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
 
     return (
         <>
@@ -15,7 +15,7 @@ const IdentificacaoSUS = () => {
                 pb={7}
             >
                 <Typography variant={'h2'} >
-                    <Box fontWeight="fontWeightBold" >{cliente.nome}</Box>
+                    <Box fontWeight="fontWeightBold" >{clienteContext.nome}</Box>
                 </Typography>
             </Box>
         </>

@@ -34,10 +34,10 @@ const Print = () => {
             <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
                 {/* {JSON.stringify(impressao)} */}
                 <Grid container spacing={2} >
-                    <ImpressaoSet print={handlePrint} setValidacao={setValidacao} handlePrint={handlePrint} />
+                    <ImpressaoSet setValidacao={setValidacao} handlePrint={handlePrint} />
                     <Grid item>
-                    {/*o  height: 0 indifentente para o resultado final */}
-                        <div ref={componentRef} > 
+                        {/*o  height: 0 indifentente para o resultado final */}
+                        <div ref={componentRef} >
                             {validacao && <Factory />}
                         </div>
                     </Grid>

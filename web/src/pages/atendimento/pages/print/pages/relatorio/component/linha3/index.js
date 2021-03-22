@@ -4,7 +4,7 @@ import { ClienteContext } from '../../../../../../../../App'
 
 const Linha3Relatorio = () => {
 
-    const cliente = useContext(ClienteContext)
+    const { clienteContext} = useContext(ClienteContext)
 
     return (
         <>
@@ -22,7 +22,7 @@ const Linha3Relatorio = () => {
                             <Grid item>
                                 <Box ml={1}>
                                     <Typography component={'span'} variant={'h6'} align={'left'}>
-                                        {cliente.nascimento ? <Box>{cliente.nascimento}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        {clienteContext.nascimento ? <Box>{clienteContext.nascimento}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                     </Typography>
                                 </Box>
                             </Grid>
@@ -42,7 +42,7 @@ const Linha3Relatorio = () => {
                             <Grid item>
                                 <Box>
                                     <Typography component={'span'} variant={'h6'} align={'center'}>
-                                        <Box>{cliente.peso} Kg</Box>
+                                        <Box>{clienteContext.peso} Kg</Box>
                                     </Typography>
                                 </Box>
                             </Grid>
@@ -62,7 +62,7 @@ const Linha3Relatorio = () => {
                             <Grid item>
                                 <Box ml={1}>
                                     <Typography component={'span'} variant={'h6'} align={'left'}>
-                                        {cliente.cns ? <Box>{cliente.cns}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        {clienteContext.cns ? <Box>{clienteContext.cns}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                     </Typography>
                                 </Box>
                             </Grid>
