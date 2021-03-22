@@ -366,7 +366,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Alopurinol",
 				lme: false,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "CONVENCIONAL",
 				orientacoes: "Não inicie, muito menos interrompa o uso dessa medicação se estiver com crise de gota.",
 				abreviatura: "ALP",
@@ -760,7 +760,7 @@ Medicamentos.count().then(data =>
 			},
 			{
 				farmaco: "Baricitinibe",
-				lme: true,
+				lme: false,
 				controlado: false,
 				favorito: true,
 				classe: "MMCDPM",
@@ -1825,7 +1825,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Ciclofosfamida",
 				lme: true,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "MMCDS",
 				orientacoes: "",
 				abreviatura: "CYC",
@@ -2349,7 +2349,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Danazol",
 				lme: true,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "MMCDS",
 				orientacoes: "",
 				abreviatura: "",
@@ -2736,7 +2736,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Diacereina",
 				lme: false,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "CONVENCIONAL",
 				orientacoes: "Tomar sempre de estômago cheio.",
 				abreviatura: "",
@@ -2808,7 +2808,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Diosmina + Hesperidina",
 				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "CONVENCIONAL",
 				orientacoes: "",
 				abreviatura: "",
@@ -2862,7 +2862,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Duloxetina",
 				lme: false,
 				controlado: true,
-				favorito: false,
+				favorito: true,
 				classe: "ANTIDEPRESSIVO",
 				orientacoes: "",
 				abreviatura: "DLX",
@@ -3194,7 +3194,7 @@ Medicamentos.count().then(data =>
 				favorito: true,
 				classe: "ANTIINFLAMATORIO",
 				orientacoes: "Tomar sempre de estômago cheio",
-				abreviatura: "",
+				abreviatura: "ETC",
 				nomescomerciais: [
 					{
 						nomefantasia: "Arcoxia"
@@ -3641,7 +3641,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Glicosamina + Condroitina",
 				lme: false,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "SUPLEMENTO",
 				orientacoes: "",
 				abreviatura: "G_C",
@@ -3768,9 +3768,9 @@ Medicamentos.count().then(data =>
 			},
 			{
 				farmaco: "Guselcumabe",
-				lme: true,
+				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
 					"- Trazer a medicação para aplicação dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável. \r\n" +
 					"- Agendar a infusão com antecedência se possível. \r\n" +
@@ -3843,7 +3843,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Harpagophytum procumbens DC (5% de harpagosídeo)",
 				lme: false,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "CONVENCIONAL",
 				orientacoes: "Tomar sempre de estômago cheio.",
 				abreviatura: "",
@@ -3875,7 +3875,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Harpagophytum procumbens DC (22% de harpagosídeo)",
 				lme: false,
 				controlado: false,
-				favorito: false,
+				favorito: true,
 				classe: "CONVENCIONAL",
 				orientacoes: "Tomar sempre de estômago cheio.",
 				abreviatura: "",
@@ -4254,9 +4254,9 @@ Medicamentos.count().then(data =>
 			},
 			{
 				farmaco: "Ixequizumabe",
-				lme: true,
+				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
 					"- Trazer a medicação para aplicação dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável. \r\n" +
 					"- Agendar a infusão com antecedência se possível. \r\n" +
@@ -4376,38 +4376,6 @@ Medicamentos.count().then(data =>
 						posologia: "Tomar 01 comprimido uma vez ao dia por 14 dias.",
 						quantidade: "2",
 						forma: "caixas"
-					},
-				]
-			},
-			{
-				farmaco: "Leflunomida",
-				lme: true,
-				controlado: true,
-				favorito: true,
-				classe: "MMCDS",
-				orientacoes: "",
-				abreviatura: "LFN",
-				nomescomerciais: [
-					{
-						nomefantasia: "Arava"
-					},
-				],
-				apresentacoes: [
-					{
-						descricao: "20 mg Comp",
-						uso: "uso interno"
-					}
-				],
-				posologias: [
-					{
-						posologia: "Tomar 01 comprimido uma vez ao dia.",
-						quantidade: "30",
-						forma: "comp"
-					},
-					{
-						posologia: "Tomar 01 comprimido em dias alternados (dia sim, dia não).",
-						quantidade: "15",
-						forma: "comp"
 					},
 				]
 			},
@@ -4667,7 +4635,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Mesalazina",
 				lme: true,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "MMCDS",
 				orientacoes: "",
 				abreviatura: "MSZ",
@@ -5419,7 +5387,7 @@ Medicamentos.count().then(data =>
 			},
 			{
 				farmaco: "Naproxeno",
-				lme: false,
+				lme: true,
 				controlado: false,
 				favorito: true,
 				classe: "ANTIINFLAMATORIO",
@@ -5598,7 +5566,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Nimesulida",
 				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "ANTIINFLAMATORIO",
 				orientacoes: "Tomar de estômago cheio.",
 				abreviatura: "",
@@ -5820,7 +5788,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Nortriptilina",
 				lme: false,
 				controlado: true,
-				favorito: true,
+				favorito: false,
 				classe: "ANTIDEPRESSIVO",
 				orientacoes: "",
 				abreviatura: "NTL",
@@ -6152,7 +6120,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Pantoprazol",
 				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "CONVENCIONAL",
 				orientacoes: "Aguardar 30 a 60 minutos antes de se alimentar.",
 				abreviatura: "PTZ",
@@ -6197,7 +6165,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Pantoprazol magnésico di-hidratado",
 				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "CONVENCIONAL",
 				orientacoes: "Aguardar 30 a 60 minutos antes de se alimentar.",
 				abreviatura: "PTZ-Mg",
@@ -6274,7 +6242,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Paroxetina",
 				lme: false,
 				controlado: true,
-				favorito: true,
+				favorito: false,
 				classe: "ANTIDEPRESSIVO",
 				orientacoes: "",
 				abreviatura: "PXT",
@@ -6721,7 +6689,7 @@ Medicamentos.count().then(data =>
 				farmaco: "Prometazina",
 				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "CONVENCIONAL",
 				orientacoes: "Essa medicação pode causar sonolência e diminuição de reflexos.",
 				abreviatura: "",
@@ -7976,9 +7944,9 @@ Medicamentos.count().then(data =>
 			},
 			{
 				farmaco: "Upadacitinibe",
-				lme: true,
+				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				classe: "MMCDPM",
 				orientacoes: "",
 				abreviatura: "TFC",
@@ -8003,9 +7971,9 @@ Medicamentos.count().then(data =>
 			},
 			{
 				farmaco: "Ustekinumab",
-				lme: true,
+				lme: false,
 				controlado: false,
-				favorito: true,
+				favorito: false,
 				orientacoes: "- Manter a medicação na geladeira (2 a 8°C). NÃO CONGELAR. \r\n" +
 					"- Trazer a medicação para aplicação dentro da bolsa térmica (ou isopor se não tiver) com gelo reutilizável. \r\n" +
 					"- Agendar a infusão com antecedência se possível. \r\n" +
@@ -8463,7 +8431,7 @@ Medicamentos.count().then(data =>
 			},
 			{
 				farmaco: "Ácido Zoledrônico",
-				lme: true,
+				lme: false,
 				controlado: false,
 				favorito: true,
 				orientacoes: "Paciente deve-se fazer uma boa hidratação oral, no dia anterior, no " +
