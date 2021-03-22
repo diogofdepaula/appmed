@@ -3846,7 +3846,7 @@ Medicamentos.count().then(data =>
 				favorito: true,
 				classe: "CONVENCIONAL",
 				orientacoes: "Tomar sempre de estômago cheio.",
-				abreviatura: "",
+				abreviatura: "HP",
 				nomescomerciais: [
 					{
 						nomefantasia: "Arpadol"
@@ -3878,7 +3878,7 @@ Medicamentos.count().then(data =>
 				favorito: true,
 				classe: "CONVENCIONAL",
 				orientacoes: "Tomar sempre de estômago cheio.",
-				abreviatura: "",
+				abreviatura: "HP",
 				nomescomerciais: [
 					{
 						nomefantasia: "Permear"
