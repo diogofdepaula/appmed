@@ -19928,17 +19928,17 @@ CID10.count().then(data =>
 			{
 				cid10: "K500",
 				descricao: "Doença de Crohn do intestino delgado",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "K501",
 				descricao: "Doença de Crohn do intestino grosso",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "K508",
 				descricao: "Outra forma de doença de Crohn",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "K509",
@@ -22758,7 +22758,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M058",
 				descricao: "Outras artrites reumatóides soro-positivas",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M059",
@@ -22768,7 +22768,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M060",
 				descricao: "Artrite reumatóide soro-negativa",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M061",
@@ -22793,7 +22793,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M068",
 				descricao: "Outras artrites reumatóides especificadas",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M069",
@@ -22803,7 +22803,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M070",
 				descricao: "Artropatia psoriásica interfalangiana distal",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M071",
@@ -22818,7 +22818,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M073",
 				descricao: "Outras artropatias psoriásicas",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M074",
@@ -22838,7 +22838,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M080",
 				descricao: "Artrite reumatóide juvenil",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M081",
@@ -22863,7 +22863,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M088",
 				descricao: "Outras artrites juvenis",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M089",
@@ -22893,7 +22893,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M100",
 				descricao: "Gota idiopática",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M101",
@@ -23043,7 +23043,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M150",
 				descricao: "(Osteo)artrose primária generalizada",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M151",
@@ -23068,7 +23068,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M158",
 				descricao: "Outras poliartroses",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M159",
@@ -23563,12 +23563,12 @@ CID10.count().then(data =>
 			{
 				cid10: "M321",
 				descricao: "Lúpus eritematoso disseminado [sistêmico] com comprometimento de outros órgãos e sistemas",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M328",
 				descricao: "Outras formas de lúpus eritematoso disseminado [sistêmico]",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M329",
@@ -23583,12 +23583,12 @@ CID10.count().then(data =>
 			{
 				cid10: "M331",
 				descricao: "Outras dermatomiosites",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M332",
 				descricao: "Polimiosite",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M339",
@@ -23598,12 +23598,12 @@ CID10.count().then(data =>
 			{
 				cid10: "M340",
 				descricao: "Esclerose sistêmica progressiva",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M341",
 				descricao: "Síndrome CR(E)ST",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M342",
@@ -23613,7 +23613,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M348",
 				descricao: "Outras formas de esclerose sistêmica",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M349",
@@ -23623,7 +23623,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M350",
 				descricao: "Síndrome seca [Sjögren]",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M351",
@@ -23833,7 +23833,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M45",
 				descricao: "Espondilite ancilosante",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M460",
@@ -23868,7 +23868,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M468",
 				descricao: "Outras espondilopatias inflamatórias especificadas",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M469",
@@ -24663,7 +24663,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M797",
 				descricao: "Fibromialgia",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M798",
@@ -24678,7 +24678,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M800",
 				descricao: "Osteoporose pós-menopáusica com fratura patológica",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M801",
@@ -24698,7 +24698,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M804",
 				descricao: "Osteoporose induzida por drogas com fratura patológica",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M805",
@@ -24708,17 +24708,17 @@ CID10.count().then(data =>
 			{
 				cid10: "M808",
 				descricao: "Outras osteoporoses com fratura patológica",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M809",
 				descricao: "Osteoporose não especificada com fratura patológica",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M810",
 				descricao: "Osteoporose pós-menopáusica",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M811",
@@ -24738,7 +24738,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M814",
 				descricao: "Osteoporose induzida por drogas",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M815",
@@ -24753,7 +24753,7 @@ CID10.count().then(data =>
 			{
 				cid10: "M818",
 				descricao: "Outras osteoporoses",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "M819",
@@ -35223,12 +35223,12 @@ CID10.count().then(data =>
 			{
 				cid10: "R521",
 				descricao: "Dor crônica intratável",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "R522",
 				descricao: "Outra dor crônica",
-				favorito: false
+				favorito: true
 			},
 			{
 				cid10: "R529",
