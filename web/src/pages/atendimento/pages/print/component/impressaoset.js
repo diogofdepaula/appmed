@@ -1,12 +1,9 @@
-import React, { useContext, useCallback, useEffect, useState } from 'react'
-import { Checkbox, FormControlLabel, Grid, IconButton, List, ListItem, ListItemIcon, ListItemText, Radio, RadioGroup, Slider, TextField, Typography } from '@material-ui/core';
-import CancelIcon from '@material-ui/icons/Cancel';
-import PrintIcon from '@material-ui/icons/Print';
-import TuneIcon from '@material-ui/icons/Tune';
-import { ImpressaoContext } from '..';
+import { Checkbox, FormControlLabel, Grid, List, ListItem, ListItemIcon, ListItemText, Radio, RadioGroup, Slider, TextField, Typography } from '@material-ui/core';
 import { parseISO } from 'date-fns';
-import Reorder from './reorder';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { ImpressaoContext } from '..';
 import { ClienteContext } from '../../../../../App';
+import Reorder from './reorder';
 
 const ImpressaoSet = ({ setValidacao, handlePrint }) => {
 
@@ -171,23 +168,6 @@ const ImpressaoSet = ({ setValidacao, handlePrint }) => {
                             </List>
                         </Grid>
                     </Grid>
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item xs={12}>
-                    <IconButton
-                        onClick={handlePrint}
-                    >
-                        <PrintIcon />
-                    </IconButton>
-                    <IconButton>
-                        <CancelIcon />
-                    </IconButton>
-                    <IconButton
-                        onClick={() => setValidacao(true)}
-                    >
-                        <TuneIcon />
-                    </IconButton>
                 </Grid>
             </Grid>
         </>

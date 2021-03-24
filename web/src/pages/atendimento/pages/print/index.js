@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import React, { createContext, useRef, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import ImpressaoSet from './component/impressaoset';
@@ -33,15 +33,19 @@ const Print = () => {
         <>
             <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
                 {/* {JSON.stringify(impressao)} */}
-                <Grid container spacing={2} >
-                    <ImpressaoSet setValidacao={setValidacao} handlePrint={handlePrint} />
-                    <Grid item>
-                        {/*o  height: 0 indifentente para o resultado final */}
-                        <div ref={componentRef} >
-                            {validacao && <Factory />}
-                        </div>
+                <Box m={1}>
+                    <Grid container spacing={2} >
+                        <Grid container item  >
+                            <ImpressaoSet setValidacao={setValidacao} handlePrint={handlePrint} />
+                        </Grid>
+                        <Grid container item>
+                            {/*o  height: 0 indifentente para o resultado final */}
+                            <div ref={componentRef} >
+                                {validacao && <Factory />}
+                            </div>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </Box>
             </ImpressaoContext.Provider>
         </>
     )

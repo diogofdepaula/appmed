@@ -5,6 +5,7 @@ import LmeEditorAppBar from '../../pages/lmes/components/appbar/editorappbar';
 import LmesMainAppBar from '../../pages/lmes/components/appbar/mainappbar';
 import PrecricoesEditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
 import PrescricoesMainAppBar from '../../pages/prescricoes/components/appbar/mainappbar';
+import PrintMainAppBar from '../../pages/print/component/appbar/mainappbar';
 
 const ThirdAppBar = () => {
 
@@ -29,8 +30,8 @@ const ThirdAppBar = () => {
              return <LmeEditorAppBar />
          // case 'lmedelete':
          //    return <LMEDelete />
-         // case 'print':
-         //     return <Print />
+         case 'print':
+              return <PrintMainAppBar />
          case 'teste':
             return <div>Teste</div>
          default:
