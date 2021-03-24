@@ -1,26 +1,13 @@
 import { Box, Grid } from '@material-ui/core';
-import React, { createContext, useRef, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import { ImpressaoContext } from '../..';
 import ImpressaoSet from './component/impressaoset';
 import Factory from './pages';
 
-export const ImpressaoContext = createContext(null)
-
 const Print = () => {
 
-    const [validacao, setValidacao] = useState(false)
-
-    const [impressao, setImpressao] = useState({
-        prescricoesSelecionadas: [],
-        tipo: '', // simples, controlado
-        meses: 1,
-        local: '', // consultorio, SUS (cisgap, cisco)
-        lmesSelecionadas: [],
-        lme: '',
-        relatorio: true,
-        comentario: '-',
-        database: new Date()
-    })
+    const { validacao } = useContext(ImpressaoContext)
 
     const componentRef = useRef();
 
@@ -31,22 +18,21 @@ const Print = () => {
 
     return (
         <>
-            <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
-                {/* {JSON.stringify(impressao)} */}
-                <Box m={1}>
-                    <Grid container spacing={2} >
-                        <Grid container item  >
-                            <ImpressaoSet setValidacao={setValidacao} handlePrint={handlePrint} />
-                        </Grid>
-                        <Grid container item>
-                            {/*o  height: 0 indifentente para o resultado final */}
-                            <div ref={componentRef} >
-                                {validacao && <Factory />}
-                            </div>
-                        </Grid>
+            {/* {JSON.stringify(impressao)} */}
+            <Box m={1}>
+                <Grid container spacing={2} >
+                    <Grid container item  >
+                        <ImpressaoSet handlePrint={handlePrint} />
                     </Grid>
-                </Box>
-            </ImpressaoContext.Provider>
+                    <Grid container item>
+                        {/*o  height: 0 indifentente para o resultado final */}
+                        <div ref={componentRef} >
+                            {validacao && <Factory />}
+                            <Factory />
+                        </div>
+                    </Grid>
+                </Grid>
+            </Box>
         </>
     )
 }

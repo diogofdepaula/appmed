@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
+import { ImpressaoContext } from '../../..';
 //import ReceitaConsultorio from '../pages/receita/consultorio/receitaconsultorio'
-import { ImpressaoContext } from '..';
 import FactoryLME from './lme';
 import FactoryReceitasSUS from './receita';
 import FactoryRelatorio from './relatorio';

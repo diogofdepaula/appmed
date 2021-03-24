@@ -1,11 +1,11 @@
 import { Checkbox, FormControlLabel, Grid, List, ListItem, ListItemIcon, ListItemText, Radio, RadioGroup, Slider, TextField, Typography } from '@material-ui/core';
 import { parseISO } from 'date-fns';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ImpressaoContext } from '..';
+import { ImpressaoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
 import Reorder from './reorder';
 
-const ImpressaoSet = ({ setValidacao, handlePrint }) => {
+const ImpressaoSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { impressao, setImpressao } = useContext(ImpressaoContext)

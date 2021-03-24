@@ -5,6 +5,7 @@ import ClienteHeader from './component/clienteheader'
 import Content from './component/content'
 
 export const AtendimentoContext = createContext(null)
+export const ImpressaoContext = createContext(null)
 
 const Atendimento = () => {
 
@@ -19,6 +20,19 @@ const Atendimento = () => {
     const [update, setUpdate] = useState({
         count: 0,
         page: ''
+    })
+
+    const [impressao, setImpressao] = useState({
+        validacao: false,
+        prescricoesSelecionadas: [],
+        tipo: '', // simples, controlado
+        meses: 1,
+        local: '', // consultorio, SUS (cisgap, cisco)
+        lmesSelecionadas: [],
+        lme: '',
+        relatorio: true,
+        comentario: '-',
+        database: new Date()
     })
 
     const updatePage = () => {
@@ -49,12 +63,13 @@ const Atendimento = () => {
                 medicamentoEdit: medicamentoEdit,
                 setMedicamentoEdit: setMedicamentoEdit,
             }} >
-                <Box>
-                    <Divider />
-                    <AtendimentoAppBar />
-                    <Content />
+                <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
+                    <Box>
+                        <Divider />
+                        <AtendimentoAppBar />
+                        <Content />
 
-                    {/* <Divider />
+                        {/* <Divider />
                     step: {JSON.stringify(step)}
                     <Divider />
 
@@ -79,8 +94,9 @@ const Atendimento = () => {
                     <Divider /> 
                     medicamentoEdit:  {JSON.stringify(medicamentoEdit)} 
                     <Divider />  */}
-                   
-                </Box>
+
+                    </Box>
+                </ImpressaoContext.Provider>
             </AtendimentoContext.Provider>
         </>
     )

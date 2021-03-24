@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { format } from 'date-fns';
 import { ptBR } from "date-fns/locale";
-import { ImpressaoContext } from '../../../..';
+import { ImpressaoContext } from '../../../../../..';
 
 const Linha12Relatorio = () => {
 

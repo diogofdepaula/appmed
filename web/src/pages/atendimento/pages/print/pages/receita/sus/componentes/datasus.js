@@ -3,7 +3,7 @@ import addMonths from 'date-fns/addMonths';
 import { format } from 'date-fns';
 import { ptBR } from "date-fns/locale";
 import React, { useContext } from 'react';
-import { ImpressaoContext } from '../../../..';
+import { ImpressaoContext } from '../../../../../..';
 
 const DataSUS = (props) => {
 

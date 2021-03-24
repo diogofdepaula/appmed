@@ -2,9 +2,12 @@ import { Box, IconButton, Tooltip } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import PrintIcon from '@material-ui/icons/Print';
 import TuneIcon from '@material-ui/icons/Tune';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ImpressaoContext } from '../../../..';
 
-const PrintMainAppBar = ({ handlePrint, setValidacao }) => {
+const PrintMainAppBar = () => {
+
+    const { setValidacao } = useContext(ImpressaoContext)
 
     return (
         <>
@@ -21,7 +24,7 @@ const PrintMainAppBar = ({ handlePrint, setValidacao }) => {
                 <Tooltip title="Imprimir">
                     <span>
                         <IconButton
-                            onClick={handlePrint}
+                            //onClick={handlePrint}
                         >
                             <PrintIcon />
                         </IconButton>
