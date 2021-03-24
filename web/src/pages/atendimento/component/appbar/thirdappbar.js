@@ -30,8 +30,8 @@ const ThirdAppBar = () => {
              return <LmeEditorAppBar />
          // case 'lmedelete':
          //    return <LMEDelete />
-         case 'print':
-              return <PrintMainAppBar />
+          case 'print':
+               return <PrintMainAppBar />
          case 'teste':
             return <div>Teste</div>
          default:

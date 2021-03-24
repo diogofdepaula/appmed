@@ -7,7 +7,11 @@ import { ImpressaoContext } from '../../../..';
 
 const PrintMainAppBar = () => {
 
-    const { setValidacao } = useContext(ImpressaoContext)
+    const { impressao, setImpressao } = useContext(ImpressaoContext)
+
+    const visualizar = () => {
+        setImpressao({ ...impressao, visualizacao: true })
+    }
 
     return (
         <>
@@ -24,7 +28,7 @@ const PrintMainAppBar = () => {
                 <Tooltip title="Imprimir">
                     <span>
                         <IconButton
-                            //onClick={handlePrint}
+                        //onClick={handlePrint}
                         >
                             <PrintIcon />
                         </IconButton>
@@ -33,7 +37,7 @@ const PrintMainAppBar = () => {
                 <Tooltip title="Visualizar">
                     <span>
                         <IconButton
-                            onClick={() => setValidacao(true)}
+                            onClick={visualizar}
                         >
                             <TuneIcon />
                         </IconButton>

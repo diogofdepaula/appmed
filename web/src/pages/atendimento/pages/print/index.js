@@ -7,7 +7,7 @@ import Factory from './pages';
 
 const Print = () => {
 
-    const { validacao } = useContext(ImpressaoContext)
+    const { impressao } = useContext(ImpressaoContext)
 
     const componentRef = useRef();
 
@@ -18,7 +18,6 @@ const Print = () => {
 
     return (
         <>
-            {/* {JSON.stringify(impressao)} */}
             <Box m={1}>
                 <Grid container spacing={2} >
                     <Grid container item  >
@@ -27,8 +26,7 @@ const Print = () => {
                     <Grid container item>
                         {/*o  height: 0 indifentente para o resultado final */}
                         <div ref={componentRef} >
-                            {validacao && <Factory />}
-                            <Factory />
+                            {impressao.visualizacao ? <Factory /> : <div />}
                         </div>
                     </Grid>
                 </Grid>

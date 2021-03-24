@@ -23,7 +23,7 @@ const Atendimento = () => {
     })
 
     const [impressao, setImpressao] = useState({
-        validacao: false,
+        visualizacao: false,
         prescricoesSelecionadas: [],
         tipo: '', // simples, controlado
         meses: 1,
