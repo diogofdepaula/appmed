@@ -5,7 +5,7 @@ import TuneIcon from '@material-ui/icons/Tune';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';
 
-const PrintMainAppBar = () => {
+const PrintMainAppBar = ({ handlePrint }) => {
 
     const { impressao, setImpressao } = useContext(ImpressaoContext)
 
@@ -28,7 +28,7 @@ const PrintMainAppBar = () => {
                 <Tooltip title="Imprimir">
                     <span>
                         <IconButton
-                        //onClick={handlePrint}
+                            onClick={handlePrint}
                         >
                             <PrintIcon />
                         </IconButton>
@@ -53,6 +53,7 @@ const PrintMainAppBar = () => {
                     </span>
                 </Tooltip> */}
             </Box>
+     
         </>
     )
 }
