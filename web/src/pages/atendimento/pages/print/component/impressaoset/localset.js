@@ -1,4 +1,4 @@
-import { FormControlLabel, Grid, Radio, RadioGroup, Typography } from '@material-ui/core';
+import { FormControlLabel, Radio, RadioGroup } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';
 
@@ -12,16 +12,11 @@ const LocalSet = () => {
 
     return (
         <>
-            <Grid container item>
-                <Grid item >
-                    <Typography id="local" gutterBottom>Local</Typography>
-                    <RadioGroup aria-label="local" name="local" value={impressao.local} onChange={handleChange}>
-                        <FormControlLabel value="consultorio" control={<Radio />} label="Consultório" />
-                        <FormControlLabel value="cisgap" control={<Radio />} label="CISGAP" />
-                        <FormControlLabel value="cisco" control={<Radio />} label="CISCO" />
-                    </RadioGroup>
-                </Grid>
-            </Grid>
+            <RadioGroup row value={impressao.local} onChange={handleChange}>
+                <FormControlLabel value="consultorio" control={<Radio />} label="Consultório" />
+                <FormControlLabel value="cisgap" control={<Radio />} label="CISGAP" />
+                <FormControlLabel value="cisco" control={<Radio />} label="CISCO" />
+            </RadioGroup>
         </>
     )
 }

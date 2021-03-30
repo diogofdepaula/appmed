@@ -1,4 +1,4 @@
-import { Grid, Slider, TextField, Typography } from '@material-ui/core';
+import { Slider, TextField, Typography } from '@material-ui/core';
 import { parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';
@@ -17,30 +17,28 @@ const TempoSet = () => {
 
     return (
         <>
-            <Grid container item>
-                <Grid item>
-                    <Typography id="discrete-slider" gutterBottom>Para quantos meses</Typography>
-                    <Slider
-                        defaultValue={1}
-                        getAriaValueText={(value) => `${value} mês`}
-                        //getAriaValueText={valuetext}
-                        aria-labelledby="discrete-slider"
-                        valueLabelDisplay="auto"
-                        step={1}
-                        marks
-                        min={1}
-                        max={6}
-                        onChange={handleSliderChange}
-                    />
-                </Grid>
-            </Grid>
-            <Grid>
-                <TextField
-                    type='date'
-                    name='database'
-                    onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
-                />
-            </Grid>
+            <Typography gutterBottom >Meses</Typography>
+            <Slider
+                defaultValue={6}
+                getAriaValueText={(value) => `${value} mês`}
+                //getAriaValueText={valuetext}
+                valueLabelDisplay="auto"
+                step={1}
+                marks
+                min={1}
+                max={6}
+                onChange={handleSliderChange}
+            />
+            <TextField
+                mt={1}
+                type='date'
+                name='database'
+                label="Data base"
+                InputLabelProps={{
+                    shrink: true,
+                  }}
+                onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
+            />
         </>
     )
 }

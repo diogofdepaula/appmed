@@ -4,6 +4,7 @@ import PrintIcon from '@material-ui/icons/Print';
 import TuneIcon from '@material-ui/icons/Tune';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';
+import LocalSet from '../impressaoset/localset';
 
 const PrintMainAppBar = ({ handlePrint }) => {
 
@@ -43,6 +44,9 @@ const PrintMainAppBar = ({ handlePrint }) => {
                         </IconButton>
                     </span>
                 </Tooltip>
+                <Box justifyContent="flex-start">
+                    <LocalSet />
+                </Box>
                 {/* <Tooltip title="Excluir">
                     <span>
                         <IconButton
@@ -53,7 +57,7 @@ const PrintMainAppBar = ({ handlePrint }) => {
                     </span>
                 </Tooltip> */}
             </Box>
-     
+
         </>
     )
 }

@@ -1,4 +1,4 @@
-import { Checkbox, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
+import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ImpressaoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -36,28 +36,19 @@ const LMESet = () => {
 
     return (
         <>
-            <Grid container item>
-                <Grid item>
-                    <Typography variant={'h6'}>Quais LMEs serão impressas</Typography>
-                </Grid>
-                <Grid item>
-                    <Grid item xs={10}>
-                        <List dense style={{ overflow: 'auto', maxHeight: 300 }}>
-                            {lmes && lmes.map(lme =>
-                                <ListItem key={lme.id}>
-                                    <ListItemIcon>
-                                        <Checkbox
-                                            edge="start"
-                                            onChange={handleLmesChange(lme)}
-                                        />
-                                    </ListItemIcon>
-                                    <ListItemText primary={lme.cid10} secondary={lme.prescricoes.map(p => p.medicamento.farmaco.concat(" "))} />
-                                </ListItem>
-                            )}
-                        </List>
-                    </Grid>
-                </Grid>
-            </Grid>
+            <List dense subheader={<ListSubheader>LMEs</ListSubheader>}>
+                {lmes && lmes.map(lme =>
+                    <ListItem key={lme.id}>
+                        <ListItemIcon>
+                            <Checkbox
+                                edge="start"
+                                onChange={handleLmesChange(lme)}
+                            />
+                        </ListItemIcon>
+                        <ListItemText primary={lme.cid10} secondary={lme.prescricoes.map(p => p.medicamento.farmaco.concat(" "))} />
+                    </ListItem>
+                )}
+            </List>
         </>
     )
 }
