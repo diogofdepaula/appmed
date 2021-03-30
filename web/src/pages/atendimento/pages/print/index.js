@@ -1,4 +1,4 @@
-import { Box, Divider, Grid } from '@material-ui/core';
+import { Box, Divider } from '@material-ui/core';
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import PrintMainAppBar from './component/appbar/mainappbar';
@@ -16,23 +16,18 @@ const Print = () => {
 
     return (
         <>
-            <Box m={1}>
+            <Box>
                 <PrintMainAppBar handlePrint={handlePrint} />
                 <Divider />
-                <Grid container spacing={2} >
-                    <Grid container item  >
-                        <ImpressaoSet />
-                    </Grid>
-                    <Grid container item>
-                        <div ref={componentRef} >
-                            <Factory />
-                        </div>
-                        {/*o  height: 0 indifentente para o resultado final */}
-                        {/* <div ref={componentRef} >
+                <ImpressaoSet />
+                <Divider />
+                <div ref={componentRef} >
+                    <Factory />
+                </div>
+                {/*o  height: 0 indifentente para o resultado final */}
+                {/* <div ref={componentRef} >
                             {impressao.visualizacao ? <Factory /> : <div />}
-                        </div> */}
-                    </Grid>
-                </Grid>
+                    </div> */}
             </Box>
         </>
     )
