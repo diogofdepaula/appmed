@@ -1,6 +1,7 @@
 import { Grid } from '@material-ui/core';
 import React from 'react';
 import LMESet from './lmeset';
+import LocalSet from './localset';
 import PrescricoesSet from './prescricaoset';
 import TempoSet from './temposet';
 
@@ -16,7 +17,10 @@ const ImpressaoSet = () => {
                     <LMESet />
                 </Grid>
                 <Grid container item xs={4}>
-                    <TempoSet />
+                    <Grid item>
+                        <TempoSet />
+                    </Grid>
+                    <LocalSet />
                 </Grid>
             </Grid>
         </>

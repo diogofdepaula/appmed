@@ -21,7 +21,6 @@ const TempoSet = () => {
             <Slider
                 defaultValue={6}
                 getAriaValueText={(value) => `${value} mês`}
-                //getAriaValueText={valuetext}
                 valueLabelDisplay="auto"
                 step={1}
                 marks
