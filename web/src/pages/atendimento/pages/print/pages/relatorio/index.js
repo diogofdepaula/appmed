@@ -1,5 +1,5 @@
 import { Box, Grid } from '@material-ui/core';
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import Linha1Relatorio from './component/linha1';
 import Linha2Relatorio from './component/linha2';
 import Linha3Relatorio from './component/linha3';
@@ -13,19 +13,17 @@ import Linha10Relatorio from './component/linha10';
 import Linha11Relatorio from './component/linha11';
 import Linha12Relatorio from './component/linha12';
 import Linha13Relatorio from './component/linha13';
+import { ImpressaoContext } from '../../../..';
 
 export const LMEPrintContext = createContext(null)
 
 const FactoryRelatorio = (props) => {
 
-    const a4size = {
-        width: 1240,
-        height: 1754
-    }
+    const { impressao } = useContext(ImpressaoContext)
 
     return (
         <>
-            <div style={{ width: a4size.width, height: a4size.height }}>
+            <div style={{ width: impressao.a4Adjust.width, height: impressao.a4Adjust.height }}>
                 {/* a box ali de baixo que determina o uso de toda a folha  */}
                 <Box height={1} p={10}>
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>

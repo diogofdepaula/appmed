@@ -1,29 +1,27 @@
 import { Box } from '@material-ui/core'
-import React from 'react'
+import React, { useContext } from 'react'
 import IdentificacaoSUS from './componentes/identificacaosus'
 import DataSUS from './componentes/datasus'
 import PrescricaoSUS from './componentes/prescricaosus'
 import ViaSUS from './componentes/viasus'
 import CabecalhoSUS from './componentes/cabecalhosus'
 import RodapeSUS from './componentes/rodapesus'
+import { ImpressaoContext } from '../../../../..'
 
 const ReceitaSUS = (props) => {
 
-    const a4size = {
-        width: 1240,
-        height: 1750 //1754
-    }
+    const { impressao } = useContext(ImpressaoContext)
 
     return (
         <>
-            <div style={{ width: a4size.width, height: a4size.height }} >
+            <div style={{ width: impressao.a4Adjust.width, height: impressao.a4Adjust.height }}>
                 <Box height={1} p={10}>
                     <Box width={1} height={1} display="block">
                         <Box>
                             <CabecalhoSUS />
                         </Box>
                         <Box
-                            height='calc(100% - 80px)' // se mudar o Cabecalho tem que ajustar aqui depois
+                            height='calc(100% - 110px)' // se mudar o Cabecalho tem que ajustar aqui depois
                             p={5} border={3} borderColor={"black"} >
                             <Box display="block" height={1}>
                                 <Box justifyContent="center">

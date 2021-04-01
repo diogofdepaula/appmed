@@ -51,11 +51,12 @@ const Atendimento = () => {
         lme: '',
         relatorio: true,
         comentario: '-',
-        database: new Date()
+        database: new Date(),
+        a4Adjust: {
+            width: 1190,
+            height: 1680
+        }
     })
-
-
-
 
     return (
         <>
