@@ -5,6 +5,7 @@ import LmeEditorAppBar from '../../pages/lmes/components/appbar/editorappbar';
 import LmesMainAppBar from '../../pages/lmes/components/appbar/mainappbar';
 import PrecricoesEditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
 import PrescricoesMainAppBar from '../../pages/prescricoes/components/appbar/mainappbar';
+import PrintMainAppBar from '../../pages/print/component/appbar/mainappbar';
 
 const ThirdAppBar = () => {
 
@@ -33,8 +34,8 @@ const ThirdAppBar = () => {
          // NÃO CONSEGUI PASSAR O useRef.current para o AppBar
          // então nesse caso optei por deixar o AppBar como Child
          // passando o handlePrint pelo props mesmo
-         //  case 'print':
-         //       return <PrintMainAppBar />
+          case 'print':
+               return <PrintMainAppBar />
          case 'teste':
             return <div>Teste</div>
          default:
