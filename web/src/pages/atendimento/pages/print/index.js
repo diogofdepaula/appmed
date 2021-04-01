@@ -1,18 +1,30 @@
-import { Box, Divider } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
-import ImpressaoSet from './component/impressaoset';
+import LMESet from './component/impressaoset/lmeset';
+import LocalSet from './component/impressaoset/localset';
+import PrescricoesSet from './component/impressaoset/prescricaoset';
+import TempoSet from './component/impressaoset/temposet';
 
-const Print = () => {
+const ImpressaoSet = () => {
 
     return (
         <>
-            <Box>
-                <ImpressaoSet />
-                <Divider />
-            </Box>
+            <Grid container direction="row" justify="space-between" alignItems="flex-start">
+                <Grid container item xs={4}>
+                    <PrescricoesSet />
+                </Grid>
+                <Grid container item xs={4} >
+                    <LMESet />
+                </Grid>
+                <Grid container item xs={4}>
+                    <Grid item>
+                        <TempoSet />
+                    </Grid>
+                    <LocalSet />
+                </Grid>
+            </Grid>
         </>
     )
 }
 
-export default Print
-
+export default ImpressaoSet
