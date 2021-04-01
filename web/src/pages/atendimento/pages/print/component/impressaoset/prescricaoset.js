@@ -24,7 +24,6 @@ const PrescricoesSet = () => {
 
     const handleCheck = param => (event) => {
 
-        console.log(event)
         if (event.target.checked) {
             setImpressao(prevState => ({
                 ...prevState,
