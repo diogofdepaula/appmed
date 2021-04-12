@@ -7,7 +7,7 @@ import Linha13Relatorio from './linha13'
 const Linha1Relatorio = () => {
 
     return (
-        <div>
+        <>
             <Grid container item >
                 <Box width={1}>
                     <Linha11Relatorio />
@@ -15,7 +15,7 @@ const Linha1Relatorio = () => {
                     <Linha13Relatorio />
                 </Box>
             </Grid>
-        </div>
+        </>
     )
 }
 

@@ -13,7 +13,7 @@ const ReceitaSUS = (props) => {
     const { impressao } = useContext(ImpressaoContext)
 
     return (
-        <div>
+        <>
             <div style={{ width: impressao.a4Adjust.width, height: impressao.a4Adjust.height }}>
                 <Box height={1} p={10}>
                     <Box width={1} height={1} display="block">
@@ -48,7 +48,7 @@ const ReceitaSUS = (props) => {
                     </Box>
                 </Box>
             </div>
-        </div>
+        </>
     )
 }
 

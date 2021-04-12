@@ -4,7 +4,7 @@ import React from 'react'
 const Linha8xRelatorio = (props) => {
 
     return (
-        <div>
+        <>
             <Box>
                 <Grid container item direction="row" justify="center" alignItems="stretch">
                     <Grid item xs={3}>
@@ -56,7 +56,7 @@ const Linha8xRelatorio = (props) => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

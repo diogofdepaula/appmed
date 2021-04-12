@@ -4,7 +4,7 @@ import React from 'react'
 const Linha5ExtraLME = (props) => {
 
     return (
-        <div>
+        <>
             <Box>
                 <Grid container>
                     <Grid container item xs={8} direction="row" justify="center"  >
@@ -61,7 +61,7 @@ const Linha5ExtraLME = (props) => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

@@ -15,7 +15,7 @@ const PrintMainAppBar = () => {
 
     return (
         <div>
-            <Box>
+            <Box display="flex">
                 <Tooltip title="Voltar">
                     <span>
                         <IconButton

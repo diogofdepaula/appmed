@@ -4,6 +4,7 @@ import LMESet from './component/impressaoset/lmeset';
 import LocalSet from './component/impressaoset/localset';
 import PrescricoesSet from './component/impressaoset/prescricaoset';
 import TempoSet from './component/impressaoset/temposet';
+import Factory from './pages';
 
 const ImpressaoSet = () => {
 
@@ -23,6 +24,7 @@ const ImpressaoSet = () => {
                     <LocalSet />
                 </Grid>
             </Grid>
+            <Factory />
         </div>
     )
 }

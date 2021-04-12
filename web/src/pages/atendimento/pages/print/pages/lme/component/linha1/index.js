@@ -9,7 +9,7 @@ import Linha15LME from './linha15'
 const Linha1LME = () => {
 
     return (
-        <div>
+        <>
             <Box width={1}>
                 <Linha11LME />
                 <Linha12LME />
@@ -17,7 +17,7 @@ const Linha1LME = () => {
                 <Linha14LME />
                 <Linha15LME />
             </Box>
-        </div>
+        </>
     )
 }
 

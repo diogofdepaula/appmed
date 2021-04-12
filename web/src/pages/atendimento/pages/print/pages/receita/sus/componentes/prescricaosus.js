@@ -18,7 +18,7 @@ const PrescricaoSUS = (props) => {
     // +++++         Linha5 = Comentarios                                       +++++
 
     return (
-        <div>
+        <>
             <Box mt={4}>
                 <PrescricaoSUSPrintContext.Provider value={props.prescricao}>
                     <Linha1SUS />
@@ -28,7 +28,7 @@ const PrescricaoSUS = (props) => {
                     {props.prescricao.imprimirorientacoes && <Linha5SUS />}
                 </PrescricaoSUSPrintContext.Provider>
             </Box>
-        </div>
+        </>
     )
 }
 

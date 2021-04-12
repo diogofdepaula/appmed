@@ -9,7 +9,7 @@ const Linha102Relatorio = () => {
     const lme = useContext(LMEPrintContext)
 
     return (
-        <div>
+        <>
             <Box>
                 <Grid container item direction="row" justify="center" alignItems="stretch">
                     <Grid item xs={2}>
@@ -41,7 +41,7 @@ const Linha102Relatorio = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

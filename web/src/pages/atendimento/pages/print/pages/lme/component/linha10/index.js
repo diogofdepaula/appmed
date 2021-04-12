@@ -11,7 +11,7 @@ const Linha10LME = () => {
     const date = format(impressao.database, "dd '/' MM '/' yyyy", { locale: ptBR })
 
     return (
-        <div>
+        <>
             <Box mt={2}>
                 <Grid container spacing={1}>
                     <Grid container item xs={8}>
@@ -98,7 +98,7 @@ const Linha10LME = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

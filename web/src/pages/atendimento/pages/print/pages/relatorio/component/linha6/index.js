@@ -7,7 +7,7 @@ const Linha6LME = () => {
     const lme = useContext(LMEPrintContext)
 
     return (
-        <div>
+        <>
             <Box mt={2}>
                 <Grid container spacing={1}>
                     <Grid container item xs={6}>
@@ -92,7 +92,7 @@ const Linha6LME = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

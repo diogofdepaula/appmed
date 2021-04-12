@@ -7,7 +7,7 @@ const Linha3LME = () => {
     const { clienteContext } = useContext(ClienteContext)
 
     return (
-        <div>
+        <>
             <Box mt={1}>
                 <Grid container spacing={1}>
                     <Grid container item xs={10}  >
@@ -52,7 +52,7 @@ const Linha3LME = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

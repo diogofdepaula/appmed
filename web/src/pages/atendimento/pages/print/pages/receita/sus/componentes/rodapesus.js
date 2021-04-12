@@ -9,7 +9,7 @@ const RodapeSUS = () => {
     const endereco = impressao.local === 'cisco' ? "R. Profa. Leonidia, 1203 - Centro, Guarapuava - PR, 85010-230" : "R. Pres. Getúlio Vargas, 1523 - Centro, Guarapuava - PR, 85010-280"
 
     return (
-        <div>
+        <>
             <Box
                 display="flex"
                 justifyContent="center"
@@ -23,7 +23,7 @@ const RodapeSUS = () => {
                     <Box>{endereco}</Box>
                 </Typography>
             </Box>
-        </div>
+        </>
     )
 }
 

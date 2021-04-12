@@ -4,7 +4,7 @@ import React from 'react';
 const Linha14LME = () => {
 
     return (
-        <div>
+        <>
             <Typography component={'span'} variant={'body2'} align={'left'} >
                 <Box mt={1} fontSize={7} display="block">
                     <Box width={1}>
@@ -15,7 +15,7 @@ const Linha14LME = () => {
                     </Box>
                 </Box>
             </Typography>
-        </div>
+        </>
     )
 }
 

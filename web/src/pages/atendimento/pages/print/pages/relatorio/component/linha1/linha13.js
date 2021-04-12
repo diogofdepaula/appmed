@@ -4,7 +4,7 @@ import React from 'react'
 const Linha13Relatorio = () => {
 
     return (
-        <div>
+        <>
             <Box
                 border={5}
                 borderColor="DarkGrey"
@@ -15,7 +15,7 @@ const Linha13Relatorio = () => {
                     <Box fontWeight="fontWeightBold" letterSpacing={2}>RELATÓRIO MÉDICO ESPECÍFICO PARA SOLICITAÇÃO DE MEDICAMENTOS</Box>
                 </Typography>
             </Box>
-        </div>
+        </>
     )
 }
 

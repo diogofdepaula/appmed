@@ -22,7 +22,7 @@ const FactoryRelatorio = (props) => {
     const { impressao } = useContext(ImpressaoContext)
 
     return (
-        <div>
+        <>
             <div style={{ width: impressao.a4Adjust.width, height: impressao.a4Adjust.height }}>
                 {/* a box ali de baixo que determina o uso de toda a folha  */}
                 <Box height={1} p={10}>
@@ -55,7 +55,7 @@ const FactoryRelatorio = (props) => {
                     </Box>
                 </Box>
             </div>
-        </div>
+        </>
     )
 }
 

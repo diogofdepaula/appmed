@@ -7,7 +7,7 @@ const Linha5SUS = () => {
     const prescricao = useContext(PrescricaoSUSPrintContext)
 
     return (
-        <div>
+        <>
             <Box mt={3}>
                 <Grid container>
                     <Grid item>
@@ -15,7 +15,7 @@ const Linha5SUS = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

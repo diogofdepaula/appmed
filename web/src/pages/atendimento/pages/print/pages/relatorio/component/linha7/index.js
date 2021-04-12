@@ -64,35 +64,37 @@ const Linha7Relatorio = () => {
     }, [getList])
 
     return (
-        <Grid container item >
-            <Box mt={2} width={1} border={1} borderColor="black">
-                <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                    <Grid item>
-                        <Box mt={-1} ml={2} display="flex">
-                            <Typography component={'span'} variant="caption" noWrap={true} >
-                                <Box bgcolor="white" px={1}>13 - Critério de inclusão </Box>
-                            </Typography>
-                        </Box>
+        <>
+            <Grid container item >
+                <Box mt={2} width={1} border={1} borderColor="black">
+                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                        <Grid item>
+                            <Box mt={-1} ml={2} display="flex">
+                                <Typography component={'span'} variant="caption" noWrap={true} >
+                                    <Box bgcolor="white" px={1}>13 - Critério de inclusão </Box>
+                                </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid item>
+                            <Box mt={1} mb={1}>
+                                {list && list.map((w, i) =>
+                                    <div key={i}>
+                                        <Grid item>
+                                            <Box ml={2} display="flex">
+                                                {w[2] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
+                                                <Typography component={'span'} variant={'body1'} align={'left'} >
+                                                    <Box>{w[1]}</Box>
+                                                </Typography>
+                                            </Box>
+                                        </Grid>
+                                    </div>
+                                )}
+                            </Box>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <Box mt={1} mb={1}>
-                            {list && list.map((w, i) =>
-                                <div key={i}>
-                                    <Grid item>
-                                        <Box ml={2} display="flex">
-                                            {w[2] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
-                                            <Typography component={'span'} variant={'body1'} align={'left'} >
-                                                <Box>{w[1]}</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                </div>
-                            )}
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Box>
-        </Grid>
+                </Box>
+            </Grid>
+        </>
     )
 }
 

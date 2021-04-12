@@ -17,7 +17,7 @@ const Linha11Relatorio = () => {
     ]
 
     return (
-        <div>
+        <>
             <Grid container item >
                 <Box mt={2} width={1} border={1} borderColor="black">
                     <Grid container direction="column" justify="flex-start" alignItems="stretch" >
@@ -47,7 +47,7 @@ const Linha11Relatorio = () => {
                     </Grid>
                 </Box>
             </Grid>
-        </div>
+        </>
     )
 }
 

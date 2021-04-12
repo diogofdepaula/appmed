@@ -68,34 +68,36 @@ const Linha8Relatorio = () => {
     ]
 
     return (
-        <Grid container item >
-            <Box mt={2} width={1} border={1} borderColor="black">
-                <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                    <Grid item>
-                        <Box mt={-1} ml={2} display="flex">
-                            <Typography component={'span'} variant="caption" noWrap={true} >
-                                <Box bgcolor="white" px={1}>14 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
-                            </Typography>
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        <Box p={1}>
-                            <Box width={1} border={1} borderColor="black">
-                                <Linha81Relatorio />
-                                {indices.map((p, i) =>
-                                    p[0][1] !== "" ?
-                                        <div key={i}>
-                                            <Linha8xRelatorio prescricao={p} />
-                                        </div>
-                                        :
-                                        <div key={i}></div>
-                                )}
+        <>
+            <Grid container item >
+                <Box mt={2} width={1} border={1} borderColor="black">
+                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                        <Grid item>
+                            <Box mt={-1} ml={2} display="flex">
+                                <Typography component={'span'} variant="caption" noWrap={true} >
+                                    <Box bgcolor="white" px={1}>14 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
+                                </Typography>
                             </Box>
-                        </Box>
+                        </Grid>
+                        <Grid item>
+                            <Box p={1}>
+                                <Box width={1} border={1} borderColor="black">
+                                    <Linha81Relatorio />
+                                    {indices.map((p, i) =>
+                                        p[0][1] !== "" ?
+                                            <div key={i}>
+                                                <Linha8xRelatorio prescricao={p} />
+                                            </div>
+                                            :
+                                            <div key={i}></div>
+                                    )}
+                                </Box>
+                            </Box>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Box>
-        </Grid>
+                </Box>
+            </Grid>
+        </>
     )
 }
 

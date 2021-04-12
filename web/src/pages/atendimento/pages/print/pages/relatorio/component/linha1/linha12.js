@@ -4,7 +4,7 @@ import React from 'react'
 const Linha12Relatorio = () => {
 
     return (
-        <div>
+        <>
             <Box
                 mt={1}
                 border={5}
@@ -17,7 +17,7 @@ const Linha12Relatorio = () => {
                     <Box fontWeight="fontWeightBold" letterSpacing={2}>COMPONENTE ESPECIALIZADO DA ASSISTÊNCIA FARMACÊUTICA</Box>
                 </Typography>
             </Box>
-        </div>
+        </>
     )
 }
 

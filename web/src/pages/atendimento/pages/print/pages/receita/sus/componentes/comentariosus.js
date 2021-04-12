@@ -7,7 +7,7 @@ const ComentarioSUS = () => {
     const { impressao } = useContext(ImpressaoContext)
 
     return (
-        <div>
+        <>
             <Box>
                 <Grid container>
                     <Grid item>
@@ -15,7 +15,7 @@ const ComentarioSUS = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

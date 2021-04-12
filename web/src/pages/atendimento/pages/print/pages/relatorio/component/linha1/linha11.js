@@ -7,7 +7,7 @@ import LogoSESA from '../../../../component/imagens/sesalogo.png'
 const Linha11Relatorio = () => {
 
     return (
-        <div>
+        <>
             <Box mt={1}>
                 <Grid container direction="row" justify="center" alignItems="stretch">
                     <Grid item xs>
@@ -38,7 +38,7 @@ const Linha11Relatorio = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

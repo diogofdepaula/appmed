@@ -25,7 +25,7 @@ const Linha3SUS = (props) => {
     //Farmaco + Apresentacao + Quantidade + Forma
 
     return (
-        <div>
+        <>
             <Box>
                 <Grid container direction="row" justify="space-between" alignItems="flex-end">
                     <Grid item xs>
@@ -49,7 +49,7 @@ const Linha3SUS = (props) => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

@@ -12,7 +12,7 @@ const DataSUS = (props) => {
     const date = format(addMonths(impressao.database, props.mes ? props.mes : 0), "dd ' de ' MMMM ' de ' yyyy", { locale: ptBR })
 
     return (
-        <div>
+        <>
             <Box>
                 <Grid container>
                     <Grid item>
@@ -20,7 +20,7 @@ const DataSUS = (props) => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 
