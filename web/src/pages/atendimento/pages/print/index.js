@@ -4,12 +4,11 @@ import LMESet from './component/impressaoset/lmeset';
 import LocalSet from './component/impressaoset/localset';
 import PrescricoesSet from './component/impressaoset/prescricaoset';
 import TempoSet from './component/impressaoset/temposet';
-import Factory from './pages';
 
 const ImpressaoSet = () => {
 
     return (
-        <div>
+        <>
             <Grid container direction="row" justify="space-between" alignItems="flex-start">
                 <Grid container item xs={4}>
                     <PrescricoesSet />
@@ -24,8 +23,7 @@ const ImpressaoSet = () => {
                     <LocalSet />
                 </Grid>
             </Grid>
-            <Factory />
-        </div>
+        </>
     )
 }
 

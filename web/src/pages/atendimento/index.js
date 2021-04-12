@@ -6,7 +6,6 @@ import ClienteHeader from './component/clienteheader'
 import Content from './component/content'
 import Factory from './pages/print/pages'
 
-
 export const AtendimentoContext = createContext(null)
 export const ImpressaoContext = createContext(null)
 
