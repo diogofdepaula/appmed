@@ -23,19 +23,19 @@ const ThirdAppBar = () => {
          // case 'prescricaodelete':
          //   return <PrescricaoDelete />
          case 'lmesmain':
-              return <LmesMainAppBar />
+            return <LmesMainAppBar />
          case 'lmeinsert':
             return <LmeEditorAppBar />
          case 'lmeupdate':
-             return <LmeEditorAppBar />
+            return <LmeEditorAppBar />
          // case 'lmedelete':
          //    return <LMEDelete />
 
          // NÃO CONSEGUI PASSAR O useRef.current para o AppBar
          // então nesse caso optei por deixar o AppBar como Child
          // passando o handlePrint pelo props mesmo
-          case 'print':
-               return <PrintMainAppBar />
+         case 'print':
+            return <PrintMainAppBar />
          case 'teste':
             return <div>Teste</div>
          default:
@@ -43,10 +43,10 @@ const ThirdAppBar = () => {
       }
    }
    return (
-      <>
+      <div>
          <GetAppBar />
          {page && <Divider />}
-      </>
+      </div>
    )
 
 }

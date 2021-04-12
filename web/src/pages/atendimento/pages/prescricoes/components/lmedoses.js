@@ -20,7 +20,7 @@ const LMEDoses = () => {
     }
 
     return (
-        <>
+        <div>
             <Box>
                 <Grid container spacing={1} >
                     {indica?.map((w, i) =>
@@ -38,7 +38,7 @@ const LMEDoses = () => {
                     )}
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

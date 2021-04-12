@@ -22,7 +22,7 @@ const ButtonPrint = () => {
     });
 
     return (
-        <>
+        <div>
             <Tooltip title="Imprimir">
                 <span>
                     <IconButton
@@ -35,7 +35,7 @@ const ButtonPrint = () => {
             <div style={{ display: "none" }}>
                 <ComponentToPrint ref={componentRef} />
             </div>
-        </>
+        </div>
     )
 }
 

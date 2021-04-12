@@ -7,7 +7,7 @@ const Linha5Relatorio = () => {
     const lme = useContext(LMEPrintContext)
 
     return (
-        <>
+        <div>
             <Box mt={2}>
                 <Grid container spacing={1}>
                     <Grid container item xs={2}>
@@ -52,7 +52,7 @@ const Linha5Relatorio = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

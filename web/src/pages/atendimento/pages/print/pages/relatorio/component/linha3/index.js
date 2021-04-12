@@ -4,10 +4,10 @@ import { ClienteContext } from '../../../../../../../../App'
 
 const Linha3Relatorio = () => {
 
-    const { clienteContext} = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
 
     return (
-        <>
+        <div>
             <Grid container spacing={1}>
                 <Grid container item xs={2}>
                     <Box mt={1} width={1} border={1} borderColor="black">
@@ -70,7 +70,7 @@ const Linha3Relatorio = () => {
                     </Box>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

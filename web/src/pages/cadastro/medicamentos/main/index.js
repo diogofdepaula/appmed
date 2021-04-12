@@ -12,9 +12,9 @@ const MedicamentoMain = () => {
   const fetchData = useCallback(async () => {
     const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/short`)
     const json = await res.json();
-    
+
     json.sort((a, b) => a.farmaco.localeCompare(b.farmaco))
-    
+
     setMedicamentos(json);
     setMedicamentosFiltrados(json)
   }, [setMedicamentos])
@@ -29,7 +29,7 @@ const MedicamentoMain = () => {
       w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
       w.abreviatura.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
     )
-    
+
     if (filtro.length === 0) {
       filtro.push({
         id: 0,
@@ -40,7 +40,7 @@ const MedicamentoMain = () => {
   }
 
   return (
-    <>
+    <div>
       <Box m={1}>
         <Grid container spacing={1}>
           <Grid container item xs={4} direction="column" justify="flex-start" alignItems="stretch">
@@ -84,7 +84,7 @@ const MedicamentoMain = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </div>
   )
 }
 

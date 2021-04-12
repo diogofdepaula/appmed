@@ -5,7 +5,7 @@ import React from 'react';
 const Linha11LME = () => {
 
     return (
-        <>
+        <div>
             <Box mt={2} >
                 <Box width={1} border={1} borderColor="black" display="block">
                     <Grid container direction="column" justify="flex-end" >
@@ -29,7 +29,7 @@ const Linha11LME = () => {
                                 <Grid item xs>
                                     <Box ml={1} display="flex">
                                         <CheckBoxOutlineBlankIcon />
-                                        <Typography component={'span'} variant={'body1'} align={'left'}  noWrap={true}>
+                                        <Typography component={'span'} variant={'body1'} align={'left'} noWrap={true}>
                                             <Box>Mãe do paciente</Box>
                                         </Typography>
                                     </Box>
@@ -70,7 +70,7 @@ const Linha11LME = () => {
                     </Grid>
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 

@@ -23,7 +23,7 @@ const PrescricaoMain = () => {
     }, [fetchData])
 
     return (
-        <>
+        <div>
             <Box m={1}>
                 <Grid container spacing={1} >
                     <Grid item xs={4}>
@@ -76,7 +76,7 @@ const PrescricaoMain = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 export default PrescricaoMain

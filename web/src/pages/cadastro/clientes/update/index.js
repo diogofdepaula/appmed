@@ -5,11 +5,11 @@ import ClienteForm from '../components/clienteform';
 const ClienteUpdate = () => {
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 <ClienteForm />
             </Box>
-        </>
+        </div>
     )
 }
 

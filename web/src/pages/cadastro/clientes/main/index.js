@@ -39,7 +39,7 @@ const ClienteMain = () => {
   }
 
   return (
-    <>
+    <div>
       <Box m={1}>
         <Grid container spacing={1}>
           <Grid container item xs={4} direction="column" justify="flex-start" alignItems="stretch">
@@ -83,7 +83,7 @@ const ClienteMain = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </div>
   )
 }
 

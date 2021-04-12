@@ -4,7 +4,7 @@ import React from 'react'
 const Linha13LME = () => {
 
     return (
-        <>
+        <div>
             <Box
                 border={5}
                 borderColor="DarkGrey"
@@ -15,7 +15,7 @@ const Linha13LME = () => {
                     <Box fontWeight="fontWeightBold" letterSpacing={2}>LAUDO DE SOLICITAÇÃO, AVALIAÇÃO E AUTORIZAÇÃO DE MEDICAMENTO(S)</Box>
                 </Typography>
             </Box>
-        </>
+        </div>
     )
 }
 

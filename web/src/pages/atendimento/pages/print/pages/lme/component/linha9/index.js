@@ -5,7 +5,7 @@ import React from 'react';
 const Linha9LME = () => {
 
     return (
-        <>
+        <div>
             <Box mt={2} >
                 <Grid container spacing={1}>
                     <Grid item xs>
@@ -59,7 +59,7 @@ const Linha9LME = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

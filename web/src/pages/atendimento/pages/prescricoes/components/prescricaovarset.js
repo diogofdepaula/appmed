@@ -28,7 +28,7 @@ const PrescricaoVarSet = () => {
     }
 
     return (
-        <>
+        <div>
             <Box display='flex'>
                 <Grid container spacing={1}>
                     <Grid item xs={3}>
@@ -87,7 +87,7 @@ const PrescricaoVarSet = () => {
                     onChange={handleChange}
                 />
             </Box>
-        </>
+        </div>
     )
 }
 

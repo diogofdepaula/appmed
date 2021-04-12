@@ -11,7 +11,7 @@ const LocalSet = () => {
     }
 
     return (
-        <>
+        <div>
             <Box mt={1}>
                 <RadioGroup row value={impressao.local} onChange={handleChange}>
                     <FormControlLabel value="consultorio" control={<Radio />} label="Consultório" />
@@ -19,7 +19,7 @@ const LocalSet = () => {
                     <FormControlLabel value="cisco" control={<Radio />} label="CISCO" />
                 </RadioGroup>
             </Box>
-        </>
+        </div>
     )
 }
 

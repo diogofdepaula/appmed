@@ -13,7 +13,7 @@ const Linha5LME = () => {
     let reorder = Reorder(lme.prescricoes)
 
     return (
-        <>
+        <div>
             <Box mt={2} width={1} border={1} borderColor="black">
                 <Linha51LME />
                 {reorder.map((p, i) =>
@@ -34,7 +34,7 @@ const Linha5LME = () => {
                     </div>
                 }
             </Box>
-        </>
+        </div>
     )
 }
 

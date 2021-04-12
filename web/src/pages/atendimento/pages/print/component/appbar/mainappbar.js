@@ -14,7 +14,7 @@ const PrintMainAppBar = () => {
     }
 
     return (
-        <>
+        <div>
             <Box>
                 <Tooltip title="Voltar">
                     <span>
@@ -36,7 +36,7 @@ const PrintMainAppBar = () => {
                     </span>
                 </Tooltip>
             </Box>
-        </>
+        </div>
     )
 }
 

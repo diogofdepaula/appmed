@@ -15,7 +15,7 @@ const FirstAppBar = () => {
     const { setPage, updatePage, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
 
     return (
-        <>
+        <div>
             <Grid container direction="row" justify="space-between" alignItems="center">
                 <Grid item xs>
                     <Tooltip title="Voltar">
@@ -73,7 +73,7 @@ const FirstAppBar = () => {
                 </Grid>
             </Grid>
             <Divider />
-        </>
+        </div>
     )
 }
 

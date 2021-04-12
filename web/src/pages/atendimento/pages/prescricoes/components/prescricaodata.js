@@ -11,7 +11,7 @@ const PrescricaoData = () => {
     const prescricao = prescricaoOnDuty;
 
     return (
-        <>
+        <div>
             <Box>
                 <Box mt={1} display="flex" justifyContent="center" alignItems="flex-end">
                     <Typography variant={'h6'}>{prescricao.medicamento.farmaco}</Typography>
@@ -20,13 +20,13 @@ const PrescricaoData = () => {
                     <Typography variant={'body1'}>{prescricao.apresentaco.descricao}</Typography>
                     <Box mt={1}>
                         {prescricao.usoposologiapadrao ?
-                            <>
+                            <div>
                                 <Typography variant={'body1'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
-                            </>
+                            </div>
                             :
-                            <>
+                            <div>
                                 <Typography variant={'body1'} align={'justify'}>{prescricao.posologianaopadrao}</Typography>
-                            </>}
+                            </div>}
                     </Box>
                     <Box mt={2}>
                         <Typography variant={'body1'} >
@@ -46,7 +46,7 @@ const PrescricaoData = () => {
                     </Box>
                     <Box mt={1}>
                         {prescricao.lmeId &&
-                            <>
+                            <div>
                                 <Typography variant={'body1'}>Doses na LME:</Typography>
                                 <Box ml={2}>
                                     <Typography variant={'body1'}>1º mês: {prescricao.lmemes1}</Typography>
@@ -56,7 +56,7 @@ const PrescricaoData = () => {
                                     <Typography variant={'body1'}>5º mês: {prescricao.lmemes5}</Typography>
                                     <Typography variant={'body1'}>6º mês: {prescricao.lmemes6}</Typography>
                                 </Box>
-                            </>
+                            </div>
                         }
                     </Box>
                     <Box mt={1}>
@@ -74,7 +74,7 @@ const PrescricaoData = () => {
                     </Box>
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 

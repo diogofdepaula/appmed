@@ -23,7 +23,7 @@ const LMEVarSet = () => {
 
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 <Box mb={2}>
                     <TextField
@@ -45,73 +45,73 @@ const LMEVarSet = () => {
                         <Typography>Editar outras variáveis</Typography>
                     </AccordionSummary>
                     <AccordionDetails> */}
-                        <Box display="block">
-                            <Box>
-                                <FormGroup row>
-                                    <FormControlLabel
-                                        control={
-                                            <Checkbox
-                                                color='primary'
-                                                name="tratamentoprevio"
-                                                //tiver que fazer isso, pois ele vem como undefined na primeira renderização
-                                                // e na segunda o false vem como '' (uma string vazia), então dá erro
-                                                checked={lmeEdit.tratamentoprevio === true ? true : false} 
-                                                onChange={handleChangeCheckBox}
-                                            />}
-                                        label='Tratamento Prévio'
-                                    />
-                                </FormGroup>
-                                {lmeEdit.tratamentoprevio &&
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        name="tratamentopreviotexto"
-                                        label="Descrever tratamentos prévios"
-                                        value={lmeEdit.tratamentopreviotexto}
-                                        onChange={handleChange}
-                                    />
-                                }
-                            </Box>
-                            <Box>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            color='primary'
-                                            name="atestadocapacidade"
-                                            value={lmeEdit.atestadocapacidade}
-                                            onChange={handleChangeCheckBox}
-                                        />}
-                                    label='Atestado de capacidade'
-                                />
-                            </Box>
-                            <Box>
-                                <TextField
-                                    variant='outlined'
-                                    name="preenchidopor"
-                                    label="Preenchido por"
-                                    value={lmeEdit.preenchidopor ?? ''}
-                                    onChange={handleChange}
-                                />
-                                <TextField
-                                    variant='outlined'
-                                    name="preenchidoporCPF"
-                                    label="CPF do preenchedor"
-                                    value={lmeEdit.preenchidoporCPF ?? ''}
-                                    onChange={handleChange}
-                                />
-                                <TextField
-                                    variant='outlined'
-                                    name="raca"
-                                    label="Raça"
-                                    value={lmeEdit.raca ?? ''}
-                                    onChange={handleChange}
-                                />
-                            </Box>
-                        </Box>
-                    {/* </AccordionDetails>
+                <Box display="block">
+                    <Box>
+                        <FormGroup row>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        color='primary'
+                                        name="tratamentoprevio"
+                                        //tiver que fazer isso, pois ele vem como undefined na primeira renderização
+                                        // e na segunda o false vem como '' (uma string vazia), então dá erro
+                                        checked={lmeEdit.tratamentoprevio === true ? true : false}
+                                        onChange={handleChangeCheckBox}
+                                    />}
+                                label='Tratamento Prévio'
+                            />
+                        </FormGroup>
+                        {lmeEdit.tratamentoprevio &&
+                            <TextField
+                                fullWidth
+                                variant='outlined'
+                                name="tratamentopreviotexto"
+                                label="Descrever tratamentos prévios"
+                                value={lmeEdit.tratamentopreviotexto}
+                                onChange={handleChange}
+                            />
+                        }
+                    </Box>
+                    <Box>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    color='primary'
+                                    name="atestadocapacidade"
+                                    value={lmeEdit.atestadocapacidade}
+                                    onChange={handleChangeCheckBox}
+                                />}
+                            label='Atestado de capacidade'
+                        />
+                    </Box>
+                    <Box>
+                        <TextField
+                            variant='outlined'
+                            name="preenchidopor"
+                            label="Preenchido por"
+                            value={lmeEdit.preenchidopor ?? ''}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            variant='outlined'
+                            name="preenchidoporCPF"
+                            label="CPF do preenchedor"
+                            value={lmeEdit.preenchidoporCPF ?? ''}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            variant='outlined'
+                            name="raca"
+                            label="Raça"
+                            value={lmeEdit.raca ?? ''}
+                            onChange={handleChange}
+                        />
+                    </Box>
+                </Box>
+                {/* </AccordionDetails>
                 </Accordion> */}
             </Box>
-        </>
+        </div>
     )
 }
 

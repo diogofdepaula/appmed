@@ -4,7 +4,7 @@ import React from 'react'
 const Linha15LME = () => {
 
     return (
-        <>
+        <div>
             <Box
                 width={1}
                 border={5}
@@ -14,7 +14,7 @@ const Linha15LME = () => {
                     <Box fontWeight="fontWeightBold" letterSpacing={2}>CAMPOS DE PREENCHIMENTO EXCLUSIVO PELO MÉDICO SOLICITANTE</Box>
                 </Typography>
             </Box>
-        </>
+        </div>
     )
 }
 

@@ -35,7 +35,7 @@ const LMESet = () => {
     }
 
     return (
-        <>
+        <div>
             <List dense subheader={<ListSubheader>LMEs</ListSubheader>}>
                 {lmes && lmes.map(lme =>
                     <ListItem key={lme.id}>
@@ -49,7 +49,7 @@ const LMESet = () => {
                     </ListItem>
                 )}
             </List>
-        </>
+        </div>
     )
 }
 

@@ -7,7 +7,7 @@ const Linha3SUS = (props) => {
     const prescricao = useContext(PrescricaoSUSPrintContext)
 
     const quant = () => {
-        
+
         let final = ''
 
         let lmes = [prescricao.lmemes1, prescricao.lmemes2, prescricao.lmemes3, prescricao.lmemes4, prescricao.lmemes5, prescricao.lmemes6]
@@ -15,7 +15,7 @@ const Linha3SUS = (props) => {
         if (props.mes >= 0) {
             // vem pela via Estado e cada mês corresponde ao mês
             final = lmes[props.mes]
-            } else {
+        } else {
             // quando a receita é via paciente o mês vem como undefined
             final = lmes.map(p => isNaN(parseInt(p)) ? 0 : parseInt(p)).reduce((a, b) => a + b, 0)
         }
@@ -25,7 +25,7 @@ const Linha3SUS = (props) => {
     //Farmaco + Apresentacao + Quantidade + Forma
 
     return (
-        <>
+        <div>
             <Box>
                 <Grid container direction="row" justify="space-between" alignItems="flex-end">
                     <Grid item xs>
@@ -49,7 +49,7 @@ const Linha3SUS = (props) => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

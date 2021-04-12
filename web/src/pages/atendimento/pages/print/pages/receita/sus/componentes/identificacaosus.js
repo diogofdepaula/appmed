@@ -7,7 +7,7 @@ const IdentificacaoSUS = () => {
     const { clienteContext } = useContext(ClienteContext)
 
     return (
-        <>
+        <div>
             <Box
                 display="flex"
                 justifyContent="center"
@@ -18,7 +18,7 @@ const IdentificacaoSUS = () => {
                     <Box fontWeight="fontWeightBold" >{clienteContext.nome}</Box>
                 </Typography>
             </Box>
-        </>
+        </div>
     )
 }
 

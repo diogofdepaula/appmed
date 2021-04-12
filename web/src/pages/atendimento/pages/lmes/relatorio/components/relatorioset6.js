@@ -9,7 +9,7 @@ const RelatorioSet6 = () => {
     const handleChange = event => {
         setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.value } })
     }
-    
+
     const indices = [
         ['das28', lmeEdit.relatorio.das28],
         ['cdai', lmeEdit.relatorio.cdai],
@@ -21,7 +21,7 @@ const RelatorioSet6 = () => {
     ]
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 <Grid container spacing={1}>
                     {indices?.map((w, i) =>
@@ -38,7 +38,7 @@ const RelatorioSet6 = () => {
                     )}
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

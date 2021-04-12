@@ -20,9 +20,9 @@ const LMEDelete = () => {
     }
 
     return (
-        <>
+        <div>
             {lmeOnDuty &&
-                <>
+                <div>
                     <Box m={2}>
                         <Card>
                             <Box m={1} display="flex" justifyContent="center" alignItems="flex-end">
@@ -38,9 +38,9 @@ const LMEDelete = () => {
                         >Remover LME (apagará a LME e as prescrições do bando de dados)
                 </Button>
                     </Box>
-                </>
+                </div>
             }
-        </>
+        </div>
     )
 }
 

@@ -10,7 +10,7 @@ const CabecalhoSUS = () => {
     const { impressao } = useContext(ImpressaoContext)
 
     return (
-        <>
+        <div>
             <Box display="flex" justifyContent="center" border={3} borderColor={"black"} borderBottom={0}>
                 <Box my={2} display="flex" flexWrap="nowrap">
                     <CardMedia
@@ -34,7 +34,7 @@ const CabecalhoSUS = () => {
                     }
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 

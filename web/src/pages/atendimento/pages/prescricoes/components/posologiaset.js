@@ -5,7 +5,7 @@ import { AtendimentoContext } from '../../..';
 
 const PosologiaSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, setStep,  medicamentoEdit, } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit, setStep, medicamentoEdit, } = useContext(AtendimentoContext)
 
     const handleButton = () => {
         setPrescricaoEdit(prescricaoEdit)
@@ -13,13 +13,13 @@ const PosologiaSet = () => {
     }
 
     return (
-        <>
+        <div>
             <Box mt={1}>
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
-                        {medicamentoEdit?.posologias?.map(posologia =>
-                            //{medicamentoEdit && medicamentoEdit.posologias && medicamentoEdit.posologias.map(posologia =>
+                            {medicamentoEdit?.posologias?.map(posologia =>
+                                //{medicamentoEdit && medicamentoEdit.posologias && medicamentoEdit.posologias.map(posologia =>
                                 <TableRow
                                     key={posologia.id}
                                     onClick={() => {
@@ -32,9 +32,9 @@ const PosologiaSet = () => {
                                     }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        <>
+                                        <div>
                                             {prescricaoEdit.posologiaId === posologia.id && <Typography>(opção atual)</Typography>}
-                                        </>
+                                        </div>
                                         {posologia.posologia}
                                     </TableCell>
                                 </TableRow>
@@ -51,12 +51,12 @@ const PosologiaSet = () => {
                     onClick={handleButton}
                 >
                     Usar posologia não padronizada
-                    <>
+                    <div>
                         {prescricaoEdit.posologiaId === null && <Typography>  (opção atual)</Typography>}
-                    </>
+                    </div>
                 </Button>
             </Box>
-        </>
+        </div>
     )
 }
 export default PosologiaSet

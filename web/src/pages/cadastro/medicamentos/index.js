@@ -13,7 +13,7 @@ const Medicamentos = () => {
     const [nomesComerciaisEdit, setNomesComerciaisEdit] = useState([])
     const [apresentacoesEdit, setApresentacoesEdit] = useState([])
     const [posologiasEdit, setPosologiasEdit] = useState([])
-    
+
 
     const [update, setUpdate] = useState({
         count: 0,
@@ -28,7 +28,7 @@ const Medicamentos = () => {
     }
 
     return (
-        <>
+        <div>
             <MedicamentosContext.Provider value={{
                 update: update,
                 updatePage: updatePage,
@@ -50,7 +50,7 @@ const Medicamentos = () => {
                     <Content />
                 </Box>
             </MedicamentosContext.Provider>
-        </>
+        </div>
     )
 }
 

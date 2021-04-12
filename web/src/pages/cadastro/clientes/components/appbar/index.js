@@ -85,7 +85,7 @@ const ClientesAppBar = () => {
 
 
     return (
-        <>
+        <div>
             <Box>
                 <Tooltip title="Voltar">
                     <span>
@@ -156,7 +156,7 @@ const ClientesAppBar = () => {
                 </Tooltip>
             </Box>
             <Divider />
-        </>
+        </div>
     )
 }
 

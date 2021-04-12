@@ -18,12 +18,12 @@ const SecondAppBar = () => {
         setMedicamentoEdit(null)
         setStep(11)
         setPage('prescricaoinsert')
-      }
+    }
 
     return (
-        <>
+        <div>
             {page ?
-                <>
+                <div>
                     <Tooltip title="Nova Prescrição">
                         <IconButton
                             onClick={iniciar}
@@ -45,11 +45,11 @@ const SecondAppBar = () => {
                             <PrintIcon />
                         </IconButton>
                     </Tooltip>
-                </>
+                </div>
                 :
                 <div />
             }
-        </>
+        </div>
     )
 }
 

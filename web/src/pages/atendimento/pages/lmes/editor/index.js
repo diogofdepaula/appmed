@@ -38,9 +38,9 @@ const LMEEditor = () => {
     )
 
     return (
-        <>
+        <div>
             {step !== 0 ? <GetStep /> : <div />}
-        </>
+        </div>
     )
 }
 

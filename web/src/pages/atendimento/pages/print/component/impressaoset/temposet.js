@@ -16,7 +16,7 @@ const TempoSet = () => {
     }
 
     return (
-        <>
+        <div>
             <Typography gutterBottom >Meses</Typography>
             <Slider
                 defaultValue={6}
@@ -35,10 +35,10 @@ const TempoSet = () => {
                 label="Data base"
                 InputLabelProps={{
                     shrink: true,
-                  }}
+                }}
                 onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
             />
-        </>
+        </div>
     )
 }
 

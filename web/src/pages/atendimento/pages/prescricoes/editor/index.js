@@ -35,9 +35,9 @@ const PrescricaoEditor = () => {
     )
 
     return (
-        <>
+        <div>
             {step !== 0 ? <GetStep /> : <div />}
-        </>
+        </div>
     )
 }
 

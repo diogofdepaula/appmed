@@ -17,7 +17,7 @@ const Clientes = () => {
     const [clienteEdit, setClienteEdit] = useState([])
 
     return (
-        <>
+        <div>
             <ClientesContext.Provider value={{
                 page: page,
                 setPage: setPage,
@@ -31,7 +31,7 @@ const Clientes = () => {
                     <Content />
                 </Box>
             </ClientesContext.Provider>
-        </>
+        </div>
     )
 }
 

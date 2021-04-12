@@ -11,7 +11,7 @@ const Linha12Relatorio = () => {
     const date = format(impressao.database, "dd '/' MM '/' yyyy", { locale: ptBR })
 
     return (
-        <>
+        <div>
             <Grid container item >
                 <Grid container item xs={8}>
                     <Grid container item direction="column" justify="space-between" alignItems="stretch" spacing={1}>
@@ -112,7 +112,7 @@ const Linha12Relatorio = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

@@ -4,7 +4,7 @@ import React from 'react';
 const Linha13Relatorio = () => {
 
     return (
-        <>
+        <div>
             <Typography component={'span'} variant={'body2'} align={'left'} >
                 <Box mt={1} fontSize={7} display="block">
                     <Box width={1}>
@@ -15,7 +15,7 @@ const Linha13Relatorio = () => {
                     </Box>
                 </Box>
             </Typography>
-        </>
+        </div>
     )
 }
 

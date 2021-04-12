@@ -24,7 +24,7 @@ const Atendimento = () => {
         count: 0,
         page: ''
     })
-    
+
     const updatePage = () => {
         setUpdate({
             count: update.count + 1,
@@ -59,7 +59,7 @@ const Atendimento = () => {
     })
 
     return (
-        <>
+        <div>
             <ClienteHeader />
             <AtendimentoContext.Provider value={{
                 page: page,
@@ -114,7 +114,7 @@ const Atendimento = () => {
                     </Box>
                 </ImpressaoContext.Provider>
             </AtendimentoContext.Provider>
-        </>
+        </div>
     )
 }
 

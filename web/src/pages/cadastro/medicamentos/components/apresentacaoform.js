@@ -55,7 +55,7 @@ const ApresentacaoForm = () => {
     }
 
     return (
-        <>
+        <div>
             <Grid container item spacing={2} >
                 <Grid item xs>
                     {medicamentoEdit.apresentacoes &&
@@ -119,7 +119,7 @@ const ApresentacaoForm = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

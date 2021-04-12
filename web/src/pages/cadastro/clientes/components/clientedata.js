@@ -12,7 +12,7 @@ const ClienteData = () => {
     const date = clienteOnDuty.nascimento ? format(parseISO(clienteOnDuty.nascimento), "dd '/' MM '/' yyyy", { locale: ptBR }) : ''
 
     return (
-        <>
+        <div>
             <Card>
                 <CardActionArea>
                     <CardMedia
@@ -49,7 +49,7 @@ const ClienteData = () => {
                     </Button>
                 </CardActions>
             </Card>
-        </>
+        </div>
     )
 }
 

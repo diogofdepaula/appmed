@@ -58,7 +58,7 @@ const PosologiaForm = () => {
     }
 
     return (
-        <>
+        <div>
             <Grid container item spacing={2} >
                 <Grid item xs>
                     {medicamentoEdit.posologias &&
@@ -139,7 +139,7 @@ const PosologiaForm = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

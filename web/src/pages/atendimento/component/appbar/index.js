@@ -4,10 +4,10 @@ import ThirdAppBar from './thirdappbar';
 
 const AtendimentoAppBar = () => {
     return (
-        <>
-            <FirstAppBar />           
+        <div>
+            <FirstAppBar />
             <ThirdAppBar />
-        </>
+        </div>
     )
 }
 export default AtendimentoAppBar

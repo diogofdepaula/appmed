@@ -12,7 +12,7 @@ import InitialMedicamento from '../initialmedicamento';
 
 const MedicamentosAppBar = () => {
 
-     const { updatePage, medicamentoOnDuty, setMedicamentoOnDuty, medicamentoEdit, setMedicamentoEdit, page, setPage } = useContext(MedicamentosContext)
+    const { updatePage, medicamentoOnDuty, setMedicamentoOnDuty, medicamentoEdit, setMedicamentoEdit, page, setPage } = useContext(MedicamentosContext)
 
     const handleBack = () => {
         setMedicamentoEdit(null)
@@ -83,12 +83,12 @@ const MedicamentosAppBar = () => {
     }
 
     return (
-        <>
+        <div>
             <Box>
                 <Tooltip title="Voltar">
                     <span>
                         <IconButton
-                           // disabled={!medicamentoOnDuty}
+                            // disabled={!medicamentoOnDuty}
                             onClick={handleBack}
                         >
                             <ArrowUpwardIcon />
@@ -97,7 +97,7 @@ const MedicamentosAppBar = () => {
                 </Tooltip>
                 <Tooltip title="Novo medicamento">
                     <IconButton
-                         onClick={handleInsert}
+                        onClick={handleInsert}
                     >
                         <LocalPharmacyIcon />
                     </IconButton>
@@ -115,8 +115,8 @@ const MedicamentosAppBar = () => {
                 <Tooltip title="Salvar">
                     <span>
                         <IconButton
-                             disabled={page === 'medicamentoinsert' ? (medicamentoEdit.farmaco !== "" ? false : true) : false}
-                             onClick={handleSubmit}
+                            disabled={page === 'medicamentoinsert' ? (medicamentoEdit.farmaco !== "" ? false : true) : false}
+                            onClick={handleSubmit}
                         >
                             <SaveIcon />
                         </IconButton>
@@ -154,7 +154,7 @@ const MedicamentosAppBar = () => {
                 </Tooltip>
             </Box>
             <Divider />
-        </>
+        </div>
     )
 }
 

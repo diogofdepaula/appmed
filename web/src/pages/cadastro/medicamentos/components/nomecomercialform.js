@@ -52,7 +52,7 @@ const NomeComercialForm = () => {
     }
 
     return (
-        <>
+        <div>
             <Grid container item spacing={2} >
                 <Grid item xs>
                     {medicamentoEdit.nomescomerciais &&
@@ -60,7 +60,7 @@ const NomeComercialForm = () => {
                             <Table>
                                 <TableBody>
                                     {medicamentoEdit.nomescomerciais
-                                        .filter(x => x.id === undefined || (x.id >= 0 && x.medicamentoId !== ""))  
+                                        .filter(x => x.id === undefined || (x.id >= 0 && x.medicamentoId !== ""))
                                         .map((nc, i) =>
                                             <TableRow key={i}>
                                                 <TableCell component="th" scope="row">
@@ -108,7 +108,7 @@ const NomeComercialForm = () => {
                     </Grid>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

@@ -108,7 +108,7 @@ const RelatorioSet3 = () => {
     }
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 <Box mt={2}>
                     <Grid container justify="flex-start" spacing={1}>
@@ -184,7 +184,7 @@ const RelatorioSet3 = () => {
                     )}
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 

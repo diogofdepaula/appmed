@@ -24,7 +24,7 @@ const LMEForkSet = () => {
         // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
         setLmeEdit({
             ...param,
-            prescricoes: [...param.prescricoes, {...prescricaoEdit, lmeId: param.id}]
+            prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }]
         })
         setPage('lmeupdate')
         setStep(21)
@@ -37,7 +37,7 @@ const LMEForkSet = () => {
     }
 
     return (
-        <>
+        <div>
             <Box mt={1}>
                 <Paper
                     onClick={handleNewLME}
@@ -67,7 +67,7 @@ const LMEForkSet = () => {
                     </TableContainer>
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 

@@ -13,7 +13,7 @@ const RelatorioSet4 = () => {
     }
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 <Grid container spacing={2} direction="column">
                     <Grid container item spacing={2} direction="row" justify="flex-start" alignItems="center" alignContent="center" wrap="nowrap">
@@ -143,7 +143,7 @@ const RelatorioSet4 = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

@@ -5,11 +5,11 @@ import ClienteForm from '../components/clienteform';
 const ClienteInsert = () => {
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 <ClienteForm />
             </Box>
-        </>
+        </div>
     )
 }
 

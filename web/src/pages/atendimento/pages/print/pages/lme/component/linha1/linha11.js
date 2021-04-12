@@ -7,13 +7,13 @@ import LogoSESA from '../../../../component/imagens/sesalogo.png'
 const Linha11LME = () => {
 
     return (
-        <>
+        <div>
             <Box mt={1}>
                 <Grid container direction="row" justify="center" alignItems="stretch">
                     <Grid item xs>
-                        <Box 
-                        height={"72px"} // se mudar aqui tem que mudar o width das outras figuras também.
-                        width={1} display="flex" justifyContent="center">  
+                        <Box
+                            height={"72px"} // se mudar aqui tem que mudar o width das outras figuras também.
+                            width={1} display="flex" justifyContent="center">
                             <CardMedia
                                 style={{ width: "141px", height: "100%" }}  // ajustado para 72px do 'h2' arredondar para cima  //width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                                 image={LogoSUS}
@@ -23,7 +23,7 @@ const Linha11LME = () => {
                     <Grid item xs>
                         <Box height={"72px"} width={1} display="flex" justifyContent="center">
                             <CardMedia
-                                style={{ width: "160px", height: "100%" }}  
+                                style={{ width: "160px", height: "100%" }}
                                 image={LogoMinisterio}
                             />
                         </Box>
@@ -38,7 +38,7 @@ const Linha11LME = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

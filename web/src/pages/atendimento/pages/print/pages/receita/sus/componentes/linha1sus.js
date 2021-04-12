@@ -8,7 +8,7 @@ const Linha1SUS = () => {
     const prescricao = useContext(PrescricaoSUSPrintContext)
 
     return (
-        <>
+        <div>
             <Box>
                 <Grid container spacing={3} direction="row">
                     <Grid item xs={6} />
@@ -20,7 +20,7 @@ const Linha1SUS = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

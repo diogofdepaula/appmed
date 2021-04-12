@@ -40,13 +40,13 @@ const FactoryReceitasSUS = (props) => {
 
             listReceitas.push(
                 <div key={r}>
-                    <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes}/>
+                    <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes} />
                 </div>
             )
         })
 
         setReceitas(listReceitas)
-        
+
     }, [props])
 
     useEffect(() => {
@@ -56,7 +56,7 @@ const FactoryReceitasSUS = (props) => {
     }, [divide])
 
     return (
-        <>
+        <div>
             {itemsRef.current.length === 0 &&
                 props.listPresc.map((p, i) =>
                     <div key={i} ref={el => itemsRef.current[i] = el} >
@@ -65,7 +65,7 @@ const FactoryReceitasSUS = (props) => {
                 )
             }
             {listReceitas && listReceitas}
-        </>
+        </div>
     )
 }
 

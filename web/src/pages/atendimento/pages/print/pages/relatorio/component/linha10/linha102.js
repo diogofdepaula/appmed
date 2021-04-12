@@ -9,7 +9,7 @@ const Linha102Relatorio = () => {
     const lme = useContext(LMEPrintContext)
 
     return (
-        <>
+        <div>
             <Box>
                 <Grid container item direction="row" justify="center" alignItems="stretch">
                     <Grid item xs={2}>
@@ -30,18 +30,18 @@ const Linha102Relatorio = () => {
                         <Box borderTop={1}>
                             <Typography component={'span'} variant="body1" noWrap={false}>
                                 <Box ml={1} display="flex" alignItems="center">
-                                        {lme.relatorio.rxtoraxresultado === "a" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Normal
-                                        {lme.relatorio.rxtoraxresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Alterado: 
+                                    {lme.relatorio.rxtoraxresultado === "a" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Normal
+                                        {lme.relatorio.rxtoraxresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Alterado:
                                         <Box ml={1}>
                                         {lme.relatorio.rxtoraxalteracao}
-                                        </Box>
+                                    </Box>
                                 </Box>
                             </Typography>
                         </Box>
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

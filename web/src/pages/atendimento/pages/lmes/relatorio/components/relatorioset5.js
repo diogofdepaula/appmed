@@ -20,7 +20,7 @@ const RelatorioSet5 = () => {
     ]
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 {comorb && comorb.map((w) =>
                     <FormControlLabel
@@ -34,7 +34,7 @@ const RelatorioSet5 = () => {
                     />
                 )}
             </Box>
-        </>
+        </div>
     )
 }
 

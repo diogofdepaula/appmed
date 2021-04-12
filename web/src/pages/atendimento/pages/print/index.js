@@ -8,7 +8,7 @@ import TempoSet from './component/impressaoset/temposet';
 const ImpressaoSet = () => {
 
     return (
-        <>
+        <div>
             <Grid container direction="row" justify="space-between" alignItems="flex-start">
                 <Grid container item xs={4}>
                     <PrescricoesSet />
@@ -23,7 +23,7 @@ const ImpressaoSet = () => {
                     <LocalSet />
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

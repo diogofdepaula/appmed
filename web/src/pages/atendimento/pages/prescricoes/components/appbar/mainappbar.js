@@ -22,7 +22,7 @@ const PrescricoesMainAppBar = () => {
     }
 
     return (
-        <>
+        <div>
             <Box>
                 <Tooltip title="Voltar">
                     <span>
@@ -73,7 +73,7 @@ const PrescricoesMainAppBar = () => {
                     </span>
                 </Tooltip>
             </Box>
-        </>
+        </div>
     )
 }
 

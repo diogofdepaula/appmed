@@ -7,7 +7,7 @@ const Linha2Relatorio = () => {
     const { clienteContext } = useContext(ClienteContext)
 
     return (
-        <>
+        <div>
             <Grid container spacing={1}>
                 <Grid container item xs={10}  >
                     <Box mt={1} width={1} border={1} borderColor="black">
@@ -50,7 +50,7 @@ const Linha2Relatorio = () => {
                     </Box>
                 </Grid>
             </Grid>
-        </>
+        </div>
     )
 }
 

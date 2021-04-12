@@ -21,7 +21,7 @@ const LmesMainAppBar = () => {
     }
 
     return (
-        <>
+        <div>
             <Box>
                 <Tooltip title="Voltar">
                     <span>
@@ -72,7 +72,7 @@ const LmesMainAppBar = () => {
                     </span>
                 </Tooltip>
             </Box>
-        </>
+        </div>
     )
 }
 

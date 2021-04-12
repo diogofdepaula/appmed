@@ -7,11 +7,11 @@ const RelatorioSet1 = () => {
     const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        setLmeEdit({ ...lmeEdit, relatorio: {...lmeEdit.relatorio , [event.target.name]: event.target.value }})
+        setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.value } })
     }
 
     return (
-        <>
+        <div>
             <Box m={2}>
                 <Grid container spacing={1}>
                     <Grid item xs>
@@ -65,8 +65,8 @@ const RelatorioSet1 = () => {
                         />
                     </Grid>
                 </Grid>
-            <Box>
-                {/* <Button
+                <Box>
+                    {/* <Button
                     disabled
                     variant="outline-success"
                 // onClick={props.passPrevious}
@@ -81,9 +81,9 @@ const RelatorioSet1 = () => {
                     }}
                 > Próximo
                 </Button> */}
+                </Box>
             </Box>
-        </Box>
-        </>
+        </div>
     )
 }
 

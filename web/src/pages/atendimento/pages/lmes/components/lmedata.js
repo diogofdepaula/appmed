@@ -15,7 +15,7 @@ const LMEData = () => {
     }
 
     return (
-        <>
+        <div>
             <Box>
                 <Box my={1} display="flex" justifyContent="center" alignItems="flex-end">
                     <Typography variant={'h6'}>{lmeOnDuty.cid10 + " - " + lmeOnDuty.diagnostico} </Typography>
@@ -46,7 +46,7 @@ const LMEData = () => {
                     </Box>
                 </Box>
             </Box>
-        </>
+        </div>
     )
 }
 

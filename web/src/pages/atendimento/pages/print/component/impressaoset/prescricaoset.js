@@ -38,7 +38,7 @@ const PrescricoesSet = () => {
     }
 
     return (
-        <>
+        <div>
             <List dense subheader={<ListSubheader>Prescrições</ListSubheader>} >
                 {prescricoes?.map((prescricao, i) =>
                     prescricao.emuso &&
@@ -49,11 +49,11 @@ const PrescricoesSet = () => {
                                 onChange={handleCheck(prescricao)}
                             />
                         </ListItemIcon>
-                        <ListItemText primary={prescricao.medicamento.farmaco } secondary={prescricao.apresentaco.descricao} />
+                        <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
                     </ListItem>
                 )}
             </List>
-        </>
+        </div>
     )
 }
 

@@ -20,7 +20,7 @@ const MedicamentoData = () => {
     }, [fetchData])
 
     return (
-        <>
+        <div>
             {medicamentoEdit &&
                 <Card>
                     <CardActionArea>
@@ -84,10 +84,10 @@ const MedicamentoData = () => {
                                     >
                                         {medicamentoEdit.posologias.map(pp =>
                                             <ListItem key={pp.id}>
-                                                <ListItemText 
-                                                    primary={pp.posologia} 
+                                                <ListItemText
+                                                    primary={pp.posologia}
                                                     secondary={pp.quantidade + " " + pp.forma}
-                                                    />
+                                                />
                                             </ListItem>
                                         )}
                                     </List>
@@ -105,7 +105,7 @@ const MedicamentoData = () => {
                     </CardActions>
                 </Card>
             }
-        </>
+        </div>
     )
 }
 

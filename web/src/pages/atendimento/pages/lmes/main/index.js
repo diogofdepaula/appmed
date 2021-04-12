@@ -22,7 +22,7 @@ const LMEMain = () => {
     }, [fetchData])
 
     return (
-        <>
+        <div>
             <Box m={1}>
                 <Grid container spacing={1}>
                     <Grid item xs={4}>
@@ -55,7 +55,7 @@ const LMEMain = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </>
+        </div>
     )
 }
 

@@ -44,7 +44,7 @@ const MedicamentoSet = () => {
     }
 
     return (
-        <>
+        <div>
             <Box>
                 <Grid container justify="flex-start" spacing={1}>
                     {medicamentos.filter(m => m.favorito).map(x =>
@@ -87,7 +87,7 @@ const MedicamentoSet = () => {
                     </Table>
                 </TableContainer>
             </Box>
-        </>
+        </div>
     )
 }
 export default MedicamentoSet
