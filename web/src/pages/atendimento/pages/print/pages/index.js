@@ -14,9 +14,9 @@ const Factory = () => {
 
         let jobs = []
 
-        // print lmes
-        let lmejob = impressao.lmesSelecionadas?.map((l, i) =>
-            <div key={i}>
+        //        print lmes
+        let lmejob = impressao.lmesSelecionadas?.map(l =>
+            <div key={l.id}>
                 <FactoryLME lme={l} />
                 {l.relatorio && <FactoryRelatorio lme={l} />}
 
@@ -37,14 +37,12 @@ const Factory = () => {
             </div>
         )
 
-        if (lmejob) {
-            jobs.push(lmejob)
+        if (lmejob.length > 0) {
+            lmejob.map(p => jobs.push(p))
         }
 
-        // print prescricoesSelecionadas
+        //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {
-            // não passo parametro via para não aparecer a linha via
-            // ser depois se fica melhor manter a 
             jobs.push(<div key={0}><FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} /></div>)
         }
 
@@ -53,7 +51,7 @@ const Factory = () => {
     }
 
     return <PrintJob />
-    
+
 }
 
 export default Factory

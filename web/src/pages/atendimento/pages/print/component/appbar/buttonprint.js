@@ -6,7 +6,9 @@ import Factory from '../../pages';
 
 class ComponentToPrint extends React.Component {
     render() {
-        return (<Factory />)
+        // Deixe o Factory entre <div> para pegar todos os elementos. 
+        // Caso contrário, ele imprimirá somente o primeiro
+        return (<div><Factory /></div>)
     }
 }
 
