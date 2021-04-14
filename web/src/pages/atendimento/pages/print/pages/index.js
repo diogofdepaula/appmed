@@ -1,35 +1,13 @@
 
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../..';
-//import ReceitaConsultorio from '../pages/receita/consultorio/receitaconsultorio'
 import FactoryLME from './lme';
-import FactoryReceitasSUS from './receita';
+import FactoryReceitas from './receita';
 import FactoryRelatorio from './relatorio';
 
 const Factory = () => {
 
     const { impressao } = useContext(ImpressaoContext)
-
-    const Receita = ({ lme, via, mes }) => {
-
-        let receita = <div />
-        // variações conforme o local
-        switch (impressao.local) {
-            case 'consultorio':
-                // <FactoryReceitasConsultorio listPresc={lme.prescricoes} via={via} mes={mes} />
-                break;
-            case 'cisgap':
-                receita = <FactoryReceitasSUS listPresc={lme.prescricoes} via={via} mes={mes} />
-                break;
-            case 'cisco':
-                receita = <FactoryReceitasSUS listPresc={lme.prescricoes} via={via} mes={mes} />
-                break;
-
-            default:
-                break;
-        }
-        return receita
-    }
 
     const PrintJob = () => {
 
@@ -46,15 +24,15 @@ const Factory = () => {
                     [...Array(6).keys()].map(d =>
                         <div key={d}>
                             {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                            <Receita lme={l} via={"Estado"} mes={d} />
+                            <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} />
                         </div>
                     )
                     :
-                    <Receita lme={l} via={"Estado"} />
+                    <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} />
                 }
                 {/* Medicamentos não controlados */}
                 {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
-                <Receita lme={l} via={"paciente"} />
+                <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} />
             </div>
         )
 
