@@ -1,10 +1,24 @@
-import React from 'react'
+import { Box } from '@material-ui/core'
+import React, { useContext } from 'react'
+import { ImpressaoContext } from '../../../../..';
 
 const ReceitaConsultorio = (props) => {
 
+    const { impressao } = useContext(ImpressaoContext)
 
-    return (<div>Refeita Consultorio  + {props.teste}</div>
-        // <>
+    return (
+        <>
+            <div style={{ width: impressao.pagesize.receitapeq.width, height: impressao.pagesize.receitapeq.height }}>
+                <Box height={1} p={10} style={{backgroundColor: 'red'}}>
+                </Box>
+            </div>
+        </>
+    )
+}
+
+export default ReceitaConsultorio
+
+// <>
         //     <div style={{ width: impressao.a4Adjust.width, height: impressao.a4Adjust.height }}>
         //         <Box height={1} p={10}>
         //             <Box width={1} height={1} display="block">
@@ -40,7 +54,3 @@ const ReceitaConsultorio = (props) => {
         //         </Box>
         //     </div>
         // </>
-    )
-}
-
-export default ReceitaConsultorio

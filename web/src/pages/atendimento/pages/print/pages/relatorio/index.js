@@ -23,7 +23,7 @@ const FactoryRelatorio = (props) => {
 
     return (
         <>
-            <div style={{ width: impressao.a4Adjust.width, height: impressao.a4Adjust.height }}>
+            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height }}>
                 {/* a box ali de baixo que determina o uso de toda a folha  */}
                 <Box height={1} p={10}>
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>

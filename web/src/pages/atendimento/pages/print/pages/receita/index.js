@@ -5,7 +5,7 @@ import Reorder from './../../component/reorder'
 import { ImpressaoContext } from '../../../..';
 import ReceitaConsultorio from './consultorio';
 
-const ReceitaForLocal = ({ prescricoes, via, mes }) => {
+const ReceitaByLocal = ({ prescricoes, via, mes }) => {
     
     // variações conforme o local
     const { impressao } = useContext(ImpressaoContext)
@@ -22,7 +22,6 @@ const ReceitaForLocal = ({ prescricoes, via, mes }) => {
         case 'cisco':
             receita = <ReceitaSUS prescricoes={prescricoes} via={via} mes={mes} />
             break;
-
         default:
             break;
     }
@@ -68,7 +67,7 @@ const FactoryReceitas = (props) => {
             listReceitas.push(
                 <div key={r}>
                     {/* <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes} /> */}
-                    <ReceitaForLocal prescricoes={grupoprescricoessort} via={props.via} mes={props.mes}/>
+                    <ReceitaByLocal prescricoes={grupoprescricoessort} via={props.via} mes={props.mes}/>
                 </div>
             )
         })

@@ -1,10 +1,8 @@
 import { Box, Divider } from '@material-ui/core'
 import React, { createContext, useState } from 'react'
-import { useReactToPrint } from 'react-to-print'
 import AtendimentoAppBar from './component/appbar/'
 import ClienteHeader from './component/clienteheader'
 import Content from './component/content'
-import Factory from './pages/print/pages'
 
 export const AtendimentoContext = createContext(null)
 export const ImpressaoContext = createContext(null)
@@ -31,14 +29,6 @@ const Atendimento = () => {
         })
     }
 
-    //Dados para impressao
-    //const componentRef = useRef();
-
-    const handlePrint = useReactToPrint({
-        content: () => <Factory />
-        //pageStyle: '@page { size: A4 portrait;}'
-    });
-
     const [impressao, setImpressao] = useState({
         printRef: null,
         visualizacao: false,
@@ -51,9 +41,17 @@ const Atendimento = () => {
         relatorio: true,
         comentario: '-',
         database: new Date(),
-        a4Adjust: {
-            width: 1190,
-            height: 1680
+        pagesize: {
+            a4: {
+                width: 1190,
+                height: 1680,
+                somaheight: 900
+            }, 
+            receitapeq: {
+                width: 1190,
+                height: 1680,
+                somaheight: 900
+            },
         }
     })
 
@@ -78,7 +76,7 @@ const Atendimento = () => {
                 medicamentoEdit: medicamentoEdit,
                 setMedicamentoEdit: setMedicamentoEdit,
             }} >
-                <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao, handlePrint: handlePrint }}>
+                <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
                     <Box>
                         <Divider />
                         <AtendimentoAppBar />
