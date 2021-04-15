@@ -42,15 +42,18 @@ const Atendimento = () => {
         comentario: '-',
         database: new Date(),
         pagesize: {
+            // ajustes para o tamanho do papel
             a4: {
-                width: 1190,
-                height: 1680,
+                // a4 em 150ppi = 1240 x 1754 px
+                width: 1190, // (-50)
+                height: 1680, // (-74)
                 somaheight: 900
             }, 
             receitapeq: {
-                width: 1190,
-                height: 1680,
-                somaheight: 900
+                // 14 x 20 cm em 150ppi = 827 x 1181 px
+                width: 777,
+                height: 1107,
+                somaheight: 600
             },
         }
     })
