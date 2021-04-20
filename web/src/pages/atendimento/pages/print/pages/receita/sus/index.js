@@ -1,11 +1,11 @@
 import { Box } from '@material-ui/core'
 import React, { useContext } from 'react'
-import IdentificacaoSUS from './componentes/identificacaosus'
-import DataSUS from './componentes/datasus'
-import PrescricaoSUS from './componentes/prescricaosus'
-import ViaSUS from './componentes/viasus'
-import CabecalhoSUS from './componentes/cabecalhosus'
-import RodapeSUS from './componentes/rodapesus'
+import IdentificacaoSUS from './component/identificacaosus'
+import DataSUS from './component/datasus'
+import PrescricaoSUS from './component/prescricaosus'
+import ViaSUS from './component/viasus'
+import CabecalhoSUS from './component/cabecalhosus'
+import RodapeSUS from './component/rodapesus'
 import { ImpressaoContext } from '../../../../..'
 
 const ReceitaSUS = (props) => {

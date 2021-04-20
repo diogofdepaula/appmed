@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import ReceitaSUS from './sus';
-import PrescricaoSUS from './sus/componentes/prescricaosus';
+import PrescricaoSUS from './sus/component/prescricaosus';
 import Reorder from './../../component/reorder'
 import { ImpressaoContext } from '../../../..';
 import ReceitaConsultorio from './consultorio';
