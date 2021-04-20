@@ -45,8 +45,9 @@ const Atendimento = () => {
             // ajustes para o tamanho do papel
             a4: {
                 // a4 em 150ppi = 1240 x 1754 px
-                width: 1190, // (-50)
-                height: 1680, // (-74)
+                width: 1075 ,// 1190, // (-50)
+                height: 1568,  // 1680, // (-74)
+                padding: 2,
                 somaheight: 900
             }, 
             receitapeq: {

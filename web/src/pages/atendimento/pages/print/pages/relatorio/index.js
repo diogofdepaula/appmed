@@ -23,9 +23,9 @@ const FactoryRelatorio = (props) => {
 
     return (
         <>
-            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height }}>
+            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height, backgroundColor:"purple" }}>
                 {/* a box ali de baixo que determina o uso de toda a folha  */}
-                <Box height={1} p={10}>
+                <Box height={1} p={impressao.pagesize.a4.padding}>
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
                         <LMEPrintContext.Provider value={props.lme}>
                             <Grid container direction="column" justify="space-between" style={{ height: "100%" }}>

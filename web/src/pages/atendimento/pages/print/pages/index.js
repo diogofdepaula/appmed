@@ -15,7 +15,7 @@ const Factory = () => {
 
         //        print lmes
         let lmejob = impressao.lmesSelecionadas?.map(l =>
-            <div key={l.id}>
+            <div key={l.id} >
                 <FactoryLME lme={l} />
                 {l.relatorio && <FactoryRelatorio lme={l} />}
 
@@ -41,9 +41,13 @@ const Factory = () => {
         }
 
         //print prescricoesSelecionadas
-        // if (impressao.prescricoesSelecionadas.length > 0) {
-        //     jobs.push(<div key={0}><FactoryReceitasSUS listPresc={impressao.prescricoesSelecionadas} /></div>)
-        // }
+        if (impressao.prescricoesSelecionadas.length > 0) {
+            jobs.push(
+                <div key={0} style={{ backgroundColor:"green"}}>
+                    <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} />
+                </div>
+            )
+        }
 
         return jobs
 

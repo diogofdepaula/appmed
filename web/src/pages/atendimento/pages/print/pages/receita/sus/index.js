@@ -14,8 +14,8 @@ const ReceitaSUS = (props) => {
 
     return (
         <>
-            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height }}>
-                <Box height={1} p={10}>
+            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height, backgroundColor:"greenyellow" }}>
+                <Box height={1} p={impressao.pagesize.a4.padding}>
                     <Box width={1} height={1} display="block">
                         <Box>
                             <CabecalhoSUS />

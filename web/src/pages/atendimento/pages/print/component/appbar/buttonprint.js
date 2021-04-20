@@ -18,7 +18,7 @@ const ButtonPrint = () => {
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        pageStyle: '@page { size: A5 portrait;}'
+        pageStyle: '@page { size: A4 portrait;}'
     });
 
     return (
