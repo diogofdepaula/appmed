@@ -31,6 +31,8 @@ const ReceitaByLocal = ({ prescricoes, via, mes }) => {
 
 const FactoryReceitas = (props) => {
 
+    const { impressao } = useContext(ImpressaoContext)
+
     const itemsRef = useRef([]);
 
     useEffect(() => {
@@ -44,7 +46,8 @@ const FactoryReceitas = (props) => {
         let listIndex = []
         let listOfListIndex = []
         itemsRef.current.forEach((w, index) => {
-            if (soma <= 900) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
+            if (soma <= impressao.pagesize.a4.somaheight) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
+                console.log("soma teste   ", soma);
                 soma = soma + w.offsetHeight
                 listIndex.push(index)
             } else {
@@ -74,7 +77,7 @@ const FactoryReceitas = (props) => {
 
         setReceitas(listReceitas)
 
-    }, [props])
+    }, [props, impressao.pagesize.a4.somaheight])
 
     useEffect(() => {
         if (itemsRef.current) {

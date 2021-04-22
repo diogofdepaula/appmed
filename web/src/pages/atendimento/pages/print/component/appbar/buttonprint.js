@@ -32,7 +32,8 @@ const ButtonPrint = () => {
                     </IconButton>
                 </span>
             </Tooltip>
-            <div style={{ display: "none" }}>
+            {/* <div style={{ display: "none" }}> */}
+                <div>
                 <ComponentToPrint ref={componentRef} />
             </div>
         </div>
