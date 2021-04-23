@@ -1,41 +1,51 @@
 import { IconButton, Tooltip } from '@material-ui/core';
 import PrintIcon from '@material-ui/icons/Print';
-import React, { useRef } from 'react';
-import { useReactToPrint } from 'react-to-print';
-import Factory from '../../pages';
+import React, { useState } from 'react';
+import PrintDialog from '../printdialog';
 
-class ComponentToPrint extends React.Component {
-    render() {
-        // Deixe o Factory entre <div> para pegar todos os elementos. 
-        // Caso contrário, ele imprimirá somente o primeiro
-        return (<div><Factory /></div>)
-    }
-}
+// class ComponentToPrint extends React.Component {
+//     render() {
+//         // Deixe o Factory entre <div> para pegar todos os elementos. 
+//         // Caso contrário, ele imprimirá somente o primeiro
+//         return (<div><Factory /></div>)
+//     }
+// }
 
 const ButtonPrint = () => {
 
-    const componentRef = useRef();
+    // const componentRef = useRef();
 
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-        pageStyle: '@page { size: A4 portrait;}'
-    });
+    // const handlePrint = useReactToPrint({
+    //     content: () => componentRef.current,
+    //     pageStyle: '@page { size: A4 portrait;}'
+    // });
+
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
         <div>
             <Tooltip title="Imprimir">
                 <span>
                     <IconButton
-                        onClick={handlePrint}
+                        onClick={handleOpen}
                     >
                         <PrintIcon />
                     </IconButton>
                 </span>
+
             </Tooltip>
-            {/* <div style={{ display: "none" }}> */}
-                <div>
+            <PrintDialog open={open} handleClose={handleClose} />
+            {/* <div style={{ display: "none" }}>
                 <ComponentToPrint ref={componentRef} />
-            </div>
+            </div> */}
         </div>
     )
 }
