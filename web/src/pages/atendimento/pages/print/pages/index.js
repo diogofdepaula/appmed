@@ -1,4 +1,5 @@
 
+import { Box } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../..';
 import FactoryLME from './lme';
@@ -15,7 +16,7 @@ const Factory = () => {
 
         //        print lmes
         let lmejob = impressao.lmesSelecionadas?.map(l =>
-            <div key={l.id} >
+            <div key={l.id} style={{ backgroundColor:"lightsalmon"}} >
                 <FactoryLME lme={l} />
                 {l.relatorio && <FactoryRelatorio lme={l} />}
 
@@ -43,9 +44,9 @@ const Factory = () => {
         //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {
             jobs.push(
-                <div key={0} style={{ backgroundColor:"green"}}>
+                <Box key={0}>
                     <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} />
-                </div>
+                </Box>
             )
         }
 

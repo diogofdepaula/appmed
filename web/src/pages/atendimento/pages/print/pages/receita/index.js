@@ -91,6 +91,7 @@ const FactoryReceitas = (props) => {
                 props.listPresc.map((p, i) =>
                     <div key={i} ref={el => itemsRef.current[i] = el} >
                         <PrescricaoSUS prescricao={p} />
+                        {/* {impressao.local === 'consultorio' ? <PrescricaoSUS prescricao={p} /> : <PrescricaoConsultorio prescricao={p} />} */}
                     </div>
                 )
             }

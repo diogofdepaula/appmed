@@ -9,7 +9,8 @@ const ReceitaConsultorio = (props) => {
     return (
         <>
             <div style={{ width: impressao.pagesize.receitapeq.width, height: impressao.pagesize.receitapeq.height }}>
-                <Box height={1} p={10} style={{backgroundColor: 'red'}}>
+                <Box height={1} p={5} style={{backgroundColor: 'lightyellow'}}>
+                    testando receita consult´roi
                 </Box>
             </div>
         </>

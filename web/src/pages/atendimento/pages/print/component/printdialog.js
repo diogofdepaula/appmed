@@ -7,8 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import { ImpressaoContext } from '../../..';
 import Factory from '../pages';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,11 +30,14 @@ const PrintDialog = ({ open, handleClose }) => {
 
     const classes = useStyles();
 
+    const { impressao } = useContext(ImpressaoContext)
+
     const componentRef = useRef();
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        pageStyle: '@page { size: A4 portrait;}',
+        //pageStyle: '@page { size: A5;}',
+        pageStyle: impressao.local === 'consultorio' ? '@page { size: A5 }' : '@page { size: A4 }',
         onAfterPrint: () => handleClose()
     });
 
