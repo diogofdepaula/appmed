@@ -9,7 +9,7 @@ const ReceitaConsultorio = (props) => {
     return (
         <>
             <div style={{ width: impressao.pagesize.receitapeq.width, height: impressao.pagesize.receitapeq.height }}>
-                <Box height={1} width={1} pt={19} pl={20} pb={4} pr={1} style={{ backgroundColor: 'yellow' }}>
+                <Box height={1} width={1} pt={impressao.pagesize.receitapeq.pt} pl={impressao.pagesize.receitapeq.pl} pb={impressao.pagesize.receitapeq.pb} pr={impressao.pagesize.receitapeq.pr} style={{ backgroundColor: 'yellow' }}>
                     <Typography component={'span'} variant={'h6'} align={'justify'}>
                         <Box height={1} width={1}  style={{ backgroundColor: 'white' }}>
                             "Sed ut perspiciatis unde omnis iste natus error sit voluptatem

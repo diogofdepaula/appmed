@@ -55,6 +55,10 @@ const Atendimento = () => {
                 width: 716, // 777,
                 height: 1044, // 1107,
                 somaheight: 639,
+                pt: 19,
+                pl: 20,
+                pb: 4,
+                pr: 1,
             },
         }
     })
