@@ -52,9 +52,9 @@ const Atendimento = () => {
             }, 
             receitapeq: {
                 // 14 x 20 cm em 150ppi = 827 x 1181 px
-                width: 300, // 777,
-                height: 500, // 1107,
-                somaheight: 400
+                width: 716, // 777,
+                height: 1044, // 1107,
+                somaheight: 639,
             },
         }
     })

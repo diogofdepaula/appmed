@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { ImpressaoContext } from '../../../../..';
 
@@ -9,8 +9,18 @@ const ReceitaConsultorio = (props) => {
     return (
         <>
             <div style={{ width: impressao.pagesize.receitapeq.width, height: impressao.pagesize.receitapeq.height }}>
-                <Box height={1} p={5} style={{backgroundColor: 'lightyellow'}}>
-                    testando receita consult´roi
+                <Box height={1} width={1} pt={19} pl={20} pb={4} pr={1} style={{ backgroundColor: 'yellow' }}>
+                    <Typography component={'span'} variant={'h6'} align={'justify'}>
+                        <Box height={1} width={1}  style={{ backgroundColor: 'white' }}>
+                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                            quae ab illo inventore veritatis et quasi architecto beatae
+                            vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                            magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
+                        </Box>
+                    </Typography>
+
                 </Box>
             </div>
         </>
