@@ -8,38 +8,61 @@ import FactoryRelatorio from './relatorio';
 
 const Factory = () => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const LMERelatorioJob = ({ lme }) => {
+
+        return (
+            <div style={{ backgroundColor: "lightsalmon" }} >
+                <FactoryLME lme={lme} />
+                {lme.relatorio && <FactoryRelatorio lme={lme} />}
+            </div>
+        )
+    }
+
+    const ReceitaEstadoLMEJob = ({ lme }) => {
+
+        if (lme.prescricoes.filter(p => p.medicamento.controlado).length > 0) {
+            return (
+                [...Array(6).keys()].map(d =>
+                    <div key={d}>
+                        {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
+                        <FactoryReceitas listPresc={lme.prescricoes} via={"Estado"} mes={d} />
+                    </div>
+                )
+            )
+        } else {
+            return (
+                <div>
+                    <FactoryReceitas listPresc={lme.prescricoes} via={"Estado"} />
+                </div>
+            )
+        }
+    }
+
+    const ReceitaPacienteLMEJob = ({ lme }) => {
+        console.log('teste 3');
+        return (
+            <div>
+                <FactoryReceitas listPresc={lme.prescricoes} via={"paciente"} />
+            </div>
+        )
+    }
+
 
     const PrintJob = () => {
 
+        const { impressao } = useContext(ImpressaoContext)
+
         let jobs = []
 
-        //        print lmes
-        let lmejob = impressao.lmesSelecionadas?.map(l =>
-            <div key={l.id} style={{ backgroundColor:"lightsalmon"}} >
-                <FactoryLME lme={l} />
-                {l.relatorio && <FactoryRelatorio lme={l} />}
-
-                {/* Receitas */}
-                {l.prescricoes.filter(p => p.medicamento.controlado).length > 0 ?
-                    [...Array(6).keys()].map(d =>
-                        <div key={d}>
-                            {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                            <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} />
-                        </div>
-                    )
-                    :
-                    <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} />
-                }
-                {/* Medicamentos não controlados */}
-                {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
-                <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} />
-            </div>
-        )
-
-        if (lmejob.length > 0) {
-            lmejob.map(p => jobs.push(p))
+        const DistribuiJob = (lme) => {
+            console.log('teste 2');
+            jobs.push(<LMERelatorioJob lme={lme} />)
+            jobs.push(<ReceitaEstadoLMEJob lme={lme} />)
+            jobs.push(<ReceitaPacienteLMEJob lme={lme} />)
         }
+        
+        //        print lmes
+        impressao.lmesSelecionadas?.map(lme => DistribuiJob(lme))
 
         //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {
