@@ -10,7 +10,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { ImpressaoContext } from '../../..';
-import Factory from '../pages';
+import PrintJob from '../pages';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -58,7 +58,7 @@ const PrintDialog = ({ open, handleClose }) => {
                     </Toolbar>
                 </AppBar>
                 <div ref={componentRef}>
-                    <Factory />
+                    <PrintJob />
                 </div>
             </Dialog>
         </div>

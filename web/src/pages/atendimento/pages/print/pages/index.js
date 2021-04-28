@@ -1,75 +1,51 @@
 
-import { Box } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../..';
 import FactoryLME from './lme';
 import FactoryReceitas from './receita';
 import FactoryRelatorio from './relatorio';
 
-const Factory = () => {
+const PrintJob = () => {
 
-    const LMERelatorioJob = ({ lme }) => {
+    const { impressao } = useContext(ImpressaoContext)
 
-        return (
-            <div style={{ backgroundColor: "lightsalmon" }} >
-                <FactoryLME lme={lme} />
-                {lme.relatorio && <FactoryRelatorio lme={lme} />}
-            </div>
-        )
-    }
-
-    const ReceitaEstadoLMEJob = ({ lme }) => {
-
-        if (lme.prescricoes.filter(p => p.medicamento.controlado).length > 0) {
-            return (
-                [...Array(6).keys()].map(d =>
-                    <div key={d}>
-                        {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                        <FactoryReceitas listPresc={lme.prescricoes} via={"Estado"} mes={d} />
-                    </div>
-                )
-            )
-        } else {
-            return (
-                <div>
-                    <FactoryReceitas listPresc={lme.prescricoes} via={"Estado"} />
-                </div>
-            )
-        }
-    }
-
-    const ReceitaPacienteLMEJob = ({ lme }) => {
-        console.log('teste 3');
-        return (
-            <div>
-                <FactoryReceitas listPresc={lme.prescricoes} via={"paciente"} />
-            </div>
-        )
-    }
-
-
-    const PrintJob = () => {
-
-        const { impressao } = useContext(ImpressaoContext)
+    const Factory = () => {
 
         let jobs = []
 
-        const DistribuiJob = (lme) => {
-            console.log('teste 2');
-            jobs.push(<LMERelatorioJob lme={lme} />)
-            jobs.push(<ReceitaEstadoLMEJob lme={lme} />)
-            jobs.push(<ReceitaPacienteLMEJob lme={lme} />)
-        }
-        
         //        print lmes
-        impressao.lmesSelecionadas?.map(lme => DistribuiJob(lme))
+        let lmejob = impressao.lmesSelecionadas?.map(l =>
+            <div key={l.id} >
+                <FactoryLME lme={l} />
+                {l.relatorio && <FactoryRelatorio lme={l} />}
+
+                {/* Receitas */}
+                {l.prescricoes.filter(p => p.medicamento.controlado).length > 0 ?
+                    [...Array(6).keys()].map(d =>
+                        <div key={d}>
+                            {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
+                            <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} />
+                        </div>
+                    )
+                    :
+                    <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} />
+                }
+                {/* Medicamentos não controlados */}
+                {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
+                <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} />
+            </div>
+        )
+
+        if (lmejob.length > 0) {
+            lmejob.map(p => jobs.push(p))
+        }
 
         //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {
             jobs.push(
-                <Box key={0}>
+                <div key={0} style={{ backgroundColor:"green"}}>
                     <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} />
-                </Box>
+                </div>
             )
         }
 
@@ -77,8 +53,8 @@ const Factory = () => {
 
     }
 
-    return <PrintJob />
+    return <Factory />
 
 }
 
-export default Factory
+export default PrintJob
