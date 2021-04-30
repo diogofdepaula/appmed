@@ -1,6 +1,7 @@
-import { Box, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
+import { Box, Typography } from '@material-ui/core';
+import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../../..';
+import PageA5 from '../../component/pagea5';
 
 const ReceitaConsultorio = (props) => {
 
@@ -8,10 +9,10 @@ const ReceitaConsultorio = (props) => {
 
     return (
         <>
-            <div style={{ width: impressao.pagesize.receitapeq.width, height: impressao.pagesize.receitapeq.height }}>
-                <Box height={1} width={1} pt={impressao.pagesize.receitapeq.pt} pl={impressao.pagesize.receitapeq.pl} pb={impressao.pagesize.receitapeq.pb} pr={impressao.pagesize.receitapeq.pr} style={{ backgroundColor: 'yellow' }}>
+            <PageA5>
+                <Box height={1} width={1} pt={impressao.pagesize.a5.pt} pl={impressao.pagesize.a5.pl} pb={impressao.pagesize.a5.pb} pr={impressao.pagesize.a5.pr} style={{ backgroundColor: 'yellow' }}>
                     <Typography component={'span'} variant={'h6'} align={'justify'}>
-                        <Box height={1} width={1}  style={{ backgroundColor: 'white' }}>
+                        <Box height={1} width={1} style={{ backgroundColor: 'white' }}>
                             "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                             quae ab illo inventore veritatis et quasi architecto beatae
@@ -22,7 +23,7 @@ const ReceitaConsultorio = (props) => {
                     </Typography>
 
                 </Box>
-            </div>
+            </PageA5>
         </>
     )
 }

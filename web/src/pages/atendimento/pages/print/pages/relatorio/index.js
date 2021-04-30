@@ -14,6 +14,7 @@ import Linha11Relatorio from './component/linha11';
 import Linha12Relatorio from './component/linha12';
 import Linha13Relatorio from './component/linha13';
 import { ImpressaoContext } from '../../../..';
+import PageA4 from '../component/pagea4';
 
 export const LMEPrintContext = createContext(null)
 
@@ -23,7 +24,7 @@ const FactoryRelatorio = (props) => {
 
     return (
         <>
-            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height, backgroundColor:"purple" }}>
+            <PageA4>
                 {/* a box ali de baixo que determina o uso de toda a folha  */}
                 <Box height={1} p={impressao.pagesize.a4.padding}>
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
@@ -54,7 +55,7 @@ const FactoryRelatorio = (props) => {
                         </LMEPrintContext.Provider>
                     </Box>
                 </Box>
-            </div>
+            </PageA4>
         </>
     )
 }

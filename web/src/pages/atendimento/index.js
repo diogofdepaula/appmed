@@ -50,7 +50,7 @@ const Atendimento = () => {
                 padding: 2,
                 somaheight: 950 // 900
             }, 
-            receitapeq: {
+            a5: {
                 // 14 x 20 cm em 150ppi = 827 x 1181 px
                 width: 716, // 777,
                 height: 1044, // 1107,

@@ -1,12 +1,13 @@
 import { Box } from '@material-ui/core'
 import React, { useContext } from 'react'
-import IdentificacaoSUS from './component/identificacaosus'
-import DataSUS from './component/datasus'
-import PrescricaoSUS from './component/prescricaosus'
-import ViaSUS from './component/viasus'
-import CabecalhoSUS from './component/cabecalhosus'
-import RodapeSUS from './component/rodapesus'
 import { ImpressaoContext } from '../../../../..'
+import PageA4 from '../../component/pagea4'
+import CabecalhoSUS from './component/cabecalhosus'
+import DataSUS from './component/datasus'
+import IdentificacaoSUS from './component/identificacaosus'
+import PrescricaoSUS from './component/prescricaosus'
+import RodapeSUS from './component/rodapesus'
+import ViaSUS from './component/viasus'
 
 const ReceitaSUS = (props) => {
 
@@ -14,7 +15,7 @@ const ReceitaSUS = (props) => {
 
     return (
         <>
-            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height, backgroundColor:"greenyellow" }}>
+            <PageA4>
                 <Box height={1} p={impressao.pagesize.a4.padding}>
                     <Box width={1} height={1} display="block">
                         <Box>
@@ -47,7 +48,7 @@ const ReceitaSUS = (props) => {
                         </Box>
                     </Box>
                 </Box>
-            </div>
+            </PageA4>
         </>
     )
 }

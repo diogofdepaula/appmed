@@ -14,6 +14,7 @@ import Linha12LME from './component/linha12';
 import Linha13LME from './component/linha13';
 import Linha14LME from './component/linha14';
 import { ImpressaoContext } from '../../../..';
+import PageA4 from '../component/pagea4';
 
 export const LMEPrintContext = createContext(null)
 
@@ -23,8 +24,7 @@ const FactoryLME = (props) => {
 
     return (
         <>
-            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height, backgroundColor:"yellow" }}>
-                {/* a box ali de baixo que determina o uso de toda a folha  */}
+            <PageA4>
                 <Box height={1} p={impressao.pagesize.a4.padding} >
                     <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
                         <LMEPrintContext.Provider value={props.lme}>
@@ -54,7 +54,7 @@ const FactoryLME = (props) => {
                         </LMEPrintContext.Provider>
                     </Box>
                 </Box>
-            </div>
+            </PageA4>
         </>
     )
 }
