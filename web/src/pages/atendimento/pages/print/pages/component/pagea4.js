@@ -1,14 +1,25 @@
-import React, { useContext } from 'react'
-import { ImpressaoContext } from '../../../..'
+import { Box } from '@material-ui/core'
+import React from 'react'
 
 const PageA4 = ({ children }) => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const ajust = {
+
+        // ajustes para o tamanho do papel
+        // a4 em 150ppi = 1240 x 1754 px
+
+        width: 1075,// 1190, // (-50)
+        height: 1568,  // 1680, // (-74)
+        padding: 2,
+        somaheight: 950, // 900
+    }
 
     return (
         <>
-            <div style={{ width: impressao.pagesize.a4.width, height: impressao.pagesize.a4.height, backgroundColor: "greenyellow" }}>
-                {children}
+            <div style={{ width: ajust.width, height: ajust.height, backgroundColor: "greenyellow" }}>
+                <Box height={1} p={ajust.padding}>
+                    {children}
+                </Box>
             </div>
         </>
     )

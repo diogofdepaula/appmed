@@ -46,7 +46,7 @@ const FactoryReceitas = (props) => {
         let listIndex = []
         let listOfListIndex = []
         itemsRef.current.forEach((w, index) => {
-            if (soma <= impressao.pagesize.a4.somaheight) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
+            if (soma <= impressao.somaheighta4) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
                 console.log("soma teste   ", soma);
                 soma = soma + w.offsetHeight
                 listIndex.push(index)
@@ -77,7 +77,7 @@ const FactoryReceitas = (props) => {
 
         setReceitas(listReceitas)
 
-    }, [props, impressao.pagesize.a4.somaheight])
+    }, [props, impressao.somaheighta4])
 
     useEffect(() => {
         if (itemsRef.current) {

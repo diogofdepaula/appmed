@@ -41,26 +41,8 @@ const Atendimento = () => {
         relatorio: true,
         comentario: '-',
         database: new Date(),
-        pagesize: {
-            // ajustes para o tamanho do papel
-            a4: {
-                // a4 em 150ppi = 1240 x 1754 px
-                width: 1075 ,// 1190, // (-50)
-                height: 1568,  // 1680, // (-74)
-                padding: 2,
-                somaheight: 950 // 900
-            }, 
-            a5: {
-                // 14 x 20 cm em 150ppi = 827 x 1181 px
-                width: 716, // 777,
-                height: 1044, // 1107,
-                somaheight: 639,
-                pt: 19,
-                pl: 20,
-                pb: 4,
-                pr: 1,
-            },
-        }
+        somaheighta4: 950, // 900, 
+        somaheighta4a5: 639,
     })
 
     return (
