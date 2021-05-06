@@ -4,23 +4,23 @@ import PrescricaoSUS from './sus/component/prescricaosus';
 import Reorder from './../../component/reorder'
 import { ImpressaoContext } from '../../../..';
 import ReceitaConsultorio from './consultorio';
+import ReceitaLME from './lme';
 
-const ReceitaByLocal = ({ prescricoes, via, mes }) => {
-    
+const ReceitaByLocal = ({ prescricoes, via, mes, tipo }) => {
+
     // variações conforme o local
-    const { impressao } = useContext(ImpressaoContext)
-
     let receita = <div />
-    
-    switch (impressao.local) {
+
+    switch (tipo) {
         case 'consultorio':
             receita = <ReceitaConsultorio teste={"teste"} />
             break;
         case 'cisgap':
-            receita = <ReceitaSUS prescricoes={prescricoes} via={via} mes={mes} />
-            break;
         case 'cisco':
-            receita = <ReceitaSUS prescricoes={prescricoes} via={via} mes={mes} />
+            receita = <ReceitaSUS prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
+            break;
+        case 'lme':
+            receita = <ReceitaLME prescricoes={prescricoes} via={via} mes={mes} />
             break;
         default:
             break;
@@ -28,16 +28,15 @@ const ReceitaByLocal = ({ prescricoes, via, mes }) => {
     return receita
 }
 
-
-const FactoryReceitas = (props) => {
+const FactoryReceitas = ({ listPresc, via, mes, tipo }) => {
 
     const { impressao } = useContext(ImpressaoContext)
 
     const itemsRef = useRef([]);
 
     useEffect(() => {
-        itemsRef.current = itemsRef.current.slice(0, props.listPresc.length);
-    }, [props]);
+        itemsRef.current = itemsRef.current.slice(0, listPresc.length);
+    }, [listPresc]);
 
     const [listReceitas, setReceitas] = useState([])
 
@@ -63,21 +62,21 @@ const FactoryReceitas = (props) => {
         let listReceitas = []
 
         listOfListIndex.forEach(r => {
-            let grupoprescricoes = props.listPresc.slice(r[0], r[r.length - 1] + 1)
+            let grupoprescricoes = listPresc.slice(r[0], r[r.length - 1] + 1)
 
             let grupoprescricoessort = Reorder(grupoprescricoes)
 
             listReceitas.push(
                 <div key={r}>
                     {/* <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes} /> */}
-                    <ReceitaByLocal prescricoes={grupoprescricoessort} via={props.via} mes={props.mes}/>
+                    <ReceitaByLocal prescricoes={grupoprescricoessort} via={via} mes={mes} tipo={tipo} />
                 </div>
             )
         })
 
         setReceitas(listReceitas)
 
-    }, [props, impressao.somaheighta4])
+    }, [impressao.somaheighta4, listPresc, mes, tipo, via])
 
     useEffect(() => {
         if (itemsRef.current) {
@@ -88,8 +87,9 @@ const FactoryReceitas = (props) => {
     return (
         <>
             {itemsRef.current.length === 0 &&
-                props.listPresc.map((p, i) =>
+                listPresc.map((p, i) =>
                     <div key={i} ref={el => itemsRef.current[i] = el} >
+                        {/* vai ter que mudar aqui depois */}
                         <PrescricaoSUS prescricao={p} />
                         {/* {impressao.local === 'consultorio' ? <PrescricaoSUS prescricao={p} /> : <PrescricaoConsultorio prescricao={p} />} */}
                     </div>

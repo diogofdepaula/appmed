@@ -6,20 +6,22 @@ import Data from '../component/data'
 import Identificacao from '../component/identificacao'
 import Prescricao from '../component/prescricao'
 import Rodape from '../component/rodape'
+import Via from '../component/via'
 
-const ReceitaSUS = ({ prescricoes, mes, tipo }) => {
+const ReceitaLME = ({ prescricoes, via, mes }) => {
 
     return (
         <>
             <PageA4>
                 <Box width={1} height={1} display="block">
-                    <Cabecalho tipo={tipo} />
+                    <Cabecalho tipo={"lme"} />
                     <Box
                         height='calc(100% - 110px)' // se mudar o Cabecalho tem que ajustar aqui depois
                         p={5} border={3} borderColor={"black"} >
                         <Box display="block" height={1}>
                             <Box justifyContent="center">
                                 <Box display="block">
+                                    <Via via={via} />
                                     <Identificacao />
                                     {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} /></div>)}
                                 </Box>
@@ -34,4 +36,4 @@ const ReceitaSUS = ({ prescricoes, mes, tipo }) => {
     )
 }
 
-export default ReceitaSUS
+export default ReceitaLME
