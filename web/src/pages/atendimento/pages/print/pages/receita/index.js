@@ -1,30 +1,19 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import ReceitaSUS from './sus';
-import PrescricaoSUS from './sus/component/prescricaosus';
-import Reorder from './../../component/reorder'
 import { ImpressaoContext } from '../../../..';
+import Reorder from './../../component/reorder';
+import Prescricao from './component/prescricao';
 import ReceitaConsultorio from './consultorio';
-import ReceitaLME from './lme';
+import ReceitaA4 from './receitaa4';
 
 const ReceitaByLocal = ({ prescricoes, via, mes, tipo }) => {
 
     // variações conforme o local
-    let receita = <div />
+    let receita = <ReceitaA4 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
 
-    switch (tipo) {
-        case 'consultorio':
-            receita = <ReceitaConsultorio teste={"teste"} />
-            break;
-        case 'cisgap':
-        case 'cisco':
-            receita = <ReceitaSUS prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
-            break;
-        case 'lme':
-            receita = <ReceitaLME prescricoes={prescricoes} via={via} mes={mes} />
-            break;
-        default:
-            break;
+    if (tipo === "consultorio") {
+        receita = <ReceitaConsultorio teste={"teste"} />
     }
+
     return receita
 }
 
@@ -90,7 +79,7 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo }) => {
                 listPresc.map((p, i) =>
                     <div key={i} ref={el => itemsRef.current[i] = el} >
                         {/* vai ter que mudar aqui depois */}
-                        <PrescricaoSUS prescricao={p} />
+                        <Prescricao prescricao={p} />
                         {/* {impressao.local === 'consultorio' ? <PrescricaoSUS prescricao={p} /> : <PrescricaoConsultorio prescricao={p} />} */}
                     </div>
                 )

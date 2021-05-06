@@ -8,7 +8,7 @@ import Prescricao from '../component/prescricao'
 import Rodape from '../component/rodape'
 import Via from '../component/via'
 
-const ReceitaLME = ({ prescricoes, via, mes, tipo }) => {
+const ReceitaA4 = ({ prescricoes, via, mes, tipo }) => {
 
     return (
         <>
@@ -36,4 +36,4 @@ const ReceitaLME = ({ prescricoes, via, mes, tipo }) => {
     )
 }
 
-export default ReceitaLME
+export default ReceitaA4
