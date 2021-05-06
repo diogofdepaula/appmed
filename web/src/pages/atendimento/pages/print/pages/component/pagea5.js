@@ -10,9 +10,9 @@ const PageA5 = ({ children }) => {
 
         width: 716, // 777,
         height: 1044, // 1107,
-        pt: 19,
-        pl: 20,
-        pb: 4,
+        pt: 15,
+        pl: 21,
+        pb: 9,
         pr: 1,
     }
 

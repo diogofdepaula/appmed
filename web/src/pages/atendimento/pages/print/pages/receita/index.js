@@ -2,16 +2,16 @@ import React, { useCallback, useContext, useEffect, useRef, useState } from 'rea
 import { ImpressaoContext } from '../../../..';
 import Reorder from './../../component/reorder';
 import Prescricao from './component/prescricao';
-import ReceitaConsultorio from './consultorio';
+import ReceitaA5 from './receitaa5';
 import ReceitaA4 from './receitaa4';
 
-const ReceitaByLocal = ({ prescricoes, via, mes, tipo }) => {
+const ReceitaPorTipo = ({ prescricoes, via, mes, tipo }) => {
 
     // variações conforme o local
     let receita = <ReceitaA4 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
 
     if (tipo === "consultorio") {
-        receita = <ReceitaConsultorio teste={"teste"} />
+        receita = <ReceitaA5 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
     }
 
     return receita
@@ -58,7 +58,7 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo }) => {
             listReceitas.push(
                 <div key={r}>
                     {/* <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes} /> */}
-                    <ReceitaByLocal prescricoes={grupoprescricoessort} via={via} mes={mes} tipo={tipo} />
+                    <ReceitaPorTipo prescricoes={grupoprescricoessort} via={via} mes={mes} tipo={tipo} />
                 </div>
             )
         })
