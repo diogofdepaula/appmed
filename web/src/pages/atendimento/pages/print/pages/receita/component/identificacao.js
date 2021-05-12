@@ -2,8 +2,9 @@ import { Box, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { ClienteContext } from '../../../../../../../App'
 import { makeStyles } from '@material-ui/core/styles';
+import PorTipo from '../../../component/portipo';
 
-const useStyles = makeStyles((theme) => ({
+const useStylesA4 = makeStyles((theme) => ({
     // root: {
     //     display: 'flex',
     //     backgroundColor: theme.palette.common.white
@@ -24,10 +25,31 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const useStylesA5 = makeStyles((theme) => ({
+    // root: {
+    //     display: 'flex',
+    //     backgroundColor: theme.palette.common.white
+    // },
+    box: {
+        display: 'block',
+        paddingTop: 1,
+        paddingBottom: 1,
+    },
+    typonome: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    typocpf: {
+        display: 'none'
+    }
+}));
 
-const Identificacao = () => {
+const Identificacao = ({ tipo }) => {
 
-    const classes = useStyles();
+    const classesA4 = useStylesA4();
+    const classesA5 = useStylesA5();
+    const classes = PorTipo(tipo, classesA4, classesA5)
 
     const { clienteContext } = useContext(ClienteContext)
 
@@ -35,14 +57,11 @@ const Identificacao = () => {
         <>
             <Box className={classes.box} >
                 <Typography className={classes.typonome} >
-
                     {clienteContext.nome}
                 </Typography>
-                {clienteContext.cpf &&
-                    <Typography className={classes.typocpf}  >
-                        CPF: {clienteContext.cpf}
-                    </Typography>
-                }
+                <Typography className={classes.typocpf}  >
+                    CPF: {clienteContext.cpf}
+                </Typography>
             </Box>
         </>
     )

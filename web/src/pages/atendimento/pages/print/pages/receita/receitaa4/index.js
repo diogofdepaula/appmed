@@ -22,7 +22,7 @@ const ReceitaA4 = ({ prescricoes, via, mes, tipo }) => {
                             <Box justifyContent="center">
                                 <Box display="block">
                                     <Via via={via} tipo={tipo} />
-                                    <Identificacao />
+                                    <Identificacao tipo={tipo} />
                                     {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} /></div>)}
                                 </Box>
                             </Box>
