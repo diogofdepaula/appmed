@@ -41,7 +41,7 @@ const Atendimento = () => {
         relatorio: true,
         comentario: '-',
         database: new Date(),
-        somaheighta4: 900, // 900, 
+        somaheighta4: 800, // 900, 
         somaheighta4a5: 639,
     })
 

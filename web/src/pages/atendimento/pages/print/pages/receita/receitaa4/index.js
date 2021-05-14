@@ -23,11 +23,11 @@ const ReceitaA4 = ({ prescricoes, via, mes, tipo }) => {
                                 <Box display="block">
                                     <Via via={via} tipo={tipo} />
                                     <Identificacao tipo={tipo} />
-                                    {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} /></div>)}
+                                    {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} tipo={tipo} /></div>)}
                                 </Box>
                             </Box>
                         </Box>
-                        <Data mes={mes} />
+                        <Data mes={mes} tipo={tipo} />
                     </Box>
                     <Rodape />
                 </Box>

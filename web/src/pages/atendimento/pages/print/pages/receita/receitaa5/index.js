@@ -19,7 +19,7 @@ const ReceitaA5 = ({ prescricoes, via, mes, tipo }) => {
                             </Box>
                         </Box>
                     </Box>
-                    <Data mes={mes} />
+                    <Data mes={mes} tipo={tipo} />
                 </Box>
             </PageA5>
         </>

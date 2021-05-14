@@ -4,6 +4,10 @@ import PorTipo from '../../../component/portipo';
 import { PrescricaoPrintContext } from './prescricao'
 
 const useStylesA4 = makeStyles((theme) => ({
+    box: {
+        display: 'flex',
+        alignItems: 'flex-end',
+    },
     typofarmposo: theme.typography.subtitle1,
     typoquant: {
         ...theme.typography.h5,
@@ -68,10 +72,10 @@ const Linha3 = ({ mes, tipo }) => {
                     </Grid>
                     <Grid item container xs={3} justify="flex-end">
                         <Box className={classes.box}>
-                            <Typography className={classes.typoquant} >
+                            <Typography component={'span'} className={classes.typoquant} >
                                 <Box>{quant}</Box>
                             </Typography>
-                            <Typography className={classes.typoform}>
+                            <Typography component={'span'} className={classes.typoform}>
                                 <Box ml={1}>{prescricao.posologia.forma}</Box>
                             </Typography>
                         </Box>
