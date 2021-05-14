@@ -8,7 +8,7 @@ import Linha5 from './linha5'
 
 export const PrescricaoPrintContext = createContext(null)
 
-const Prescricao = ({ prescricao, mes }) => {
+const Prescricao = ({ prescricao, mes, tipo }) => {
 
     console.log('teste Prescricao')
     // +++++         Linha1 = Uso + Continuo                                    +++++
@@ -19,13 +19,13 @@ const Prescricao = ({ prescricao, mes }) => {
 
     return (
         <>
-            <Box mt={4}>
+            <Box mt={3}>
                 <PrescricaoPrintContext.Provider value={prescricao}>
-                    <Linha1 />
-                    <Linha2 />
-                    <Linha3 mes={mes} />
-                    <Linha4 />
-                    {prescricao.imprimirorientacoes && <Linha5 />}
+                    <Linha1 tipo={tipo} />
+                    <Linha2 tipo={tipo} />
+                    <Linha3 mes={mes} tipo={tipo} />
+                    <Linha4 tipo={tipo} />
+                    {prescricao.imprimirorientacoes && <Linha5 tipo={tipo} />}
                 </PrescricaoPrintContext.Provider>
             </Box>
         </>

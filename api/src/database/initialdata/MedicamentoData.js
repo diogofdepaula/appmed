@@ -41,51 +41,51 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 4 semanas.",
 						quantidade: "8",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 4 semanas.",
 						quantidade: "12",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 4 semanas.",
 						quantidade: "16",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "6",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "9",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "12",
@@ -818,51 +818,51 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 4 semanas.",
 						quantidade: "8",
 						forma: "frascos",
 					},
 					{
-						posologia: "Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 4 semanas.",
 						quantidade: "12",
 						forma: "frascos",
 					},
 					{
-						posologia: "Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 4 semanas.",
 						quantidade: "16",
 						forma: "frascos",
 					},
 					{
-						posologia: "Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "6",
 						forma: "frascos",
 					},
 					{
-						posologia: "Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "9",
 						forma: "frascos",
 					},
 					{
-						posologia: "Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "12",
@@ -3712,53 +3712,53 @@ Medicamentos.count().then(data =>
 					},
 					{
 						posologia:
-							"Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+							"Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 8 semanas.",
 						quantidade: "6",
 						forma: "frascos"
 					},
 					{
 						posologia:
-							"Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+							"Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 8 semanas.",
 						quantidade: "9",
 						forma: "frascos"
 					},
 					{
 						posologia:
-							"Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+							"Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 8 semanas.",
 						quantidade: "12",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "4",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "6",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 8 semanas.",
 						quantidade: "9",
@@ -3791,7 +3791,7 @@ Medicamentos.count().then(data =>
 				posologias: [
 					{
 						posologia: "Aplicar 01 ampola (seringa) no subcutâneo."
-							+ "Inicia-se com aplicações na semana zero, quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 8 semanas.",
 					quantidade: "3",
 					forma: "Seringas"
@@ -4029,8 +4029,8 @@ Medicamentos.count().then(data =>
 				posologias: [
 					{
 						posologia:
-							"Aplicar 05 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+							"Aplicar 05 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida ou internado em hospital. \r\n"
 							+ "Fazer uma aplicação por dia por 5 dias consecutivos."
 							+ "Infundir a pré-medicação: "
@@ -4077,7 +4077,7 @@ Medicamentos.count().then(data =>
 							"Aplicar 02 frascos a cada dose, após devida preparação, "
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após "
 							+ "a cada 8 semanas.",
 						quantidade: "8",
 						forma: "frascos"
@@ -4087,7 +4087,7 @@ Medicamentos.count().then(data =>
 							"Aplicar 03 frascos a cada dose, após devida preparação, "
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após "
 							+ "a cada 8 semanas.",
 						quantidade: "12",
 						forma: "frascos"
@@ -4097,7 +4097,7 @@ Medicamentos.count().then(data =>
 							"Aplicar 04 frascos a cada dose, após devida preparação, "
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após "
 							+ "a cada 8 semanas.",
 						quantidade: "16",
 						forma: "frascos"
@@ -4107,7 +4107,7 @@ Medicamentos.count().then(data =>
 							"Aplicar 02 frascos a cada dose, após devida preparação, "
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após "
 							+ "a cada 6 semanas.",
 						quantidade: "8",
 						forma: "frascos"
@@ -4117,7 +4117,7 @@ Medicamentos.count().then(data =>
 							"Aplicar 03 frascos a cada dose, após devida preparação, "
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após "
 							+ "a cada 6 semanas.",
 						quantidade: "12",
 						forma: "frascos"
@@ -4127,7 +4127,7 @@ Medicamentos.count().then(data =>
 							"Aplicar 04 frascos a cada dose, após devida preparação, "
 							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após "
 							+ "a cada 6 semanas.",
 						quantidade: "16",
 						forma: "frascos"
@@ -4412,7 +4412,7 @@ Medicamentos.count().then(data =>
 				controlado: false,
 				favorito: false,
 				classe: "CONVENCIONAL",
-				orientacoes: "Esse medicamento deve ser administrado com um intervalo de, pelo menos,"
+				orientacoes: "Esse medicamento deve ser administrado com um intervalo de, pelo menos, "
 					+ " 4 horas da administração de outros medicamentos que conhecidamente alteram a sua absorção.",
 				abreviatura: "LT4",
 				nomescomerciais: [
@@ -5518,8 +5518,8 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplicar 01 frasco a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 01 frasco a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "6",
@@ -5851,64 +5851,64 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplicar 01 frasco a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 01 frasco a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 2 semanas.",
 						quantidade: "6",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 2 semanas.",
 						quantidade: "12",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 2 semanas.",
 						quantidade: "9",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 2 semanas.",
 						quantidade: "12",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 01 frasco a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 01 frasco a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "6",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 02 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 02 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "12",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 03 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "9",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo,"
+						posologia: "Aplicar 04 frascos a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, no subcutâneo, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações devem ser realizadas a cada 4 semanas.",
 						quantidade: "12",
@@ -6106,8 +6106,8 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplicar 01 frasco, por via intravenosa a cada 3 meses,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 01 frasco, por via intravenosa a cada 3 meses, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Após reconstituição, deve-se diluir o fármaco em 500 ml de soro fisiológico. \r\n"
 							+ "A duração mínima da infusão é de 2 horas.",
@@ -7019,7 +7019,7 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Prescrição para infusão de Rituximabe. Fazer em hospital ou centro de infusão habilitado. \r\n" +
 							"Se realizado em hospital, aconselha-se o internamento para devida preparação, administração e " +
-							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista," +
+							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista, " +
 							"mas caso necessário, sua presença pode requisitada. \r\n \r\n" +
 							"Medicamentos pré infusão \r\n" +
 							"Todas devem ser administradas pelo menos 30 minutos antes da aplicação de Rituximabe. \r\n" +
@@ -7053,7 +7053,7 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Prescrição para infusão de Rituximabe. Fazer em hospital ou centro de infusão habilitado. \r\n" +
 							"Se realizado em hospital, aconselha-se o internamento para devida preparação, administração e " +
-							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista," +
+							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista, " +
 							"mas caso necessário, sua presença pode requisitada. \r\n \r\n" +
 							"Medicamentos pré infusão \r\n" +
 							"Todas devem ser administradas pelo menos 30 minutos antes da aplicação de Rituximabe. \r\n" +
@@ -7085,7 +7085,7 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Prescrição para infusão de Rituximabe. Fazer em hospital ou centro de infusão habilitado. \r\n" +
 							"Se realizado em hospital, aconselha-se o internamento para devida preparação, administração e " +
-							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista," +
+							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista, " +
 							"mas caso necessário, sua presença pode requisitada. \r\n \r\n" +
 							"Medicamentos pré infusão \r\n" +
 							"Todas devem ser administradas pelo menos 30 minutos antes da aplicação de Rituximabe. \r\n" +
@@ -7117,7 +7117,7 @@ Medicamentos.count().then(data =>
 					{
 						posologia: "Prescrição para infusão de Rituximabe. Fazer em hospital ou centro de infusão habilitado. \r\n" +
 							"Se realizado em hospital, aconselha-se o internamento para devida preparação, administração e " +
-							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista," +
+							"observação da paciente durante a aplicação. Não é essencial o internamento para o especialista, " +
 							"mas caso necessário, sua presença pode requisitada. \r\n \r\n" +
 							"Protocolo de aplicação de Rituximabe para Granulomatose com poliangite (Granulomatose de Wegener) \r\n" +
 							"Medicamentos pré infusão \r\n" +
@@ -7532,72 +7532,72 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplicar 02 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "6",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "9",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "12",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 05 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 05 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "15",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 06 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 06 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "18",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 07 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 07 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "21",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 08 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 08 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "24",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 09 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 09 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "27",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 10 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 10 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "30",
@@ -7605,80 +7605,80 @@ Medicamentos.count().then(data =>
 					},
 					{
 						posologia: "Aplicar 8mg/Kg (a dosagem deve ser confirmada no dia da aplicação com o "
-							+ "peso no dia da aplicação) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+							+ "peso no dia da aplicação) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 4 semanas.",
 						quantidade: "8mg/Kg",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 02 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "12",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "18",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "24",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 05 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 05 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "30",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 06 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 06 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "36",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 07 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 07 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "42",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 08 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 08 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "48",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 09 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 09 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "54",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 10 frascos (8mg/Kg) a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 10 frascos (8mg/Kg) a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "As aplicações seguintes devem ser feitas a cada 2 semanas.",
 						quantidade: "60",
@@ -8003,7 +8003,7 @@ Medicamentos.count().then(data =>
 				posologias: [
 					{
 						posologia: "Aplicar 01 ampola (seringa) no subcutâneo."
-							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero e quatro semanas (em relação a primeira aplicação) após "
 							+ "a cada 12 (doze) semanas.",
 						quantidade: "3",
 						forma: "frascos"
@@ -8019,24 +8019,24 @@ Medicamentos.count().then(data =>
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 02 frascos [260 mg] a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 02 frascos [260 mg] a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Após a aplicação endovenosa, a próxima aplicação será subcutânea em 8 semanas.",
 						quantidade: "2",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 03 frascos [360 mg] a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 03 frascos [360 mg] a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Após a aplicação endovenosa, a próxima aplicação será subcutânea em 8 semanas.",
 						quantidade: "3",
 						forma: "frascos"
 					},
 					{
-						posologia: "Aplicar 04 frascos [520 mg] a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 04 frascos [520 mg] a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
 							+ "Após a aplicação endovenosa, a próxima aplicação será subcutânea em 8 semanas.",
 						quantidade: "4",
@@ -8383,10 +8383,10 @@ Medicamentos.count().then(data =>
 				],
 				posologias: [
 					{
-						posologia: "Aplicar 01 frasco a cada dose, após devida preparação,"
-							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente,"
+						posologia: "Aplicar 01 frasco a cada dose, após devida preparação, "
+							+ "conforme protocolos preestabelecidos e orientações da bula, endovenosamente, "
 							+ "somente em centro de infusão habilitado em terapia assistida. \r\n"
-							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após"
+							+ "Inicia-se com aplicações na semana zero, duas semanas e seis semanas (em relação a primeira aplicação) após "
 							+ "a cada 4 semanas.",
 						quantidade: "8",
 						forma: "frascos"

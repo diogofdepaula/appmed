@@ -1,19 +1,43 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { PrescricaoPrintContext } from './prescricao'
+import { Box, makeStyles, Typography } from '@material-ui/core';
+import React, { useContext } from 'react';
+import PorTipo from '../../../component/portipo';
+import { PrescricaoPrintContext } from './prescricao';
 
-const Linha4 = () => {
+const useStylesA4 = makeStyles((theme) => ({
+    box: {
+        marginBlock: 2,
+    },
+    typo: {
+        ...theme.typography.h6,
+        textAlign: 'justify'
+    },
+}));
+
+const useStylesA5 = makeStyles((theme) => ({
+    box: {
+        marginBlock: 2,
+    },
+    typo: {
+        ...theme.typography.h6,
+        fontSize: 16,
+        textAlign: 'justify'
+    },
+}));
+
+const Linha4 = ({ tipo }) => {
+
+    const classesA4 = useStylesA4();
+    const classesA5 = useStylesA5();
+    const classes = PorTipo(tipo, classesA4, classesA5)
 
     const prescricao = useContext(PrescricaoPrintContext)
 
     return (
         <>
-            <Box my={2}>
-                <Grid container>
-                    <Grid item >
-                        <Typography variant={'h6'} align={'justify'}>{prescricao.posologia.posologia}</Typography>
-                    </Grid>
-                </Grid>
+            <Box className={classes.box}>
+                <Typography className={classes.typo}>
+                    {prescricao.posologia.posologia}
+                </Typography>
             </Box>
         </>
     )

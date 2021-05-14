@@ -5,10 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import PorTipo from '../../../component/portipo';
 
 const useStylesA4 = makeStyles((theme) => ({
-    // root: {
-    //     display: 'flex',
-    //     backgroundColor: theme.palette.common.white
-    // },
     box: {
         display: 'block',
         paddingTop: 3,
@@ -26,17 +22,13 @@ const useStylesA4 = makeStyles((theme) => ({
 }));
 
 const useStylesA5 = makeStyles((theme) => ({
-    // root: {
-    //     display: 'flex',
-    //     backgroundColor: theme.palette.common.white
-    // },
     box: {
         display: 'block',
-        paddingTop: 1,
+        paddingTop: 20,
         paddingBottom: 1,
     },
     typonome: {
-        fontSize: 32,
+        fontSize: 38,
         fontWeight: 'bold',
         textAlign: 'center',
     },
