@@ -1,0 +1,5 @@
+- loop depois do cadastro de cliente
+    - ele cadastra, mas não dica disponível no Field para procurar cliente  
+    - ou atualiza do Field ou coloca um botão para iniciar atendimento dali do cadastro mesmo
+- na história clínica da LME ele está demorando muito para aparecer o texto na tela.
+- vai ter o lance da data null no postgre
