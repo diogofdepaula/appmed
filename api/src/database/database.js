@@ -20,7 +20,7 @@ sequelize
        // .sync({alter: true})
         .then(() => {
             const MedicamentosData = require('./initialdata/MedicamentoData')
-            const CID10 = require('./initialdata/CID10Data')
+          //  const CID10 = require('./initialdata/CID10Data')
         })
 })();
 

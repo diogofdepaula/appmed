@@ -1,22 +1,23 @@
 import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
+import Cid10 from '../../../../../components/cid10';
 
 const LMECIDSet = () => {
 
     const { lmeEdit, setLmeEdit, setStep } = useContext(AtendimentoContext)
-    const [cid10, setcid10] = useState([])
+    const [cid10] = useState(Cid10())
     const [cidsfiltrados, setcidsfiltrados] = useState([])
 
-    const fetchData = useCallback(async () => {
-        const res = await fetch('http://localhost:4001/api.appmed/cid10')
-        const json = await res.json();
-        setcid10(json);
-    }, [])
+    // const fetchData = useCallback(async () => {
+    //     const res = await fetch('http://localhost:4001/api.appmed/cid10')
+    //     const json = await res.json();
+    //     setcid10(json);
+    // }, [])
 
-    useEffect(() => {
-        fetchData();
-    }, [fetchData])
+    // useEffect(() => {
+    //     fetchData();
+    // }, [fetchData])
 
     const filterCID10 = event => {
 
@@ -55,7 +56,7 @@ const LMECIDSet = () => {
                 <Box>
                     <Grid container justify="flex-start" spacing={1}>
                         {cid10.filter(m => m.favorito).map(x =>
-                            <Grid item key={x.id}>
+                            <Grid item key={x.cid10}>
                                 <Chip
                                     label={x.cid10}
                                     clickable
