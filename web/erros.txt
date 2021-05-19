@@ -3,3 +3,6 @@
     - ou atualiza do Field ou coloca um botão para iniciar atendimento dali do cadastro mesmo
 - na história clínica da LME ele está demorando muito para aparecer o texto na tela.
 - vai ter o lance da data null no postgre
+
+- posologia do metotrexatr esta errada
+    6 ao inves de 4
