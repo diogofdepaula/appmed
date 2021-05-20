@@ -5086,7 +5086,23 @@ Medicamentos.count().then(data =>
 						forma: "comp"
 					},
 					{
-						posologia: "Tomar 06 comprimidos uma vez por semana por 4 semanas, então tome 06 comprimidos uma vez por semana. \r\n \r\n" +
+						posologia: "Tomar 06 comprimidos uma vez por semana. \r\n \r\n" +
+							"Escolha um dia da semana (por exemplo, na sexta-feira). \r\n" +
+							"Tomar 03 comprimidos na sexta-feira pela manhã e tomar outros 03 comprimidos na sexta-feira a tarde. \r\n" +
+							"Não tomar o Metotrexate nos outros dias.",
+						quantidade: "24",
+						forma: "comp"
+					},
+					{
+						posologia: "Tomar 08 comprimidos uma vez por semana. \r\n \r\n" +
+							"Escolha um dia da semana (por exemplo, na sexta-feira). \r\n" +
+							"Tomar 04 comprimidos na sexta-feira pela manhã e tomar outros 04 comprimidos na sexta-feira a tarde. \r\n" +
+							"Não tomar o Metotrexate nos outros dias.",
+						quantidade: "32",
+						forma: "comp"
+					},
+					{
+						posologia: "Tomar 04 comprimidos uma vez por semana por 4 semanas, então tome 06 comprimidos uma vez por semana. \r\n \r\n" +
 							"Escolha um dia da semana (por exemplo, na sexta-feira). \r\n" +
 							"Tomar 02 comprimidos na sexta-feira pela manhã e \r\n" +
 							"tomar outros 02 comprimidos na sexta-feira a tarde \r\n" +
