@@ -35,7 +35,6 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo }) => {
         let listOfListIndex = []
         itemsRef.current.forEach((w, index) => {
             if (soma <= impressao.somaheighta4) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
-                console.log("soma teste   ", soma);
                 soma = soma + w.offsetHeight
                 listIndex.push(index)
             } else {

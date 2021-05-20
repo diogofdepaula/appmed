@@ -42,7 +42,7 @@ const Atendimento = () => {
         comentario: '-',
         database: new Date(),
         somaheighta4: 800, // 900, 
-        somaheighta4a5: 639,
+        somaheighta4a5: 350,
     })
 
     return (
