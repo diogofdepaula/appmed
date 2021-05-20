@@ -3,7 +3,7 @@ const router = express.Router();
 
 const clientescontroller = require('../controllers/cadastro/clientescontroller');
 const medicamentoscontroller = require('../controllers/cadastro/medicamentoscontroller')
-const cid10controller = require('../controllers/cadastro/cid10controller')
+// const cid10controller = require('../controllers/cadastro/cid10controller')
 const prescricoescontroller = require('../controllers/atendimento/prescricoescontroller')
 const lmescontroller = require('../controllers/atendimento/lmescontroller')
 
@@ -21,8 +21,8 @@ router.get('/medicamentos/:id', medicamentoscontroller.SearchOne);
 router.put('/medicamentos/:id', medicamentoscontroller.Update);
 router.delete('/medicamentos/:id', medicamentoscontroller.Delete);
 
-router.get('/cid10', cid10controller.SearchAll);
-router.get('/cid10/:id', cid10controller.SearchOne);
+// router.get('/cid10', cid10controller.SearchAll);
+// router.get('/cid10/:id', cid10controller.SearchOne);
 
 router.post('/prescricoes', prescricoescontroller.Insert);
 router.get('/prescricoes/all/:id', prescricoescontroller.SearchAll);
