@@ -1,9 +1,18 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: './src/database/appmeddb.sqlite'
-});
+// const sequelize = new Sequelize({
+//     dialect: 'sqlite',
+//     storage: './src/database/appmeddb.sqlite'
+// });
+
+const sequelize = new Sequelize(
+    process.env.PGDATABASE,
+    process.env.PGUSER,
+    process.env.PGPASSWORD,
+    {
+        host: process.env.PGHOST,
+        dialect: 'postgres',
+    });
 
 sequelize
     .authenticate()
@@ -17,7 +26,7 @@ sequelize
 (async () => {
     await sequelize
         .sync()
-       // .sync({alter: true})
+        // .sync({alter: true})
         .then(() => {
             const MedicamentosData = require('./initialdata/MedicamentoData')
           //  const CID10 = require('./initialdata/CID10Data')

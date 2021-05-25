@@ -7,7 +7,6 @@ const Posologias = require('../../models/cadastro/posologias')
 // TIRAR O "POR TRÊS MESES" DA FORMA.
 // PASSEI A RESPONSABILIDADE DA SOMA PARA A PAGE PRINT QUE IRÁ FAZER A SOMA DOS VALORES DAS DOSES MENSAIS DA LME NA HORA DE IMPRIMIR MESMO.
 
-
 Medicamentos.count().then(data =>
 
 	data == 0 && (

@@ -13,6 +13,13 @@ app.use(express.json());
 
 app.use('/api.appmed', routes);
 
-app.listen(4001, () => {
-    console.log("API está funcionando na porta 4001")
-});
+app.get('/', (req, res) => {
+    res.send("Hello world!")
+})
+
+app.listen(process.env.EXTERNAL_PORT)
+
+// app.listen(4001, () => {
+//     console.log("API está funcionando na porta 4001")
+// });
+
